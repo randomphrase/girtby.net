@@ -1,0 +1,121 @@
+#!/bin/sh
+#
+# wikipod: Exporting a wiki to view on your iPod.
+#
+# Full doco here: http://girtby.net/offerings/wikipod
+#
+# Written by Alastair Rankine, http://girtby.net
+#
+# Licensed under Creative Commons Attribution License, see
+# http://creativecommons.org/licenses/by/2.0/
+#
+# Version 2007-04-27
+
+# Customize this: The location of your iPod's notes directory:
+IPOD="/Volumes/Your iPod/Notes"
+
+# Customize this: Your stikipad user name (ie username.sikipad.com)
+USERNAME=you
+# Customize this: The wiki to export
+WIKI=yourwiki
+
+# Customize this: Your stikipad login credentials:
+EMAIL=you@yourdomain.com
+PASSWORD=yoursecret
+
+# Customisation ends here.
+
+TMPDIR=`mktemp -d /tmp/wiki.XXX`
+TMPZIP=`mktemp /tmp/wiki.zip.XXX`
+SESSION=`mktemp /tmp/session.XXX`
+#TMPDIR=~/tmp/wiki
+#TMPZIP=~/tmp/wiki.zip
+#SESSION=~/tmp/session_cookies
+trap 'rm -rf "$TMPDIR" "$TMPZIP" "$SESSION"' EXIT SIGINT SIGQUIT SIGTERM
+
+# first log in to stikipad:
+curl -c $SESSION -d "email_address=$EMAIL&user_password=$PASSWORD" \
+    "http://$USERNAME.stikipad.com/$WIKI/login" || exit 1
+
+# now do the export:
+curl -vL -o $TMPZIP -b $SESSION "http://$USERNAME.stikipad.com/$WIKI/export_html" \
+    || exit 1
+
+unzip $TMPZIP -d $TMPDIR
+
+SAVEDIR=$PWD
+cd $TMPDIR
+for i in *.html ; do
+    xsltproc --nonet --html --novalid --output "$IPOD/${i%.html}.txt" - "$i" <<EOF
+<?xml version="1.0"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                version="1.0">
+
+  <xsl:output method="xml" encoding="utf-8"/>
+
+  <xsl:template match="head">
+    <xsl:apply-templates select="title"/>
+  </xsl:template>
+
+  <!-- Only matches title elements with children (ie content) -->
+  <xsl:template match="title[(*)]">
+
+    <TITLE><xsl:apply-templates/></TITLE><xsl:text>
+
+</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="p">
+    <xsl:apply-templates/><xsl:text>
+
+</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="br">
+    <xsl:text>
+</xsl:text>
+  </xsl:template>
+
+  <xsl:template name="indent">
+    <xsl:param name="level" select="0"/>
+    <xsl:if test="\$level">
+      <xsl:text> </xsl:text>
+      <xsl:call-template name="indent">
+        <xsl:with-param name="level" select="\$level - 1"/>
+      </xsl:call-template>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="li">
+    <xsl:call-template name="indent">
+      <xsl:with-param name="level" select="count(ancestor::ul)"/>
+    </xsl:call-template>
+    <xsl:text>* </xsl:text><xsl:apply-templates/>
+  </xsl:template>
+
+  <xsl:template match="div">
+    <P><xsl:apply-templates/></P>
+  </xsl:template>
+
+  <xsl:template match="a">
+    <xsl:variable name="href">
+      <xsl:choose>
+        <xsl:when test="starts-with('http:',@href)"/>
+        <xsl:when test="starts-with('ftp:',@href)"/>
+        <xsl:when test="starts-with('mailto:',@href)"/>
+        <xsl:when test="substring(@href, string-length(@href) - 4) = '.html'">
+          <xsl:value-of select="concat(substring(@href,1,string-length(@href) - 5),'.txt')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="@href"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <A><xsl:attribute name="HREF"><xsl:value-of select="\$href"/></xsl:attribute><xsl:apply-templates/></A>
+  </xsl:template>
+
+</xsl:stylesheet>
+
+EOF
+done
+cd $SAVEDIR

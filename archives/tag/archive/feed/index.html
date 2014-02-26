@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>girtby.net &#187; archive</title>
+	<atom:link href="http://girtby.net/archives/tag/archive/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Thu, 17 Sep 2009 14:27:44 +0000</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+			<item>
+		<title>Archiving Tweets</title>
+		<link>http://girtby.net/archives/2009/08/23/archiving-tweets/</link>
+		<comments>http://girtby.net/archives/2009/08/23/archiving-tweets/#comments</comments>
+		<pubDate>Sun, 23 Aug 2009 12:14:05 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[archive]]></category>
+		<category><![CDATA[backup]]></category>
+		<category><![CDATA[twitter]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/?p=3905</guid>
+		<description><![CDATA[If you&#8217;ve run Damon Cortesi&#8217;s handy curl command to download all (or the last 3200) tweets from your twitter account, you&#8217;ll have a directory full of files with names like user_timeline.xml?count=100&#38;page=1. Not only that but they include a large amount of redundant profile stuff in the &#60;user&#62; element. And not only that, but twitter sometimes [...]]]></description>
+			<content:encoded><![CDATA[<p>If you&#8217;ve run <a href="http://dcortesi.com/2009/07/16/for-wil-wheaton/">Damon Cortesi&#8217;s handy curl command</a> to download all (or the last 3200) tweets from your twitter account, you&#8217;ll have a directory full of files with names like <code>user_timeline.xml?count=100&amp;page=1</code>. Not only that but they include a large amount of redundant profile stuff in the <code>&lt;user&gt;</code> element. And not only <em>that</em>, but twitter sometimes returns a &#8220;Twitter is over capacity&#8221; page instead of your tweets.</p>
+
+<p>What we want to do is a) detect any files which don&#8217;t contain tweets, b) remove the redundant user profile, and c) combine the results into a single file.</p>
+
+<p>Well, friends, here is a shell script to do exactly that. You&#8217;ll need zsh and xsltproc, both of which are standard on MacOS X and most sane Linuxen.</p>
+
+<div class="aside"><p>zsh is needed to sort the input files in numeric, as opposed to lexicographic, order. If you know of a way to do this in bash, let me know&#8230;</p></div>
+
+<p>Output is on stdout, so just redirect to your filename of choice:</p>
+
+<pre><code>$ tweetcombine user_timeline.xml\?count=100\&amp;page=* \
+    &gt; tweet_archive.xml
+</code></pre>
+
+<p><span id="more-3905"></span>Here&#8217;s the script:</p>
+
+<pre><code>#!/bin/zsh
+
+# Combine all of the twitter user_timeline.xml files specified on the command line into a single output
+# Written by Alastair Rankine, http://girtby.net
+# Licensed as Creative Commons BY-SA
+
+input_args=()
+for f in ${(on)*}; do
+    [[ -f $f ]] || exit "Not a file: $f"
+    input_args+="&lt;input&gt;${f//&amp;/&amp;amp;}&lt;/input&gt;"
+done
+
+xsltproc - &lt;&lt;EOF
+&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE inputs [
+  &lt;!ATTLIST xsl:stylesheet id ID #REQUIRED&gt;
+]&gt;
+&lt;?xml-stylesheet type="text/xml" href="#style1"?&gt;
+&lt;inputs&gt;
+  ${input_args}
+
+  &lt;xsl:stylesheet id="style1" version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+    &lt;xsl:output type="xml" indent="yes"/&gt;
+
+    &lt;xsl:template match="*"&gt;
+      &lt;xsl:copy&gt;
+        &lt;xsl:copy-of select="@*"/&gt;
+        &lt;xsl:apply-templates/&gt;
+      &lt;/xsl:copy&gt;
+    &lt;/xsl:template&gt;
+
+    &lt;xsl:template match="statuses"&gt;
+      &lt;xsl:apply-templates/&gt;
+    &lt;/xsl:template&gt;
+
+    &lt;xsl:template match="user"/&gt;
+
+    &lt;xsl:template match="xsl:stylesheet"/&gt;
+
+    &lt;xsl:template match="input"&gt;
+      &lt;xsl:choose&gt;
+        &lt;xsl:when test="document(.)/statuses"&gt;
+          &lt;xsl:apply-templates select="document(.)"/&gt;
+        &lt;/xsl:when&gt;
+        &lt;xsl:otherwise&gt;
+          &lt;xsl:message terminate="yes"&gt;&lt;xsl:value-of select="."/&gt; does not contain statuses element&lt;/xsl:message&gt;
+        &lt;/xsl:otherwise&gt;
+      &lt;/xsl:choose&gt;
+    &lt;/xsl:template&gt;
+
+    &lt;xsl:template match="inputs"&gt;
+      &lt;statuses type="array"&gt;
+        &lt;xsl:apply-templates/&gt;
+      &lt;/statuses&gt;
+    &lt;/xsl:template&gt;
+
+  &lt;/xsl:stylesheet&gt;
+&lt;/inputs&gt;
+EOF
+</code></pre>
+
+<p>I think this method of sticking filename arguments into an XSL document with an embedded stylesheet is quite a powerful way of processing XML documents with shell scripts. (Probably should put the <code>&lt;input&gt;</code> tags into a separate namespace though&#8230;)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2009/08/23/archiving-tweets/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+	</channel>
+</rss>

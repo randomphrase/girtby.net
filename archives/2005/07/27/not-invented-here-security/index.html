@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   Not-Invented-Here Security</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/archives/2005/07/26/the-war-on-security/" />
+<link rel="next" href="http://girtby.net/archives/2005/08/01/i-censorbot/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='start' title='Thunderbirds Are Go-ne' href='http://girtby.net/archives/2004/09/20/thunderbirds-are-go-ne/' />
+<link rel='prev' title='The War on Security' href='http://girtby.net/archives/2005/07/26/the-war-on-security/' />
+<link rel='next' title='I, Censorbot' href='http://girtby.net/archives/2005/08/01/i-censorbot/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/archives/2005/07/27/not-invented-here-security/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+    						
+      <div class="post">
+          <div class="metainfo">
+              <p>Posted<br />
+                <abbr class="published" title="Wed, 27 Jul 2005 15:55:04 -0400">27 July 2005 @ 3pm</abbr></p>
+                <p>Tagged<br />
+                <a href="http://girtby.net/archives/category/nerd-factor-x/" title="View all posts in Nerd Factor X" rel="category tag">Nerd Factor X</a>,  <a href="http://girtby.net/archives/category/provocation/" title="View all posts in Provocation" rel="category tag">Provocation</a></p>
+                		    </div>
+		    <div class="content">
+		        <h3>Not-Invented-Here Security 
+		        </h3>
+		        <p>Another security post, this time attempting to correct a bit of <a href="http://news.com.com/Microsofts+eye+on+open+source+-+page+3/2008-1082_3-5796496-3.html?tag=st.next">revisionism commited by Microsoft&#8217;s GM Platform Strategy, Martin Taylor</a>:</p>
+
+<blockquote>
+  <p>[...] one of the reasons why I scoffed at the notion that Linux is more secure, because people didn&#8217;t really understand
+  buffer overruns and port 80 and I/O issues 10 years ago.</p>
+  
+  <p>When you look at the issue of buffer overruns, eight to 10 years ago in software development, you did not know
+  how much space you might need for something so you just create a big buffer zone to allow things to happen. Who
+  knew that people could go exploit that and use that buffer space to do malicious things?</p>
+</blockquote>
+
+<p>That&#8217;s right kids, dynamic memory allocation was unknown 8&ndash;10 years ago.  What nonsense.</p>
+
+<p>But the key point he seems to be making is that &#8220;people&#8221; didn&#8217;t understand about buffer overflows at that time. This is also nonsense. The problem is not that these vulnerabilities where unknown, it is that Microsoft weren&#8217;t paying attention. The &#8220;people&#8221; he&#8217;s talking about are actually &#8220;Microsoft people&#8221;.</p>
+
+<p>In 1988 the <a href="http://en.wikipedia.org/wiki/Morris_worm">Morris worm</a> infected 10% of the hosts on the Internet by exploiting known vulnerabilities, including buffer overflows. Apparently there were no lessons for Microsoft from this event.</p>
+
+<p>Microsoft was also apparently unaware of <a href="http://www.cert.org/nav/index.html">CERT</a>, who  started issuing advisories for buffer overflow vulnerabilities in 1995 (AFAICT), like <a href="http://www.cert.org/advisories/CA-1995-13.html">this one in sendmail</a>.</p>
+
+<p>So 8&ndash;10 years ago &mdash; the time period <em>nominated by Taylor</em> above &mdash; there existed many well-known classes of security vulnerability that are still relevant today, including the specific examples he cited. But <em>even then</em>, Microsoft&#8217;s ignorance towards, or unwillingness to learn from, these security vulnerabilities was apparent to most in the industry. An <a href="http://www.byte.com/art/9711/sec6/art3.htm">article published in the November 1997 edition of Byte magazine</a> was scathing:</p>
+
+<blockquote>
+  <p>The Internet is largely a network of Unix computers, so hackers aimed their sights on the thousands of Sun, Hewlett-Packard,
+  and IBM servers on it. NT was largely ignored. Microsoft&#8217;s marketing juggernaut changed that. The hacker community targeted
+  NT security starting in the fall of 1996, and the rash of security breaches has been relentless ever since.</p>
+  
+  <p>The shame of it is that none of these threats are new to the security world. Why does an OS only five years old (compared to
+  Unix&#8217;s 25-year history) have these problems? NT may be another example of the veracity of Santayana&#8217;s statement that &#8220;those
+  who cannot remember the past are condemned to repeat it.&#8221;</p>
+</blockquote>
+
+<p>We&#8217;ve been repeating it ever since.</p>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+			
+<!-- You can start editing here. -->
+
+
+			
+				
+<div class="posttopline">
+	<span class="previous">&larr; <a href="http://girtby.net/archives/2005/07/26/the-war-on-security/" rel="prev">The War on Security</a></span>
+	<span class="next"><a href="http://girtby.net/archives/2005/08/01/i-censorbot/" rel="next">I, Censorbot</a> &rarr;</span>
+</div>
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

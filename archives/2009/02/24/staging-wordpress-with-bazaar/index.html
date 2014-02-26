@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   Staging Wordpress With Bazaar</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/archives/2009/02/10/catch-the-bushfire/" />
+<link rel="next" href="http://girtby.net/archives/2009/02/25/precisely-wrong/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Staging Wordpress With Bazaar Comments Feed" href="http://girtby.net/archives/2009/02/24/staging-wordpress-with-bazaar/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='start' title='Thunderbirds Are Go-ne' href='http://girtby.net/archives/2004/09/20/thunderbirds-are-go-ne/' />
+<link rel='prev' title='Catch The Bushfire' href='http://girtby.net/archives/2009/02/10/catch-the-bushfire/' />
+<link rel='next' title='Precisely Wrong' href='http://girtby.net/archives/2009/02/25/precisely-wrong/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/archives/2009/02/24/staging-wordpress-with-bazaar/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+    						
+      <div class="post">
+          <div class="metainfo">
+              <p>Posted<br />
+                <abbr class="published" title="Tue, 24 Feb 2009 22:03:18 -0500">24 February 2009 @ 10pm</abbr></p>
+                <p>Tagged<br />
+                <a href="http://girtby.net/archives/category/meta/" title="View all posts in Meta" rel="category tag">Meta</a>,  <a href="http://girtby.net/archives/category/nerd-factor-x/" title="View all posts in Nerd Factor X" rel="category tag">Nerd Factor X</a></p>
+                <p>Tags<br/><a href="http://girtby.net/archives/tag/bzr/" rel="tag">bzr</a>, <a href="http://girtby.net/archives/tag/vcs/" rel="tag">vcs</a>, <a href="http://girtby.net/archives/tag/wordpress/" rel="tag">wordpress</a></p>		    </div>
+		    <div class="content">
+		        <h3>Staging Wordpress With Bazaar 
+		        </h3>
+		        <p>Version Control Systems, I&#8217;ve had a few. But then again, too few to mention.</p>
+
+<p>Keen observers will have noted that I have tended to blog each time I try out a new version control system, and this really isn&#8217;t an exception. Except that, well I&#8217;m not just trying it out, I actually use <a href="http://bazaar-vcs.org/">Bazaar</a> daily at <code>$WORK</code>, so and this is like after-hours practice.</p>
+
+<p>Anyway, I wanted to share this because I&#8217;ve found that maintaining a staging and production installation of wordpress, complete with custom modifications and a collection of plugins, is a problem ideally solved by a distributed source control. Plus I really like Bazaar, and wanted to show how easy it can be.</p>
+
+<p><span id="more-3851"></span></p>
+
+<p>I refer to two different machines here, one of which is the production server (ie my hosting provider), and one of which is the staging server (ie my personal machine). Don&#8217;t let the fancy terminology put you off; mentally substitute &#8220;my box&#8221; and &#8220;their box&#8221; if it helps you.</p>
+
+<h4>Setting up a Local Wordpress Instance</h4>
+
+<p>On my staging server I branched the wordpress source from <a href="https://code.launchpad.net/wordpress">launchpad&#8217;s</a> Wordpress repository, which is regularly synced with the official repository:</p>
+
+<pre><code>[s] $ bzr branch lp:wordpress
+</code></pre>
+
+<p>[I'll use an <code>[s]</code> to denote commands run on a staging server, and <code>[p]</code> for commands run on the production server.]</p>
+
+<p>This command creates a "working tree" of the wordpress source code &mdash; a set of files and directories &mdash; and an accompanying repository of revisions. At any time the working tree corresponds to one of the revisions in the repository, plus any uncommitted changes. Each commit creates a new revision in the repository. Pretty standard stuff really.</p>
+
+<p>So for a new wordpress installation I add the wp-config.php file and commit it:</p>
+
+<pre><code>[s] $ bzr add wp-config.php
+[s] $ bzr commit -m "Added config file"
+</code></pre>
+
+<p>See the <a href="http://codex.wordpress.org/MacOS_X_Local_Mirror">codex</a> for other local setup instructions, I just want to focus on the source control tool for now.</p>
+
+<p>Unless you've used distributed version control systems before, you might be a bit wary at this point, perhaps wondering what happens when I next communicate with the upstream repository. But fear not, this is exactly the point of a DVCS. I've created an independent branch, and the parent branch doesn't even need to know about mine. So, I can quite happily make changes of my own and also merge in upstream changes, knowing that it is all tracked correctly.</p>
+
+<p>But for now let's look at going the other way: publishing my changes to the world.</p>
+
+<h4>Uploading to the Production Server</h4>
+
+<p>One of the cool things about Bazaar is that it supports many different protocols for publishing branches. So for example, I can just push my branch to the hosting server using sftp:</p>
+
+<pre><code>[s] $ bzr push sftp://girtby.net/home/alastair/wordpress
+</code></pre>
+
+<p>This will create a repository on the remote server containing all the revisions in my local repository. It will not, however, create an associated working tree. Bazaar does not (yet?) support updating a working tree over sftp. I guess there are too many potential issues with local conflicts and such. Anyway the solution is to ssh into the production box and do a checkout of the published branch:</p>
+
+<pre><code>[p] $ cd ~/wordpress
+[p] $ bzr co .
+</code></pre>
+
+<p>What's that? You don't have Bazaar installed on your hosting provider? No problem - all you need is python. Just extract Bazaar into your home directory somewhere, add the bin directory to your path, and you're away. You don't even need to compile anything.</p>
+
+<p>Of course there are many other tasks to set up a production wordpress, but again let's just focus on getting a Bazaar branch associated with the source files.</p>
+
+<h4>Another Way</h4>
+
+<p>Of course you could bootstrap everything the other way around. Start with a working wordpress installation on your production server, create a bazaar repository for it, then copy <em>that</em> to your local machine. This would be something like:</p>
+
+<pre><code>[p] $ cd ~/wordpress
+[p] $ bzr init .
+[p] $ bzr add .
+[... bzr rm --keep or bzr ignore the files you don't want ...]
+[p] $ bzr commit -m "initial checkin"
+</code></pre>
+
+<p>You would then branch it locally using:</p>
+
+<pre><code>[s] $ bzr branch sftp://server/path/to/wordpress
+</code></pre>
+
+<h4>Staying in Sync</h4>
+
+<p>At this point you have two Bazaar branches, and they can easily be kept in sync as follows. First let's make sure we're running the latest wordpress on our staging server:</p>
+
+<pre><code>[s] $ bzr merge lp:wordpress
+</code></pre>
+
+<p>This just says to merge the latest changes from upstream. As always with merging there is the possibility of a conflict; you make a change that conflicts with the change on the merge source. In general Bazaar is very good at handling these, and anyway you're very unlikely to encounter them unless you're making modifications to the Wordpress core.</p>
+
+<p>At this stage it's a great idea to test the installation locally. Hypothetically, if there were any <a href="/archives/2008/12/29/software-that-goes-clunk/">unit tests</a>, you'd run them at this point. Otherwise, you can just check that the articles display properly, the admin interface works, and whatever else.</p>
+
+<p>You can even see a summary of the changes that you're merging:</p>
+
+<pre><code>[s] $ bzr status -v
+modified:
+  wp-admin/admin-ajax.php
+  wp-admin/custom-header.php
+  [... snip ...]
+pending merges:
+  westi 2009-02-22 Focus on the first blank field when asking for credentials for upgrade/instal...
+    ryan 2009-02-22 Allow editing all of a plugin's files. see #6732
+    westi 2009-02-22 Wrap the apply_filters call in a function_exists check as this can be calle...
+    [... snip ...]
+</code></pre>
+
+<p>If everything looks OK, commit and push it up to the production server.</p>
+
+<pre><code>[s] $ bzr commit -m "merge from upstream"
+[s] $ bzr push
+</code></pre>
+
+<p>It should have remembered the push location from last time. Also, just like last time the working tree will need to be updated:</p>
+
+<pre><code>[p] $ bzr up
+</code></pre>
+
+<h4>Eject! Eject!</h4>
+
+<p>So I've found wordpress trunk to be fairly stable, but should I ever need it, the DVCS provides a safety net.</p>
+
+<p>If I discover a problem after merging in the latest upstream changes, I can quickly revert simply using the entirely surprising:</p>
+
+<pre><code>[p] $ bzr revert
+</code></pre>
+
+<p>If, on the other hand I only discover the problem after pushing up to the production server, it's still quite easy:</p>
+
+<pre><code>[p] $ bzr uncommit
+[p] $ bzr update
+</code></pre>
+
+<p>I can propagate that change back to my staging server by merging <em>back</em>:</p>
+
+<pre><code>[s] $ bzr merge sftp://girtby.net/home/alastair/wordpress
+</code></pre>
+
+<p>But like I said, I haven't had to use this.</p>
+
+<h4>Synchronising Media</h4>
+
+<p>Changes made on the production server are generally easy to sync back to the staging server - I just download a database dump and import it locally. However media such as images are special because they are not stored in the database. Hence you need a way of getting them back to the staging server. I wonder what the answer could be?</p>
+
+<p>Yep, just commit the changes on the production server and merge them back:</p>
+
+<pre><code>[p] $ bzr add assets/2009/01/funny_picture.jpg
+[p] $ bzr commit -m "Added funny picture"
+
+[s] $ bzr merge sftp://girtby.net/home/alastair/wordpress
+</code></pre>
+
+<p>As noted before, the add command can recursively add all files in a directory, so you don't even need to specify the files individually.</p>
+
+<h4>Plugins/Themes</h4>
+
+<p>Plugins and themes are handled just like any other change. Just extract the plugin to the relevant directory, and add it to the repository:</p>
+
+<pre><code>[s] $ unzip ~/Downloads/coolplugin.zip
+[s] $ bzr add coolplugin
+</code></pre>
+
+<p>At this point I'd probably activate and test the plugin locally, then commit and push to the production server as before.</p>
+
+<p>Bazaar can also track file renames, deletions and moves, but you obviously have to tell it about them. So when coolplugin is updated, be sure to tell Bazaar about any relevant changes before committing:</p>
+
+<pre><code>[s] $ bzr mv --after coolplugin/oldandbroken.php coolplugin/newhotness.php
+</code></pre>
+
+<p>The <code>--after</code> switch tells Bazaar not to actually do the move, instead it's already happened and we're just recording the fact.</p>
+
+<h4>Why Not...</h4>
+
+<p>... Wordpress auto-update? Put simply, I don't trust it. Will it let me manage my own patches to wordpress should they be <a href="/archives/2008/12/01/and-were-back/#comment-1946">needed</a>? I don't think so. Also: FTP? What decade is this? Even FTPS, sheesh.</p>
+
+<p>... git? Well no reason particularly. I've dabbled with git, but it never really <em>clicked</em> for me. The concepts and terminology and command set still seem slightly obscure to me: "Want to check in your changes? Just use 'git albatross'! Want to view checkin comments from the most recent merge? No problem, 'git ham-sandwich' is at your fingertips!" OK, I exaggerate a little.</p>
+
+<p>... just shut up already? Oh, OK then.</p>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+			
+<!-- You can start editing here. -->
+
+
+<div id="comments" class="post">
+
+	<h3 class="comments_headers">2 Comments</h3>
+
+</div>
+	
+	
+			
+        <div class="post" id="comment-2589">
+		    <div class="metainfo">
+                <p>Posted by<br />JeroenH<br />
+                <input type="hidden" name="post_date" value="Tue, 24 Feb 2009 22:03:18 -0500" />
+                <abbr class="commented" title="Tue, 24 Feb 2009 23:21:32 -0500">24 February 2009 @ 11pm</abbr><br />
+                <a href="#comment-2589">#</a></p>
+			</div>
+			<div class="content">
+				<p>Helpful overview. My workflow is similar. You might be interested in the <a href="https://launchpad.net/bzr-push-and-update/" rel="nofollow">push and update plugin</a> for deploying to another server. It auto-updates the remote branch when you push, so there&#8217;s no need to ssh to the remote host yourself.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-15179">
+		    <div class="metainfo">
+                <p>Posted by<br />Jonno<br />
+                <input type="hidden" name="post_date" value="Tue, 24 Feb 2009 22:03:18 -0500" />
+                <abbr class="commented" title="Wed, 30 Sep 2009 12:44:34 -0400">30 September 2009 @ 12pm</abbr><br />
+                <a href="#comment-15179">#</a></p>
+			</div>
+			<div class="content">
+				<p>Great info. Would love to see a &#8220;dummy&#8221; or tutorial version of this. Expanded and detailed for users like me who aren&#8217;t programmers <img src='http://girtby.net/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /> </p>
+
+<p>Something that a user could follow, step by step, with no prior knowledge but with some experience.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+		
+	
+
+	<!-- Comment Form -->
+
+	    
+
+			
+				
+<div class="posttopline">
+	<span class="previous">&larr; <a href="http://girtby.net/archives/2009/02/10/catch-the-bushfire/" rel="prev">Catch The Bushfire</a></span>
+	<span class="next"><a href="http://girtby.net/archives/2009/02/25/precisely-wrong/" rel="next">Precisely Wrong</a> &rarr;</span>
+</div>
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

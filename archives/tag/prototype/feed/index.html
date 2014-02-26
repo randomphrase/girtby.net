@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>girtby.net &#187; prototype</title>
+	<atom:link href="http://girtby.net/archives/tag/prototype/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Thu, 17 Sep 2009 14:27:44 +0000</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+			<item>
+		<title>Monkeying With JavaScript</title>
+		<link>http://girtby.net/archives/2009/01/07/monkeying-with-javascript/</link>
+		<comments>http://girtby.net/archives/2009/01/07/monkeying-with-javascript/#comments</comments>
+		<pubDate>Wed, 07 Jan 2009 11:31:12 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Meta]]></category>
+		<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[javascript]]></category>
+		<category><![CDATA[jquery]]></category>
+		<category><![CDATA[prototype]]></category>
+		<category><![CDATA[wordpress]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/?p=3674</guid>
+		<description><![CDATA[It&#8217;s funny really, one of my main reasons for switching to a Rails-based blogging platform way back when was to become more familiar with web technologies. As it turned out I never really did much of that, but since switching back to Wordpress I&#8217;ve been tinkering away madly, and astute observers may have noticed the [...]]]></description>
+			<content:encoded><![CDATA[<p>It&#8217;s funny really, one of my main reasons for switching to a Rails-based blogging platform way back when was to become more familiar with web technologies. As it turned out I never really did much of that, but since switching back to Wordpress I&#8217;ve been tinkering away madly, and astute observers may have noticed the results on this site.</p>
+
+<p>Of course I have no real idea what I am doing. Despite having zero knowledge of PHP or JavaScript, for some reason I feel no reluctance towards sitting down at a keyboard and bashing away until I produce either Macbeth or a better website. The entire site is stored in a <a href="http://bazaar-vcs.org/">Bazaar</a> repository, and that makes reverting bad changes especially easy, and I&#8217;ll attempt to blog further about that sometime.</p>
+
+<p>For now let me just point out a seemingly small change to the site. The dates of the posts and comments are now displayed in a more human-friendly manner such as &#8220;3 days ago&#8221; or &#8220;20 minutes later&#8221;. This was a feature of Typo that I liked enough to port to my Mephisto theme, and which (I thought) would be fairly simple to get into Wordpress.</p>
+
+<p>It wasn&#8217;t. Read on for the war story.</p>
+
+<p><span id="more-3674"></span></p>
+
+<h4>The Prototype Version</h4>
+
+<p><a href="http://www.dev411.com/blog/2007/02/05/displaying-dates-and-times-using-javascript">John Wang</a> describes how it is implemented in Typo. Basically it&#8217;s a bit of JavaScript that is run when the page loads. It looks for dates, which are delimited by the <code>abbr</code> tag and have a pre-defined CSS class. The script iterates over each of these and converts them into a friendly date. The <code>abbr</code> tag is handy because it allows you to specify the full date and time in the <code>title</code> attribute, which you can see when you hover over the date with your mouse.</p>
+
+<p>One of the challenges with using JavaScript in this way is to ensure that you register event handlers in a manner that works with other JavaScript on the page, as well as across browsers. The <a href="http://www.prototypejs.org/">Prototype</a> library helps out immensely here, and for actually locating the <code>abbr</code> tags.</p>
+
+<p>One of the nice features of Wordpress is that it manages dependencies on third-party JavaScript libraries, on behalf of the plugins. So as long as your plugin/theme uses the <a href="http://codex.wordpress.org/Function_Reference/wp_enqueue_script"><code>wp_enqueue_script</code></a> function, Wordpress will find a copy of the requested library and insert your script correctly into the HTML output. You call it simply from the theme&#8217;s <code>functions.php</code> file like this:</p>
+
+<pre><code>add_action( 'wp_print_scripts', 'depo_theme_add_javascript' );
+
+function depo_theme_add_javascript() {
+    wp_enqueue_script('friendly_dates', get_bloginfo('stylesheet_directory') .
+        '/javascript/friendly_dates.js', array('jquery'));
+}
+</code></pre>
+
+<p>So at this point, I had the friendly date script originally from Typo, registered correctly with Wordpress and, it worked. Sort of. Specifically: when I had some of my Wordpress plugins disabled.</p>
+
+<h4>Prototype vs jQuery</h4>
+
+<p>Besides Prototype there are also other JavaScript libraries that people use, and they don&#8217;t always play nicely together. For example, <a href="http://jquery.com/">jQuery</a> is quite popular, and seems to be used by at least two of the wordpress plugins I have installed. Which meant that I could use my date script or the plugins, but not both.</p>
+
+<p>Now jQuery (at least) is supposed to play nice with other libraries if you use the <a href="http://docs.jquery.com/Using_jQuery_with_Other_Libraries"><code>noConflict</code></a> method. Unfortunately I couldn&#8217;t get it to work. I even resorted to asking my first <a href="http://stackoverflow.com/questions/415550/prototype-and-jquery-peaceful-co-existence">question on Stack Overflow</a>. This seemed to stump the experts too; the best answer was basically &#8220;switch to jQuery&#8221;.</p>
+
+<p>So that&#8217;s what I did.</p>
+
+<h4>The jQuery Version</h4>
+
+<p>jQuery is a quite unusual library. It reminds me a little bit of XSLT, in that you declare a pattern of matching items in the DOM tree, and for each of those, some actions which affect the output. You might even say the similarity is quite ironic, given that XSLT is the browser&#8217;s <a href="/archives/2006/06/14/the-browsers-other-scripting-language/">other scripting language</a>.</p>
+
+<p>By chance I came across <a href="http://www.zachleat.com/web/2008/03/23/yet-another-pretty-date-javascript/">yet another pretty date JavaScript</a> from Zach Leatherman (but with ancestry tracing back to jQuery author John Resig). This allowed me to perform the article date transformations almost trivially:</p>
+
+<pre><code>jQuery(document).ready(function() {
+    jQuery("abbr.published").humane_dates();
+});
+</code></pre>
+
+<p>Nice. But what about the comment dates? These require two dates, both the comment date but also the date of the article to which it belongs. The former is easy enough, but there was no easy DOM path from the comment to its article meta data. If it was XSLT I could have come up with an XPath expression, but jQuery is unfortunately not that powerful (yet?).</p>
+
+<p>So I settled for a bit of a hack. For each comment, I inserted the article date as a hidden field in the HTML as a sibling to the date <code>abbr</code>, where it can be easily retrieved by a jQuery method.</p>
+
+<p>It&#8217;s not an ideal solution of course, and part of me wants to (at least) put the article date in a local cache variable where it doesn&#8217;t need to looked up all the time. But another part of me just wants to get it working so that I can start the process of blogging about how I got it working&#8230;</p>
+
+<h4>Publish and Be Damned</h4>
+
+<p>Anyway <a href="/extras/friendly_dates.js">here&#8217;s the code</a>. I&#8217;ll find a better place for it if I make any other mods, or if there is any interest in it.</p>
+
+<h4>Lessons Learned</h4>
+
+<p>I&#8217;m not even sure there are many here. Perhaps:</p>
+
+<ul>
+<li>Don&#8217;t mix JavaScript libraries.</li>
+<li>Learn jQuery. It&#8217;s powerful.</li>
+<li>C++ is easy compared to diagnosing JavaScript bugs (ok maybe not)</li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2009/01/07/monkeying-with-javascript/feed/</wfw:commentRss>
+		<slash:comments>10</slash:comments>
+		</item>
+	</channel>
+</rss>

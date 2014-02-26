@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
+<channel>
+	<title>Comments on: And You Can Quote Me On That!</title>
+	<atom:link href="http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Wed, 30 Sep 2009 01:44:34 -0400</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+		<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/comment-page-1/#comment-1495</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Mon, 20 Nov 2006 05:46:58 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/21/and-you-can-quote-me-on-that#comment-1495</guid>
+		<description>&lt;p&gt;I should point out also that since writing the above I have discovered the &lt;code&gt;-print0&lt;/code&gt; argument to the &lt;code&gt;find&lt;/code&gt; tool, and the corresponding &lt;code&gt;-0&lt;/code&gt; delimiter in &lt;code&gt;xargs&lt;/code&gt;. In general, this is a useful combination for handling filenames with spaces, but I suspect that in this particular case the above sed script is probably just as simple. Exercise for the reader?&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>I should point out also that since writing the above I have discovered the <code>-print0</code> argument to the <code>find</code> tool, and the corresponding <code>-0</code> delimiter in <code>xargs</code>. In general, this is a useful combination for handling filenames with spaces, but I suspect that in this particular case the above sed script is probably just as simple. Exercise for the reader?</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Richard</title>
+		<link>http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/comment-page-1/#comment-1496</link>
+		<dc:creator>Richard</dc:creator>
+		<pubDate>Mon, 20 Nov 2006 05:46:58 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/21/and-you-can-quote-me-on-that#comment-1496</guid>
+		<description>&lt;p&gt;Why for when you can find?&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+    $ find . -name &quot;*.bat&quot; -exec bash -c &quot;basename \&quot;{}\&quot; .bat &#124; xargs -i@ mv @.bat @.bak&quot; &quot;;&quot;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;is only &lt;i&gt;slightly&lt;/i&gt; unreadable ;) (Yes, that semicolon really does have to be there). I&#039;ve no idea why you&#039;d resort to -print0 and the like, since like everything else it can be solved with an extra layer of indirection, err, I mean quotes.&lt;/p&gt;
+
+&lt;p&gt;Of course this find is only good enough if you&#039;re ok with it recursively &#039;backing up&#039; innocent .bat files. You have been warned.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Why for when you can find?</p>
+
+<p><code>
+    $ find . -name "*.bat" -exec bash -c "basename \"{}\" .bat | xargs -i@ mv @.bat @.bak" ";"
+</code></p>
+
+<p>is only <i>slightly</i> unreadable <img src='http://girtby.net/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' />  (Yes, that semicolon really does have to be there). I&#8217;ve no idea why you&#8217;d resort to -print0 and the like, since like everything else it can be solved with an extra layer of indirection, err, I mean quotes.</p>
+
+<p>Of course this find is only good enough if you&#8217;re ok with it recursively &#8216;backing up&#8217; innocent .bat files. You have been warned.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Aristotle Pagaltzis</title>
+		<link>http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/comment-page-1/#comment-1497</link>
+		<dc:creator>Aristotle Pagaltzis</dc:creator>
+		<pubDate>Mon, 20 Nov 2006 05:46:58 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/21/and-you-can-quote-me-on-that#comment-1497</guid>
+		<description>&lt;p&gt;&lt;b&gt;Alastair:&lt;/b&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The problem as I see it is the “for” command itself. What it’s doing is expanding the *.bat bit into a space-delimited list of filenames (eg “foo.bat bar.bat I love Unix.bat”), then iterating over them one word at a time (“foo.bat”, “bar.bat”, “I”, “love”, “Unix.bat”).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Wrong. In fact, “&lt;code&gt;for&lt;/code&gt;” is the &lt;em&gt;recommended&lt;/em&gt; way of iterating over a glob. What happens is that &lt;em&gt;the shell&lt;/em&gt; expands the &lt;code&gt;*.bat&lt;/code&gt; glob into a list of filenames, each of which gets passed &lt;em&gt;as a unit&lt;/em&gt; to ”&lt;code&gt;for&lt;/code&gt;”, which then assigns it to &lt;code&gt;f&lt;/code&gt;. Therefore “&lt;code&gt;for&lt;/code&gt;” will &lt;em&gt;always&lt;/em&gt; work, even where your &lt;code&gt;sed&lt;/code&gt; script will fail (ie. when face of filenames with newlines in them).&lt;/p&gt;
+
+&lt;p&gt;Your code still fails because you’re not quoting the variables when &lt;em&gt;using&lt;/em&gt; them, causing the shell to expand the variable into a list of &lt;code&gt;IFS&lt;/code&gt;-delimited strings. So while the shell passes “I love Unix.bat” as a single string to “&lt;code&gt;for&lt;/code&gt;”, and that assigns it to &lt;code&gt;f&lt;/code&gt; all right, the &lt;code&gt;$f&lt;/code&gt; in your call to &lt;code&gt;mv&lt;/code&gt; then expands to “I”, “love”, “Unix.bat”, which blows up. To avoid that, you use doublequotes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;for f in *.bat ; do mv &quot;$i&quot; &quot;${i%.bat}.bak&quot; ; done
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Your Linux Zealots weren’t very well versed in the ways of Unix. :)&lt;/p&gt;
+
+&lt;p&gt;Btw: notice that I said the shell expands the glob into a list? That means that the &lt;code&gt;ls&lt;/code&gt; your &lt;code&gt;ls *.bat&lt;/code&gt; incantation is superfluous; by the time &lt;code&gt;ls&lt;/code&gt; is invoked, the actual work has already happened. This is called a &lt;a href=&quot;http://partmaps.org/era/unix/award.html#ls&quot;&gt;useless use of &lt;code&gt;ls *&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Richard:&lt;/b&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;find -name &#039;*.bat&#039; -print0 &#124; sed &#039;s!\\.bat\x0!\x0!g&#039; &#124; xargs -0i mv {}.bat {}.bak
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+		<content:encoded><![CDATA[<p><b>Alastair:</b></p>
+
+<blockquote>
+  <p>The problem as I see it is the “for” command itself. What it’s doing is expanding the *.bat bit into a space-delimited list of filenames (eg “foo.bat bar.bat I love Unix.bat”), then iterating over them one word at a time (“foo.bat”, “bar.bat”, “I”, “love”, “Unix.bat”).</p>
+</blockquote>
+
+<p>Wrong. In fact, “<code>for</code>” is the <em>recommended</em> way of iterating over a glob. What happens is that <em>the shell</em> expands the <code>*.bat</code> glob into a list of filenames, each of which gets passed <em>as a unit</em> to ”<code>for</code>”, which then assigns it to <code>f</code>. Therefore “<code>for</code>” will <em>always</em> work, even where your <code>sed</code> script will fail (ie. when face of filenames with newlines in them).</p>
+
+<p>Your code still fails because you’re not quoting the variables when <em>using</em> them, causing the shell to expand the variable into a list of <code>IFS</code>-delimited strings. So while the shell passes “I love Unix.bat” as a single string to “<code>for</code>”, and that assigns it to <code>f</code> all right, the <code>$f</code> in your call to <code>mv</code> then expands to “I”, “love”, “Unix.bat”, which blows up. To avoid that, you use doublequotes:</p>
+
+<pre><code>for f in *.bat ; do mv "$i" "${i%.bat}.bak" ; done
+</code></pre>
+
+<p>Your Linux Zealots weren’t very well versed in the ways of Unix. <img src='http://girtby.net/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+
+<p>Btw: notice that I said the shell expands the glob into a list? That means that the <code>ls</code> your <code>ls *.bat</code> incantation is superfluous; by the time <code>ls</code> is invoked, the actual work has already happened. This is called a <a href="http://partmaps.org/era/unix/award.html#ls">useless use of <code>ls *</code></a>.</p>
+
+<p><b>Richard:</b></p>
+
+<pre><code>find -name '*.bat' -print0 | sed 's!\\.bat\x0!\x0!g' | xargs -0i mv {}.bat {}.bak
+</code></pre>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Aristotle Pagaltzis</title>
+		<link>http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/comment-page-1/#comment-1498</link>
+		<dc:creator>Aristotle Pagaltzis</dc:creator>
+		<pubDate>Mon, 20 Nov 2006 05:46:58 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/21/and-you-can-quote-me-on-that#comment-1498</guid>
+		<description>&lt;p&gt;Err, &lt;code&gt;s/when face of/when faced with/&lt;/code&gt;.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Err, <code>s/when face of/when faced with/</code>.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Aristotle Pagaltzis</title>
+		<link>http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/comment-page-1/#comment-1499</link>
+		<dc:creator>Aristotle Pagaltzis</dc:creator>
+		<pubDate>Mon, 20 Nov 2006 05:46:58 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/21/and-you-can-quote-me-on-that#comment-1499</guid>
+		<description>&lt;p&gt;I also just noticed that all your examples say “&lt;code&gt;for f in&lt;/code&gt;” (notice the &lt;code&gt;f&lt;/code&gt;) but then use &lt;code&gt;$i&lt;/code&gt;, not &lt;code&gt;$f&lt;/code&gt;, in the body of the loop; and I copied that mistake.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>I also just noticed that all your examples say “<code>for f in</code>” (notice the <code>f</code>) but then use <code>$i</code>, not <code>$f</code>, in the body of the loop; and I copied that mistake.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/comment-page-1/#comment-1500</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Mon, 20 Nov 2006 05:46:58 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/21/and-you-can-quote-me-on-that#comment-1500</guid>
+		<description>&lt;p&gt;Aristotle, thanks for noticing the $f mistake, corrected.&lt;/p&gt;
+
+&lt;p&gt;Also I understand what you are trying to say with the &quot;for&quot; statement and verified that the correctly quoted version works correctly. Thanks, and now all I have to internalise is the &lt;code&gt;${f%.bat}&lt;/code&gt; syntax (I&#039;ve read that section in the manpage n times and it still baffles me).&lt;/p&gt;
+
+&lt;p&gt;One minor point: your wording implies that &quot;for&quot; is not part of the shell (ie &quot;the shell passes to&quot;). This is not the case, as &quot;for&quot; is an integral part of the shell, it&#039;s not even a builtin.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Aristotle, thanks for noticing the $f mistake, corrected.</p>
+
+<p>Also I understand what you are trying to say with the &#8220;for&#8221; statement and verified that the correctly quoted version works correctly. Thanks, and now all I have to internalise is the <code>${f%.bat}</code> syntax (I&#8217;ve read that section in the manpage n times and it still baffles me).</p>
+
+<p>One minor point: your wording implies that &#8220;for&#8221; is not part of the shell (ie &#8220;the shell passes to&#8221;). This is not the case, as &#8220;for&#8221; is an integral part of the shell, it&#8217;s not even a builtin.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/comment-page-1/#comment-1501</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Mon, 20 Nov 2006 05:46:58 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/21/and-you-can-quote-me-on-that#comment-1501</guid>
+		<description>&lt;blockquote&gt;
+  &lt;p&gt;Btw: notice that I said the shell expands the glob into a list? That means that the ls your ls *.bat incantation is superfluous; by the time ls is invoked, the actual work has already happened.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Err, care to explain this? How would you rewrite the following expression to remove the &lt;code&gt;ls&lt;/code&gt;?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ls *.bat &#124; sed -e &quot;s/[\\\&quot;$]/\\&amp;/g&quot; -e &quot;s/(.*).bat$/mv \&quot;\1.bat\&quot; \&quot;\1.bak\&quot;/&quot; &#124; sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(missing backslash corrected)&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<blockquote>
+  <p>Btw: notice that I said the shell expands the glob into a list? That means that the ls your ls *.bat incantation is superfluous; by the time ls is invoked, the actual work has already happened.</p>
+</blockquote>
+
+<p>Err, care to explain this? How would you rewrite the following expression to remove the <code>ls</code>?</p>
+
+<pre><code>ls *.bat | sed -e "s/[\\\"$]/\\&amp;/g" -e "s/(.*).bat$/mv \"\1.bat\" \"\1.bak\"/" | sh
+</code></pre>
+
+<p>(missing backslash corrected)</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Aristotle Pagaltzis</title>
+		<link>http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/comment-page-1/#comment-1502</link>
+		<dc:creator>Aristotle Pagaltzis</dc:creator>
+		<pubDate>Mon, 20 Nov 2006 05:46:58 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/21/and-you-can-quote-me-on-that#comment-1502</guid>
+		<description>&lt;blockquote&gt;
+  &lt;p&gt;“for” is an integral part of the shell, it&#039;s not even a builtin.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I know. What I was referring to is that glob expansion and “&lt;code&gt;for&lt;/code&gt;” execution happen in different stages.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;How would you rewrite the following expression to remove the ls?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;With anything that prints its argument list. In the simplest cases, even &lt;code&gt;echo&lt;/code&gt; might suffice. If you’re using bash, it’s very simple: it has is a builtin &lt;code&gt;printf&lt;/code&gt;, so you can just say “&lt;code&gt;printf &#039;%s\n&#039; *.bat&lt;/code&gt;”.&lt;/p&gt;
+
+&lt;p&gt;Heh. That suggests an alternative to my reply to Richard:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;printf &#039;%s\0&#039; *.bat &#124; sed &#039;s!\.bat\x0!\x0!g&#039; &#124; xargs -0i mv {}.bat {}.bak
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+		<content:encoded><![CDATA[<blockquote>
+  <p>“for” is an integral part of the shell, it&#8217;s not even a builtin.</p>
+</blockquote>
+
+<p>I know. What I was referring to is that glob expansion and “<code>for</code>” execution happen in different stages.</p>
+
+<blockquote>
+  <p>How would you rewrite the following expression to remove the ls?</p>
+</blockquote>
+
+<p>With anything that prints its argument list. In the simplest cases, even <code>echo</code> might suffice. If you’re using bash, it’s very simple: it has is a builtin <code>printf</code>, so you can just say “<code>printf '%s\n' *.bat</code>”.</p>
+
+<p>Heh. That suggests an alternative to my reply to Richard:</p>
+
+<pre><code>printf '%s\0' *.bat | sed 's!\.bat\x0!\x0!g' | xargs -0i mv {}.bat {}.bak
+</code></pre>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: marxy</title>
+		<link>http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/comment-page-1/#comment-1503</link>
+		<dc:creator>marxy</dc:creator>
+		<pubDate>Mon, 20 Nov 2006 05:46:58 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/21/and-you-can-quote-me-on-that#comment-1503</guid>
+		<description>&lt;p&gt;I find that languages like python are everywhere I want to be and the code is so much more readable than shell.
+&lt;pre&gt;&lt;code&gt;from os import walk, rename
+from os.path import join&lt;/p&gt;
+
+&lt;p&gt;directory = &quot;scans for rosie copy&quot;
+extfrom = &quot;.jpg&quot;
+extto = &quot;.gif&quot;&lt;/p&gt;
+
+&lt;h1&gt;extfrom = &quot;.gif&quot;&lt;/h1&gt;
+
+&lt;h1&gt;extto = &quot;.jpg&quot;&lt;/h1&gt;
+
+&lt;p&gt;for root, dirs, files in walk(directory):
+    for fileName in files:
+        if fileName.endswith(extfrom):
+            newFileName = fileName.replace(extfrom, extto)
+            rename(join(root, fileName), join(root, newFileName))
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+
+&lt;p&gt;I put it to you that the idle reader can figure out what&#039;s going on here which is more important than fewer lines of code.&lt;/p&gt;
+
+&lt;p&gt;Sorry for the digression.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>I find that languages like python are everywhere I want to be and the code is so much more readable than shell.
+<pre><code>from os import walk, rename
+from os.path import join</code></pre></p>
+
+<p>directory = "scans for rosie copy"
+extfrom = ".jpg"
+extto = ".gif"</p>
+
+<h1>extfrom = ".gif"</h1>
+
+<h1>extto = ".jpg"</h1>
+
+<p>for root, dirs, files in walk(directory):
+    for fileName in files:
+        if fileName.endswith(extfrom):
+            newFileName = fileName.replace(extfrom, extto)
+            rename(join(root, fileName), join(root, newFileName))
+</p>
+
+<p>I put it to you that the idle reader can figure out what&#8217;s going on here which is more important than fewer lines of code.</p>
+
+<p>Sorry for the digression.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/11/20/and-you-can-quote-me-on-that/comment-page-1/#comment-1504</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Mon, 20 Nov 2006 05:46:58 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/21/and-you-can-quote-me-on-that#comment-1504</guid>
+		<description>&lt;p&gt;marxy, in general you are right, it is more important to be clear than clever. However in the case of system admin tasks it really is useful to internalise a number of shell programming idioms which you will find yourself using over and over again. For me, the &lt;code&gt;find&lt;/code&gt; command is like this, particularly in combination with &lt;code&gt;-print0&lt;/code&gt; as discussed.&lt;/p&gt;
+
+&lt;p&gt;In these cases, optimising for brevity gets you under the threshold of being able to memorise it in entirety. So the next time you come across the same problem, you simply are able to regurgitate the command and tailor for the situation. Agree that the python script is clearer, but does it follow you around to every system? If not, what then? Rewrite it? Go download it from another machine?&lt;/p&gt;
+
+&lt;p&gt;There&#039;s also a middle ground between uber-shell scripting and using a real language like python. Frequently I simply load up the directory listing in emacs and use a macro function to mould it to my will. Once I&#039;ve got a list of shell commands to run, just hit M-&#124; to run them.&lt;/p&gt;
+
+&lt;p&gt;Lastly, I can&#039;t help but recommend python list comprehensions, they&#039;re fantastic:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from os import walk, rename
+from os.path import join
+extfrom = &quot;.bat&quot;
+extto = &quot;.bak&quot;
+for dirpath, dirnames, filenames in walk(&quot;.&quot;):
+    map( lambda (old, new): rename(join(dirpath,old), join(dirpath,new)), \
+         [ (file, file.replace(extfrom,extto)) \
+           for file in filenames if file.endswith(extfrom) ] )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Which, come to think of it, doesn&#039;t prove a point about either readability or brevity. :) But it is cool nonetheless...&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>marxy, in general you are right, it is more important to be clear than clever. However in the case of system admin tasks it really is useful to internalise a number of shell programming idioms which you will find yourself using over and over again. For me, the <code>find</code> command is like this, particularly in combination with <code>-print0</code> as discussed.</p>
+
+<p>In these cases, optimising for brevity gets you under the threshold of being able to memorise it in entirety. So the next time you come across the same problem, you simply are able to regurgitate the command and tailor for the situation. Agree that the python script is clearer, but does it follow you around to every system? If not, what then? Rewrite it? Go download it from another machine?</p>
+
+<p>There&#8217;s also a middle ground between uber-shell scripting and using a real language like python. Frequently I simply load up the directory listing in emacs and use a macro function to mould it to my will. Once I&#8217;ve got a list of shell commands to run, just hit M-| to run them.</p>
+
+<p>Lastly, I can&#8217;t help but recommend python list comprehensions, they&#8217;re fantastic:</p>
+
+<pre><code>from os import walk, rename
+from os.path import join
+extfrom = ".bat"
+extto = ".bak"
+for dirpath, dirnames, filenames in walk("."):
+    map( lambda (old, new): rename(join(dirpath,old), join(dirpath,new)), \
+         [ (file, file.replace(extfrom,extto)) \
+           for file in filenames if file.endswith(extfrom) ] )
+</code></pre>
+
+<p>Which, come to think of it, doesn&#8217;t prove a point about either readability or brevity. <img src='http://girtby.net/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' />  But it is cool nonetheless&#8230;</p>]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   The Other Kind of Reentrant</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/archives/2006/12/17/easing-into-ubuntu/" />
+<link rel="next" href="http://girtby.net/archives/2006/12/18/saying-goodbye-to-typo/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; The Other Kind of Reentrant Comments Feed" href="http://girtby.net/archives/2006/12/18/the-other-kind-of-reentrant/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='start' title='Thunderbirds Are Go-ne' href='http://girtby.net/archives/2004/09/20/thunderbirds-are-go-ne/' />
+<link rel='prev' title='Easing into Ubuntu' href='http://girtby.net/archives/2006/12/17/easing-into-ubuntu/' />
+<link rel='next' title='Saying Goodbye To Typo' href='http://girtby.net/archives/2006/12/18/saying-goodbye-to-typo/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/archives/2006/12/18/the-other-kind-of-reentrant/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+    						
+      <div class="post">
+          <div class="metainfo">
+              <p>Posted<br />
+                <abbr class="published" title="Mon, 18 Dec 2006 05:28:00 -0500">18 December 2006 @ 5am</abbr></p>
+                <p>Tagged<br />
+                <a href="http://girtby.net/archives/category/nerd-factor-x/" title="View all posts in Nerd Factor X" rel="category tag">Nerd Factor X</a></p>
+                <p>Tags<br/><a href="http://girtby.net/archives/tag/c/" rel="tag">c++</a>, <a href="http://girtby.net/archives/tag/development/" rel="tag">development</a>, <a href="http://girtby.net/archives/tag/reentrant/" rel="tag">reentrant</a>, <a href="http://girtby.net/archives/tag/signals/" rel="tag">signals</a>, <a href="http://girtby.net/archives/tag/unix/" rel="tag">unix</a>, <a href="http://girtby.net/archives/tag/warstory/" rel="tag">warstory</a></p>		    </div>
+		    <div class="content">
+		        <h3>The Other Kind of Reentrant 
+		        </h3>
+		        <p>Gather around for a tale of adventure in the land of Linux c++ programming.</p>
+
+<p><span id="more-225"></span></p>
+
+<p>So there I was. Like a good developer, I was running unit tests on a module that I had been working on. The module was intended to spawn child processes, in order to read and write their stdin and stdout. Such processes are apparently known as co-processes. I had just finished implementing some enhancements to the code which would communicate with the co-processes using a pseudo-terminal instead of pipes, for those applications like <code>ssh</code> that read and write directly to the terminal. I was pretty pleased with myself, I could drive ssh as a co-process.</p>
+
+<div class="aside"><p>Yes, I&#8217;m well aware that I had just re-invented <code>expect</code>. However I had my reasons, namely the fact that the co-process was made available to the rest of the application as a c++ iostream, meaning that I could read and write it just like any other iostream. Besides, <code>expect</code> also drags in Tcl as a dependency, and I generally try to avoid dependencies where possible.</p></div>
+
+<p>The unit tests were failing. Intermittently. Urgh.</p>
+
+<h4>The Bug</h4>
+
+<p>What was supposed to happen was that I would close the pseudo-terminal master file descriptor. This would cause an EOF in the co-process which would then quit (I was just using <code>cat</code> as a co-process for unit testing purposes). My test harness would sleep waiting for a quit flag to be set. The quit flag was supposed to be set from within a handler for the <code>SIGCHLD</code> signal, but that wasn&#8217;t being called for some reason. Instead, my main routine would wake from sleep, see that the flag still wasn&#8217;t set, timeout, kill the co-process, and fail the unit test.</p>
+
+<p>At least, that&#8217;s what was happening 50% of the time. The other 50% of the time, I was getting the signal, setting the flag and passing the test. So I&#8217;m thinking some sort of race condition. I added more logging, to try and work out why the signal wasn&#8217;t arriving.</p>
+
+<p>This made it worse. Instead of failing the unit test, it was now hanging, deadlocked.</p>
+
+<p>The stack trace from the deadlocked unit test harness wasn&#8217;t very insightful. It consisted of <code>_dl_sysinfo_int80</code> at the top, followed by <code>__lll_mutex_lock_wait</code> and that&#8217;s about it. Not very enlightening.</p>
+
+<h4><code>strace</code> Points The Way</h4>
+
+<p>So then I tried another tack. Use <code>strace</code> to see if the <code>SIGCHLD</code> signal was even being delivered to my application. I found it was. I also found that the deadlock was quite reproducible (after a few attempts) and that the deadlock was indeed in a mutex acquisition routine as indicated by the stack trace. In each case, the immediately-preceeding system call was <code>stat64("/etc/localtime")</code>. Looking back through the syscall history, there were many similar calls, each time followed by an output log entry.</p>
+
+<p>This tipped me off to looking at the logging library that I was using, <a href="http://log4cpp.sourceforge.net/">log4cpp</a>. As it turned out, it was using <code>localtime</code>, a function that was not on my list (well, <a href="http://www.amazon.com/Programming-Environment-Addison-Wesley-Professional-Computing/dp/0201433079/sr=1-1/qid=1166433451/ref=sr_1_1/102-3621023-7572168?ie=UTF8&amp;s=books">W. Richard Stevens&#8217; list</a> anyway) of functions that are safe to call from a signal handler. And logging the incoming signal was the first thing that I was doing in my signal handler.</p>
+
+<p>I verified that, after removing all traces of logging from my signal handlers, the unit tests ran perfectly, to completion. But this was still a mildly unsatisfactory explanation. It didn&#8217;t explain why the signals weren&#8217;t being delivered or what mutex was locked that could not be acquired by the signal handler. And maybe I <a href="http://www.somethinkodd.com/oddthinking/2005/11/22/hunting-intermittent-bugs/">just hadn&#8217;t tested enough to reproduce it?</a> So I went digging further.</p>
+
+<h4><code>localtime_r</code> To The Rescue, Or Not</h4>
+
+<p>I came across <code>localtime_r</code> which was supposed to be a reentrant version of <code>localtime</code>. On a whim I re-enabled logging in my signal handlers, and converted log4cpp to use <code>localtime_r</code> instead of <code>localtime</code>. Result: deadlock.</p>
+
+<p>But this time I was able to get a proper stack trace. Here it is, elided:</p>
+
+<pre><code>#0  0x004fa7a2 in _dl_sysinfo_int80 () from /lib/ld-linux.so.2
+#1  0x005e7e5e in __lll_mutex_lock_wait () from /lib/tls/libc.so.6
+#2  0x0058ffa9 in _L_mutex_lock_1947 () from /lib/tls/libc.so.6
+...
+#10 0x0063b840 in __malloc_initialize_hook () from /lib/tls/libc.so.6
+...
+#15 0x0058dfbd in localtime_r () from /lib/tls/libc.so.6
+#16 0x0058dfbd in localtime_r () from /lib/tls/libc.so.6
+#17 0x00286c48 in log4cpp::TimeStampComponent::append (...) at PatternLayout.cpp:158
+...
+#26 0x0805c6e9 in main_impl::signal_handler (signal_id=17) at signal_handler.cpp:24
+#27 &lt;signal handler called&gt;
+#28 0x004fa7a2 in _dl_sysinfo_int80 () from /lib/ld-linux.so.2
+#29 0x005cb593 in __xstat64@GLIBC_2.1 () from /lib/tls/libc.so.6
+#30 0x00590118 in __tzfile_read () from /lib/tls/libc.so.6
+...
+#34 0x0059480f in strftime () from /lib/tls/libc.so.6
+#35 0x00286df9 in log4cpp::TimeStampComponent::append (...) at PatternLayout.cpp:175
+</code></pre>
+
+<p>Some interesting stuff here.</p>
+
+<p>At the top of the stack, our old friend <code>__lll_mutex_lock_wait</code> but it&#8217;s being called from within <code>__malloc_initialize_hook</code>. Ah-ha! It&#8217;s trying to do a <code>malloc</code> from within a signal handler. Naughty Naughty!</p>
+
+<p>A bit further up the stack, there&#8217;s our call to <code>localtime_r</code> from within log4cpp. As if to prove a point about its own reentrancy, <code>localtime_r</code> calls itself.</p>
+
+<p>Still further up, we see that the signal handler is indeed being called, but this time within the <code>stat64</code> call. It&#8217;s reading the timezone file or something, from within <code>strftime</code>. The call to <code>strftime</code> is just after the call to <code>localtime_r</code>, but it&#8217;s pretty easy to see why the deadlock occurs. It&#8217;s because the signal handler is trying to acquire a low-level lock on the heap that is already acquired by the main application. Result, deadlock.</p>
+
+<p>As for explaining the &#8220;missing&#8221; signal that I saw previously, I think what happened there was that the malloc actually failed, which caused the signal handler to exit before it could log (or do) anything. I haven&#8217;t gone back to test this theory though.</p>
+
+<h4>The Meaning Of Reentrant</h4>
+
+<p>So the main lesson to be learned from all this: <strong>reentrant doesn&#8217;t necessarily mean reentrant with respect to signals</strong>. The <a href="http://www.gnu.org/software/libc/manual/html_node/Nonreentrancy.html#Nonreentrancy">glibc manual</a> has the complete details and I&#8217;m now memorising every last word.</p>
+
+<p>This is not just of interest to those who work in quaint languages like c++. You advanced Python and Ruby guys have access to signal handlers too! Let this be a cautionary tale for you all.</p>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+			
+<!-- You can start editing here. -->
+
+
+<div id="comments" class="post">
+
+	<h3 class="comments_headers">3 Comments</h3>
+
+</div>
+	
+	
+			
+        <div class="post" id="comment-1515">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://plasmasturm.org/' rel='external nofollow' class='url'>Aristotle Pagaltzis</a><br />
+                <input type="hidden" name="post_date" value="Mon, 18 Dec 2006 05:28:00 -0500" />
+                <abbr class="commented" title="Mon, 18 Dec 2006 05:28:00 -0500">18 December 2006 @ 5am</abbr><br />
+                <a href="#comment-1515">#</a></p>
+			</div>
+			<div class="content">
+				<p>Uhm, this article features in <a href="http://del.icio.us/url/0de3b1d8bfb7b05299153757490a41ae">Mark Pilgrim’s bookmarks</a> with a nice description…</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1514">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://meat.net/' rel='external nofollow' class='url'>dbt</a><br />
+                <input type="hidden" name="post_date" value="Mon, 18 Dec 2006 05:28:00 -0500" />
+                <abbr class="commented" title="Mon, 18 Dec 2006 05:28:17 -0500">18 December 2006 @ 5am</abbr><br />
+                <a href="#comment-1514">#</a></p>
+			</div>
+			<div class="content">
+				<p>I&#8217;ve always used OpenBSD&#8217;s man pages as something of a bible for things like this, and  they don&#8217;t let me down here.</p>
+
+<p><a href="http://www.openbsd.org/cgi-bin/man.cgi?signal">OpenBSD&#8217;s signal man page</a></p>
+
+<p>OpenBSD did a security sweep of all signal handlers in the base OS a couple of years back to prevent signal-based security holes.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-4631">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://china.sylvainkalache.com/' rel='external nofollow' class='url'>Sylvain</a><br />
+                <input type="hidden" name="post_date" value="Mon, 18 Dec 2006 05:28:00 -0500" />
+                <abbr class="commented" title="Wed, 27 May 2009 16:05:00 -0400">27 May 2009 @ 4pm</abbr><br />
+                <a href="#comment-4631">#</a></p>
+			</div>
+			<div class="content">
+				<p>Hi,</p>
+
+<p>I presently working on a KSH script, first I worked with Telnet. I put it as a coprocess and still communicate with it. Then I wanted to do the same with SSH, but the communication fail!</p>
+
+<p>I haven&#8217;t understand all of your article because of my skill in C++ and my english level, but If I have understand, it&#8217;s not possible to communicate with SSH as a coprocess?</p>
+
+<p>Here a part of my script:</p>
+
+<p>ssh -T  <a href="mailto:logint@192.168.2.80">logint@192.168.2.80</a> |&amp;</p>
+
+<p>sleep 1
+print -p &#8220;password&#8221;</p> 
+							</div>
+		<br clear="left" />
+		</div>
+		
+	
+
+	<!-- Comment Form -->
+
+	    
+
+			
+				
+<div class="posttopline">
+	<span class="previous">&larr; <a href="http://girtby.net/archives/2006/12/17/easing-into-ubuntu/" rel="prev">Easing into Ubuntu</a></span>
+	<span class="next"><a href="http://girtby.net/archives/2006/12/18/saying-goodbye-to-typo/" rel="next">Saying Goodbye To Typo</a> &rarr;</span>
+</div>
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

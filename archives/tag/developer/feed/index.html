@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>girtby.net &#187; developer</title>
+	<atom:link href="http://girtby.net/archives/tag/developer/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Thu, 17 Sep 2009 14:27:44 +0000</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+			<item>
+		<title>Developer Essentials</title>
+		<link>http://girtby.net/archives/2008/05/11/developer-essentials/</link>
+		<comments>http://girtby.net/archives/2008/05/11/developer-essentials/#comments</comments>
+		<pubDate>Sun, 11 May 2008 13:09:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[developer]]></category>
+		<category><![CDATA[manifesto]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2008/05/15/developer-essentials</guid>
+		<description><![CDATA[A long, long time ago in a corporate universe far, far away&#8230; I was admitted to an elite group. A group where the members each had a manifesto. Chris was a founding member of the group, and has since published his manifesto on his blog. I don&#8217;t quite know how I was deemed worthy for [...]]]></description>
+			<content:encoded><![CDATA[<p>A long, long time ago in a corporate universe far, far away&#8230; I was admitted to an elite group. A group where the members each had a <em>manifesto</em>. Chris was a founding member of the group, and has since published his manifesto <a href="http://brainsnorkel.com/category/manifesto/">on his blog</a>. I don&#8217;t quite know how I was deemed worthy for membership. My manifesto was unpublished, it was mostly unfinished, and it was unseen by all but me. Regardless, I was admitted. A fraud. Living a lie. For years I have lived with this shame.</p>
+
+<p>At last all can be revealed, for here is my manifesto. Or as I originally called it, my List of Skills and Knowledge That All Developers Should Have. There are 9 items in no particular order, so I guess that makes it a set rather than a list for all you pedants in the audience (and I know you&#8217;re there).</p>
+
+<p>The idea is to document a set of skills that every developer should have. That&#8217;s <em>everyone</em> who develops software professionally. Doesn&#8217;t matter what type of position or company or industry; this is my stab at a body of knowledge that every serious developer should have. Essentials, essentially.</p>
+
+<p>It&#8217;s partly based on experience; specifically the experience of surprise I felt when a colleage, or random stranger on the internet, expressed ignorance at one of the items on this list. Other items on the list have come from an exacting process of posterior extraction. I&#8217;ll leave it to you to guess which is which, and who is who. Or at least skim the headings. Read on.</p>
+
+<p><span id="more-2921"></span></p>
+
+<h4>1. Makefiles</h4>
+
+<p>Opening the list with a clearly endangered species, a bold step you might think. So maybe I&#8217;m just Old Skool but so much of software development falls to the task of managing dependencies between files. And although you may not have to explicitly set these dependencies, you almost certainly should know how these dependencies are created and used by your tools. The Youth of Today are lazy good-for-nothings who spend all day in their fancy IDEs and do a clean rebuild at the first sign of trouble.</p>
+
+<p>By the way, Java developers who routinely, often unwittingly, introduce circular dependencies between source files and rely on the <em>compiler</em> to sort it all out may be feeling a bit smug at this point. Until they <a href="http://fishbowl.pastiche.org/2007/12/20/maven_broken_by_design">reflect</a> on their own build tools, that is.</p>
+
+<p>Java aside, the reality is that the principles of dependency-based build tools are core to software development in almost all languages. IDEs often encapsulate these principles. And even if you never physically write a Makefile yourself, the ability to diagnose a dependency problem is something that you will almost certainly have to do at some point.</p>
+
+<p>Which is not to say that you should really be using the <code>make</code> tool itself for serious software development, at least not while there are <a href="http://en.wikipedia.org/wiki/Perforce_Jam">perfectly</a>  <a href="http://www.cmake.org/HTML/index.html">reasonable</a> <a href="http://www.scons.org/">alternatives</a> <a href="http://rake.rubyforge.org/">available</a>. Or if you do insist on using make, at least be aware of its <a href="http://miller.emu.id.au/pmiller/books/rmch/">limitations</a> and <a href="/archives/2005/11/27/making-trouble">syntactical gotchas</a>.</p>
+
+<h4>2. Unicode</h4>
+
+<p>Even if you&#8217;re an English speaker and you are writing for an English-speaking audience you&#8217;ll quickly find that ASCII is très passé. But if you work outside that (increasingly) small set without Unicode, you&#8217;re toast. You need more characters, and Unicode has &#8216;em. So unless you are going to condemn yourself to writing software that never sees human-language text &mdash; and that is a very small niche indeed &mdash; my advice is to bite the bullet and start learning about Unicode. (Maybe start with BULLET POINT, U+2022).</p>
+
+<p>Hey, if nothing else you&#8217;ll be able to write snarky blog posts about how Unicode isn&#8217;t properly supported in your <a href="/archives/2007/3/9/c-1-unicode-0">language</a>, <a href="/archives/2007/5/20/1963-called-they-want-their-character-set-back">protocol</a>, or <a href="/archives/2005/10/7/internet-explorer-makes-me">browser</a> of choice.</p>
+
+<p>Still not convinced? Maybe <a href="http://www.joelonsoftware.com/printerFriendly/articles/Unicode.html">Joel</a> can be more persuasive than I. Or Google, who recently found that Unicode is now the <a href="http://googleblog.blogspot.com/2008/05/moving-to-unicode-51.html">most common character set on the web</a>.</p>
+
+<h4>3. Sniffers</h4>
+
+<p>In between running an application &#8216;blind&#8217; and a up-to-the-elbows session with a debugger, there are tools I will call &#8217;sniffers&#8217;, because the packet sniffer is one important example. But really I&#8217;m talking about the general class of tools that monitor running applications by what they do under the covers. What files they have open, what network traffic they generate, how much memory and CPU they use, and even what <a href="/archives/2005/7/17/new-offering-ktrace-parser">system calls</a> they make. Sometimes you need to use these tools on other people&#8217;s applications to find out why (for example) it crashes on startup. Sometimes it&#8217;s easier to use <code>lsof</code> to see what files your application has open than try to work through it with the debugger. And sometimes it&#8217;s just a learning experience to see at a high-level what your application is actually doing.</p>
+
+<p>With the increasing importance of network communications in just about all software these days, packet sniffers are a particularly handy tool. If you know how to drive a packet sniffer like tcpdump or ethereal, including filtering the output for a specific exchange, you have a) sufficient IP networking knowledge to call yourself a developer, and b) some handy skills for debugging (even when it&#8217;s <a href="/archives/2005/2/27/netgear-bugs">not your code</a>).</p>
+
+<h4>4. System Administration</h4>
+
+<p>In an enterprisey environment, the chances are that if you are developing something, someone else will be administering it on an ongoing basis in production. Of course your trusty systems engineer should document for you all of the unstated requirements that often accompany such deployments. But regardless there is no substitute for actually experiencing the pleasure and pain of installing, configuring, monitoring, backing up, and securing the software masterpiece you have just written. (Not to mention <em>using</em> it&#8230;)</p>
+
+<p>This means learning about system administration. Finding out about how best to develop applications to best conform to local conventions, how to ensure that user data is clearly separated from the application itself and can be backed up, and getting your logs to be auto-rotated so they don&#8217;t fill up the filesystem.</p>
+
+<p>My advice is to get yourself a server and try to keep it functioning 24/7. When you <a href="/archives/2005/11/15/great-moments-in-systems-administration-part-xxxiv">fail</a>, think about the <a href="/archives/2005/8/3/scheduled-task-slippage-and-breakage">lessons this implies</a> for the software you write. And years down the track, thank me for my sage advice.</p>
+
+<h4>5. C</h4>
+
+<p>There&#8217;s only one programming language in this list, and C is it. Not C++, or C#, but C.</p>
+
+<p>C is the language which is the basis for all others, often quite literally. That fancy Java VM? Written in C. The Ruby interpreter? C code again. Fancy .NET CLR? Python reference implementation? Lisp runtime? All C. In fact, name me a general-purpose programming language which is not primarily implemented using compiled C code. I can&#8217;t think of one.</p>
+
+<p>Why is it so? Because C is <em>the</em> most portable language around. Can you name a single hardware platform produced in the last 30 years which did <em>not</em> have a C compiler? It&#8217;s just unthinkable. From the most resource constrained to the most powerful computing systems in existence today, C is the lingua franca.</p>
+
+<p>Not all programmers code to the bare metal, it&#8217;s true. But even the most high-flying architecture astronaut would have to concede a knowledge of the fundamental architectural principles of modern computing equipment is prettymuch essential. And that&#8217;s what experience with C gives you, an understanding of stacks and heaps and pointers and all of the other things that your high-level language tries to hide from you and, inevitably, <a href="/archives/2006/12/18/the-other-kind-of-reentrant">doesn&#8217;t</a>.</p>
+
+<p>If this list was ordered, C would be number 1. You have to know C, end of story. [<strong>Update</strong>: <a href="/archives/2008/08/23/in-defence-of-c/">Apparently not</a>]</p>
+
+<h4>6. HTML</h4>
+
+<p>Hey did you hear there&#8217;s this amazing new thing called the Internet? Looks like it might catch on.</p>
+
+<p>Instead of passing Microsoft Word documents around the place, the Netizens prefer to pass around text files containing a &#8220;markup language&#8221; called &#8220;HTML&#8221;. It may look bizarre, with angle brackets and stuff everywhere, but the rules are really quite simple. There are only about a dozen tags that you have to know, so just learn them already. OK?</p>
+
+<p>Oh, and in case you were wondering, <a href="/archives/2005/6/13/this-is-what-you-see-this-is-what-you-get">the web is not WYSIWYG</a>, and nor is it Sharepoint (and that is a rant for another day&#8230;).</p>
+
+<h4>7. Source Control</h4>
+
+<p>Shipping vast directory trees about the place is <a href="http://msdn.microsoft.com/ssafe/">not source control</a>. In any serious team development situation, you must be able to branch and merge, which in turn means that you must know how to drive a source code control system that supports this. Or one that <a href="http://subversion.tigris.org/">comes close</a>.</p>
+
+<p>I&#8217;m not entirely sure how to be more precise here, but I suppose you should have some knowledge of the theory of source control systems, some common usage patterns (eg integration branches, release branches, etc) and detailed working knowledge of at least one implementation.</p>
+
+<p>Besides code reviews, choice of source code control systems is the most reliable source of religious wars between developers, so I&#8217;ll leave it at that. Just pick one and learn to use it.</p>
+
+<h4>8. Regular Expressions</h4>
+
+<p>Look, there&#8217;s no doubt that they can be kinda tricky, the implementations are frustratingly divergent, and they are a bit ugly. But once you&#8217;ve got the hang of them, regular expressions will make your life as a developer <em>so</em> much easier. If nothing else, you&#8217;ll at least be editing your source files a lot more effectively.</p>
+
+<p>Like any tool though, you have to learn when <em>not</em> to use them. Otherwise, as the saying goes, you&#8217;ll end up with <a href="http://regex.info/blog/2006-09-15/247">two problems</a>. Regexps should generally <em>not</em> be used to parse XML, for instance. They are great&#8217;n'all, but one day you will need a real parser.</p>
+
+<h4>9. A Scripting Language</h4>
+
+<p>Perl, Python, Ruby, JavaScript, Emacs-Lisp, VBScript (erk), I don&#8217;t care. Yes some of these are Real Languages also, and I don&#8217;t mean to malign them with the &#8220;scripting&#8221; pejorative. But the reason why all developers need to know scripting languages is &#8230; well to write scripts. Prototypes, build tools, test harnesses, packaging tools, etc etc, you need &#8216;em. Scripting languages are the way to write &#8216;em. And the rest of the team doesn&#8217;t have time to sit around with you reading the Camel book.</p>
+
+<h4>Omissions, Deliberate and Otherwise</h4>
+
+<p>&#8220;What about &lt;insert pet skill/knowledge here&gt;? Surely you can&#8217;t be considered a software developer without having some expertise with <em>that</em>!?&#8221;</p>
+
+<p>Yes I acknowledge up-front &mdash; well, at the end really &mdash; that my list is incomplete.</p>
+
+<p>Some things I have omitted deliberately, like any mention of Object-Oriented design for example. When considering this for inclusion, I imagined someone who might not have a lot of expertise with O-O design, but who is clearly a worthy developer. After coming up with an example, in this case Linus Torvalds &mdash; though apologies to Linus if he is an O-O expert unbeknownst to me &mdash; I rejected O-O as essential knowledge. It just is not applicable to many specialised domains of software development, and hence is not an &#8220;essential&#8221;. Ditto XML &#8211; I can imagine Linus going through his entire career without knowing very much at all about that topic (except as required by HTML, see above).</p>
+
+<p>At the other end of the scale, are the niche topics. How much assembly language does a software developer have to know these days? I&#8217;d argue not that much, really. You need to know basic systems architecture stuff like registers and addressing modes and such (see also C language above), but these days the need to drop to assembly is pretty uncommon. For this reason I tried to focus the above list on skills and knowledge that were of practical day-to-day benefit rather than topics that are learned in university and then forgotten.</p>
+
+<p>Other items seemed too vague or overly-broad to warrant inclusion in this list. It&#8217;s true that every developer should master their text editor of choice &#8211; but it&#8217;s hard to define exactly what that means. Likewise algorithms; which are essential? And every developer should know, through practice, about testing; what types are available and applicable, how to assess results, etc. But how to nail it down further than that?</p>
+
+<p>So there you have it, my manifesto, or what passes for such. Next time I&#8217;ll be more wary about accepting admission to groups that would have me as a member.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2008/05/11/developer-essentials/feed/</wfw:commentRss>
+		<slash:comments>17</slash:comments>
+		</item>
+	</channel>
+</rss>

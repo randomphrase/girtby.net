@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   ktrace parser</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/offerings/ktrace-parser/" />
+<link rel="next" href="http://girtby.net/offerings/ktrace-parser/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='up' title='Offerings' href='http://girtby.net/offerings/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/offerings/ktrace-parser/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+
+					
+		<div class="post">
+		    <div class="metainfo">
+		        <p>Posted<br />
+                <abbr class="published" title="Tue, 26 Dec 2006 21:07:18 -0500">26 December 2006 @ 9pm</abbr></p>
+                <p><span>Comments Off</span></p>
+		    </div>
+		    <div class="content">
+		        <h3>ktrace parser</h3>
+		        <p>Here is a script to parse, and show hopefully useful output from, the files produced by ktrace. ktrace is a BSD utility for logging each system call made by an application. I have been investigating ktrace as a way of tracking which files are touched during a software build, and this script is the first output of this investigation. The script can also produce a process tree from the ktrace output.</p>
+
+<p>Licensed under <a href="http://creativecommons.org/licenses/by-sa/2.1/au/">Creative Commons Attribution-ShareAlike 2.1 Australia</a></p>
+
+<h4>Features</h4>
+
+<ul>
+<li>Builds process tree</li>
+<li>Complete namei (file/directory) listing.</li>
+<li>Includes only successful system calls by default (can show all)</li>
+<li>Tracks current working directory of each process, for normalised namei resolution (ie relative to absolute paths)</li>
+<li>Detects when multithreaded app is encountered (see limitation below)</li>
+</ul>
+
+<h4>Requirements</h4>
+
+<ul>
+<li>ktrace/kdump</li>
+<li>Python 2.3 or later</li>
+</ul>
+
+<h4>Limitations</h4>
+
+<ul>
+<li>Thread information is not stored in the ktrace file, hence multithreaded apps are not handled. This is OK for software build tools because most of these are singlethreaded, but is a problem in general. The script does look for multiple outstanding system calls, and warns when one app has two or more outstanding calls to the same function. This is bad for the ktrace parser because it cannot determine how to match the returns with the calls.</li>
+<li>Other ktrace options besides &#8220;-t cn&#8221; (ie system calls, and namei translations) are not parsed currently.</li>
+</ul>
+
+<h4>Download</h4>
+
+<ul>
+<li><a href="/extras/ptrace.py">Version 0.1, 2005-07-17</a></li>
+</ul>
+
+<h4>Usage</h4>
+
+<p>To use this script you first need to generate a ktrace file of the process you want to investigate. You want to include at least the system calls themselves and the namei translations. Consult the manpage for more details on ktrace options. For example:</p>
+
+<pre><code>$ ktrace -i -t cn port build anacron
+</code></pre>
+
+<p>The -i argument ensures that all child processes are included in the trace. Here we are tracing a <a href="http://darwinports.opendarwin.org/">darwinports</a> build of anacron. You can substitute this for your build command (eg make, ant, xcodebuild, whatever).</p>
+
+<p>The above command produces a ktrace.out file, which you can feed into the ptrace script. Use the -t output option to see a process tree.</p>
+
+<pre><code>$ ptrace.py -t
+Process tree:
+ &lt;process_root&gt; [0]
+     ktrace [1371]
+     sh [1371]
+     tclsh8.4 [1371]
+         tclsh8.4 [1372]
+         sh [1372]
+             sh [1373]
+             patch [1373]
+[...]
+</code></pre>
+
+<p>Here each <code>execve</code> call generates a sibling, each <code>fork</code> a child process.</p>
+
+<p>You can also use the -n option to see a sorted list of files and directories touched by the build:</p>
+
+<pre><code>$ ptrace.py -n
+Namei list:
+.
+/
+/Library
+/Library/Frameworks
+/Library/Frameworks/StuffIt.framework
+/Library/Frameworks/StuffIt.framework/Resources
+[...]
+</code></pre>
+
+<p>Note that this list includes only system function calls that actually succeed (ie return a non-negative result). This helps filter <em>some</em> of the output of a typical software build, such as when C compilers search through include paths looking for headers.</p>
+
+<p>Another way to filter the output is to zoom in on a specific process. Identify the pid in the process tree output above and you can show only files accessed by that process or it&#8217;s decendents:</p>
+
+<pre><code>$ ptrace.py -n -p 1383
+Namei list:
+/
+/Library/Frameworks
+/System/Library/Frameworks
+/dev/urandom
+/opt
+[...]
+</code></pre>
+
+<p>You can see exactly what processes used each of these files using the -v option:</p>
+
+<pre><code>$ ptrace.py -n -v -p 1383
+[...]
+/System/Library/Frameworks
+    stat(): gnumake [1426],gnumake [1431],gnumake [1436],gnumake [1441],gnumake [1446],gnumake [1451],gnumake [1456],gnumake [1461]
+/dev/urandom
+    open(): gnumake [1425],gnumake [1430],gnumake [1435],gnumake [1440],gnumake [1445],gnumake [1450],gnumake [1455],gnumake [1460],gnumake [1466]
+</code></pre>
+
+<p>Again we&#8217;re filtering on successful system calls only, but you can include the failed ones using the -a option. For a complete summary of options, use -h:</p>
+
+<pre><code>$ ptrace.py -h
+usage: ptrace.py [options]
+
+options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -t, --process-tree    Show process tree
+  -n, --namei           Show namei (file) usage
+  -p ROOT_PID, --pid=ROOT_PID
+                        Show only results from the specified process and
+                        children
+  -d STARTCWD, --starting-dir=STARTCWD
+                        Set the working directory for the first process
+  -f TRACEFILE, --trace-file=TRACEFILE
+                        Trace file to read, defaults to ktrace.out
+  -v, --verbose         Print call info for process tree and vice-versa
+  -a, --all-calls       Include failed system calls in output
+</code></pre>
+
+<p>That&#8217;s it, share and enjoy!</p>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+					
+		
+<div class="postnoline">
+	<span class="previous">&larr; <a href="/">Back to Home</a></span>
+</div>
+
+<br clear="all" />
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

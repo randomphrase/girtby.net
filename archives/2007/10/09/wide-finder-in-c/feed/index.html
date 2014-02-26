@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
+<channel>
+	<title>Comments on: Wide Finder in C++</title>
+	<atom:link href="http://girtby.net/archives/2007/10/09/wide-finder-in-c/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net/archives/2007/10/09/wide-finder-in-c/</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Wed, 30 Sep 2009 01:44:34 -0400</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+		<item>
+		<title>By: Michel S.</title>
+		<link>http://girtby.net/archives/2007/10/09/wide-finder-in-c/comment-page-1/#comment-1629</link>
+		<dc:creator>Michel S.</dc:creator>
+		<pubDate>Tue, 09 Oct 2007 11:07:00 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/11/09/wide-finder-in-c#comment-1629</guid>
+		<description>&lt;p&gt;Hi Alastair,&lt;/p&gt;
+
+&lt;p&gt;Did a similar implementation in C++, but without the multimap -- slower than Ruby in the single-thread case, and on par in speed (but with higher CPU usage) with 2 and 4 threads, on a dual-core machine.&lt;/p&gt;
+
+&lt;p&gt;I guess C++ is not the language for string processing.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Hi Alastair,</p>
+
+<p>Did a similar implementation in C++, but without the multimap &#8212; slower than Ruby in the single-thread case, and on par in speed (but with higher CPU usage) with 2 and 4 threads, on a dual-core machine.</p>
+
+<p>I guess C++ is not the language for string processing.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Richard A</title>
+		<link>http://girtby.net/archives/2007/10/09/wide-finder-in-c/comment-page-1/#comment-1630</link>
+		<dc:creator>Richard A</dc:creator>
+		<pubDate>Tue, 09 Oct 2007 11:07:00 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/11/09/wide-finder-in-c#comment-1630</guid>
+		<description>&lt;p&gt;Tim has started collecting results on each WF implementation on his new toy Sun server (&lt;a href=&quot;http://www.tbray.org/ongoing/When/200x/2007/10/30/WF-Results&quot;&gt;http://www.tbray.org/ongoing/When/200x/2007/10/30/WF-Results&lt;/a&gt;), but it seems he hasn&#039;t/can&#039;t yet run C++ programs such as yours on this highly minimal platform. Is there anything you can do to help out with this? Is it a problem with building Boost? I&#039;d like to see how the C++ version does against the various speed demons in that table...&lt;/p&gt;
+
+&lt;p&gt;Regarding the explicit iterator usage, you &lt;strong&gt;might&lt;/strong&gt; be able to use boost::lambda or boost::bind to keep the code terse (i.e. through the _1 macros), but doing that might just increase the portability problems.&lt;/p&gt;
+
+&lt;p&gt;As far as regex performance goes, C++ is only limited here by the implementation used - there&#039;s no silver bullet to the functions in Ruby (or Perl, for that matter). There&#039;s no good reason why you couldn&#039;t simply embed calls to either of these languages regex handlers in a C++ program to get the best of both worlds.&lt;/p&gt;
+
+&lt;p&gt;One question I have is does the app perform any better if the sorting is done after the filtering is completed? Theoretically, the code needs a global lock on the map before writing new results to it, since two threads may try to increase a count from 0 (not in the map) to 1 simultaneously. Additionally, once there&#039;s already a key in the map, that key&#039;s entry should be locked for incrementing beyond 1. That would make it a major bottleneck in any multithreaded system. I&#039;m pretty sure the target platform&#039;s atomic int behaviour won&#039;t save you here (since for expressions like i = i + 1, that&#039;s just for the read(i) and write(i), not the whole expression). Don&#039;t even think about making this a multiprocess system without some fundamental restructuring...&lt;/p&gt;
+
+&lt;p&gt;That said, I can imagine a sophisticated compiler and library that can automatically determine which data structures can be in which process, and how each would be isolated from the other. Similar (but simpler!) analysis already leads to the inlining and escape analysis done for heap to stack object conversions in some virtual machine-based languages.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Tim has started collecting results on each WF implementation on his new toy Sun server (<a href="http://www.tbray.org/ongoing/When/200x/2007/10/30/WF-Results">http://www.tbray.org/ongoing/When/200x/2007/10/30/WF-Results</a>), but it seems he hasn&#8217;t/can&#8217;t yet run C++ programs such as yours on this highly minimal platform. Is there anything you can do to help out with this? Is it a problem with building Boost? I&#8217;d like to see how the C++ version does against the various speed demons in that table&#8230;</p>
+
+<p>Regarding the explicit iterator usage, you <strong>might</strong> be able to use boost::lambda or boost::bind to keep the code terse (i.e. through the _1 macros), but doing that might just increase the portability problems.</p>
+
+<p>As far as regex performance goes, C++ is only limited here by the implementation used &#8211; there&#8217;s no silver bullet to the functions in Ruby (or Perl, for that matter). There&#8217;s no good reason why you couldn&#8217;t simply embed calls to either of these languages regex handlers in a C++ program to get the best of both worlds.</p>
+
+<p>One question I have is does the app perform any better if the sorting is done after the filtering is completed? Theoretically, the code needs a global lock on the map before writing new results to it, since two threads may try to increase a count from 0 (not in the map) to 1 simultaneously. Additionally, once there&#8217;s already a key in the map, that key&#8217;s entry should be locked for incrementing beyond 1. That would make it a major bottleneck in any multithreaded system. I&#8217;m pretty sure the target platform&#8217;s atomic int behaviour won&#8217;t save you here (since for expressions like i = i + 1, that&#8217;s just for the read(i) and write(i), not the whole expression). Don&#8217;t even think about making this a multiprocess system without some fundamental restructuring&#8230;</p>
+
+<p>That said, I can imagine a sophisticated compiler and library that can automatically determine which data structures can be in which process, and how each would be isolated from the other. Similar (but simpler!) analysis already leads to the inlining and escape analysis done for heap to stack object conversions in some virtual machine-based languages.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2007/10/09/wide-finder-in-c/comment-page-1/#comment-1631</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Tue, 09 Oct 2007 11:07:00 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/11/09/wide-finder-in-c#comment-1631</guid>
+		<description>&lt;p&gt;Excellent comments Richard.&lt;/p&gt;
+
+&lt;p&gt;I have been waiting to see if Tim gets to give my code a run on his 8-core box. For the record, I&#039;m not expecting much; as I said above, my implementation was mainly about conciseness and readability, not performance.&lt;/p&gt;
+
+&lt;p&gt;I did look at boost::lambda and boost::bind but, like I said, they didn&#039;t do anything for readability or conciseness. Quite happy to admit operator error though; I haven&#039;t had much experience with boost::lambda.&lt;/p&gt;
+
+&lt;p&gt;I&#039;ve thought a bit about performance lately, particularly in light of &lt;a href=&quot;/archives/2007/11/6/required-viewing&quot;&gt;recently-acquired knowledge&lt;/a&gt;, and would like to tinker some more in this space. A couple of optimisations have presented themselves, mainly as a result of reading about other attempts, particularly the interesting &lt;a href=&quot;http://effbot.org/zone/wide-finder.htm&quot;&gt;python implementation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;One thing that the python implementation does is to filter the input lines using a non-regex search first. This allows the classic Boyer-Moore (or whatever) string search algorithms to kick in, which are apparently a lot more efficient than a regex search. I see no reason why I couldn&#039;t do the same in my implementation, just using &lt;code&gt;std::search&lt;/code&gt; even!&lt;/p&gt;
+
+&lt;p&gt;Parallelizing the code is more tricky, obviously, but the same techniques would apply here as with the python implementation: chunk the input and process it in multiple threads. Again, no real obstacle to adapt this to my code.&lt;/p&gt;
+
+&lt;p&gt;There is no need to synchronise writes to the &lt;code&gt;counts_by_key&lt;/code&gt; map - just give each thread a local copy of the map. You need to synchronise the writes to the &lt;code&gt;keys_by_count&lt;/code&gt; multimap of course, but again maybe a thread-local multimap might be the way to go, prior to a final non-parallel aggregation step? Something to think about anyway. Like you I have some doubts as to whether there would be any practical benefit here? (Again, Herb Sutter&#039;s memory latency talk is looming large)&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Excellent comments Richard.</p>
+
+<p>I have been waiting to see if Tim gets to give my code a run on his 8-core box. For the record, I&#8217;m not expecting much; as I said above, my implementation was mainly about conciseness and readability, not performance.</p>
+
+<p>I did look at boost::lambda and boost::bind but, like I said, they didn&#8217;t do anything for readability or conciseness. Quite happy to admit operator error though; I haven&#8217;t had much experience with boost::lambda.</p>
+
+<p>I&#8217;ve thought a bit about performance lately, particularly in light of <a href="/archives/2007/11/6/required-viewing">recently-acquired knowledge</a>, and would like to tinker some more in this space. A couple of optimisations have presented themselves, mainly as a result of reading about other attempts, particularly the interesting <a href="http://effbot.org/zone/wide-finder.htm">python implementation</a>.</p>
+
+<p>One thing that the python implementation does is to filter the input lines using a non-regex search first. This allows the classic Boyer-Moore (or whatever) string search algorithms to kick in, which are apparently a lot more efficient than a regex search. I see no reason why I couldn&#8217;t do the same in my implementation, just using <code>std::search</code> even!</p>
+
+<p>Parallelizing the code is more tricky, obviously, but the same techniques would apply here as with the python implementation: chunk the input and process it in multiple threads. Again, no real obstacle to adapt this to my code.</p>
+
+<p>There is no need to synchronise writes to the <code>counts_by_key</code> map &#8211; just give each thread a local copy of the map. You need to synchronise the writes to the <code>keys_by_count</code> multimap of course, but again maybe a thread-local multimap might be the way to go, prior to a final non-parallel aggregation step? Something to think about anyway. Like you I have some doubts as to whether there would be any practical benefit here? (Again, Herb Sutter&#8217;s memory latency talk is looming large)</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2007/10/09/wide-finder-in-c/comment-page-1/#comment-1632</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Tue, 09 Oct 2007 11:07:00 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/11/09/wide-finder-in-c#comment-1632</guid>
+		<description>&lt;blockquote&gt;
+  &lt;p&gt;I see no reason why I couldn&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+		<content:encoded><![CDATA[<blockquote>
+  <p>I see no reason why I couldn</p>
+</blockquote>]]></content:encoded>
+	</item>
+</channel>
+</rss>

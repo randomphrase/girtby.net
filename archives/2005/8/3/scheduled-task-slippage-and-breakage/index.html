@@ -1,0 +1,417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   Scheduled Task Slippage and Breakage</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/archives/2005/08/01/i-censorbot/" />
+<link rel="next" href="http://girtby.net/archives/2005/08/17/microsoft-patents-ipod-or-something-else-entirely/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Scheduled Task Slippage and Breakage Comments Feed" href="http://girtby.net/archives/2005/08/03/scheduled-task-slippage-and-breakage/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='start' title='Thunderbirds Are Go-ne' href='http://girtby.net/archives/2004/09/20/thunderbirds-are-go-ne/' />
+<link rel='prev' title='I, Censorbot' href='http://girtby.net/archives/2005/08/01/i-censorbot/' />
+<link rel='next' title='Microsoft Patents iPod &#8230; or Something Else Entirely' href='http://girtby.net/archives/2005/08/17/microsoft-patents-ipod-or-something-else-entirely/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/archives/2005/08/03/scheduled-task-slippage-and-breakage/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+    						
+      <div class="post">
+          <div class="metainfo">
+              <p>Posted<br />
+                <abbr class="published" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr></p>
+                <p>Tagged<br />
+                <a href="http://girtby.net/archives/category/nerd-factor-x/" title="View all posts in Nerd Factor X" rel="category tag">Nerd Factor X</a>,  <a href="http://girtby.net/archives/category/provocation/" title="View all posts in Provocation" rel="category tag">Provocation</a></p>
+                		    </div>
+		    <div class="content">
+		        <h3>Scheduled Task Slippage and Breakage 
+		        </h3>
+		        <p>Despite a few famous delays, I think there is a good case to be made to say that Microsoft generally ships their software in a timely manner. The business of releasing software is surprisingly difficult and, having gone through it many times myself, I have some respect for Microsoft&#8217;s ability to meet their release schedules.</p>
+
+<p>However, the old truism &#8220;on time, bug-free, full-featured, pick any two&#8221; still applies. Something&#8217;s got to give. And this is, IMO, why a lot of Microsoft products feel kindof half-arsed. I&#8217;ve picked on <a href="/archives/2005/05/19/more-powerpoint-ui-potshots/">various</a> <a href="/archives/2005/03/31/what-does-this-button-do/">UI</a> inconsistencies before, but there are also <a href="/archives/2005/07/26/the-war-on-security/">security problems</a>, behavioral oddities, and other <a href="/archives/2005/03/17/dont-use-wingdings/">quirks</a> in Microsoft products which are easily traceable to the realities of shipping software.</p>
+
+<p>Corner-cutting like this is perfectly understandable and forgivable. But it is disappointing and frustrating when these corners <em>remain</em> cut, even in subsequent revisions of the software. Instead Microsoft forges ahead and introduces more and more half-arsery in the eternal quest for features, but in my subjective judgement rarely (if ever) fixes past breakages.</p>
+
+<p><span id="more-124"></span></p>
+
+<p>As an example, let me pick a Windows feature that is coincidentally related to timing and schedules. I must disclaim first that some of the details here are based on some admittedly hazy recollection of Windows operating system history. Please excuse any inaccuracy.</p>
+
+<p>Windows NT 4.0 had a feature which would launch programs automatically at a scheduled time. It was called <a href="http://www.microsoft.com/technet/prodtechnol/windows2000serv/evaluate/featfunc/taskschd.mspx">scheduled tasks</a> has survived since then in more-or-less the same form with only marginal improvements in Windows 2000. It is the same in Windows XP and Windows Server 2003. I believe it was also available in Windows 98 . Here is a screenshot of the XP interface:</p>
+
+<p><img src="/images/winxp-scheduled-tasks.png" alt="Screenshot of Windows XP Scheduled Tasks control panel" width="474" height="346" class="centered"/></p>
+
+<p>I have been using this feature since its release and have always found it fantastically difficult to configure. What the task would do if there was no desktop for user interaction? Where output would be sent? How do you invoke it ahead of schedule for testing purposes? How would errors be reported? It was up to the poor user to answer all of these questions, Windows provides little help.</p>
+
+<p>[Incidentally, Microsoft's half-arsery is someone else's opportunity, which is why <a href="http://www.firedaemon.com/">FireDaemon</a>  and various ports of cron have flourished.]</p>
+
+<p>Of the above issues, the question of error notification is the one that bothers the most. If you are going to trust the operating system to run the task for you, you need a way to be notified if the task could not be run for any reason. Maybe the Windows engineers realised this, because they provided (in Windows 2000 at least) a feature called &#8220;Notify me of missed tasks&#8221;. This is still accessible from the Advanced menu that appears in addition to the regular explorer menus when you open the Scheduled Tasks control panel (visible in the screenshot above).</p>
+
+<p>There are at least two minor problems with the &#8220;notify me of missed tasks&#8221; feature: it requires administrator access to activate and actually recieve the notifications; also it is off by default. I was initially puzzled by these minor flaws until I realised the major, fatal, flaw in the &#8220;notify me of missed tasks&#8221; feature: It Does Not Mean What You Think It Means.</p>
+
+<blockquote>
+  <p><strong>Notify Me of Missed Tasks.</strong> Contrary to its name, the Notify Me of Missed Tasks option notifies you only of Task Scheduler&#8217;s failure, not
+  of individual missed tasks. Tasks that fail to run because of corrupt or missing executables don&#8217;t kick off a notification.</p>
+  
+  <p><cite>&#8211; <a href="http://www.windowsitpro.com/Windows/Articles/ArticleID/16220/pg/2/2.html">Windows IT Pro magazine</a> (subscription or <a href="http://bugmenot.com/view.php?url=http%3A%2F%2Fwindowsitpro.com">bugmenot</a> required)</cite></p>
+</blockquote>
+
+<p>I verified this. Create a new scheduled task and it will fail quietly and without notification, even if you are an adminstrator, and have enabled the &#8220;Notify me of Missed Tasks&#8221; option.</p>
+
+<p>[By the way, the above was the only documentation I could find of the complete breakage of this feature. Google reveals a multitude of Windows Tips sites who have obviously never used the feature they're tipping. I guess you get what you pay for on the Internets.]</p>
+
+<p>If you see the &#8220;notify me of missed tasks&#8221; option you will probably assume that when enabled it will, you know, notify you of missed tasks. If so you&#8217;ve just made an ass out of u. In my opinion the worst possible flaw a user interface element can have is to state that it is going to do some action, then when activated actually do something else entirely. Frankly Windows could be improved by just removing this broken option.</p>
+
+<p>This morning I discovered, the hard way, that my scheduled backup jobs had not been run for over a month.</p>
+
+<p>Oh yes. A month.</p>
+
+<p>&#8220;I wonder when the backups were last run&#8221; is a thought that rather fortuitously occurred to me this morning. I didn&#8217;t actually need to restore anything from backup.</p>
+
+<p>[As an aside, it turns out that the underlying cause of the backup job failure can be traced to more Windows corner-cutting. The part of Windows that enforces the corporate policy of changing passwords every 60 days does not talk to the part of Windows that stores the passwords for my scheduled jobs. I had forgotten to go into the scheduled tasks and update the passwords, and so my backup job was attempting to use my old Windows password. There is no good reason why I should have to remember this obscure task; that's what computers are for, surely?]</p>
+
+<p>Regardless of the reason for the scheduled task failure, Windows has no way to tell me about it. And, given that the <a href="http://www.engadget.com/entry/3476140848325705/">life clock</a> of my scheduled tasks starts to blink after 60 days, the lack of notification turns out to be a deal-breaker. I count myself as lucky to only lose a months worth of backups, and nothing else.</p>
+
+<p>So like I said, the Scheduled Task feature is possibly a victim of tight deadlines and limited resources, and I understand perfectly why Windows NT might have these types of flaws. And it&#8217;s disappointing that a proper notification mechanism for missed scheduled tasks wasn&#8217;t added to Windows 2000 or XP or Server 2003. But what is just infuriating is the fact that during this period of Windows development they added notification for <em>other things</em> that were nowhere near as important. Of course, I&#8217;m speaking of this:</p>
+
+<p><img src="/images/unused-icons.png" height="106" width="332" alt="'There are unused icons on your desktop' alert raised by Windows XP" class="centered" /></p>
+
+<p>Pan, the Arcadian Lord of the Flocks and Pastures tells me that this alert is the <a href="http://www.foxglove.co.uk/pan/pan02.html">fifth most popular cause of suicide in the Western world, and is banned in Sweden and Estonia</a>. I can see why.</p>
+
+<p>So at this point I&#8217;m reciting the mantra of Occam&#8217;s Razor and trying very hard not to imagine a meeting of the Windows engineers where they sit around considering the relative importance of missed backup jobs versus a messy desktop and decide to nag their users about the latter and not the former.</p>
+
+<p>Yes, I&#8217;m trying not to picture that meeting.</p>
+
+<p>Trying <em>really</em> hard.</p>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+			
+<!-- You can start editing here. -->
+
+
+<div id="comments" class="post">
+
+	<h3 class="comments_headers">13 Comments</h3>
+
+</div>
+	
+	
+			
+        <div class="post" id="comment-1205">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://brainsnorkel.com' rel='external nofollow' class='url'>Chris</a><br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1205">#</a></p>
+			</div>
+			<div class="content">
+				<p>This is also one of my favourite moments in Windows user interface design.  It&#8217;s the ultimate counter-example to disrupt user interface design discussions based on &#8220;Well Windows behaves like this, so we should&#8221; discussions.</p>
+
+<p>When you launch the &#8220;Add Scheduled Tasks&#8221; notepaddy thing, you find yourself in ye olde wizard interface.</p>
+
+<p>The niggle I have is that this wizard starts you at a page that&#8217;s completely useless to &#8230; everyone&#8230; and forces you to click &#8220;Next&#8221; to do anything.  Clicking &#8220;next&#8221; is surprising, because the anything you want to do is still an eternity away.  Clicking next makes your cursor goes busy and the wizard looks like it&#8217;s hanging, (often) for minutes, while Windows dredges up all of the registered executables on your machine and presents them in a tiny window with a very long scrollbar.  It is only now that you have access to the &#8220;Browse&#8230;&#8221; button, which for me is almost what I want on page 1&#8230; along with command line parameters&#8230;  am I so different from regular people?</p>
+
+<p>Note also the icon used for the Scheduled Task Wizard in the taskbar.</p>
+
+<p>Half-assed doesn&#8217;t begin to describe this dusty corner of Windows.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1206">
+		    <div class="metainfo">
+                <p>Posted by<br />Peter<br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1206">#</a></p>
+			</div>
+			<div class="content">
+				<p>Of course having a &#8220;desktop cleanup wizard&#8221; has to be one of the most stupid user interface concepts. Surely this is a one step operation that is only made more complex by presenting it in a wizard.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1207">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://www.visualcron.com' rel='external nofollow' class='url'>mrd</a><br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1207">#</a></p>
+			</div>
+			<div class="content">
+				<p>A better alternative to scheduled tasks is VisualCron -&gt; <a HREF="http://www.visualcron.com" rel="nofollow">http://www.visualcron.com</a></p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1208">
+		    <div class="metainfo">
+                <p>Posted by<br />Kevin G.<br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1208">#</a></p>
+			</div>
+			<div class="content">
+				<p>Excellent (and very entertaining) article.</p>
+
+<p>To be clear, the actual behavior of &#8220;Notify Me of Missed Tasks&#8221; appears to be &#8220;Put up an annoying and misleading message in a pop-up.&#8221;  The pop-up reads &#8220;&#8221;Some tasks did not execute at their scheduled times because the Task Scheduler service was not running.&#8221;  What it really means is that it is <em>hypothetically possible</em> that some tasks might not have executed, because the Task Scheduler service was, however briefly, not running.  Note that Windows does not actual compare the scheduled task times against the service outage.  The pop-up is especially annoying and misleading during a restart of the workstation.</p>
+
+<p>The workaround to disable these annoying messages is to disable (uncheck) &#8220;Notify Me of Missed Tasks.&#8221;  As documented above, this option doesn&#8217;t do what it says, anyway!</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1209">
+		    <div class="metainfo">
+                <p>Posted by<br />William Stacey<br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1209">#</a></p>
+			</div>
+			<div class="content">
+				<p>Actually, it does what it says.  When scheduler starts, it enums the tasks and checks their NextRunTime to see if task is ready to run, if so, it runs it.  However, if the NextRunTime is too far in the past, it knows the task did not run so it throws the Missed message.  The logic is something like:
+     if ( task.nextRunTime + TimeSpan.FromSeconds(MaxLagSeconds)</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1210">
+		    <div class="metainfo">
+                <p>Posted by<br />alastair<br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1210">#</a></p>
+			</div>
+			<div class="content">
+				<p>William, I&#8217;m not sure if you were just replying to Kevin G&#8217;s point, but my main problem with it is that there are many reasons why a scheduled task can fail to run, but only one of these reasons will cause the error notification. Either the wording needs to be fixed to more accurately represent the behaviour, or the task scheduler needs to be fixed to notify of all possible errors when scheduling tasks.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1211">
+		    <div class="metainfo">
+                <p>Posted by<br />William Stacey<br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1211">#</a></p>
+			</div>
+			<div class="content">
+				<p>&#8220;Either the wording needs to be fixed to more accurately represent the behaviour, or the task scheduler needs to be fixed to notify of all possible errors when scheduling tasks.&#8221;</p>
+
+<p>I totally agree.  IMO, you should get error notifications for everything.  But then should they be logged in Event log of with popup.  I don&#8217;t like popups because they are to easy to click away and forget.   As for naming.  Not sure.  An error task is not a missed task, it actually started from the schedulers point of view, but had some kind of error along the way.  A missed task is one that the scheduler never even tried to kick off because it was too far in the past.  So I think the name is ok for that.  They need to add another check box called &#8220;Notify on Error&#8221; as well.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1212">
+		    <div class="metainfo">
+                <p>Posted by<br />Oliver Reid<br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1212">#</a></p>
+			</div>
+			<div class="content">
+				<p>While we are all here can someone tell me how to set the TS so that tasks are visible if the user they are running under is logged in. I have 2 w2003 Server machines: on one the DOS window opens and I can watch the task run. On the other it is all invisible. AFAIK the settings are identical on both machines.</p>
+
+<p>Many, Many thanks</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1213">
+		    <div class="metainfo">
+                <p>Posted by<br />Confused<br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1213">#</a></p>
+			</div>
+			<div class="content">
+				<p>Um&#8230; nice rant but no solution&#8230;</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1214">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://www.securityfocus/myfavoritesite.com' rel='external nofollow' class='url'>Jestin Lightner</a><br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1214">#</a></p>
+			</div>
+			<div class="content">
+				<p>im looking for a 3rd party solution right now. ive notified microsoft that the steps they offer as a solution are nothing but verification of the default settings and that if compatibility problems exist (yeah right, IF) we should be informed. In my opinion i consider it to be lazy/sloppy programming
+which is why we have such security problems today; they dont give a damn.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1215">
+		    <div class="metainfo">
+                <p>Posted by<br />Darren Nagle<br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1215">#</a></p>
+			</div>
+			<div class="content">
+				<p>Windows Task Scheduler is indeed a piece of work!  We use sqlSentry for Task Scheduler alerting &#8212; it&#8217;s the only product I&#8217;ve seen that makes Task Scheduler even remotely managable&#8230; don&#8217;t be fooled by the name, sqlSentry fully supports both visual Outlook-style drag-and-drop scheduling for Task Scheduler, as well as SMTP-based email alerts for task failures, hung tasks, long runtimes, short runtimes, etc!  You can buy the product with only the Task Scheduler module, and it runs $195 per Task Scheduler.  It&#8217;s a very cool product all the way around &#8212; easy to use, and the company has excellent support too.</p>
+
+<p>More info on their alerting:
+<a href="http://www.sqlsentry.net/sql-mail-notification-alerting.asp" rel="nofollow">http://www.sqlsentry.net/sql-mail-notification-alerting.asp</a> </p>
+
+<p>They have a 30-day trial download:
+<a href="http://www.sqlsentry.net/optimizing-sql-server-software-download-request.asp" rel="nofollow">http://www.sqlsentry.net/optimizing-sql-server-software-download-request.asp</a> </p>
+
+<p>The trial doesn&#8217;t allow you to drag-and-drop to reschedule tasks &#8212; I guess they don&#8217;t want you to be able to clean up your schedules too much before you buy <img src='http://girtby.net/wp-includes/images/smilies/icon_wink.gif' alt=';-)' class='wp-smiley' />   Otherwise it&#8217;s fully functional though.</p>
+
+<p>I hope this helps!</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1216">
+		    <div class="metainfo">
+                <p>Posted by<br />Jason Hill<br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1216">#</a></p>
+			</div>
+			<div class="content">
+				<p>I have found the Desktop Cleanup Wizard to be one of the more annoying Windows XP defaults. It is one of the first things I disable on a new install. You can disable Desktop Cleanup Wizard by performing the following steps:</p>
+
+<ol>
+<li>Right click on the desktop and choose Properties (I&#8217;ll leave out any other means of accessing this due to differences in Control Panel&#8217;s Classic and Category views)</li>
+<li>Click on the Display tab</li>
+<li>Click the Customize Desktop button</li>
+<li>Uncheck Run Desktop Cleanup Wizard every 60 days</li>
+</ol>
+
+<p>While you&#8217;re in there you might want to enable My Computer and friends on the desktop, thats the second thing I do on a new install <img src='http://girtby.net/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1217">
+		    <div class="metainfo">
+                <p>Posted by<br />Bob Smiley<br />
+                <input type="hidden" name="post_date" value="Wed, 03 Aug 2005 21:37:21 -0400" />
+                <abbr class="commented" title="Wed, 03 Aug 2005 21:37:21 -0400">3 August 2005 @ 9pm</abbr><br />
+                <a href="#comment-1217">#</a></p>
+			</div>
+			<div class="content">
+				<p>I&#8217;ve been dealing with the Task Scheduler problem (where IT forces you to change your system password, and it breaks your scheduled tasks), since I worked for a company back in 2000 that used WinNT.  Now, I&#8217;m working for a company in 2007 on WinXP, and still have the same problem.  I&#8217;d complain more, but your article pretty much sums up my frustration.  Like most folks, I don&#8217;t want more features in newer versions of Windows&#8230;I just want the features currently there to either a) be made to work (of broke, dysfunctional or un-user-friendly), or b) made better (if not broke, but could be tweaked to add more functionality).</p>
+
+<p>Not to sound like a Linux dork or start a flame war, but I just recently (about the beginning of 2007) switched my personal comp at home over to GNU/Linux Ubuntu.  Over that time, I&#8217;ve been more and more annoyed with Windows as I find out it offers lots of functionality for little to no cost, while for the same functionality in Windows, you have to spend an arm and a leg buying tons of 3rd party programs to supplement Windows stripped-down or lackluster features.</p>
+
+<p>I&#8217;ve grown up with Windows, and use it at work, so I&#8217;m a bit sentimental about using it.  But it just seems like it could be so much better.  But, the push is to add more bells and whistles, because that seems to be their reasoning for selling the same product again and again.  I&#8217;m really tired of driving a car with an engine that
+still stalls sometimes, and an A/C that only partially works, but the mechanic thinks just adding new rims to the car will make me happy.  <em>sigh</em></p> 
+							</div>
+		<br clear="left" />
+		</div>
+		
+	
+
+	<!-- Comment Form -->
+
+	    
+
+			
+				
+<div class="posttopline">
+	<span class="previous">&larr; <a href="http://girtby.net/archives/2005/08/01/i-censorbot/" rel="prev">I, Censorbot</a></span>
+	<span class="next"><a href="http://girtby.net/archives/2005/08/17/microsoft-patents-ipod-or-something-else-entirely/" rel="next">Microsoft Patents iPod &#8230; or Something Else Entirely</a> &rarr;</span>
+</div>
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

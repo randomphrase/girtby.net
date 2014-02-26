@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>girtby.net &#187; mandatory filtering</title>
+	<atom:link href="http://girtby.net/archives/tag/mandatory-filtering/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Thu, 17 Sep 2009 14:27:44 +0000</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+			<item>
+		<title>Bayes&#8217; Theorem 1, Mandatory Filtering 0</title>
+		<link>http://girtby.net/archives/2008/07/31/bayes-theorem-1-mandatory-filtering-0/</link>
+		<comments>http://girtby.net/archives/2008/07/31/bayes-theorem-1-mandatory-filtering-0/#comments</comments>
+		<pubDate>Thu, 31 Jul 2008 11:41:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Provocation]]></category>
+		<category><![CDATA[Verisimilitude]]></category>
+		<category><![CDATA[acma]]></category>
+		<category><![CDATA[efa]]></category>
+		<category><![CDATA[mandatory filtering]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2008/07/31/bayes-theorem-1-mandatory-filtering-0</guid>
+		<description><![CDATA[Unfortunately the Rudd government are pressing forward with their proposal for mandatory internet filtering. Recently, Electronic Frontiers Australia summarised the results of an analysis of current ISP-level filters commissioned by my old mates at ACMA. The figures are frankly begging to be plugged into Bayes&#8217; Theorem, so let&#8217;s do that.
+
+
+
+Firstly some terms. Let &#8220;P&#8221; be [...]]]></description>
+			<content:encoded><![CDATA[<p>Unfortunately the Rudd government are pressing forward with their <a href="/archives/2008/1/3/where-s-the-mandatory-filtering-for-government-stupidity">proposal for mandatory internet filtering</a>. Recently, Electronic Frontiers Australia <a href="http://www.efa.org.au/2008/07/31/efa-says-filtering-trial-a-failure/">summarised the results</a> of an <a href="http://www.acma.gov.au/webwr/_assets/main/lib310554/isp-level_internet_content_filtering_trial-report.pdf">analysis of current ISP-level filters</a> commissioned by my old <a href="/archives/2006/2/10/a-futile-gesture">mates</a> at <acronym title="Australian Communications and Media Authority">ACMA</acronym>. The figures are frankly <em>begging</em> to be plugged into <a href="http://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes&#8217; Theorem</a>, so let&#8217;s do that.</p>
+
+<p><span id="more-3233"></span></p>
+
+<p>Firstly some terms. Let &#8220;P&#8221; be the event of discovering a Porn site on the internet. Let &#8220;N&#8221; be the converse event: discovering a Non-porn site. Let &#8220;+&#8221; be the event of a postive detection by an ISP filter. And obviously by &#8220;porn&#8221; I mean &#8220;inappropriate material&#8221;, the definition of which may or may not coincide with the Government&#8217;s; for the (admittedly rhetorical) purposes of this exercise it doesn&#8217;t matter too much.</p>
+
+<p>One of the key assumptions we have to make is P(P), or the probability of discovering a porn site. Obviously this depends greatly on how hard you&#8217;re searching for it! Now I don&#8217;t know about you, but I find that I almost <em>never</em> stumble upon a porn site by accident. Almost all of my regular news sources are relatively clean, or use the NSFW tag generously. But I&#8217;m quite happy to concede that my web habits are non-representative. So let&#8217;s just assume a regular family internet connection with a moderate amount of parental supervision, with a 5% chance of accidentally stumbling on porn. This still seems quite high, but it will suffice for now.</p>
+
+<p>To do the calculation we also need:</p>
+
+<ul>
+<li>P(N), which is pretty obviously 1 &#8211; P(P), or 0.95.</li>
+<li>P(+|P) is the probability of a positive detection by the filter, given a porn site. According to the report, this varies from 87&ndash;98%. Let&#8217;s be generous and say a probability of 0.95.</li>
+<li>P(+|N) is the probability of a false positive detection by the filter. Again the results vary, this time from 1.3&ndash;7.8%. Let&#8217;s use a similarly generous probability of 0.04.</li>
+<li>P(+) is the probability of a positive detection given any input. This is calculated by adding P(+|P) × P(P) and P(+|N) × P(N).</li>
+</ul>
+
+<p>Now using Bayes&#8217; Theorem we can calculate P(P|+). In other words: if a filter blocks a given site, what is the probability that it was porn?</p>
+
+<pre><code>P(P|+) = P(+|P) × P(P) / P(+)
+       = 0.95 × 0.05 / ( 0.95 × 0.05 + 0.04 × 0.95 )
+       = 0.55
+</code></pre>
+
+<p>In other words, <strong>each time the filter blocks something there is an about even chance that it wasn&#8217;t porn</strong>. In my opinion this is sufficiently damning evidence to show the worthlessness of any of these filters.</p>
+
+<p>So obviously we made some assumptions about the prevalence of porn, and hence the probability of discovering it. If we assume the internet is 50% porn, then the filter starts to look vaguely effective:</p>
+
+<pre><code>P(P|+) = P(+|P) × P(P) / P(+)
+       = 0.95 × 0.5 / (0.95 × 0.5 + 0.04 × 0.5)
+       = 0.96
+</code></pre>
+
+<p>But this is clearly a ridiculous assumption. If, on the other hand, we say that P(P) is lower, maybe a 1% chance of stumbling on porn &mdash; which frankly still sounds high to me &mdash; then the filters look even more useless:</p>
+
+<pre><code>P(P|+) = P(+|P) × P(P) / P(+)
+       = 0.95 × 0.01 / ( 0.95 × 0.01 + 0.04 × 0.99 )
+       = 0.19
+</code></pre>
+
+<p>So if the filter is blocking something, there&#8217;s an 80% chance that it wasn&#8217;t porn! Fantastic! For some reason these calculations seem to be missing from the ACMA report.</p>
+
+<p>See the <a href="http://www.efa.org.au/censorship/mandatory-isp-blocking/">EFA analysis</a> for more on the mandatory filtering, and while you&#8217;re there, join up. I have.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2008/07/31/bayes-theorem-1-mandatory-filtering-0/feed/</wfw:commentRss>
+		<slash:comments>8</slash:comments>
+		</item>
+	</channel>
+</rss>

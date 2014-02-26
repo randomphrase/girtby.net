@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
+<channel>
+	<title>Comments on: The Switch</title>
+	<atom:link href="http://girtby.net/archives/2006/12/07/the-switch/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net/archives/2006/12/07/the-switch/</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Wed, 30 Sep 2009 01:44:34 -0400</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+		<item>
+		<title>By: Aristotle Pagaltzis</title>
+		<link>http://girtby.net/archives/2006/12/07/the-switch/comment-page-1/#comment-1508</link>
+		<dc:creator>Aristotle Pagaltzis</dc:creator>
+		<pubDate>Thu, 07 Dec 2006 18:16:39 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2008/02/09/the-switch#comment-1508</guid>
+		<description>&lt;blockquote&gt;
+  &lt;p&gt;it goes away next reboot. No idea what’s going on.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It’s called Udev.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<blockquote>
+  <p>it goes away next reboot. No idea what’s going on.</p>
+</blockquote>
+
+<p>It’s called Udev.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/12/07/the-switch/comment-page-1/#comment-1509</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Thu, 07 Dec 2006 18:16:39 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2008/02/09/the-switch#comment-1509</guid>
+		<description>&lt;p&gt;OK, got it working.&lt;/p&gt;
+
+&lt;p&gt;The magic incantation: &lt;code&gt;sudo dpkg-reconfigure mdadm&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The really frustrating part is that there are a lot of people on the various forums who are offering solutions but none of them really address the underlying problem. Several suggest hacks to create the &lt;code&gt;/dev/md0&lt;/code&gt; device entries either manually with &lt;code&gt;MAKEDEV&lt;/code&gt; or to get udev to do it using some undocumented (!) &lt;code&gt;links.conf&lt;/code&gt; file. Others suggest hacks to the &lt;code&gt;mdadm.conf&lt;/code&gt; file to tell it what raid arrays are configured (which should not be necessary because this information is stored in the filesystem superblocks anyway). So many answers, but all of them band-aids over the real underlying cause.&lt;/p&gt;
+
+&lt;p&gt;The way I understand it, it should work is as follows:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;System starts up, early in the startup sequence it initialises udev and the filesystem&lt;/li&gt;
+&lt;li&gt;Certain filesystems are marked as raid-autodetect, which triggers the kernel to load the relevant module (&lt;code&gt;md_mod&lt;/code&gt; I believe).&lt;/li&gt;
+&lt;li&gt;Later in the system boot sequence, mdadm-raid is invoked. This scans the partitions for raid-arrays previously created and &quot;assembles&quot; them. It also creates the &lt;code&gt;/dev/md0&lt;/code&gt; entries by communicating with udev.&lt;/li&gt;
+&lt;li&gt;The newly-created raid device is mounted in accordance with &lt;code&gt;/etc/fstab&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The raid monitoring daemon is started.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I think what was happening in my case was that the kernel wasn&#039;t set up somehow to trigger the md module to be loaded. This needs to be done in a special way because you normally need md to be compiled into the kernel. &lt;code&gt;dpkg-reconfigure mdadm&lt;/code&gt; obviously takes care of it, and I&#039;d like to know exactly how it does this. But maybe that&#039;s something for another time.&lt;/p&gt;
+
+&lt;p&gt;Despite spending far too much time on this, I&#039;m glad I&#039;ve got a better understanding about it all, and that it seems to be working properly without hacking. Disappointed that the correct solution was so difficult to come across.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>OK, got it working.</p>
+
+<p>The magic incantation: <code>sudo dpkg-reconfigure mdadm</code></p>
+
+<p>The really frustrating part is that there are a lot of people on the various forums who are offering solutions but none of them really address the underlying problem. Several suggest hacks to create the <code>/dev/md0</code> device entries either manually with <code>MAKEDEV</code> or to get udev to do it using some undocumented (!) <code>links.conf</code> file. Others suggest hacks to the <code>mdadm.conf</code> file to tell it what raid arrays are configured (which should not be necessary because this information is stored in the filesystem superblocks anyway). So many answers, but all of them band-aids over the real underlying cause.</p>
+
+<p>The way I understand it, it should work is as follows:</p>
+
+<ol>
+<li>System starts up, early in the startup sequence it initialises udev and the filesystem</li>
+<li>Certain filesystems are marked as raid-autodetect, which triggers the kernel to load the relevant module (<code>md_mod</code> I believe).</li>
+<li>Later in the system boot sequence, mdadm-raid is invoked. This scans the partitions for raid-arrays previously created and &#8220;assembles&#8221; them. It also creates the <code>/dev/md0</code> entries by communicating with udev.</li>
+<li>The newly-created raid device is mounted in accordance with <code>/etc/fstab</code>.</li>
+<li>The raid monitoring daemon is started.</li>
+</ol>
+
+<p>I think what was happening in my case was that the kernel wasn&#8217;t set up somehow to trigger the md module to be loaded. This needs to be done in a special way because you normally need md to be compiled into the kernel. <code>dpkg-reconfigure mdadm</code> obviously takes care of it, and I&#8217;d like to know exactly how it does this. But maybe that&#8217;s something for another time.</p>
+
+<p>Despite spending far too much time on this, I&#8217;m glad I&#8217;ve got a better understanding about it all, and that it seems to be working properly without hacking. Disappointed that the correct solution was so difficult to come across.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/12/07/the-switch/comment-page-1/#comment-1510</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Thu, 07 Dec 2006 18:16:39 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2008/02/09/the-switch#comment-1510</guid>
+		<description>&lt;p&gt;The second drive is installed, added to the array, and it&#039;s rebuilding now:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;alastair@pierre:~$ cat /proc/mdstat
+Personalities : [raid1]
+md0 : active raid1 sdb[0] sda1[1]
+      244195904 blocks [2/1] [_U]
+      [&gt;....................]  recovery =  0.9% (2265920/244195904) finish=68.9min speed=58440K/sec
+
+unused devices: &lt;none&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lovely. 68 mins a lot quicker than 11 hours.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>The second drive is installed, added to the array, and it&#8217;s rebuilding now:</p>
+
+<pre><code>alastair@pierre:~$ cat /proc/mdstat
+Personalities : [raid1]
+md0 : active raid1 sdb[0] sda1[1]
+      244195904 blocks [2/1] [_U]
+      [&gt;....................]  recovery =  0.9% (2265920/244195904) finish=68.9min speed=58440K/sec
+
+unused devices: &lt;none&gt;
+</code></pre>
+
+<p>Lovely. 68 mins a lot quicker than 11 hours.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/12/07/the-switch/comment-page-1/#comment-1511</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Thu, 07 Dec 2006 18:16:39 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2008/02/09/the-switch#comment-1511</guid>
+		<description>&lt;p&gt;To cap it all off, it looks like &lt;a href=&quot;http://people.fruitsalad.org/adridg/bobulate/index.php?url=archives/320-Thank-you,-openSUSE-from-a-FreeBSD-guy.html&quot;&gt;there &lt;em&gt;is&lt;/em&gt; a way of getting the nVidia driver working on FreeBSD/amd64&lt;/a&gt;. If only I&#039;d discovered this about a week ago.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>To cap it all off, it looks like <a href="http://people.fruitsalad.org/adridg/bobulate/index.php?url=archives/320-Thank-you,-openSUSE-from-a-FreeBSD-guy.html">there <em>is</em> a way of getting the nVidia driver working on FreeBSD/amd64</a>. If only I&#8217;d discovered this about a week ago.</p>]]></content:encoded>
+	</item>
+</channel>
+</rss>

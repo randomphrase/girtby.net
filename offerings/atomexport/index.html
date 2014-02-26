@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   Content Export with Atom</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/offerings/atomexport/" />
+<link rel="next" href="http://girtby.net/offerings/atomexport/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='up' title='Offerings' href='http://girtby.net/offerings/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/offerings/atomexport/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+
+					
+		<div class="post">
+		    <div class="metainfo">
+		        <p>Posted<br />
+                <abbr class="published" title="Tue, 26 Dec 2006 21:06:26 -0500">26 December 2006 @ 9pm</abbr></p>
+                <p><span>Comments Off</span></p>
+		    </div>
+		    <div class="content">
+		        <h3>Content Export with Atom</h3>
+		        <p>Draft version 0.3, 2006-09-27</p>
+
+<p>Alastair Rankine <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;:&#x61;&#x6c;&#x61;&#x73;&#116;&#97;&#105;r&#x40;&#x67;&#x69;&#114;&#116;&#98;&#121;.&#x6e;&#x65;&#x74;">&#x61;&#x6c;&#x61;&#x73;&#116;&#97;&#105;r&#x40;&#x67;&#x69;&#114;&#116;&#98;&#121;.&#x6e;&#x65;&#x74;</a></p>
+
+<p><strong>NOTE</strong>: This is a tentative proposal. Nothing is concrete, let alone implemented. I just wanted to
+get something out there that people can mull over. Comments definitely appreciated, either in email
+to me or the atom-syntax list, or in the <a href="/articles/2006/08/14/towards-a-common-blog-export-format">accompanying blog
+post</a>..</p>
+
+<h2>Introduction</h2>
+
+<p>With the explosion in adoptation of software for weblogging and similar forms of online publishing,
+there is now a significant quantity of content contained in the persistent storage formats used by
+such software. This content cannot currently be extracted easily, as the storage formats are
+typically either proprietary or undocumented or just rapidly changing. The effect on the user is
+that it becomes a difficult proposition to migrate this content from one system to
+another. Additionally, software authors are faced with a combinatorial explosion, where each new
+system must understand all of the storage formats of those that came before in order to maximise the
+potential to attract users from those systems.</p>
+
+<p>What is needed is a common interchange format, which can be used when content authors migrate from
+one system to another. This should allow the content to be represented with maximum fidelity and
+minimise the amount of manual re-entry required.</p>
+
+<p>The goal of this document is to specify how to adapt the Atom syndication format [RFC 4287] to make
+it suitable as a common interchange format. Atom is currently deployed as a syndication format, but
+with only relatively minor extensions and usage conventions, can be applied to the task of content
+exchange between blogging engines. This was <a href="http://www.intertwingly.net/wiki/pie/EchoVision">originally envisioned as a goal for the Atom protocol</a>.</p>
+
+<h3>Scope</h3>
+
+<p>This document describes how existing Atom constructs can be used to represent content. More
+specifically, it defines <em>conventions</em> for existing Atom constructs, but always in a manner that is
+conformant to the letter and spirit of [RFC 4287] and derived standards.</p>
+
+<p>The emphasis of this document is on the content stored by a given software system, and not its
+configuration. In other words it is not anticipated that this export format entirely captures the
+configuration of a given blogging system. For example, configuration of display themes, spam
+protection, or database are deliberately excluded from this format. As a consequence, this format is
+<em>not</em> deemed suitable for backup purposes for a given blogging system.</p>
+
+<p>It is also assumed that media files referenced by links from within the content are not required to
+be represented in this format. The same applies to resources refered to from &#8220;enclosure&#8221; links.</p>
+
+<h3>Dependencies</h3>
+
+<p>This document is dependent on the following:</p>
+
+<ul>
+<li>Atom syndication format (defined in [RFC 4287])</li>
+<li>Atom threading extensions (defined in [RFC 4685])</li>
+<li>Atom Publishing Protocol (currently in draft)</li>
+</ul>
+
+<h3>Conventions</h3>
+
+<p>The <code>atom:</code> prefix is used to refer to the Atom namespace <code>http://www.w3.org/2005/Atom</code>.</p>
+
+<p>The <code>thr:</code> prefix is used to refer to the Atom feed thread namespace
+<code>http://purl.org/syndication/thread/1.0</code>.</p>
+
+<p>The <code>app:</code> prefix is used to refer to the Atom Publishing Protocol namespace
+<code>http://purl.org/atom/app#</code>.</p>
+
+<p>The URL prefix <code>http://purl.org/syndication/export/</code> is temporary only, pending assignment. This is
+used below to construct schemes for specifying certain information using Atom categories.</p>
+
+<p>It is assumed that the implementation is already capable of generating Atom feed documents, and
+hence described below are the differences between these documents and the blog export document. The
+term &#8220;similar to feed&#8221; is used when a given Atom element should be populated in a similar manner to
+an Atom feed document, and generally the differences will be listed.</p>
+
+<p>The Atom feed thread extensions [RFC 4685] are preferred to represent discussions. However in the
+absence of a complete implementation of these extensions, a workaround is provided below.</p>
+
+<p>The Atom Publishing Protocol [APP-id] is referenced by this specification but a complete
+implementation is not required by Atom export implementations. However some exported information is
+specified using elements from the Atom Publishing Protocol, as referenced below.</p>
+
+<p>The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;,
+&#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in [RFC
+2119].</p>
+
+<h2>Atom Export Documents</h2>
+
+<p>An Atom export document is an Atom feed document, except that it contains entries for all content on
+the blog. This includes all articles, published or unpublished. It also includes any managed pages,
+comments, trackbacks and pingbacks. All such entries are included in the export document.</p>
+
+<p>No ordering is specified for the individual content items in the feed, except where dependencies
+exist between entries. The <code>thr:in-reply-to</code> element is used to define dependencies, as described
+below. Thus, such elements SHOULD be used to refer to previous <code>entry</code> elements (in document order).</p>
+
+<h3>Example</h3>
+
+<p>The following is an example of an Atom export document.</p>
+
+<p><typo:code lang="xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom"
+      xmlns:thr="http://purl.org/syndication/thread/1.0"
+      xmlns:app="http://purl.org/atom/app#"></p>
+
+<p>
+  <subtitle type="html">The Brillant Paula Bean</subtitle>
+  <id>tag:example.com,2005:Typo</id>
+  <generator uri="http://www.typosphere.org" version="4.0">Typo</generator>
+  <link href="http://example.com/xml/atom10/export.xml" rel="self" type="application/atom+xml"/>
+  <link href="http://example.com/" rel="alternate" type="text/html"/>
+  <author>
+    <name>Paula</name>
+    <email>paula@example.com</email>
+  </author>
+  <updated>2006-08-07T07:15:35-04:00</updated>
+  <app:categories app:fixed="yes">
+    <category term="brillant" scheme="http://example.com/category/brillant" label="Brillant"/>
+  </app:categories></p>
+
+<p><entry>
+    <author>
+      <name>Paula</name>
+    </author>
+    <id>http://example.com/id/articles/123</id>
+    <published>2006-08-07T06:07:00-04:00</published>
+    <updated>2006-08-07T07:15:35-04:00</updated>
+    <title type="html">Get Paula</title>
+    <link href="http://example.com/articles/get-paula" rel="alternate" type="text/html"/>
+    <category term="brillant" scheme="http://example.com/category/brillant" label="Brillant"/>
+    <summary type="html">I just wrote this brillant code.</summary>
+    <category term="http://daringfireball.net/projects/markdown" label="Markdown"
+              scheme="http://purl.org/syndication/export/contentsyntax"/>
+    <content type="text" xml:space="preserve">I just wrote this <em>brillant Java code</em>. Have a look!</p>
+
+<pre><code>public String getPaula() {
+    return paula;
+}&lt;/content&gt;
+</code></pre>
+
+<p></entry></p>
+
+<p><entry>
+    <author>
+      <name>Anonymous</name>
+    </author>
+    <id>http://example.com/id/comments/1532</id>
+    <published>2006-08-07T06:07:30-04:00</published>
+    <updated>2006-08-07T07:15:35-04:00</updated>
+    <title type="html">WTF!?!</title>
+    <link href="http://example.com/articles/get-paula#comment-123" rel="alternate" type="text/html"/>
+    <link href="http://example.com/id/articles/123" rel="related" type="text/html"/>
+    <category term="comment" scheme="http://purl.org/syndication/export/1.0" label="Comment"/>
+    <thr:in-reply-to ref="http://example.com/id/articles/123"/>
+    <content type="text">First post!</content>
+  </entry></p>
+
+<p><entry>
+    <author>
+      <name>Daily WTF</name>
+      <uri>http://thedailywtf.com/</uri>
+    </author>
+    <id>http://example.com/id/trackbacks/3123</id>
+    <published>2006-08-07T06:07:30-04:00</published>
+    <updated>2006-08-07T07:15:35-04:00</updated>
+    <title type="html">Trackback from Daily WTF</title>
+    <thr:in-reply-to ref="http://example.com/id/articles/123"/>
+    <link href="http://example.com/articles/get-paula#trackback-3123" rel="alternate" type="text/html"/>
+    <category term="comment" scheme="http://purl.org/syndication/export/1.0" label="Comment"/>
+    <summary type="html">Paula shows off her brillant code</summary>
+  </entry></p>
+
+<p></feed>
+</typo:code></p>
+
+<h2>Element Definitions</h2>
+
+<p>Unless stated otherwise, all elements are populated similarly to the feed.</p>
+
+<h3><code>atom:feed</code> Element</h3>
+
+<p>Populated similarly to the feed. The following differences apply:</p>
+
+<ul>
+<li><p>An instance of an Atom Publishing Protocol Category Document SHOULD be included. This defines the
+list of valid categories which may appear in subsequent <code>atom:entry</code> elements.</p></li>
+<li><p>An <code>atom:contributor</code> element is REQUIRED for each <em>defined</em> author. This MAY include registered
+users which do not have authoring privileges.</p></li>
+</ul>
+
+<h3><code>atom:entry</code> Element</h3>
+
+<p>Populated similarly to the feed. The following differences apply:</p>
+
+<ul>
+<li><p>An <code>entrytype</code> category SHOULD be used to indicate the type of entry. For example, the
+<code>entrytype</code> category can be used to specify a static page instead of a regular blog article, or
+to disambiguate a trackback from a comment.</p></li>
+<li><p><code>atom:category</code> elements SHOULD be used similarly to the feed, but where these do not match the
+defined categories in the <code>atom:feed</code> element, they can be assumed to be &#8220;tags&#8221;. See discussion
+for <code>app:categories</code> in [APP-id].</p></li>
+<li><p><code>app:control</code> elements MAY be used to indicate the control status for an entry. In particular,
+draft status may be indicated by the <code>app:draft</code> sub-element.</p></li>
+<li><p>A <code>contentsyntax</code> category MAY be used to indicate a syntax for the content element. This MUST
+only be present when the <code>atom:content</code> element contains text (as indicated by the <code>text</code>
+attribute), and should be used only when a registered MIME type is not available. See further
+discussion below regarding <code>atom:content</code>.</p></li>
+</ul>
+
+<p>Note that content may be inline or out of line, but the former is preferred for obvious reasons.</p>
+
+<h3><code>atom:content</code> Element</h3>
+
+<p>This SHOULD be populated with the &#8220;raw&#8221; content of the item, as it was originally entered by the
+author. Note this differs from current syndication usage, where the &#8220;cooked&#8221; (typically HTML) format
+is used, but it is intended to conform to the usage of this element within the Atom Publishing
+Protocol.</p>
+
+<p>For example, <a href="">Markdown</a> and <a href="">Textile</a> are both commonly-used syntaxes to enable the generation
+of HTML using textual conventions instead of explicit markup. Although either of these can be used
+to generate HTML, it is not (in general) feasible to reconstruct the original textual source from
+HTML. Hence it is highly preferred that all Atom export implementations that implement custom syntax
+for their content allow exporting in that syntax.</p>
+
+<p>Registered MIME types SHOULD be used in the <code>type</code> attribute, as discussed in [RFC 4287]. Where
+these are not available (such as for Markdown and Textile, as of this writing), the <code>contentsyntax</code>
+category SHALL be employed (see below).</p>
+
+<p>There is a potential for interoperability problems here. Specifically, if the syntax chosen by the
+exporter is not recognised by the importer, or the target publishing platform itself. In this case
+it is suggested that implementations support a &#8220;cooked&#8221; mode for content as well. This should be
+indicated by a suitable MIME type for the <code>type</code> attribute, and the absence of the <code>contentsyntax</code>
+category.</p>
+
+<p>An <code>xml:space="preserve"</code> attribute MUST be used if whitespace is significant in the content. This
+is necessary even when the signficance of the whitespace is unambiguously specified by a
+<code>contentsyntax</code> category.</p>
+
+<h3><code>contentsyntax</code> category</h3>
+
+<p>This is an <code>atom:category</code>, constructed as follows.</p>
+
+<ul>
+<li><p>The <code>scheme</code> attribute MUST be set to <code>http://purl.org/syndication/export/contentsyntax</code>.</p></li>
+<li><p>The <code>term</code> attribute MUST be set to a URL uniquely identifying the syntax (or <code>autopara</code> as noted
+below)</p></li>
+<li><p>The <code>label</code> attribute SHOULD be set to the name of the syntax.</p></li>
+</ul>
+
+<p>For example, the Markdown syntax would be specified as follows:</p>
+
+<p><typo:code lang="xml">
+<atom:category term="http://daringfireball.net/projects/markdown"
+               scheme="http://purl.org/syndication/export/contentsyntax"
+               label="Markdown"/>
+</typo:code></p>
+
+<p>A special case is the commonly-encountered syntax which supports a subset of HTML, and additionally
+inserts <code>&lt;p&gt;</code> and <code>&lt;br/&gt;</code> elements according to whitespace. This syntax is unlikely to be
+standardised, nor be identifiable from a single URL, hence instead will be identified by
+<code>term="autopara"</code> instead of a URL.</p>
+
+<h3><code>entrytype</code> category</h3>
+
+<p>This is an <code>atom:category</code>, constructed as follows.</p>
+
+<ul>
+<li><p>The scheme attribute MUST be set to <code>http://purl.org/syndication/export/entrytype</code>.</p></li>
+<li><p>The term attribute MUST be set to one of the following:</p>
+
+<ul>
+<li><code>page</code> for static pages;</li>
+<li><code>comment</code> for manually-entered comments;</li>
+<li><code>trackback</code> for trackbacks</li>
+</ul></li>
+<li><p>The label attribute is optional and undefined.</p></li>
+</ul>
+
+<p>When <code>comment</code> or <code>trackback</code> is used, it can be assumed that the entry contains feedback on a
+previously-encountered entry.</p>
+
+<h2>References</h2>
+
+<p>[RFC 2119] <a href="http://rfc.net/rfc2119.html">Key words for use in RFCs to Indicate Requirement Levels</a></p>
+
+<p>[RFC 4287] <a href="http://atompub.org/rfc4287.html">The Atom Syndication Format</a></p>
+
+<p>[RFC 4685] Atom Threading Extensions</p>
+
+<p>[APP-id] <a href="http://ietfreport.isoc.org/idref/draft-ietf-atompub-protocol/">The Atom Publishing Protocol</a></p>
+
+<h2>Acknowledgements</h2>
+
+<p>Thanks to Aristotle Pagaltzis and Scott Laird for their comments on drafts of this document.</p>
+
+<h2>Revision History</h2>
+
+<ul>
+<li><p><strong>2006-09-27</strong>: RFC 2119 conformance, various minor cleanups.</p></li>
+<li><p><strong>2006-09-18</strong>: Added requirement for <code>xml:space</code> in <code>atom:content</code> where necessary. Removed all
+ <code>export:</code> elements, instead used APP and Thread extensions where appropriate, and category
+ elements otherwise.</p></li>
+<li><p><strong>2006-08-14</strong>: Initial draft</p></li>
+</ul>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+					
+		
+<div class="postnoline">
+	<span class="previous">&larr; <a href="/">Back to Home</a></span>
+</div>
+
+<br clear="all" />
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

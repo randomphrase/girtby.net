@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   Making Trouble</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/archives/2005/11/23/now-you-see-it-now-you-dont/" />
+<link rel="next" href="http://girtby.net/archives/2005/11/27/punctuation-insensitivity/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Making Trouble Comments Feed" href="http://girtby.net/archives/2005/11/27/making-trouble/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='start' title='Thunderbirds Are Go-ne' href='http://girtby.net/archives/2004/09/20/thunderbirds-are-go-ne/' />
+<link rel='prev' title='Now You See It, Now You Dont' href='http://girtby.net/archives/2005/11/23/now-you-see-it-now-you-dont/' />
+<link rel='next' title='Punctuation Insensitivity' href='http://girtby.net/archives/2005/11/27/punctuation-insensitivity/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/archives/2005/11/27/making-trouble/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+    						
+      <div class="post">
+          <div class="metainfo">
+              <p>Posted<br />
+                <abbr class="published" title="Sun, 27 Nov 2005 12:52:57 -0500">27 November 2005 @ 12pm</abbr></p>
+                <p>Tagged<br />
+                <a href="http://girtby.net/archives/category/nerd-factor-x/" title="View all posts in Nerd Factor X" rel="category tag">Nerd Factor X</a></p>
+                		    </div>
+		    <div class="content">
+		        <h3>Making Trouble 
+		        </h3>
+		        <p>Here is a puzzle for software developers who know about the <a href="http://www.gnu.org/software/make/">GNU make</a> tool. Answer after the fold below.</p>
+
+<p>Say we have a makefile target for a file called <code>timestamp</code>. As you might guess, the file contains the current time as reported by the <code>date</code> utility. Let&#8217;s see what happens when we try to <code>make</code> it:</p>
+
+<pre><code>$ ls timestamp
+ls: timestamp: No such file or directory
+$ make timestamp
+make: `timestamp' is up to date.
+$ ls timestamp
+ls: timestamp: No such file or directory
+</code></pre>
+
+<p>Hmm. What&#8217;s going on here? Perhaps timestamp is a <a href="http://www.gnu.org/software/make/manual/html_chapter/make_4.html#SEC41">phony target</a>? Maybe the debug output will be more enlightening:</p>
+
+<pre><code>$ make -dr timestamp
+GNU Make 3.80
+[... irrelevant output snipped ...]
+Updating goal targets....
+Considering target file `timestamp'.
+ File `timestamp' does not exist.
+ Finished prerequisites of target file `timestamp'.
+Must remake target `timestamp'.
+Successfully remade target file `timestamp'.
+make: `timestamp' is up to date.
+</code></pre>
+
+<p>OK that didn&#8217;t help. So I bet you&#8217;re dying to look at the Makefile.</p>
+
+<pre><code>DATE=/bin/date
+
+timestamp :
+    ${DATE) &gt; ${@}
+</code></pre>
+
+<p>You don&#8217;t need to know anything special about makefiles to solve this one. Perhaps the only non-obvious part is that the <code>@</code> variable refers to &#8220;the current target&#8221;, in this case the <code>timestamp</code> file.</p>
+
+<p>Worked it out yet?</p>
+
+<p><span id="more-157"></span></p>
+
+<p>This problem is caused by &#8230; (drumroll) &#8230; <strong>mismatched braces</strong>.</p>
+
+<p>The <code>${DATE)</code> string opens with a curly brace, and closes with a round parenthesis.</p>
+
+<p>So you may find this easier to solve than I did. Maybe you have better eyesight than I do, or maybe your screen is a slightly lower resolution, or maybe your browser just renders the characters in a clearer way, perhaps without the use of sub-pixel rendering.</p>
+
+<p>In fact, that&#8217;s exactly how I found the solution to this problem. I first found it on my work Windows box, where I use Emacs with the Courier font. In that environment the two styles of brackets are quite similar. That night I looked at the problem again, this time on my Powerbook using Emacs and the Monaco font, where the mismatched braces were more apparent.</p>
+
+<p>Lesson of the day is that using a &#8220;general purpose&#8221; font like Courier for programming tasks is probably inadvisable. You really want a font that accentuates the differences between syntactically different characters (e.g. the letter O and number 0 being a canonical example). Many specialised <a href="http://keithdevens.com/wiki/ProgrammerFonts">programming fonts</a> are available. While some of these fonts make the text portions of your source code slightly less readable (as does the selection of a monospaced font in the first place), it may be a worthwhile trade-off to make, if the result is to make the source code as a whole more readable. This is generally true for syntaxes (syntaxen?) that tend towards <a href="http://catb.org/~esr/jargon/html/L/line-noise.html">line noise</a>, such as regular expressions.</p>
+
+<p>For similar reasons &mdash; namely trading off a slight decrease in text readability for an increase in overall code readability &mdash; syntax colouring needs to be on. There are a whole class of subtle syntax problems which are easily detectable, with the help of your editor&#8217;s syntax colouring. Emacs has a nice feature where it highlights mismatched braces in most (all?) programming modes, although only when the cursor is placed on one of the braces in question. Had emacs chosen to highlight the mismatched braces always, the problem would not have occurred.</p>
+
+<p>I have some further thoughts on this topic, but I&#8217;ll defer them to a subsequent post. For now, just let this be a lesson to you all!</p>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+			
+<!-- You can start editing here. -->
+
+
+<div id="comments" class="post">
+
+	<h3 class="comments_headers">1 Comment</h3>
+
+</div>
+	
+	
+			
+        <div class="post" id="comment-1318">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://quaddmg.blogspot.com' rel='external nofollow' class='url'>Sunny Kalsi</a><br />
+                <input type="hidden" name="post_date" value="Sun, 27 Nov 2005 12:52:57 -0500" />
+                <abbr class="commented" title="Sun, 27 Nov 2005 12:52:57 -0500">27 November 2005 @ 12pm</abbr><br />
+                <a href="#comment-1318">#</a></p>
+			</div>
+			<div class="content">
+				<p>Actually, this is a common occurrence. I found that thing because I&#8217;ve been bitten before (at least, after I read &#8220;mismatched braces&#8221; I found it instantly). Incidentally, I use bitstream vera mono (the default linux &#8220;courier new&#8221;). I must say it&#8217;s near perfect, and a lot more readable too.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+		
+	
+
+	<!-- Comment Form -->
+
+	    
+
+			
+				
+<div class="posttopline">
+	<span class="previous">&larr; <a href="http://girtby.net/archives/2005/11/23/now-you-see-it-now-you-dont/" rel="prev">Now You See It, Now You Dont</a></span>
+	<span class="next"><a href="http://girtby.net/archives/2005/11/27/punctuation-insensitivity/" rel="next">Punctuation Insensitivity</a> &rarr;</span>
+</div>
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

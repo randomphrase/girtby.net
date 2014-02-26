@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   Netgear Bugs</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/archives/2005/02/17/howto-set-up-a-local-mirror-of-your-wordpress-blog-on-macos-x/" />
+<link rel="next" href="http://girtby.net/archives/2005/02/27/dear-aba/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Netgear Bugs Comments Feed" href="http://girtby.net/archives/2005/02/27/netgear-bugs/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='start' title='Thunderbirds Are Go-ne' href='http://girtby.net/archives/2004/09/20/thunderbirds-are-go-ne/' />
+<link rel='prev' title='HOWTO: Set up a Local Mirror of Your Wordpress Blog on MacOS X' href='http://girtby.net/archives/2005/02/17/howto-set-up-a-local-mirror-of-your-wordpress-blog-on-macos-x/' />
+<link rel='next' title='Dear ABA' href='http://girtby.net/archives/2005/02/27/dear-aba/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/archives/2005/02/27/netgear-bugs/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+    						
+      <div class="post">
+          <div class="metainfo">
+              <p>Posted<br />
+                <abbr class="published" title="Sun, 27 Feb 2005 09:45:28 -0500">27 February 2005 @ 9am</abbr></p>
+                <p>Tagged<br />
+                <a href="http://girtby.net/archives/category/nerd-factor-x/" title="View all posts in Nerd Factor X" rel="category tag">Nerd Factor X</a></p>
+                		    </div>
+		    <div class="content">
+		        <h3>Netgear Bugs 
+		        </h3>
+		        <p>Sometimes Google is the best approach to a technical problem, but other times it&#8217;s best to just dive in with a packet sniffer.</p>
+
+<p>Just recently The <abbr title="Significant Other">SO</abbr> has been complaining about being unable to print over the wireless network. Plug into the ethernet and printing works just fine. A perplexing dillema.</p>
+
+<p>The printer (Samsung ML-1710, a very nice and cheap laser printer) is hooked up to the FreeBSD server running CUPS. This is in turn connected to a <a href="http://www.netgear.com.au/products/prod_details.asp?prodID=174">Netgear WGR614</a> wireless router and 4-port ethernet switch. The printer appears in the OS X Printer list as a &#8220;shared printer&#8221; without requiring any special configuration. Which is nice, when it works.</p>
+
+<p>What was/is happening is that when switching to the wireless network, the Host column in the Printer Setup Utility changes to 0.0.0.0, and printing is no longer possible.</p>
+
+<p>Opening up the packet sniffer (the one built into <a href="http://www.interarchy.com">Interarchy</a>) and I see what happens in the &#8216;normal&#8217; case, when connected to the ethernet network:</p>
+
+<pre><code>UDP packet from 192.168.0.5:ipp(631) to 192.168.0.255:ipp(631) (101 bytes)
+IP Header:
+ Version: 4; Header Length: 20; TOS: 0; Packet Length: 129
+ Identifier: 17132; Fragment Offset: 0
+ Time To Live: 64; Protocol: 17; Header Checksum: 46379
+UDP Header:
+ Packet Length: 109; Checksum: 60424
+Data:
+1006 3 ipp://0.0.0.0:631/printers/Samsung "" "ML-1710P" "Samsung ML-1710 Foomatic/gdi (recommended)"
+
+UDP packet from 192.168.0.5:ipp(631) to 192.168.0.255:ipp(631) (112 bytes)
+IP Header:
+ Version: 4; Header Length: 20; TOS: 0; Packet Length: 140
+ Identifier: 64710; Fragment Offset: 0
+ Time To Live: 64; Protocol: 17; Header Checksum: 64325
+UDP Header:
+ Packet Length: 120; Checksum: 63549
+Data:
+1006 3 ipp://lola.geekflash.com:631/printers/Samsung "" "ML-1710P" "Samsung ML-1710 Foomatic/gdi (recommended)"
+</code></pre>
+
+<p>What each CUPS server does is send out a local broadcast every 30 seconds (by default) advertising the printers that it can serve. I&#8217;m still not entirely sure why my CUPS server is sending <em>two</em> advertisements, one of which is for the mystery 0.0.0.0 server. But anyway we&#8217;ll let that one go through to the keeper for now. [Please also ignore my dodgy host naming scheme]</p>
+
+<p>When connected with the wireless network, the first advertisement is the same, but the second one is partially corrupted, with most of the IP header being zeroed out:</p>
+
+<pre><code>Invalid IP packet (140 bytes), claims 0 byte IP header length
+Data:
+«00»«00»«00»«00»«00»«00»«00»«00»«00»«11»«00»x«C0»«A8»«00»«05»«C0»«A8»«00»«FF»«02»w«02»w«00»x«00»«00»
+1006 3 ipp://lola.geekflash.com:631/printers/Samsung
+"" "ML-1710P" "Samsung ML-1710 Foomatic/gdi (recommended)"
+</code></pre>
+
+<p>So the mystery (partially) solved. Somewhere in the ethernet-to-wireless transition the <strong>second</strong> CUPS advertisement is corrupted. Yes that does seem like a pretty bizarre bug, but the packet sniffer doesn&#8217;t lie.</p>
+
+<p>A quick visit to the Netgear support site revealed that I was already running the latest firmware. I tried reverting to the previous version, but that didn&#8217;t help. So it looks like I&#8217;ve now got an excuse to upgrade to a new wireless router. <a href="http://www.linksys.com/products/product.asp?grid=33&amp;scid=35&amp;prid=601">WRT54G</a>, anyone?</p>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+			
+<!-- You can start editing here. -->
+
+
+<div id="comments" class="post">
+
+	<h3 class="comments_headers">3 Comments</h3>
+
+</div>
+	
+	
+			
+        <div class="post" id="comment-1060">
+		    <div class="metainfo">
+                <p>Posted by<br />Chris<br />
+                <input type="hidden" name="post_date" value="Sun, 27 Feb 2005 09:45:28 -0500" />
+                <abbr class="commented" title="Sun, 27 Feb 2005 09:45:28 -0500">27 February 2005 @ 9am</abbr><br />
+                <a href="#comment-1060">#</a></p>
+			</div>
+			<div class="content">
+				<p>I&#8217;ve got this problem with all broadcast packets. I noticed it first because I&#8217;m trying to use the router to bridge DHCP from a server. Can&#8217;t find a solution though <img src='http://girtby.net/wp-includes/images/smilies/icon_sad.gif' alt=':(' class='wp-smiley' /> </p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1061">
+		    <div class="metainfo">
+                <p>Posted by<br />alastair<br />
+                <input type="hidden" name="post_date" value="Sun, 27 Feb 2005 09:45:28 -0500" />
+                <abbr class="commented" title="Sun, 27 Feb 2005 09:45:28 -0500">27 February 2005 @ 9am</abbr><br />
+                <a href="#comment-1061">#</a></p>
+			</div>
+			<div class="content">
+				<p>This probably doesn&#8217;t help you, but I <a href="/archives/2005/06/19/can-your-router-do-this/">ended up getting that WRT54G</a>.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1062">
+		    <div class="metainfo">
+                <p>Posted by<br />Chris<br />
+                <input type="hidden" name="post_date" value="Sun, 27 Feb 2005 09:45:28 -0500" />
+                <abbr class="commented" title="Sun, 27 Feb 2005 09:45:28 -0500">27 February 2005 @ 9am</abbr><br />
+                <a href="#comment-1062">#</a></p>
+			</div>
+			<div class="content">
+				<p>Oddly enough so did I (for home) but I&#8217;m stuck with these Netgear&#8230;. &#8220;things&#8221;&#8230; at work. BusyBox is the mutts nips!</p> 
+							</div>
+		<br clear="left" />
+		</div>
+		
+	
+
+	<!-- Comment Form -->
+
+	    
+
+			
+				
+<div class="posttopline">
+	<span class="previous">&larr; <a href="http://girtby.net/archives/2005/02/17/howto-set-up-a-local-mirror-of-your-wordpress-blog-on-macos-x/" rel="prev">HOWTO: Set up a Local Mirror of Your Wordpress Blog on MacOS X</a></span>
+	<span class="next"><a href="http://girtby.net/archives/2005/02/27/dear-aba/" rel="next">Dear ABA</a> &rarr;</span>
+</div>
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

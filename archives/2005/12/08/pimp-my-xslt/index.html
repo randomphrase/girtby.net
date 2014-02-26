@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   Pimp My XSLT</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/archives/2005/11/30/silence-is-offensive/" />
+<link rel="next" href="http://girtby.net/archives/2005/12/08/ip-access-list-100-deny-from-future/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Pimp My XSLT Comments Feed" href="http://girtby.net/archives/2005/12/08/pimp-my-xslt/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='start' title='Thunderbirds Are Go-ne' href='http://girtby.net/archives/2004/09/20/thunderbirds-are-go-ne/' />
+<link rel='prev' title='Silence is Offensive' href='http://girtby.net/archives/2005/11/30/silence-is-offensive/' />
+<link rel='next' title='ip access-list 100 deny from future' href='http://girtby.net/archives/2005/12/08/ip-access-list-100-deny-from-future/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/archives/2005/12/08/pimp-my-xslt/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+    						
+      <div class="post">
+          <div class="metainfo">
+              <p>Posted<br />
+                <abbr class="published" title="Thu, 08 Dec 2005 20:49:49 -0500">8 December 2005 @ 8pm</abbr></p>
+                <p>Tagged<br />
+                <a href="http://girtby.net/archives/category/nerd-factor-x/" title="View all posts in Nerd Factor X" rel="category tag">Nerd Factor X</a></p>
+                		    </div>
+		    <div class="content">
+		        <h3>Pimp My XSLT 
+		        </h3>
+		        <p>Deeply nerdy stuff here. I attempt to impress you all with my l337 XSLT skillz.</p>
+
+<p>Slicing and dicing iTunes playlists. Lets say you want to extract a list of files for the songs in a given playlist. Maybe you want to see which files are stored where. I dunno. Anyway, how would you do it?</p>
+
+<p><span id="more-160"></span></p>
+
+<p>If you&#8217;re sane, you probably reach for Perl, Python or, my (and <a href="http://radar.oreilly.com/archives/2005/12/ruby_book_sales_surpass_python.html">everyone else&#8217;s</a>) new infatuation, Ruby, to digest the <code>iTunes Music Library.xml</code> file. These tools can slice&#8217;n'dice with the best of them. And for a quick and dirty hack, I&#8217;m right there with you.</p>
+
+<p>But here&#8217;s some food for thought. Check out the following XSLT script.</p>
+
+<pre><code>&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet version="1.0" id="stylesheet"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+  &lt;xsl:output method="text"/&gt;
+
+  &lt;xsl:param name="playlist" select="'Library'"/&gt;
+
+  &lt;xsl:key name="playlists-by-name"
+           match="/plist/dict/array[preceding-sibling::key[1]='Playlists']/dict"
+           use="string[preceding-sibling::key[1]='Name']"/&gt;
+
+  &lt;xsl:key name="tracks-by-id"
+           match="/plist/dict/dict[preceding-sibling::key[1]='Tracks']/dict"
+           use="integer[preceding-sibling::key[1]='Track ID']"/&gt;
+
+  &lt;xsl:template match="/"&gt;
+    &lt;xsl:apply-templates select="key('playlists-by-name',$playlist)" mode="playlist"/&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;xsl:template match="dict" mode="playlist"&gt;
+     &lt;xsl:for-each select="array[preceding-sibling::key[1]='Playlist Items']/dict"&gt;
+     &lt;xsl:variable name="trackid" select="integer"/&gt;
+
+     &lt;xsl:apply-templates select="key('tracks-by-id',$trackid)" mode="track"/&gt;
+    &lt;/xsl:for-each&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;xsl:template match="dict" mode="track"&gt;
+    &lt;xsl:value-of select="string[preceding-sibling::key[1]='Location']"/&gt;&lt;xsl:text&gt;
+&lt;/xsl:text&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+</code></pre>
+
+<p>Go ahead and try it! Save it to your iTunes directory as <code>playlist.xsl</code> (or whatever) and apply your favourite XSLT processor. MacOS users have <code>xsltproc</code> available by default:</p>
+
+<pre><code>xsltproc --novalid playlist.xsl iTunes\ Music\ Library.xml
+</code></pre>
+
+<p>(To print a different playlist, use <code>--stringparam playlist "Other Playlist"</code>)</p>
+
+<p>Now maybe I&#8217;m just deluding myself, but I think this is quite readable. For XSLT anyway. Here&#8217;s what it&#8217;s doing.</p>
+
+<ul>
+<li>The <code>xsl:key</code> constructs are creating hash tables on the input document. As the names imply they are indexing playlists and tracks.</li>
+<li>The <code>/</code> template is the &#8220;start&#8221; of the stylesheet, and it selects the playlist to process using the <code>key()</code> XPath function.</li>
+<li>The &#8220;playlist&#8221; template iterates over the tracks which are referenced by ID. We look up the playlist items and iterate over them with the <code>xsl:for-each</code> construct. We select the track to process by again using the <code>key()</code> function.</li>
+<li>Finally, the &#8220;track&#8221; template outputs the location.</li>
+</ul>
+
+<p>The readability of all this is impacted by the <code>preceding-sibling::key[1]</code> stuff. And this is mainly because Apple chose to use a generic Property List vocabulary rather than one which is specific to iTunes. Incidentally, I came across <a href="http://www.xmldatabases.org/WK/blog/1086_Cleaning_up_iTunes_plist_XML.item">this blog</a> which explained how to convert from a property list into a more comprehensible format. I happen to think that the property list is quite usable as-is, provided that you employ the use of <code>xsl:key</code> as above.</p>
+
+<p>In fact, I think this use of <code>xsl:key</code> is the deal-maker. Some of the <a href="http://www.google.com/search?q=XSLT+iTunes">other attempts to process iTunes Libraries with XSLT</a> don&#8217;t seem to take advantage of this, and I think it really helps.</p>
+
+<p>Notwithstanding the workarounds for the weird XML vocabulary, I would (again with my jaundiced eye) judge this to be quite a maintainable piece of code. If you had to change it to operate on a given album or a set of tracks from a genre, or even output a different field from each track, I&#8217;m guessing that this would be pretty easy, even for XSLT n00bs. Also if Apple decide to change the output format by (for instance) rearranging the fields inside a <code>&lt;dict&gt;</code> element or changing the whitespace, this script should still cope OK.</p>
+
+<p>And it&#8217;s fast. 3 seconds to write out all the files in my Library playlist.</p>
+
+<p>OK so the point of all this is not to say that I am an XSLT god (although feel free to draw that conclusion), rather to show the expressiveness and power of the language. No, it&#8217;s not suitable for every coding task, but I think it&#8217;s a valuable tool to have in the arsenal. Particularly on MacOS X, where property lists show up everywhere. Including iTunes libraries.</p>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+			
+<!-- You can start editing here. -->
+
+
+<div id="comments" class="post">
+
+	<h3 class="comments_headers">2 Comments</h3>
+
+</div>
+	
+	
+			
+        <div class="post" id="comment-1322">
+		    <div class="metainfo">
+                <p>Posted by<br />Damien<br />
+                <input type="hidden" name="post_date" value="Thu, 08 Dec 2005 20:49:49 -0500" />
+                <abbr class="commented" title="Thu, 08 Dec 2005 20:49:49 -0500">8 December 2005 @ 8pm</abbr><br />
+                <a href="#comment-1322">#</a></p>
+			</div>
+			<div class="content">
+				<p>This is just about perfect for what I&#8217;v been looking to do.
+Still being new to XSLT how can I loop through each fo the xs:key items</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1323">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://90kts.com' rel='external nofollow' class='url'>koops</a><br />
+                <input type="hidden" name="post_date" value="Thu, 08 Dec 2005 20:49:49 -0500" />
+                <abbr class="commented" title="Thu, 08 Dec 2005 20:49:49 -0500">8 December 2005 @ 8pm</abbr><br />
+                <a href="#comment-1323">#</a></p>
+			</div>
+			<div class="content">
+				<p>Farken hot, love your work bro</p> 
+							</div>
+		<br clear="left" />
+		</div>
+		
+	
+
+	<!-- Comment Form -->
+
+	    
+
+			
+				
+<div class="posttopline">
+	<span class="previous">&larr; <a href="http://girtby.net/archives/2005/11/30/silence-is-offensive/" rel="prev">Silence is Offensive</a></span>
+	<span class="next"><a href="http://girtby.net/archives/2005/12/08/ip-access-list-100-deny-from-future/" rel="next">ip access-list 100 deny from future</a> &rarr;</span>
+</div>
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   Dynamic DNS on the Cheap</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/archives/2005/06/21/am-i-spam-or-notcom/" />
+<link rel="next" href="http://girtby.net/archives/2005/06/23/im-feeling-tacit/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Dynamic DNS on the Cheap Comments Feed" href="http://girtby.net/archives/2005/06/22/dynamic-dns-on-the-cheap/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='start' title='Thunderbirds Are Go-ne' href='http://girtby.net/archives/2004/09/20/thunderbirds-are-go-ne/' />
+<link rel='prev' title='am-i-spam-or-not.com' href='http://girtby.net/archives/2005/06/21/am-i-spam-or-notcom/' />
+<link rel='next' title='I&#8217;m Feeling Tacit' href='http://girtby.net/archives/2005/06/23/im-feeling-tacit/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/archives/2005/06/22/dynamic-dns-on-the-cheap/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+    						
+      <div class="post">
+          <div class="metainfo">
+              <p>Posted<br />
+                <abbr class="published" title="Wed, 22 Jun 2005 21:29:41 -0400">22 June 2005 @ 9pm</abbr></p>
+                <p>Tagged<br />
+                <a href="http://girtby.net/archives/category/nerd-factor-x/" title="View all posts in Nerd Factor X" rel="category tag">Nerd Factor X</a></p>
+                		    </div>
+		    <div class="content">
+		        <h3>Dynamic DNS on the Cheap 
+		        </h3>
+		        <p>Setting yourself up so that you can access your home network using a domain name rather than an IP address is one of those little luxuries you&#8217;ll come to wonder how you ever managed without, once you have it.</p>
+
+<p>I&#8217;ve been doing this for a while now in various different forms, but I like my current setup the best. You may not. I report, you decide.</p>
+
+<p><span id="more-111"></span></p>
+
+<p>Firstly note that I said &#8220;cheap&#8221;, not &#8220;free&#8221;. But <a href="http://registerfly.com/">RegisterFly</a> currently sells .info domains for US$2.99, which is hard to beat. If you find one cheaper elsewhere, good luck to you.</p>
+
+<p>Once the domain is set up with RegisterFly, you need to get them to turn on dynamic updates. This is done from the &#8220;manage domains&#8221; page. Once you do this you will be given a password, in the form of a sequence of hex digits.</p>
+
+<p>One of the nice things about RegisterFly&#8217;s service is that updates are done by HTTP. You get to update your IP address by an HTTP GET request to dynamic.registerfly.com. All you have to do is arrange for this request at the appropriate times. For some people this will be whenever you renew the DHCP lease with your ISP. My ISP gives me a (reasonably) constant IP address, so daily updates are fine.</p>
+
+<p>So I have a <a href="/archives/2005/05/22/freebsd-considered-handful/">FreeBSD box</a> which is running most of the time, which is set up to make this HTTP request using the <a href="http://curl.haxx.se/">curl</a> tool. On other unix-alikes this could be done using a cron entry, but I chose to incorporate it into the daily maintenance script that FreeBSD uses. Here is my (edited) <code>/etc/daily.local</code> file:</p>
+
+<pre><code>#!/bin/sh
+#
+# My stuff to do daily
+#
+
+# Update our Dynamic DNS entry. This reflects the external address, which could change
+# any time as far as we know/care. So update it daily just to be sure.
+/usr/local/bin/curl -s 'http://dynamic.registerfly.com/?domain=&lt;mydomain&gt;&amp;password=&lt;mypassword&gt;&amp;host=@' \
+    | grep -o '&lt;strong&gt;.*&lt;/strong&gt;'
+</code></pre>
+
+<p>A few things to note:</p>
+
+<ul>
+<li>You don&#8217;t need to specify the external IP address to use, RegisterFly will work it out based on the source of the HTTP connection. This is really nice, because it means I can run this script anywhere behind my router without extra what-is-my-external-IP magic.</li>
+<li>The <code>@</code> in the host parameter means &#8220;this domain&#8221;, in kinda the same way that <code>.</code> means &#8220;this directory in the filesystem.</li>
+<li>curl&#8217;s output is piped into grep so that I can extract the success/failure text without all the HTML guff. The output of this command is appended to the daily email that FreeBSD sends me.</li>
+</ul>
+
+<p>So there you have it. I guess I&#8217;ll migrate it to my <a href="/archives/2005/06/19/can-your-router-do-this/">new router</a> at some point, but for now I&#8217;m happy.</p>
+
+<p><strong>Update</strong>: registerfly changed their server, they now use <code>&lt;strong&gt;</code> tags instead of <code>&lt;b&gt;</code> tags. Script above updated to reflect this.</p>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+			
+<!-- You can start editing here. -->
+
+
+<div id="comments" class="post">
+
+	<h3 class="comments_headers">9 Comments</h3>
+
+</div>
+	
+	
+			
+        <div class="post" id="comment-1170">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://quaddmg.blogspot.com' rel='external nofollow' class='url'>Sunny</a><br />
+                <input type="hidden" name="post_date" value="Wed, 22 Jun 2005 21:29:41 -0400" />
+                <abbr class="commented" title="Wed, 22 Jun 2005 21:29:41 -0400">22 June 2005 @ 9pm</abbr><br />
+                <a href="#comment-1170">#</a></p>
+			</div>
+			<div class="content">
+				<p>what&#8217;s wrong with dyndns.org? My router supports it natively, too, so every time the IP changes, it auto-re-negotiates. It&#8217;s not even linux based.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1171">
+		    <div class="metainfo">
+                <p>Posted by<br />alastair<br />
+                <input type="hidden" name="post_date" value="Wed, 22 Jun 2005 21:29:41 -0400" />
+                <abbr class="commented" title="Wed, 22 Jun 2005 21:29:41 -0400">22 June 2005 @ 9pm</abbr><br />
+                <a href="#comment-1171">#</a></p>
+			</div>
+			<div class="content">
+				<p>dyndns.org is fine. I used to use a similar service from <a href="http://www.dtdns.com" rel="nofollow">http://www.dtdns.com</a>. The only trouble with these services is that you get a hostname within their domains, not a full domain of your own. I want a full domain so I can do things like set up my own (virtual) hosts within that domain, and possibly arrange for reverse IPv6 delegation (when I set it up). And besides, $2.99/year isn&#8217;t exactly going to break the bank.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1172">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://brainsnorkel.com' rel='external nofollow' class='url'>Chris</a><br />
+                <input type="hidden" name="post_date" value="Wed, 22 Jun 2005 21:29:41 -0400" />
+                <abbr class="commented" title="Wed, 22 Jun 2005 21:29:41 -0400">22 June 2005 @ 9pm</abbr><br />
+                <a href="#comment-1172">#</a></p>
+			</div>
+			<div class="content">
+				<p>Thanks!</p>
+
+<p>Working as advertised on my BSD box&#8217;s domain name.</p>
+
+<p>I considered one of the Sveasoft/WRT-supported DDNS providers too, but having a vanity domain name was a factor.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1173">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://www.deadlybloodyserious.com/' rel='external nofollow' class='url'>Garth T Kidd</a><br />
+                <input type="hidden" name="post_date" value="Wed, 22 Jun 2005 21:29:41 -0400" />
+                <abbr class="commented" title="Wed, 22 Jun 2005 21:29:41 -0400">22 June 2005 @ 9pm</abbr><br />
+                <a href="#comment-1173">#</a></p>
+			</div>
+			<div class="content">
+				<p>What happens if you&#8217;re behind a transparent proxy? Does it look for the headers that reveal them?</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1174">
+		    <div class="metainfo">
+                <p>Posted by<br />alastair<br />
+                <input type="hidden" name="post_date" value="Wed, 22 Jun 2005 21:29:41 -0400" />
+                <abbr class="commented" title="Wed, 22 Jun 2005 21:29:41 -0400">22 June 2005 @ 9pm</abbr><br />
+                <a href="#comment-1174">#</a></p>
+			</div>
+			<div class="content">
+				<p>Interesting question, but I doubt it. Who uses transparent proxies these days though?</p>
+
+<p>Do the transparent proxies store the original client IP address in their headers anywhere? Without that information in the headers there&#8217;s no way for registerfly&#8217;s servers to know. I think if you&#8217;re behind a transparent proxy you&#8217;ll have to explicitly set your IP address.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1175">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://www.deadlybloodyserious.com/' rel='external nofollow' class='url'>Garth T Kidd</a><br />
+                <input type="hidden" name="post_date" value="Wed, 22 Jun 2005 21:29:41 -0400" />
+                <abbr class="commented" title="Wed, 22 Jun 2005 21:29:41 -0400">22 June 2005 @ 9pm</abbr><br />
+                <a href="#comment-1175">#</a></p>
+			</div>
+			<div class="content">
+				<p>You&#8217;d be surprised: at one stage, somewhere in the region of 80% of pages delivered to Australians at home went through one. Now that HTTP is a dwindling proportion of the overall bandwidth consumption compared to P2P, it&#8217;s mainly a way to improve customer experience rather than save money &#8212; and many carriers are deploying P2P proxies.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1176">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://gmail.com' rel='external nofollow' class='url'>Robert McGann</a><br />
+                <input type="hidden" name="post_date" value="Wed, 22 Jun 2005 21:29:41 -0400" />
+                <abbr class="commented" title="Wed, 22 Jun 2005 21:29:41 -0400">22 June 2005 @ 9pm</abbr><br />
+                <a href="#comment-1176">#</a></p>
+			</div>
+			<div class="content">
+				<p>I use <a href="http://www.tzo.com" rel="nofollow">http://www.tzo.com</a> and its been working great for years.  Router support in almost every router I&#8217;ve used, and rock solid.  Great way to run a small family webserver from my cable modem</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1177">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://erikindre.blogspot.com' rel='external nofollow' class='url'>Erik</a><br />
+                <input type="hidden" name="post_date" value="Wed, 22 Jun 2005 21:29:41 -0400" />
+                <abbr class="commented" title="Wed, 22 Jun 2005 21:29:41 -0400">22 June 2005 @ 9pm</abbr><br />
+                <a href="#comment-1177">#</a></p>
+			</div>
+			<div class="content">
+				<p>Great! I have been running some software on my Windows computer while using dyndns, but have not found anyting useful for Linux and registerfly. One more thing windows lacks&#8230;.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1178">
+		    <div class="metainfo">
+                <p>Posted by<br />alastair<br />
+                <input type="hidden" name="post_date" value="Wed, 22 Jun 2005 21:29:41 -0400" />
+                <abbr class="commented" title="Wed, 22 Jun 2005 21:29:41 -0400">22 June 2005 @ 9pm</abbr><br />
+                <a href="#comment-1178">#</a></p>
+			</div>
+			<div class="content">
+				<p>Thanks Erik,</p>
+
+<p>Actually <a href="http://curl.haxx.se/download.html#Win32" rel="nofollow">curl is available for windows</a> as well.</p>
+
+<p>All you need is a decent scheduler. As in, <a href="/archives/2005/08/03/scheduled-task-slippage-and-breakage/" rel="nofollow">not the Windows one</a>.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+		
+	
+
+	<!-- Comment Form -->
+
+	    
+
+			
+				
+<div class="posttopline">
+	<span class="previous">&larr; <a href="http://girtby.net/archives/2005/06/21/am-i-spam-or-notcom/" rel="prev">am-i-spam-or-not.com</a></span>
+	<span class="next"><a href="http://girtby.net/archives/2005/06/23/im-feeling-tacit/" rel="next">I&#8217;m Feeling Tacit</a> &rarr;</span>
+</div>
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

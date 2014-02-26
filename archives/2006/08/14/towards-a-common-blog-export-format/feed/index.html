@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
+<channel>
+	<title>Comments on: Towards A Common Blog Export Format</title>
+	<atom:link href="http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Wed, 30 Sep 2009 01:44:34 -0400</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+		<item>
+		<title>By: Aristotle Pagaltzis</title>
+		<link>http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/comment-page-1/#comment-1465</link>
+		<dc:creator>Aristotle Pagaltzis</dc:creator>
+		<pubDate>Mon, 14 Aug 2006 08:52:50 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/20/towards-a-common-blog-export-format#comment-1465</guid>
+		<description>&lt;p&gt;It’s a decent first stab, but much of &lt;a href=&quot;http://www.snellspace.com/wp/?p=314&quot; title=&quot;Extending Atom&quot;&gt;James Snell’s criticism of the GData Atom extensions&lt;/a&gt; applies to your proposal as well, if not to the same extent.&lt;/p&gt;
+
+&lt;p&gt;You can get away without any extension elements at all, you only need to mint a URI for a special category scheme. Henceforth, when I refer to the role of an entry, it means that the entry has an &lt;code&gt;atom:category&lt;/code&gt; element with &lt;code&gt;scheme&lt;/code&gt; being &lt;code&gt;http://purl.org/syndication/entry-role/1.0&lt;/code&gt; and &lt;code&gt;term&lt;/code&gt; being the given role.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;An atom:category element is required for each &lt;em&gt;defined&lt;/em&gt; category within the blogging engine. This must be the superset of all categories used in subsequent entries.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That is abuse, IMO. The weblog does not “belong to” these categories. Something I have proposed to others is to store categories as entries with role Category. Remember that the permalink is optional for an entry. The entry title then is the category name, and you can use the entry content to carry a description of the category – or just leave it out.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;An atom:contributor element is required for each &lt;em&gt;defined&lt;/em&gt; author. Optionally, this may include registered users which do not have authoring privileges.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The &lt;a href=&quot;http://www.google.com/search?q=atompub-author-extensions&quot;&gt;Person Extensions&lt;/a&gt; might be of interest here, in case you also want to express their status in the system.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+  &lt;li&gt;A export:page child element may be used if the entry is a static page.&lt;/li&gt;
+  &lt;li&gt;A export:comment child element may be used if the entry is a comment.&lt;/li&gt;
+  &lt;li&gt;A export:trackback child element may be used if the entry is a trackback.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;These should be roles.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The atom:published element may be omitted if the article has not been published (that is, a draft).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That overloads the meaning of the optionality of &lt;code&gt;atom:published&lt;/code&gt; in a way I’m not comfortable with. It’s optional precisely because not all weblog and CMS software tracks this data. In fact, originally, Atom was going to have &lt;em&gt;four&lt;/em&gt; different dates, of which two required, but the publishing people revolted. You will also note that Atom deliberately avoids requiring any particular population of &lt;code&gt;atom:updated&lt;/code&gt; – just that it be present, and that some constraints be fulfilled when entries with identical &lt;code&gt;atom:id&lt;/code&gt; are present in the same feed.&lt;/p&gt;
+
+&lt;p&gt;Try using role Draft instead. Roles, roles, roles, roles, roles, baked beans, roles and roles.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A export:contentsyntax element may be used to indicate a syntax for the content element.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;No. Atom already knows how to do this. Mint MIME types instead, then you can use eg. &lt;code&gt;&lt;content type=&quot;text/markdown&quot;&gt;&lt;/code&gt;. No need for reinvention.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This attribute contains the atom:id of the entry which is being [&lt;i&gt;commented upon / trackbacked&lt;/i&gt;].&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Use the &lt;a href=&quot;http://www.google.com/search?q=atompub-feed-thread&quot;&gt;Feed Thread Extension&lt;/a&gt; instead.&lt;/p&gt;
+
+&lt;p&gt;All in all, not a bad attempt – you’ve captured the most important things that need to be preserved, the rest is just a matter of expressing them more idiomatically.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;PS.:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Brilliant Paula Bean&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You mean Brillant.&lt;/p&gt;
+
+&lt;p&gt;PPS.: can you please fix blockquotes in comments? It’s hard to have a conversation without them.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>It’s a decent first stab, but much of <a href="http://www.snellspace.com/wp/?p=314" title="Extending Atom">James Snell’s criticism of the GData Atom extensions</a> applies to your proposal as well, if not to the same extent.</p>
+
+<p>You can get away without any extension elements at all, you only need to mint a URI for a special category scheme. Henceforth, when I refer to the role of an entry, it means that the entry has an <code>atom:category</code> element with <code>scheme</code> being <code><a href="http://purl.org/syndication/entry-role/1.0" rel="nofollow">http://purl.org/syndication/entry-role/1.0</a></code> and <code>term</code> being the given role.</p>
+
+<blockquote>
+  <p>An atom:category element is required for each <em>defined</em> category within the blogging engine. This must be the superset of all categories used in subsequent entries.</p>
+</blockquote>
+
+<p>That is abuse, IMO. The weblog does not “belong to” these categories. Something I have proposed to others is to store categories as entries with role Category. Remember that the permalink is optional for an entry. The entry title then is the category name, and you can use the entry content to carry a description of the category – or just leave it out.</p>
+
+<blockquote>
+  <p>An atom:contributor element is required for each <em>defined</em> author. Optionally, this may include registered users which do not have authoring privileges.</p>
+</blockquote>
+
+<p>The <a href="http://www.google.com/search?q=atompub-author-extensions">Person Extensions</a> might be of interest here, in case you also want to express their status in the system.</p>
+
+<blockquote>
+  <ul>
+  <li>A export:page child element may be used if the entry is a static page.</li>
+  <li>A export:comment child element may be used if the entry is a comment.</li>
+  <li>A export:trackback child element may be used if the entry is a trackback.</li>
+  </ul>
+</blockquote>
+
+<p>These should be roles.</p>
+
+<blockquote>
+  <p>The atom:published element may be omitted if the article has not been published (that is, a draft).</p>
+</blockquote>
+
+<p>That overloads the meaning of the optionality of <code>atom:published</code> in a way I’m not comfortable with. It’s optional precisely because not all weblog and CMS software tracks this data. In fact, originally, Atom was going to have <em>four</em> different dates, of which two required, but the publishing people revolted. You will also note that Atom deliberately avoids requiring any particular population of <code>atom:updated</code> – just that it be present, and that some constraints be fulfilled when entries with identical <code>atom:id</code> are present in the same feed.</p>
+
+<p>Try using role Draft instead. Roles, roles, roles, roles, roles, baked beans, roles and roles.</p>
+
+<blockquote>
+  <p>A export:contentsyntax element may be used to indicate a syntax for the content element.</p>
+</blockquote>
+
+<p>No. Atom already knows how to do this. Mint MIME types instead, then you can use eg. <code>&lt;content type="text/markdown"&gt;</code>. No need for reinvention.</p>
+
+<blockquote>
+  <p>This attribute contains the atom:id of the entry which is being [<i>commented upon / trackbacked</i>].</p>
+</blockquote>
+
+<p>Use the <a href="http://www.google.com/search?q=atompub-feed-thread">Feed Thread Extension</a> instead.</p>
+
+<p>All in all, not a bad attempt – you’ve captured the most important things that need to be preserved, the rest is just a matter of expressing them more idiomatically.</p>
+
+<hr />
+
+<p>PS.:</p>
+
+<blockquote>
+  <p>The Brilliant Paula Bean</p>
+</blockquote>
+
+<p>You mean Brillant.</p>
+
+<p>PPS.: can you please fix blockquotes in comments? It’s hard to have a conversation without them.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/comment-page-1/#comment-1466</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Mon, 14 Aug 2006 08:52:50 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/20/towards-a-common-blog-export-format#comment-1466</guid>
+		<description>&lt;blockquote&gt;
+  &lt;p&gt;can you please fix blockquotes in comments?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Done. Looks like Typo was filtering markup a bit too agressively.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<blockquote>
+  <p>can you please fix blockquotes in comments?</p>
+</blockquote>
+
+<p>Done. Looks like Typo was filtering markup a bit too agressively.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/comment-page-1/#comment-1467</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Mon, 14 Aug 2006 08:52:50 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/20/towards-a-common-blog-export-format#comment-1467</guid>
+		<description>&lt;p&gt;Thanks Aristotle for some great feedback.&lt;/p&gt;
+
+&lt;p&gt;Although I agree with Snell&#039;s criticism of GData&#039;s use of Atom, I haven&#039;t fully formed an opinion on whether the same criticism applies for what I&#039;m trying to do here. Let me mull that one over for a bit more.&lt;/p&gt;
+
+&lt;p&gt;It&#039;s interesting that you have suggested a method for extending Atom which is not described in the spec (either that or I missed it). So the first thing that occurs is: why are these &quot;roles&quot; not abuse of the Atom category element?&lt;/p&gt;
+
+&lt;p&gt;It&#039;s almost like you&#039;re proposing that the category element be used to encode generic RDF tuples (where the &#039;subject&#039; is the Atom entry itself). I&#039;m wondering why, if the category element was intended to be used in such a way, why doesn&#039;t it just say to use RDF and be done with it?&lt;/p&gt;
+
+&lt;p&gt;On a more practical level, I&#039;m wondering how validity constraints can be specified for categories used in this way. But I guess we can cross that bridge when we come to it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mint MIME types instead, then you can use eg. &lt;code&gt;&lt;content type=&quot;text/markdown&quot;&gt;&lt;/code&gt;. No need for reinvention.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That was my first inclination, but after a brief inspection of the MIME type registration process I got scared off. Will raise it on the Markdown list anyway.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Use the &lt;a href=&quot;http://www.google.com/search?q=atompub-feed-thread&quot;&gt;Feed Thread Extension&lt;/a&gt; instead.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ACK. I think that a number of these issues will be solved &quot;for free&quot; by the APP crowd.&lt;/p&gt;
+
+&lt;p&gt;Thanks again.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Thanks Aristotle for some great feedback.</p>
+
+<p>Although I agree with Snell&#8217;s criticism of GData&#8217;s use of Atom, I haven&#8217;t fully formed an opinion on whether the same criticism applies for what I&#8217;m trying to do here. Let me mull that one over for a bit more.</p>
+
+<p>It&#8217;s interesting that you have suggested a method for extending Atom which is not described in the spec (either that or I missed it). So the first thing that occurs is: why are these &#8220;roles&#8221; not abuse of the Atom category element?</p>
+
+<p>It&#8217;s almost like you&#8217;re proposing that the category element be used to encode generic RDF tuples (where the &#8217;subject&#8217; is the Atom entry itself). I&#8217;m wondering why, if the category element was intended to be used in such a way, why doesn&#8217;t it just say to use RDF and be done with it?</p>
+
+<p>On a more practical level, I&#8217;m wondering how validity constraints can be specified for categories used in this way. But I guess we can cross that bridge when we come to it.</p>
+
+<blockquote>
+  <p>Mint MIME types instead, then you can use eg. <code>&lt;content type="text/markdown"&gt;</code>. No need for reinvention.</p>
+</blockquote>
+
+<p>That was my first inclination, but after a brief inspection of the MIME type registration process I got scared off. Will raise it on the Markdown list anyway.</p>
+
+<blockquote>
+  <p>Use the <a href="http://www.google.com/search?q=atompub-feed-thread">Feed Thread Extension</a> instead.</p>
+</blockquote>
+
+<p>ACK. I think that a number of these issues will be solved &#8220;for free&#8221; by the APP crowd.</p>
+
+<p>Thanks again.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Aristotle Pagaltzis</title>
+		<link>http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/comment-page-1/#comment-1468</link>
+		<dc:creator>Aristotle Pagaltzis</dc:creator>
+		<pubDate>Mon, 14 Aug 2006 08:52:50 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/20/towards-a-common-blog-export-format#comment-1468</guid>
+		<description>&lt;blockquote&gt;
+  &lt;p&gt;I haven&#039;t fully formed an opinion on whether the same criticism applies for what I&#039;m trying to do here.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Mostly, I was thinking about your use of an extension element to denote the authoring markup syntax – I did say “not to the same extent.”&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;why are these &quot;roles&quot; not abuse of the Atom category element?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I guess that is debatable – and the outcome of that would probably depend on how narrow a definition of “category” you chose. RFC4287 itself is happy to explicitly make no particular assertion (see the language in the spec). Note that the the &lt;code&gt;scheme&lt;/code&gt; attribute is explicitly provided as a means of identifying categorisation schemes by URI. So if you view the role of an entry as a kind of category, then this is a pretty natural interpretation/application of RFC4287.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It&#039;s almost like you&#039;re proposing that the category element be used to encode generic RDF tuples&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That is indeed &lt;em&gt;sort of&lt;/em&gt; the purpose of the &lt;code&gt;category&lt;/code&gt; element (cf. &lt;code&gt;scheme&lt;/code&gt; attribute).&lt;/p&gt;
+
+&lt;p&gt;Note that even by this liberal interpretation, your proposition of carrying the superset of categories in the &lt;code&gt;feed&lt;/code&gt; element is still abuse of the &lt;code&gt;category&lt;/code&gt; element.&lt;/p&gt;
+
+&lt;p&gt;On second reading, I’m not that happy with my proposition of rendering categories as entries. It is a workable approach, but seems a bit heavyweight due to the required IDs and timestamps. Defining an extension element to contain a list of categories might be a wiser choice. A middle-of-the-road option might be to have only a single, special-purpose &lt;code&gt;entry&lt;/code&gt; which is required to contain the category tree in XOXO format. (This choice has the added benefit that it maximises the usefulness of the resulting document with apps that understand Atom, but not the particular extensions in use. This same criterion also favours the use of &lt;code&gt;category&lt;/code&gt; for entry roles.)&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;why doesn&#039;t it just say to use RDF and be done with it?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There has been a long-standing anti-RDF/XML (but not anti-RDF) sentiment in the WG. Read section 6.4.1 of the RFC for another example.&lt;/p&gt;
+
+&lt;p&gt;I suppose in practice, you could create a role extension that follows the rules of section 6.4.1 and get the same effect I achieved using &lt;code&gt;category&lt;/code&gt; elements. There really isn’t any effective difference. That would resolve your concern about validation as well.&lt;/p&gt;
+
+&lt;p&gt;I am pretty sure the subject of feed and entry roles came up on &lt;tt&gt;atom-syntax&lt;/tt&gt; and there was talk of an extension to convey this information, but I can’t seem to find anything in my archives.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;after a brief inspection of the MIME type registration process I got scared off&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It’s not that scary if you stay in the VND or PRS trees actually.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Will raise it on the Markdown list anyway.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There was &lt;a href=&quot;http://six.pairlist.net/pipermail/markdown-discuss/2004-November/thread.html&quot;&gt;some discussion about it in Nov 2004&lt;/a&gt;. Nothing happened, so &lt;a href=&quot;http://six.pairlist.net/pipermail/markdown-discuss/2005-April/001211.html&quot;&gt;I flagged the issue again in Apr 2005&lt;/a&gt;. But again nothing came of it, unfortunately. Maybe you’ll have more luck.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<blockquote>
+  <p>I haven&#8217;t fully formed an opinion on whether the same criticism applies for what I&#8217;m trying to do here.</p>
+</blockquote>
+
+<p>Mostly, I was thinking about your use of an extension element to denote the authoring markup syntax – I did say “not to the same extent.”</p>
+
+<blockquote>
+  <p>why are these &#8220;roles&#8221; not abuse of the Atom category element?</p>
+</blockquote>
+
+<p>I guess that is debatable – and the outcome of that would probably depend on how narrow a definition of “category” you chose. RFC4287 itself is happy to explicitly make no particular assertion (see the language in the spec). Note that the the <code>scheme</code> attribute is explicitly provided as a means of identifying categorisation schemes by URI. So if you view the role of an entry as a kind of category, then this is a pretty natural interpretation/application of RFC4287.</p>
+
+<blockquote>
+  <p>It&#8217;s almost like you&#8217;re proposing that the category element be used to encode generic RDF tuples</p>
+</blockquote>
+
+<p>That is indeed <em>sort of</em> the purpose of the <code>category</code> element (cf. <code>scheme</code> attribute).</p>
+
+<p>Note that even by this liberal interpretation, your proposition of carrying the superset of categories in the <code>feed</code> element is still abuse of the <code>category</code> element.</p>
+
+<p>On second reading, I’m not that happy with my proposition of rendering categories as entries. It is a workable approach, but seems a bit heavyweight due to the required IDs and timestamps. Defining an extension element to contain a list of categories might be a wiser choice. A middle-of-the-road option might be to have only a single, special-purpose <code>entry</code> which is required to contain the category tree in XOXO format. (This choice has the added benefit that it maximises the usefulness of the resulting document with apps that understand Atom, but not the particular extensions in use. This same criterion also favours the use of <code>category</code> for entry roles.)</p>
+
+<blockquote>
+  <p>why doesn&#8217;t it just say to use RDF and be done with it?</p>
+</blockquote>
+
+<p>There has been a long-standing anti-RDF/XML (but not anti-RDF) sentiment in the WG. Read section 6.4.1 of the RFC for another example.</p>
+
+<p>I suppose in practice, you could create a role extension that follows the rules of section 6.4.1 and get the same effect I achieved using <code>category</code> elements. There really isn’t any effective difference. That would resolve your concern about validation as well.</p>
+
+<p>I am pretty sure the subject of feed and entry roles came up on <tt>atom-syntax</tt> and there was talk of an extension to convey this information, but I can’t seem to find anything in my archives.</p>
+
+<blockquote>
+  <p>after a brief inspection of the MIME type registration process I got scared off</p>
+</blockquote>
+
+<p>It’s not that scary if you stay in the VND or PRS trees actually.</p>
+
+<blockquote>
+  <p>Will raise it on the Markdown list anyway.</p>
+</blockquote>
+
+<p>There was <a href="http://six.pairlist.net/pipermail/markdown-discuss/2004-November/thread.html">some discussion about it in Nov 2004</a>. Nothing happened, so <a href="http://six.pairlist.net/pipermail/markdown-discuss/2005-April/001211.html">I flagged the issue again in Apr 2005</a>. But again nothing came of it, unfortunately. Maybe you’ll have more luck.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/comment-page-1/#comment-1469</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Mon, 14 Aug 2006 08:52:50 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/20/towards-a-common-blog-export-format#comment-1469</guid>
+		<description>&lt;p&gt;Aristotle, have another look. I think I&#039;ve addressed most of your concerns, but requiring no new elements (yaay!). Instead I just reused elements from APP and Atom Feed Threads.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;List of categories is now defined using &lt;code&gt;app:categories&lt;/code&gt; from APP&lt;/li&gt;
+&lt;li&gt;Entry draft status now indicated by &lt;code&gt;app:control&lt;/code&gt; from APP&lt;/li&gt;
+&lt;li&gt;Uses a &lt;code&gt;entrytype&lt;/code&gt; category to disambiguate between entries and static pages. And between comments and trackbacks.&lt;/li&gt;
+&lt;li&gt;Uses Feed Thread extension element &lt;code&gt;thr:in-reply-to&lt;/code&gt; to reference original post for a comment.&lt;/li&gt;
+&lt;li&gt;Allows MIME types but also defines &lt;code&gt;contentsyntax&lt;/code&gt; for cases where there is never going to be a MIME type. Such as the commonly-used &quot;allow HTML subset and create &lt;code&gt;&lt;p&gt;&lt;/code&gt; elements from CR characters.&quot; syntax.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Still some outstanding issues but may be ready for the atompub list?&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Aristotle, have another look. I think I&#8217;ve addressed most of your concerns, but requiring no new elements (yaay!). Instead I just reused elements from APP and Atom Feed Threads.</p>
+
+<ul>
+<li>List of categories is now defined using <code>app:categories</code> from APP</li>
+<li>Entry draft status now indicated by <code>app:control</code> from APP</li>
+<li>Uses a <code>entrytype</code> category to disambiguate between entries and static pages. And between comments and trackbacks.</li>
+<li>Uses Feed Thread extension element <code>thr:in-reply-to</code> to reference original post for a comment.</li>
+<li>Allows MIME types but also defines <code>contentsyntax</code> for cases where there is never going to be a MIME type. Such as the commonly-used &#8220;allow HTML subset and create <code>&lt;p&gt;</code> elements from CR characters.&#8221; syntax.</li>
+</ul>
+
+<p>Still some outstanding issues but may be ready for the atompub list?</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Aristotle Pagaltzis</title>
+		<link>http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/comment-page-1/#comment-1470</link>
+		<dc:creator>Aristotle Pagaltzis</dc:creator>
+		<pubDate>Mon, 14 Aug 2006 08:52:50 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/20/towards-a-common-blog-export-format#comment-1470</guid>
+		<description>&lt;p&gt;Ah, good job for plucking from APP. Did you leave this instance in there on purpose?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;An &lt;code&gt;atom:category&lt;/code&gt; element is &lt;em&gt;required&lt;/em&gt; for each defined category within the blogging engine. This must be the superset of all categories used in subsequent entries.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I think this is redundant now. (Just in case it was no accident, my previous criticism still applies of course.)&lt;/p&gt;
+
+&lt;p&gt;Reading on:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A &lt;code&gt;contentsyntax&lt;/code&gt; category may be used to indicate a syntax for the content element. This may only be present when the &lt;code&gt;atom:content&lt;/code&gt; element contains text (as indicated by the &lt;code&gt;text&lt;/code&gt; attribute), and should be used only when a registered MIME type is not available.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The attribute is called &lt;code&gt;type&lt;/code&gt;; more importantly, I would use RFC 2119 language there. Something like this:&lt;/p&gt;
+
+&lt;p&gt;“A &lt;code&gt;contentsyntax&lt;/code&gt; category may be used to indicate a custom syntax for the content. It MUST NOT be used when the value of the &lt;code&gt;type&lt;/code&gt; attribute of &lt;code&gt;atom:content&lt;/code&gt; differs from “&lt;code&gt;text&lt;/code&gt;” and SHOULD NOT be used in preference of specifying a registered MIME type for the type of content when one is available.”&lt;/p&gt;
+
+&lt;p&gt;(Guideline: “SHOULD (NOT)” means say “you can do this and we won’t stop you if you want to hurt yourself, but weigh the consequences” and is called for when the consequence is to jeopardise interoperability.)&lt;/p&gt;
+
+&lt;p&gt;Btw, I hope you kept your previous draft? The revision history of a standard and the discussion during the process contain useful knowledge.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Ah, good job for plucking from APP. Did you leave this instance in there on purpose?</p>
+
+<blockquote>
+  <p>An <code>atom:category</code> element is <em>required</em> for each defined category within the blogging engine. This must be the superset of all categories used in subsequent entries.</p>
+</blockquote>
+
+<p>I think this is redundant now. (Just in case it was no accident, my previous criticism still applies of course.)</p>
+
+<p>Reading on:</p>
+
+<blockquote>
+  <p>A <code>contentsyntax</code> category may be used to indicate a syntax for the content element. This may only be present when the <code>atom:content</code> element contains text (as indicated by the <code>text</code> attribute), and should be used only when a registered MIME type is not available.</p>
+</blockquote>
+
+<p>The attribute is called <code>type</code>; more importantly, I would use RFC 2119 language there. Something like this:</p>
+
+<p>“A <code>contentsyntax</code> category may be used to indicate a custom syntax for the content. It MUST NOT be used when the value of the <code>type</code> attribute of <code>atom:content</code> differs from “<code>text</code>” and SHOULD NOT be used in preference of specifying a registered MIME type for the type of content when one is available.”</p>
+
+<p>(Guideline: “SHOULD (NOT)” means say “you can do this and we won’t stop you if you want to hurt yourself, but weigh the consequences” and is called for when the consequence is to jeopardise interoperability.)</p>
+
+<p>Btw, I hope you kept your previous draft? The revision history of a standard and the discussion during the process contain useful knowledge.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/comment-page-1/#comment-1471</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Mon, 14 Aug 2006 08:52:50 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/20/towards-a-common-blog-export-format#comment-1471</guid>
+		<description>&lt;p&gt;Great comments, thanks Aristotle.&lt;/p&gt;
+
+&lt;p&gt;Yes it was an accident to leave that statement about &lt;code&gt;atom:category&lt;/code&gt; in there. I&#039;ll remove it.&lt;/p&gt;
+
+&lt;p&gt;I like your wording regarding the &lt;code&gt;contentsyntax&lt;/code&gt; category. I had been deliberately avoiding using RFC 2119 on account of the extremely tentative nature of the proposal. But I think that it probably makes sense now.&lt;/p&gt;
+
+&lt;p&gt;I have a copy of the previous draft offline. Will think about how it can be made available if needed.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Great comments, thanks Aristotle.</p>
+
+<p>Yes it was an accident to leave that statement about <code>atom:category</code> in there. I&#8217;ll remove it.</p>
+
+<p>I like your wording regarding the <code>contentsyntax</code> category. I had been deliberately avoiding using RFC 2119 on account of the extremely tentative nature of the proposal. But I think that it probably makes sense now.</p>
+
+<p>I have a copy of the previous draft offline. Will think about how it can be made available if needed.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Aristotle Pagaltzis</title>
+		<link>http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/comment-page-1/#comment-1472</link>
+		<dc:creator>Aristotle Pagaltzis</dc:creator>
+		<pubDate>Mon, 14 Aug 2006 08:52:50 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/20/towards-a-common-blog-export-format#comment-1472</guid>
+		<description>&lt;p&gt;Actually, tentativeness is no real concern. RFC 2119 is called for wherever there is a formal requirement of some sort, ie. basically any part of the spec which results in some kind of check in the code (certainly every aspect whose implementation you’d excercise with a unit test). Spec writing is a weird beast: a sort of natural-language programming, You can think of RFC 2119 statements as the code, whereas informal statements are comments. It’s obvious then why formal language is always appropriate. Do not shy away from using it, it gives a clear distinction between code and comments and makes the code more precise.&lt;/p&gt;
+
+&lt;p&gt;Hmm, there was something else that keeps popping into mind but slipping quickly, and now the sense that there’s something I really wanted to tell you is bugging me. But I can’t remember.&lt;/p&gt;
+
+&lt;p&gt;FYI, James Snell just posted on the list that the Atom Threading Extension was assigned RFC 4685. I haven’t found a published RFC 4685 yet, though. (I assume it is going through the last IETF process gyrations.)&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Actually, tentativeness is no real concern. RFC 2119 is called for wherever there is a formal requirement of some sort, ie. basically any part of the spec which results in some kind of check in the code (certainly every aspect whose implementation you’d excercise with a unit test). Spec writing is a weird beast: a sort of natural-language programming, You can think of RFC 2119 statements as the code, whereas informal statements are comments. It’s obvious then why formal language is always appropriate. Do not shy away from using it, it gives a clear distinction between code and comments and makes the code more precise.</p>
+
+<p>Hmm, there was something else that keeps popping into mind but slipping quickly, and now the sense that there’s something I really wanted to tell you is bugging me. But I can’t remember.</p>
+
+<p>FYI, James Snell just posted on the list that the Atom Threading Extension was assigned RFC 4685. I haven’t found a published RFC 4685 yet, though. (I assume it is going through the last IETF process gyrations.)</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/comment-page-1/#comment-1473</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Mon, 14 Aug 2006 08:52:50 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2007/02/20/towards-a-common-blog-export-format#comment-1473</guid>
+		<description>&lt;p&gt;Just posted revision 0.3 which uses RFC 2119 terminology and has various other tweaks. We&#039;ll see what the atom-sytnax crowd think of it.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Just posted revision 0.3 which uses RFC 2119 terminology and has various other tweaks. We&#8217;ll see what the atom-sytnax crowd think of it.</p>]]></content:encoded>
+	</item>
+</channel>
+</rss>

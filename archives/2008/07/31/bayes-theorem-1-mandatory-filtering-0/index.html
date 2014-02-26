@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   Bayes&#8217; Theorem 1, Mandatory Filtering 0</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/archives/2008/07/28/a-serious-compact/" />
+<link rel="next" href="http://girtby.net/archives/2008/08/23/in-defence-of-c/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Bayes&#8217; Theorem 1, Mandatory Filtering 0 Comments Feed" href="http://girtby.net/archives/2008/07/31/bayes-theorem-1-mandatory-filtering-0/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='start' title='Thunderbirds Are Go-ne' href='http://girtby.net/archives/2004/09/20/thunderbirds-are-go-ne/' />
+<link rel='prev' title='A Serious Compact' href='http://girtby.net/archives/2008/07/28/a-serious-compact/' />
+<link rel='next' title='In Defence of C' href='http://girtby.net/archives/2008/08/23/in-defence-of-c/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/archives/2008/07/31/bayes-theorem-1-mandatory-filtering-0/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+    						
+      <div class="post">
+          <div class="metainfo">
+              <p>Posted<br />
+                <abbr class="published" title="Thu, 31 Jul 2008 11:41:00 -0400">31 July 2008 @ 11am</abbr></p>
+                <p>Tagged<br />
+                <a href="http://girtby.net/archives/category/provocation/" title="View all posts in Provocation" rel="category tag">Provocation</a>,  <a href="http://girtby.net/archives/category/verisimilitude/" title="View all posts in Verisimilitude" rel="category tag">Verisimilitude</a></p>
+                <p>Tags<br/><a href="http://girtby.net/archives/tag/acma/" rel="tag">acma</a>, <a href="http://girtby.net/archives/tag/efa/" rel="tag">efa</a>, <a href="http://girtby.net/archives/tag/mandatory-filtering/" rel="tag">mandatory filtering</a></p>		    </div>
+		    <div class="content">
+		        <h3>Bayes&#8217; Theorem 1, Mandatory Filtering 0 
+		        </h3>
+		        <p>Unfortunately the Rudd government are pressing forward with their <a href="/archives/2008/1/3/where-s-the-mandatory-filtering-for-government-stupidity">proposal for mandatory internet filtering</a>. Recently, Electronic Frontiers Australia <a href="http://www.efa.org.au/2008/07/31/efa-says-filtering-trial-a-failure/">summarised the results</a> of an <a href="http://www.acma.gov.au/webwr/_assets/main/lib310554/isp-level_internet_content_filtering_trial-report.pdf">analysis of current ISP-level filters</a> commissioned by my old <a href="/archives/2006/2/10/a-futile-gesture">mates</a> at <acronym title="Australian Communications and Media Authority">ACMA</acronym>. The figures are frankly <em>begging</em> to be plugged into <a href="http://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes&#8217; Theorem</a>, so let&#8217;s do that.</p>
+
+<p><span id="more-3233"></span></p>
+
+<p>Firstly some terms. Let &#8220;P&#8221; be the event of discovering a Porn site on the internet. Let &#8220;N&#8221; be the converse event: discovering a Non-porn site. Let &#8220;+&#8221; be the event of a postive detection by an ISP filter. And obviously by &#8220;porn&#8221; I mean &#8220;inappropriate material&#8221;, the definition of which may or may not coincide with the Government&#8217;s; for the (admittedly rhetorical) purposes of this exercise it doesn&#8217;t matter too much.</p>
+
+<p>One of the key assumptions we have to make is P(P), or the probability of discovering a porn site. Obviously this depends greatly on how hard you&#8217;re searching for it! Now I don&#8217;t know about you, but I find that I almost <em>never</em> stumble upon a porn site by accident. Almost all of my regular news sources are relatively clean, or use the NSFW tag generously. But I&#8217;m quite happy to concede that my web habits are non-representative. So let&#8217;s just assume a regular family internet connection with a moderate amount of parental supervision, with a 5% chance of accidentally stumbling on porn. This still seems quite high, but it will suffice for now.</p>
+
+<p>To do the calculation we also need:</p>
+
+<ul>
+<li>P(N), which is pretty obviously 1 &#8211; P(P), or 0.95.</li>
+<li>P(+|P) is the probability of a positive detection by the filter, given a porn site. According to the report, this varies from 87&ndash;98%. Let&#8217;s be generous and say a probability of 0.95.</li>
+<li>P(+|N) is the probability of a false positive detection by the filter. Again the results vary, this time from 1.3&ndash;7.8%. Let&#8217;s use a similarly generous probability of 0.04.</li>
+<li>P(+) is the probability of a positive detection given any input. This is calculated by adding P(+|P) × P(P) and P(+|N) × P(N).</li>
+</ul>
+
+<p>Now using Bayes&#8217; Theorem we can calculate P(P|+). In other words: if a filter blocks a given site, what is the probability that it was porn?</p>
+
+<pre><code>P(P|+) = P(+|P) × P(P) / P(+)
+       = 0.95 × 0.05 / ( 0.95 × 0.05 + 0.04 × 0.95 )
+       = 0.55
+</code></pre>
+
+<p>In other words, <strong>each time the filter blocks something there is an about even chance that it wasn&#8217;t porn</strong>. In my opinion this is sufficiently damning evidence to show the worthlessness of any of these filters.</p>
+
+<p>So obviously we made some assumptions about the prevalence of porn, and hence the probability of discovering it. If we assume the internet is 50% porn, then the filter starts to look vaguely effective:</p>
+
+<pre><code>P(P|+) = P(+|P) × P(P) / P(+)
+       = 0.95 × 0.5 / (0.95 × 0.5 + 0.04 × 0.5)
+       = 0.96
+</code></pre>
+
+<p>But this is clearly a ridiculous assumption. If, on the other hand, we say that P(P) is lower, maybe a 1% chance of stumbling on porn &mdash; which frankly still sounds high to me &mdash; then the filters look even more useless:</p>
+
+<pre><code>P(P|+) = P(+|P) × P(P) / P(+)
+       = 0.95 × 0.01 / ( 0.95 × 0.01 + 0.04 × 0.99 )
+       = 0.19
+</code></pre>
+
+<p>So if the filter is blocking something, there&#8217;s an 80% chance that it wasn&#8217;t porn! Fantastic! For some reason these calculations seem to be missing from the ACMA report.</p>
+
+<p>See the <a href="http://www.efa.org.au/censorship/mandatory-isp-blocking/">EFA analysis</a> for more on the mandatory filtering, and while you&#8217;re there, join up. I have.</p>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+			
+<!-- You can start editing here. -->
+
+
+<div id="comments" class="post">
+
+	<h3 class="comments_headers">8 Comments</h3>
+
+</div>
+	
+	
+			
+        <div class="post" id="comment-1814">
+		    <div class="metainfo">
+                <p>Posted by<br />Yaron<br />
+                <input type="hidden" name="post_date" value="Thu, 31 Jul 2008 11:41:00 -0400" />
+                <abbr class="commented" title="Thu, 31 Jul 2008 11:41:00 -0400">31 July 2008 @ 11am</abbr><br />
+                <a href="#comment-1814">#</a></p>
+			</div>
+			<div class="content">
+				<p>You have a small typo, you initially wrote that the probability of a false positive is P(<strong>-</strong>|N) instead of P(<strong>+</strong>|N).</p>
+
+<p>Besides, you have the solution right there. They won&#8217;t just block &#8220;porn&#8221;, they&#8217;ll block any and all &#8220;objectionable contest&#8221; or somesuch. In which case the effectiveness will climb up very drastically, depending on who decides what&#8217;s objectionable.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1815">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://girtby.net' rel='external nofollow' class='url'>Alastair</a><br />
+                <input type="hidden" name="post_date" value="Thu, 31 Jul 2008 11:41:00 -0400" />
+                <abbr class="commented" title="Thu, 31 Jul 2008 11:41:00 -0400">31 July 2008 @ 11am</abbr><br />
+                <a href="#comment-1815">#</a></p>
+			</div>
+			<div class="content">
+				<p>Thanks Yaron, fixed.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1816">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://brainsnorkel.com' rel='external nofollow' class='url'>Chris</a><br />
+                <input type="hidden" name="post_date" value="Thu, 31 Jul 2008 11:41:00 -0400" />
+                <abbr class="commented" title="Thu, 31 Jul 2008 11:41:00 -0400">31 July 2008 @ 11am</abbr><br />
+                <a href="#comment-1816">#</a></p>
+			</div>
+			<div class="content">
+				<p>For me the opt-out provisions stop me from getting too militant about this silly policy&#8230; so long as the bandwidth performance penalty isn&#8217;t shared by people opting out. I&#8217;m also dismissing any reasoning that opting out will summon swarms of black helicopters to monitor my household&#8217;s unfettered Internet usage.</p>
+
+<p>While the policy objective of providing a &#8220;safe(r)&#8221; home Internet service by default sounds a noble goal, it does seem like a terrible waste of money.  If the government subsidized ISPs to provide an opt-in filtering service to concerned parents at no additional cost I&#8217;d be much happier with the relationship between the solution and the desired policy outcome.</p>
+
+<p>I don&#8217;t think arguing that false positives are a bad thing for people who don&#8217;t opt-out is going to sway the debate.  Internet filtering, like security, is a place where theatre, overreach and false positives aren&#8217;t necessarily seen as a bad thing.  They&#8217;re perceived as a slight annoyance, yet also a valuable sign that the system will work when required.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1817">
+		    <div class="metainfo">
+                <p>Posted by<br />B-Art<br />
+                <input type="hidden" name="post_date" value="Thu, 31 Jul 2008 11:41:00 -0400" />
+                <abbr class="commented" title="Thu, 31 Jul 2008 11:41:00 -0400">31 July 2008 @ 11am</abbr><br />
+                <a href="#comment-1817">#</a></p>
+			</div>
+			<div class="content">
+				<p>Answer to your Xcopy problem
+Use
+<code>"system(“echo F^|xcopy "$returnstr" "$mezteststr" /f /s /e /i")</code>
+Instead of
+<code>"system(“echo F|xcopy "$returnstr" "$mezteststr" /f /s /e /i")</code></p>
+
+<p>Small difference but usable <img src='http://girtby.net/wp-includes/images/smilies/icon_wink.gif' alt=';-)' class='wp-smiley' /> )</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1818">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://stubbornmule.wordpress.com' rel='external nofollow' class='url'>Sean Carmody</a><br />
+                <input type="hidden" name="post_date" value="Thu, 31 Jul 2008 11:41:00 -0400" />
+                <abbr class="commented" title="Thu, 31 Jul 2008 11:41:00 -0400">31 July 2008 @ 11am</abbr><br />
+                <a href="#comment-1818">#</a></p>
+			</div>
+			<div class="content">
+				<p>Excellent post Alastair: there&#8217;s nothing like a good application of Bayes&#8217;s Theorem.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1819">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://marxy.org' rel='external nofollow' class='url'>marxy</a><br />
+                <input type="hidden" name="post_date" value="Thu, 31 Jul 2008 11:41:00 -0400" />
+                <abbr class="commented" title="Thu, 31 Jul 2008 11:41:00 -0400">31 July 2008 @ 11am</abbr><br />
+                <a href="#comment-1819">#</a></p>
+			</div>
+			<div class="content">
+				<p>A great analysis.</p>
+
+<p>I think the assumption by the government is that people <strong>accidentally</strong> stumble across porn on the internet.</p>
+
+<p>Personally I can&#8217;t remember accidentally viewing porn, however my children certainly used to see unwanted porn. They were lured there by honey-pot sites designed to attract children searching for free games and novelties, they were running Windows and as a side effect of getting the free games would get infected with a Trojan that would open unwanted pages.</p>
+
+<p>I agree, filtering isn&#8217;t the answer, and has detrimental side effects. I wonder what the problem is that they are trying to fix?</p>
+
+<p>These days, the kids run MacOS X and use Firefox &#8211; I don&#8217;t think they have any problem. The government should focus on that broadband infrastructure program.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1820">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://brainsnorkel.com' rel='external nofollow' class='url'>Chris</a><br />
+                <input type="hidden" name="post_date" value="Thu, 31 Jul 2008 11:41:00 -0400" />
+                <abbr class="commented" title="Thu, 31 Jul 2008 11:41:00 -0400">31 July 2008 @ 11am</abbr><br />
+                <a href="#comment-1820">#</a></p>
+			</div>
+			<div class="content">
+				<blockquote>
+  <p>For me the opt-out provisions stop me from getting too militant about this silly policy…</p>
+</blockquote>
+
+<p>It turns out, you won&#8217;t be able to <em>fully</em> opt out:</p>
+
+<p><a href="http://www.computerworld.com.au/index.php/id%3b1399635276" rel="nofollow">http://www.computerworld.com.au/index.php/id%3b1399635276</a></p>
+
+<p>Colour me unimpressed, and suddenly much more politically active, on this issue.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-2309">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://stilgherrian.com/politics/jim-wallaces-pro-censorship-lies-and-distortions/' rel='external nofollow' class='url'>Stilgherrian &middot; Jim Wallace&#8217;s pro-censorship lies and distortions</a><br />
+                <input type="hidden" name="post_date" value="Thu, 31 Jul 2008 11:41:00 -0400" />
+                <abbr class="commented" title="Mon, 26 Jan 2009 18:18:45 -0500">26 January 2009 @ 6pm</abbr><br />
+                <a href="#comment-2309">#</a></p>
+			</div>
+			<div class="content">
+				<p>[...] last week) reckons that for a medium-sized ISP that’s 3000 incorrect blocks every second. Another maths-heavy analysis says that every time that filter blocks something there’s an 80% chance it was [...]</p> 
+							</div>
+		<br clear="left" />
+		</div>
+		
+	
+
+	<!-- Comment Form -->
+
+	    
+
+			
+				
+<div class="posttopline">
+	<span class="previous">&larr; <a href="http://girtby.net/archives/2008/07/28/a-serious-compact/" rel="prev">A Serious Compact</a></span>
+	<span class="next"><a href="http://girtby.net/archives/2008/08/23/in-defence-of-c/" rel="next">In Defence of C</a> &rarr;</span>
+</div>
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

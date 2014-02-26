@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>girtby.net &#187; performance</title>
+	<atom:link href="http://girtby.net/archives/tag/performance/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Thu, 17 Sep 2009 14:27:44 +0000</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+			<item>
+		<title>Wide Finder 2: The Widening</title>
+		<link>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/</link>
+		<comments>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/#comments</comments>
+		<pubDate>Thu, 03 Jul 2008 03:27:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[performance]]></category>
+		<category><![CDATA[wide finder]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2008/07/08/wide-finder-2-the-widening</guid>
+		<description><![CDATA[&#60;movie-trailer-guy&#62; Many months ago he attempted Tim Bray&#8217;s first Wide Finder in C++, mainly as a coding exercise. Back then the goal was readability and conciseness. This time &#8230; it&#8217;s performanceal. &#60;/movie-trailer-guy&#62;
+
+
+
+Targeting the Hardware of the Future
+
+Computer architecture evolution is currently in the process of changing direction. Instead of CPUs becoming progressively ever faster, they [...]]]></description>
+			<content:encoded><![CDATA[<p><code>&lt;movie-trailer-guy&gt;</code> Many months ago he attempted Tim Bray&#8217;s first <a href="/archives/2007/10/9/wide-finder-in-c">Wide Finder in C++</a>, mainly as a coding exercise. Back then the goal was readability and conciseness. This time &#8230; it&#8217;s performanceal. <code>&lt;/movie-trailer-guy&gt;</code></p>
+
+<p><span id="more-3049"></span></p>
+
+<h4>Targeting the Hardware of the Future</h4>
+
+<p>Computer architecture evolution is currently in the process of changing direction. Instead of CPUs becoming progressively ever faster, they are going &#8220;wider&#8221;. This means more processing cores, each of which is relatively low-powered. The combined processing power of multiple cores is greater than is achievable with traditional single core architectures, but requires new programming techniques. These techniques are perhaps well-understood at a theory level, but the Wide Finder project is an attempt to put theory into practice with real-world tasks by everyday coders, such as myself.</p>
+
+<p>The goal of a <a href="http://wikis.sun.com/display/WideFinder/Wide+Finder+Home">Wide Finder 2</a> implementation is to produce some simple statistics from a very large (42GB) data file. The target machine is a Sun Fire T2000 with 8 cores (32 threads) and 32 GB of RAM. The task is relatively simple: we have to read the file, which contains web server log entries, and produce some elementary statistics such as the top 10 pages by hit, the top 10 clients, and so forth. Obviously it&#8217;s I/O bound &#8230; or is it?</p>
+
+<p>I attempted this in (hopefully) idiomatic C++, using the <a href="http://www.boost.org/">Boost</a> libraries. For those unfamiliar with Boost, you can think of it as the non-standard library, or maybe the unofficial standard libary. Basically if you&#8217;re not using Boost libraries today, you soon will be, because many of the them have gone on to form the basis for the TR1 standard library extensions, and hence targeted for inclusion in the next official C++ standard, known as C++0x. Thanks to Boost, my code is completely portable, compiling on both gcc (on my Mac) and Sun Studio compiler (on the T2000) without even a single <code>#ifdef</code>.</p>
+
+<h4>The Results, So Far</h4>
+
+<p>So, C++ should be able to whip all those other languages like Java into submission you might think, right? Well, I think the <a href="http://wikis.sun.com/display/WideFinder/Results">results</a> speak for themselves. My time of 16 minutes is prettymuch in the middle of the pack. Not bad, but not outstanding either, and still behind some of the Java (or JVM-based) implementations. I have a few more optimisations up my sleeve though, so we&#8217;ll see how they pan out.</p>
+
+<p>However the clear winner in my view, and hence worthy of much more recognition than it currently enjoys, is <a href="http://caml.inria.fr/ocaml/">OCaml</a>. With a run time of 5 minutes this is perilously <a href="http://groups.google.com/group/wide-finder/browse_thread/thread/06cf51fbbd4774e0">close to the raw I/O speed</a> sustainable on this box. Not only that but it was all done with ~150 lines of code which is frankly amazing (especially compared to my ~500 line C++ implementation). So OCaml is definitely a language to look at, in my humble opinion.</p>
+
+<p>Hit the links from that results page for some often fascinating insights from the other Wide Finder implementers.</p>
+
+<h4>How To Go Wide</h4>
+
+<p>Fundamentally I think my approach is fairly similar to many of the other Wide Finders. This was to divide the input file into chunks, then walk through each using multiple threads. Each thread accumulates statistics in the form of hash tables. The individual hash tables are then merged before finally being sorted to produce the top-10 reports.</p>
+
+<p>I want to share in detail some of the techniques that I used but like I said I&#8217;m still refining them. For now let me just point to a couple of key techniques that got me into contention for this project:</p>
+
+<ul>
+<li><p>When it comes to this much data, you can&#8217;t afford to copy anything. This means I/O using <code>mmap</code>, and doing as much processing &#8220;in-place&#8221; as possible. For C++ this also means throwing out the <code>iostreams</code> library (even though it is otherwise quite well suited to this type of task, as demonstrated previously). And even with a 64-bit binary, you really don&#8217;t want to mmap an entire 42GB data file into memory, trust me [<strong>Update:</strong> Or maybe not. See <a href="#comment-3058">comment</a> below]. So I ended up with some quite ugly code to deal with mmap-ing segments of the input file while respecting chunk (ie line) boundaries and page alignment boundaries.</p></li>
+<li><p>Multi-threaded C++ applications are always at risk of experiencing contention, but this is especially so when it comes to memory allocation. Doing too much allocation can kill any parallel processing you do with C++, because <code>malloc</code> and <code>free</code> both grab global mutexes (or worse, spinlocks) prior to doing their stuff. To solve this problem I ended up using a custom thread-specific memory allocator based on the Boost.Pool library. This minimises the number of times that the thread grabs memory during the normal course of operation. Code forthcoming.</p></li>
+</ul>
+
+<p>Mad props to Shark, which is part of the Mac OS X developer suite. It pinpointed my bottlenecks  very quickly and simply. An indispensable tool, don&#8217;t jump over <em>this</em> Shark.</p>
+
+<h4>Future Work</h4>
+
+<p>So I&#8217;ve got some more ideas on how to go even wider, and I&#8217;ll update here with the results. Basically it&#8217;s applying the above two techniques more thoroughly; minimise copying of data, and minimise memory allocation. (In particular the Boost.Regex library is next on my list to convert to using a thread-specific memory pool). Will let you know how it goes.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/feed/</wfw:commentRss>
+		<slash:comments>7</slash:comments>
+		</item>
+		<item>
+		<title>Required Viewing</title>
+		<link>http://girtby.net/archives/2007/11/06/required-viewing/</link>
+		<comments>http://girtby.net/archives/2007/11/06/required-viewing/#comments</comments>
+		<pubDate>Tue, 06 Nov 2007 22:39:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Linkpimpin']]></category>
+		<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[architecture]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[memory]]></category>
+		<category><![CDATA[performance]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2007/11/13/required-viewing</guid>
+		<description><![CDATA[If you&#8217;re at all interested in computing technology you can&#8217;t help but be amazed at the advances in CPU power over the last few decades, Moore&#8217;s Law, blah blah blah. But a few seconds pondering this invariably provokes the question as to how long this party can last.
+
+The commonly accepted wisdom is that CPUs have [...]]]></description>
+			<content:encoded><![CDATA[<p>If you&#8217;re at all interested in computing technology you can&#8217;t help but be amazed at the advances in CPU power over the last few decades, Moore&#8217;s Law, blah blah blah. But a few seconds pondering this invariably provokes the question as to how long this party can last.</p>
+
+<p>The commonly accepted wisdom is that CPUs have gotten about as fast as they are likely to go in terms of sheer clock speed, and now manufacturers are turning to multiprocessing to provide more processing power for a given price point. The recent Intel price drops which made the quad-core Q6600 CPU available for less than AUD400 are a highly relevent (and welcome) data point to illustrate this trend.</p>
+
+<p>This raises lots of hairy questions for developers, such as &#8220;how are we going to design our software to run efficiently in a multi-processing environment?&#8221; The previously-linked <a href="http://www.tbray.org/ongoing/When/200x/2007/09/20/Wide-Finder">wide finder</a> experiment is an attempt to explore some of these issues. And it&#8217;s pretty obvious that so far there is no silver bullet.</p>
+
+<p>But wait, it gets worse. I will point you to a long but highly thought-provoking presentation from Herb Sutter. Turns out we are <em>already</em> hitting major architectural hurdles in the form of memory access limitations, and we&#8217;ll need to find some solutions for these <em>before</em> tackling the parallel computation problem.</p>
+
+<p>Sutter&#8217;s presentation is deeply technical, but still quite accessible, and delivered with an engaging style that makes it <a href="http://herbsutter.spaces.live.com/blog/cns!2D4327CC297151BB!304.entry">required viewing</a>. Highly recommended.</p>
+
+<p>I recently had some experience diagnosing some memory-related performance problems (not quite in the same class as that discussed by Sutter, but similar) and I have to say there is a serious deficit in the development tools for these kinds of problems. Currently we need to look aggregate behaviour over multiple iterations to isolate some of these problems, and this is a difficult and error-prone approach. For example, check out Sutter&#8217;s technique to discover the memory cache line size in code. In the future it would be great if we could monitor cache misses, pipeline stalls, page faults, and other performance-impacting events <em>within the debugger</em>.</p>
+
+<p>These issues also make me wonder about how higher-level languages are going to provide appropriate abstractions to avoid the performance problems. For example, garbage collection is a major win for programmer productivity but it does encourage memory usage patterns that are not always conducive to performance given architectural limitations in the underlying hardware. The same abstraction problems affect C/C++ of course but at least there is the option to go &#8220;bare-metal&#8221; where necessary.</p>
+
+<p>Whatever the answers are here, it&#8217;s certain there are some interesting times ahead for developers.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2007/11/06/required-viewing/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>girtby.net &#8211;   Towards A Common Blog Export Format</title>
+
+<meta name="verify-v1" content="unGvQ7Jwj5liZb2PzH2ckduvpe8Ua3Ls0MONzCHQQn4=" />
+
+<link rel="stylesheet" href="http://girtby.net/wp-content/themes/depo-clean/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Articles Feed" href="http://girtby.net/feed/atom/" />
+<link rel="alternate" type="application/atom+xml" title="girtby.net Comments Feed" href="http://girtby.net/comments/feed/atom/" />
+
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://arankine.myopenid.com/" />
+
+<link rel="meta" href="http://girtby.net/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.girtby.net" r (n 0 s 0 v 0 l 2 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' />
+
+<link rel="prev" href="http://girtby.net/archives/2006/08/12/project-yourself/" />
+<link rel="next" href="http://girtby.net/archives/2006/08/19/not-the-first-but-the-best/" />
+
+<link rel="pingback" href="http://girtby.net/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Feed" href="http://girtby.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Comments Feed" href="http://girtby.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="girtby.net &raquo; Towards A Common Blog Export Format Comments Feed" href="http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='http://girtby.net/wp-content/themes/depo-clean/javascript/friendly_dates.js?ver=2.9-rare'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://girtby.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://girtby.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='girtby.net' href='http://girtby.net' />
+<link rel='start' title='Thunderbirds Are Go-ne' href='http://girtby.net/archives/2004/09/20/thunderbirds-are-go-ne/' />
+<link rel='prev' title='Project Yourself' href='http://girtby.net/archives/2006/08/12/project-yourself/' />
+<link rel='next' title='Not The First, But The Best' href='http://girtby.net/archives/2006/08/19/not-the-first-but-the-best/' />
+<meta name="generator" content="WordPress 2.9-rare" />
+<link rel='canonical' href='http://girtby.net/archives/2006/08/14/towards-a-common-blog-export-format/' />
+			<script type="text/javascript" src="http://girtby.net/wp-content/plugins/flickr-tag/js/flickrTagTooltips.js"></script>
+
+			<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTagTooltips.css" type="text/css" rel="stylesheet"/>
+	
+		<link href="http://girtby.net/wp-content/plugins/flickr-tag/css/flickrTag.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+<div class="container">
+	<div class="header">
+        <div class="search">
+            <form method="get" id="sform" action="http://girtby.net/">
+                <input type="text" id="q" value="" name="s" size="15" />
+			</form>
+        </div><!-- end search -->
+        			        <h1><a href="http://girtby.net/">this blog is girtby.net</a> 
+            </h1>
+	</div><!-- end header -->
+
+
+<div class="blogads">
+
+<!-- Your Stuff Here -->
+
+</div>
+
+
+    						
+      <div class="post">
+          <div class="metainfo">
+              <p>Posted<br />
+                <abbr class="published" title="Mon, 14 Aug 2006 08:52:50 -0400">14 August 2006 @ 8am</abbr></p>
+                <p>Tagged<br />
+                <a href="http://girtby.net/archives/category/me-use-brain/" title="View all posts in Me Use Brain" rel="category tag">Me Use Brain</a>,  <a href="http://girtby.net/archives/category/nerd-factor-x/" title="View all posts in Nerd Factor X" rel="category tag">Nerd Factor X</a></p>
+                		    </div>
+		    <div class="content">
+		        <h3>Towards A Common Blog Export Format 
+		        </h3>
+		        <p>In general I find it a lot easier to put my data somewhere that I know I will be able to get it out again. This applies especially for web applications hosted by third-parties, where export facilities are a must before I&#8217;ll even look at it, but I believe it is generally a good practice.</p>
+
+<p>Hence the motivation for a common interchange format for blog content. This is an escape hatch, if you will, for migration to an unspecified future blogging platform.</p>
+
+<p>Admittedly my recent migration from Wordpress to Typo was pretty easy, so in that that particular instance the lack of a common content exchange format was not a problem. But it certainly is a problem in general. And the less time blog software authors spend on writing importers for all the other blogging engines around the place, the more time they will have to concentrate on features. That sounds like a good thing to me.</p>
+
+<p>It turns out that a content interchange format can be created using some simple conventions over and extensions of the <a href="http://atompub.org/rfc4287.html">Atom syndication format</a>. I&#8217;ve written these up as a proposal for anyone and everyone to comment upon. Please read the ObDisclaimer at the start and let me know your comments.</p>
+
+<p>Enjoy <a href="/offerings/atomexport">Content Export with Atom</a>.</p>
+		        <br clear="left" />
+		    </div>
+        </div><!-- end post -->
+
+			
+<!-- You can start editing here. -->
+
+
+<div id="comments" class="post">
+
+	<h3 class="comments_headers">9 Comments</h3>
+
+</div>
+	
+	
+			
+        <div class="post" id="comment-1465">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://plasmasturm.org/' rel='external nofollow' class='url'>Aristotle Pagaltzis</a><br />
+                <input type="hidden" name="post_date" value="Mon, 14 Aug 2006 08:52:50 -0400" />
+                <abbr class="commented" title="Mon, 14 Aug 2006 08:52:50 -0400">14 August 2006 @ 8am</abbr><br />
+                <a href="#comment-1465">#</a></p>
+			</div>
+			<div class="content">
+				<p>It’s a decent first stab, but much of <a href="http://www.snellspace.com/wp/?p=314" title="Extending Atom">James Snell’s criticism of the GData Atom extensions</a> applies to your proposal as well, if not to the same extent.</p>
+
+<p>You can get away without any extension elements at all, you only need to mint a URI for a special category scheme. Henceforth, when I refer to the role of an entry, it means that the entry has an <code>atom:category</code> element with <code>scheme</code> being <code><a href="http://purl.org/syndication/entry-role/1.0" rel="nofollow">http://purl.org/syndication/entry-role/1.0</a></code> and <code>term</code> being the given role.</p>
+
+<blockquote>
+  <p>An atom:category element is required for each <em>defined</em> category within the blogging engine. This must be the superset of all categories used in subsequent entries.</p>
+</blockquote>
+
+<p>That is abuse, IMO. The weblog does not “belong to” these categories. Something I have proposed to others is to store categories as entries with role Category. Remember that the permalink is optional for an entry. The entry title then is the category name, and you can use the entry content to carry a description of the category – or just leave it out.</p>
+
+<blockquote>
+  <p>An atom:contributor element is required for each <em>defined</em> author. Optionally, this may include registered users which do not have authoring privileges.</p>
+</blockquote>
+
+<p>The <a href="http://www.google.com/search?q=atompub-author-extensions">Person Extensions</a> might be of interest here, in case you also want to express their status in the system.</p>
+
+<blockquote>
+  <ul>
+  <li>A export:page child element may be used if the entry is a static page.</li>
+  <li>A export:comment child element may be used if the entry is a comment.</li>
+  <li>A export:trackback child element may be used if the entry is a trackback.</li>
+  </ul>
+</blockquote>
+
+<p>These should be roles.</p>
+
+<blockquote>
+  <p>The atom:published element may be omitted if the article has not been published (that is, a draft).</p>
+</blockquote>
+
+<p>That overloads the meaning of the optionality of <code>atom:published</code> in a way I’m not comfortable with. It’s optional precisely because not all weblog and CMS software tracks this data. In fact, originally, Atom was going to have <em>four</em> different dates, of which two required, but the publishing people revolted. You will also note that Atom deliberately avoids requiring any particular population of <code>atom:updated</code> – just that it be present, and that some constraints be fulfilled when entries with identical <code>atom:id</code> are present in the same feed.</p>
+
+<p>Try using role Draft instead. Roles, roles, roles, roles, roles, baked beans, roles and roles.</p>
+
+<blockquote>
+  <p>A export:contentsyntax element may be used to indicate a syntax for the content element.</p>
+</blockquote>
+
+<p>No. Atom already knows how to do this. Mint MIME types instead, then you can use eg. <code>&lt;content type="text/markdown"&gt;</code>. No need for reinvention.</p>
+
+<blockquote>
+  <p>This attribute contains the atom:id of the entry which is being [<i>commented upon / trackbacked</i>].</p>
+</blockquote>
+
+<p>Use the <a href="http://www.google.com/search?q=atompub-feed-thread">Feed Thread Extension</a> instead.</p>
+
+<p>All in all, not a bad attempt – you’ve captured the most important things that need to be preserved, the rest is just a matter of expressing them more idiomatically.</p>
+
+<hr />
+
+<p>PS.:</p>
+
+<blockquote>
+  <p>The Brilliant Paula Bean</p>
+</blockquote>
+
+<p>You mean Brillant.</p>
+
+<p>PPS.: can you please fix blockquotes in comments? It’s hard to have a conversation without them.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1466">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://girtby.net' rel='external nofollow' class='url'>Alastair</a><br />
+                <input type="hidden" name="post_date" value="Mon, 14 Aug 2006 08:52:50 -0400" />
+                <abbr class="commented" title="Mon, 14 Aug 2006 08:52:50 -0400">14 August 2006 @ 8am</abbr><br />
+                <a href="#comment-1466">#</a></p>
+			</div>
+			<div class="content">
+				<blockquote>
+  <p>can you please fix blockquotes in comments?</p>
+</blockquote>
+
+<p>Done. Looks like Typo was filtering markup a bit too agressively.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1467">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://girtby.net' rel='external nofollow' class='url'>Alastair</a><br />
+                <input type="hidden" name="post_date" value="Mon, 14 Aug 2006 08:52:50 -0400" />
+                <abbr class="commented" title="Mon, 14 Aug 2006 08:52:50 -0400">14 August 2006 @ 8am</abbr><br />
+                <a href="#comment-1467">#</a></p>
+			</div>
+			<div class="content">
+				<p>Thanks Aristotle for some great feedback.</p>
+
+<p>Although I agree with Snell&#8217;s criticism of GData&#8217;s use of Atom, I haven&#8217;t fully formed an opinion on whether the same criticism applies for what I&#8217;m trying to do here. Let me mull that one over for a bit more.</p>
+
+<p>It&#8217;s interesting that you have suggested a method for extending Atom which is not described in the spec (either that or I missed it). So the first thing that occurs is: why are these &#8220;roles&#8221; not abuse of the Atom category element?</p>
+
+<p>It&#8217;s almost like you&#8217;re proposing that the category element be used to encode generic RDF tuples (where the &#8217;subject&#8217; is the Atom entry itself). I&#8217;m wondering why, if the category element was intended to be used in such a way, why doesn&#8217;t it just say to use RDF and be done with it?</p>
+
+<p>On a more practical level, I&#8217;m wondering how validity constraints can be specified for categories used in this way. But I guess we can cross that bridge when we come to it.</p>
+
+<blockquote>
+  <p>Mint MIME types instead, then you can use eg. <code>&lt;content type="text/markdown"&gt;</code>. No need for reinvention.</p>
+</blockquote>
+
+<p>That was my first inclination, but after a brief inspection of the MIME type registration process I got scared off. Will raise it on the Markdown list anyway.</p>
+
+<blockquote>
+  <p>Use the <a href="http://www.google.com/search?q=atompub-feed-thread">Feed Thread Extension</a> instead.</p>
+</blockquote>
+
+<p>ACK. I think that a number of these issues will be solved &#8220;for free&#8221; by the APP crowd.</p>
+
+<p>Thanks again.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1468">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://plasmasturm.org/' rel='external nofollow' class='url'>Aristotle Pagaltzis</a><br />
+                <input type="hidden" name="post_date" value="Mon, 14 Aug 2006 08:52:50 -0400" />
+                <abbr class="commented" title="Mon, 14 Aug 2006 08:52:50 -0400">14 August 2006 @ 8am</abbr><br />
+                <a href="#comment-1468">#</a></p>
+			</div>
+			<div class="content">
+				<blockquote>
+  <p>I haven&#8217;t fully formed an opinion on whether the same criticism applies for what I&#8217;m trying to do here.</p>
+</blockquote>
+
+<p>Mostly, I was thinking about your use of an extension element to denote the authoring markup syntax – I did say “not to the same extent.”</p>
+
+<blockquote>
+  <p>why are these &#8220;roles&#8221; not abuse of the Atom category element?</p>
+</blockquote>
+
+<p>I guess that is debatable – and the outcome of that would probably depend on how narrow a definition of “category” you chose. RFC4287 itself is happy to explicitly make no particular assertion (see the language in the spec). Note that the the <code>scheme</code> attribute is explicitly provided as a means of identifying categorisation schemes by URI. So if you view the role of an entry as a kind of category, then this is a pretty natural interpretation/application of RFC4287.</p>
+
+<blockquote>
+  <p>It&#8217;s almost like you&#8217;re proposing that the category element be used to encode generic RDF tuples</p>
+</blockquote>
+
+<p>That is indeed <em>sort of</em> the purpose of the <code>category</code> element (cf. <code>scheme</code> attribute).</p>
+
+<p>Note that even by this liberal interpretation, your proposition of carrying the superset of categories in the <code>feed</code> element is still abuse of the <code>category</code> element.</p>
+
+<p>On second reading, I’m not that happy with my proposition of rendering categories as entries. It is a workable approach, but seems a bit heavyweight due to the required IDs and timestamps. Defining an extension element to contain a list of categories might be a wiser choice. A middle-of-the-road option might be to have only a single, special-purpose <code>entry</code> which is required to contain the category tree in XOXO format. (This choice has the added benefit that it maximises the usefulness of the resulting document with apps that understand Atom, but not the particular extensions in use. This same criterion also favours the use of <code>category</code> for entry roles.)</p>
+
+<blockquote>
+  <p>why doesn&#8217;t it just say to use RDF and be done with it?</p>
+</blockquote>
+
+<p>There has been a long-standing anti-RDF/XML (but not anti-RDF) sentiment in the WG. Read section 6.4.1 of the RFC for another example.</p>
+
+<p>I suppose in practice, you could create a role extension that follows the rules of section 6.4.1 and get the same effect I achieved using <code>category</code> elements. There really isn’t any effective difference. That would resolve your concern about validation as well.</p>
+
+<p>I am pretty sure the subject of feed and entry roles came up on <tt>atom-syntax</tt> and there was talk of an extension to convey this information, but I can’t seem to find anything in my archives.</p>
+
+<blockquote>
+  <p>after a brief inspection of the MIME type registration process I got scared off</p>
+</blockquote>
+
+<p>It’s not that scary if you stay in the VND or PRS trees actually.</p>
+
+<blockquote>
+  <p>Will raise it on the Markdown list anyway.</p>
+</blockquote>
+
+<p>There was <a href="http://six.pairlist.net/pipermail/markdown-discuss/2004-November/thread.html">some discussion about it in Nov 2004</a>. Nothing happened, so <a href="http://six.pairlist.net/pipermail/markdown-discuss/2005-April/001211.html">I flagged the issue again in Apr 2005</a>. But again nothing came of it, unfortunately. Maybe you’ll have more luck.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1469">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://girtby.net' rel='external nofollow' class='url'>Alastair</a><br />
+                <input type="hidden" name="post_date" value="Mon, 14 Aug 2006 08:52:50 -0400" />
+                <abbr class="commented" title="Mon, 14 Aug 2006 08:52:50 -0400">14 August 2006 @ 8am</abbr><br />
+                <a href="#comment-1469">#</a></p>
+			</div>
+			<div class="content">
+				<p>Aristotle, have another look. I think I&#8217;ve addressed most of your concerns, but requiring no new elements (yaay!). Instead I just reused elements from APP and Atom Feed Threads.</p>
+
+<ul>
+<li>List of categories is now defined using <code>app:categories</code> from APP</li>
+<li>Entry draft status now indicated by <code>app:control</code> from APP</li>
+<li>Uses a <code>entrytype</code> category to disambiguate between entries and static pages. And between comments and trackbacks.</li>
+<li>Uses Feed Thread extension element <code>thr:in-reply-to</code> to reference original post for a comment.</li>
+<li>Allows MIME types but also defines <code>contentsyntax</code> for cases where there is never going to be a MIME type. Such as the commonly-used &#8220;allow HTML subset and create <code>&lt;p&gt;</code> elements from CR characters.&#8221; syntax.</li>
+</ul>
+
+<p>Still some outstanding issues but may be ready for the atompub list?</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1470">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://plasmasturm.org/' rel='external nofollow' class='url'>Aristotle Pagaltzis</a><br />
+                <input type="hidden" name="post_date" value="Mon, 14 Aug 2006 08:52:50 -0400" />
+                <abbr class="commented" title="Mon, 14 Aug 2006 08:52:50 -0400">14 August 2006 @ 8am</abbr><br />
+                <a href="#comment-1470">#</a></p>
+			</div>
+			<div class="content">
+				<p>Ah, good job for plucking from APP. Did you leave this instance in there on purpose?</p>
+
+<blockquote>
+  <p>An <code>atom:category</code> element is <em>required</em> for each defined category within the blogging engine. This must be the superset of all categories used in subsequent entries.</p>
+</blockquote>
+
+<p>I think this is redundant now. (Just in case it was no accident, my previous criticism still applies of course.)</p>
+
+<p>Reading on:</p>
+
+<blockquote>
+  <p>A <code>contentsyntax</code> category may be used to indicate a syntax for the content element. This may only be present when the <code>atom:content</code> element contains text (as indicated by the <code>text</code> attribute), and should be used only when a registered MIME type is not available.</p>
+</blockquote>
+
+<p>The attribute is called <code>type</code>; more importantly, I would use RFC 2119 language there. Something like this:</p>
+
+<p>“A <code>contentsyntax</code> category may be used to indicate a custom syntax for the content. It MUST NOT be used when the value of the <code>type</code> attribute of <code>atom:content</code> differs from “<code>text</code>” and SHOULD NOT be used in preference of specifying a registered MIME type for the type of content when one is available.”</p>
+
+<p>(Guideline: “SHOULD (NOT)” means say “you can do this and we won’t stop you if you want to hurt yourself, but weigh the consequences” and is called for when the consequence is to jeopardise interoperability.)</p>
+
+<p>Btw, I hope you kept your previous draft? The revision history of a standard and the discussion during the process contain useful knowledge.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1471">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://girtby.net' rel='external nofollow' class='url'>Alastair</a><br />
+                <input type="hidden" name="post_date" value="Mon, 14 Aug 2006 08:52:50 -0400" />
+                <abbr class="commented" title="Mon, 14 Aug 2006 08:52:50 -0400">14 August 2006 @ 8am</abbr><br />
+                <a href="#comment-1471">#</a></p>
+			</div>
+			<div class="content">
+				<p>Great comments, thanks Aristotle.</p>
+
+<p>Yes it was an accident to leave that statement about <code>atom:category</code> in there. I&#8217;ll remove it.</p>
+
+<p>I like your wording regarding the <code>contentsyntax</code> category. I had been deliberately avoiding using RFC 2119 on account of the extremely tentative nature of the proposal. But I think that it probably makes sense now.</p>
+
+<p>I have a copy of the previous draft offline. Will think about how it can be made available if needed.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1472">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://plasmasturm.org/' rel='external nofollow' class='url'>Aristotle Pagaltzis</a><br />
+                <input type="hidden" name="post_date" value="Mon, 14 Aug 2006 08:52:50 -0400" />
+                <abbr class="commented" title="Mon, 14 Aug 2006 08:52:50 -0400">14 August 2006 @ 8am</abbr><br />
+                <a href="#comment-1472">#</a></p>
+			</div>
+			<div class="content">
+				<p>Actually, tentativeness is no real concern. RFC 2119 is called for wherever there is a formal requirement of some sort, ie. basically any part of the spec which results in some kind of check in the code (certainly every aspect whose implementation you’d excercise with a unit test). Spec writing is a weird beast: a sort of natural-language programming, You can think of RFC 2119 statements as the code, whereas informal statements are comments. It’s obvious then why formal language is always appropriate. Do not shy away from using it, it gives a clear distinction between code and comments and makes the code more precise.</p>
+
+<p>Hmm, there was something else that keeps popping into mind but slipping quickly, and now the sense that there’s something I really wanted to tell you is bugging me. But I can’t remember.</p>
+
+<p>FYI, James Snell just posted on the list that the Atom Threading Extension was assigned RFC 4685. I haven’t found a published RFC 4685 yet, though. (I assume it is going through the last IETF process gyrations.)</p> 
+							</div>
+		<br clear="left" />
+		</div>
+			
+        <div class="post" id="comment-1473">
+		    <div class="metainfo">
+                <p>Posted by<br /><a href='http://girtby.net' rel='external nofollow' class='url'>Alastair</a><br />
+                <input type="hidden" name="post_date" value="Mon, 14 Aug 2006 08:52:50 -0400" />
+                <abbr class="commented" title="Mon, 14 Aug 2006 08:52:50 -0400">14 August 2006 @ 8am</abbr><br />
+                <a href="#comment-1473">#</a></p>
+			</div>
+			<div class="content">
+				<p>Just posted revision 0.3 which uses RFC 2119 terminology and has various other tweaks. We&#8217;ll see what the atom-sytnax crowd think of it.</p> 
+							</div>
+		<br clear="left" />
+		</div>
+		
+	
+
+	<!-- Comment Form -->
+
+	    
+
+			
+				
+<div class="posttopline">
+	<span class="previous">&larr; <a href="http://girtby.net/archives/2006/08/12/project-yourself/" rel="prev">Project Yourself</a></span>
+	<span class="next"><a href="http://girtby.net/archives/2006/08/19/not-the-first-but-the-best/" rel="next">Not The First, But The Best</a> &rarr;</span>
+</div>
+
+<br clear="all" />
+
+    <div class="footer">
+		
+        <div class="first">
+        <div id="text-318154731" class="widget widget_text"><h5 class="widgettitle">Archives</h5>			<div class="textwidget"><ul>
+<li><a href="/archives/2009">2009</a></li>
+<li><a href="/archives/2008">2008</a></li>
+<li><a href="/archives/2007">2007</a></li>
+<li><a href="/archives/2006">2006</a></li>
+<li><a href="/archives/2005">2005</a></li>
+<li><a href="/archives/2004">2004</a></li>
+</ul></div>
+		</div>		</div>
+
+        <div class="sidebar">
+        <div id="text-326846052" class="widget widget_text"><h5 class="widgettitle">Leveraged Synergy</h5>			<div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+<p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+</div>
+		</div>        </div>
+
+        <div class="last">
+        <div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bjkeefe.blogspot.com">bjkeefe</a></li>
+<li><a href="http://brainsnorkel.com">brainsnorkel</a></li>
+<li><a href="http://deadlybloodyserious.com">Deadly Bloody Serious</a></li>
+<li><a href="http://blog.alphajuliet.com/">follicle</a></li>
+<li><a href="http://madbean.com/">madbean</a></li>
+<li><a href="http://marxyblog.blogspot.com">marxy&#8217;s musing on technology</a></li>
+<li><a href="http://mattrubinstein.com.au">mattrubinstein.com.au</a></li>
+<li><a href="http://somethinkodd.com/oddthinking">OddThinking</a></li>
+
+	</ul>
+</div>
+        </div>
+
+	    </div><!-- end footer -->
+
+        <br clear="all" />
+        
+		<div class="copyright">
+        	        	<span class="previous">&larr; <a href="http://girtby.net">Back to Home</a></span>
+                        <p>Powered by <a href="http://wordpress.org">WordPress</a> using the <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+            		</div>
+
+	</div> <!-- end container -->
+</body>
+</html>

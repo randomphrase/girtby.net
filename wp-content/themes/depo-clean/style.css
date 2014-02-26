@@ -1,0 +1,302 @@
+/* @override 
+	http://blog.girtby.info/wp-content/themes/depo-clean/style.css
+*/
+
+/*
+Theme Name:   DePo Clean
+Theme URI:    http://powazek.com
+Description:  A clean, organized theme by <a href="http://powazek.com">Derek Powazek</a>.
+Version:      0.5
+Author:       Derek Powazek
+Author URI:   http://powazek.com
+*/
+
+* { 
+    margin: 0; 
+    padding: 0;
+}
+
+body {
+    background: #fff; /* url('http://www.alistapart.com/d/settingtypeontheweb/images/gridbg.gif'); */
+    color: black;
+    text-align: center;
+    font-size: 13px;
+    line-height: 18px;
+    font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+img#wpstats { width:0px; height:0px; overflow:hidden; }
+
+a { color:#000; text-decoration: none }
+a:hover { color:#066; text-decoration: underline }
+
+p, ul, ol, li { 
+    margin-bottom: 18px; 
+}
+
+blockquote { 
+    margin: 0 18px 18px 18px;
+    font-size:12px;
+    color:#333;
+}
+
+pre {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    font-size:12px;
+    color:#333;
+    border-left: 1px solid #ccc;
+    padding-left: 18px;
+}
+
+ul {
+    list-style-type: square;
+    margin-left: 2em;
+}
+
+ol {
+    margin-left: 2em;
+}
+
+h1 { 
+    font-size: 24px; 
+    line-height: 36px;
+    margin-bottom: 18px; 
+}
+
+h2 { 
+    font-size: 22px; 
+    line-height: 36px;
+    margin-bottom: 18px;
+}
+
+h3 { 
+    font-size: 18px; 
+    line-height: 18px;
+    margin-bottom: 20px;
+}
+
+h4 { 
+    font-size: 14px; 
+    line-height: 18px;
+    margin-bottom: 18px;
+}
+
+h5 {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 18px;
+    font-weight: bold;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+}
+
+
+/* HEADER */
+
+.header {
+    padding: 30px 0 10px 0;
+    border-bottom: 1px solid #666;
+    text-align:left;
+}
+
+.header h1 {
+    font-size: 26px;
+    color: #000;
+    font-weight: normal;
+}
+
+.header span {
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+}
+
+.header a {    color: #333; }
+.header a:hover { color: #066; }
+
+.search {
+    padding:11px 0 0 20px;
+    background:url('/wp-content/themes/depo-clean/images/search.gif') 0 14px no-repeat;
+    float:right;
+}
+
+.search input {
+    width:150px;
+}
+
+
+/* POSTS */
+
+div.sidebar .flickrTag_container img {
+    width: 65px;
+    height: 65px;
+    margin: 5px 5px;
+}
+
+div.sidebar .flickrTag_container img:hover {
+    width: 75px;
+    height: 75px;
+    margin: 0px 0px;
+}
+
+.firstpost {
+    text-align:left;
+    padding: 28px 0 18px 0;
+}
+
+.post {
+    text-align:left;
+    padding: 27px 0 7px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.postnoline {
+    text-align:left;
+    padding: 22px 0 22px 0;
+}
+
+.posttopline {
+    border-top: 1px solid #ccc;
+    text-align:left;
+    padding: 22px 0 22px 0;
+}
+
+span.previous { padding: 0 20px 0 0; float: left; }
+    
+span.next { float: right; }
+
+span.edit a { 
+    float:right;
+    font-weight:normal; 
+    font-size:12px; 
+    color:#666; 
+    border:1px solid #ccc; 
+    padding:0 4px;
+}
+
+.aside {
+	margin-left: -177px;
+	margin-top: -18px;
+	padding-top: 18px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 18px;
+}
+
+.metainfo {
+	padding-top: 2px;
+    color: #666;
+}
+
+.metainfo, .aside {
+    float:left;
+    width: 152px;
+    font-size: 12px;
+}
+
+.metainfo a { font-weight:bold }
+
+.content {
+    margin-left:177px;
+    text-align:left;
+}
+
+.content a { font-weight:bold }
+
+/* girtby.net house styles */
+
+img.lede {
+    float: right;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+.whiteonwhite {
+	color: white;
+	background-color: white;
+}
+/*.text_area { width: 480px !important; } */
+
+.postform { width:150px; margin: 0;} 
+
+.delicious-tags { font-size:11px; color:#666 }
+.delicious-tags a { font-weight:normal; color:#333 }
+
+
+/* FOOTER */
+
+.footer {
+    padding: 22px 0 10px 5px;
+    border-top: 1px solid #666;
+    text-align:left;
+    font-size: 12px;
+    color: #666;
+}
+
+.footer div.sidebar {
+    width:38%;
+    margin: 0 2% 0 0;
+    float:left;
+}
+
+.footer div.first {
+    width:177px;
+    margin: 0 0 0 0;
+    float:left;
+}
+
+.footer div.last {
+    width:38%;
+    margin: 0 2% 0 0;
+    float:left;
+}
+
+.footer li { margin: 0 }
+
+.linkroll {
+    padding: 22px 0 10px 0;
+    border-top: 1px solid #666;
+    text-align:left;
+    font-size: 12px;
+    color: #666;
+}
+
+div.linkroll li {
+    margin-left: 177px;
+    margin-bottom: 0px;
+}
+
+div.linkroll h2 {
+    float:left;
+    width: 152px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #666;
+    font-weight: bold;
+}
+
+.footer img {
+    border:0;
+}
+
+
+.copyright {
+    margin:12px 0 0 0;
+    padding: 18px 0 10px 0;
+    border-top: 1px solid #666;
+    text-align:right;
+    font-size: 12px;
+    color: #666;
+}
+
+img.badge {
+    vertical-align: text-bottom;
+	border-style: none;
+}
+
+ul.nav li { margin: 0 }

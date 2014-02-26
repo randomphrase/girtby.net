@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
+<channel>
+	<title>Comments on: Wide Finder 2: The Widening</title>
+	<atom:link href="http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Wed, 30 Sep 2009 01:44:34 -0400</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+		<item>
+		<title>By: Chris</title>
+		<link>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/comment-page-1/#comment-1801</link>
+		<dc:creator>Chris</dc:creator>
+		<pubDate>Thu, 03 Jul 2008 03:27:00 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2008/07/08/wide-finder-2-the-widening#comment-1801</guid>
+		<description>&lt;p&gt;Grats.  That&#039;s looking pretty good.  Have you looked at something like &lt;a href=&quot;http://prisms.cs.umass.edu/emery/index.php?page=download-hoard&quot;&gt;Hoard&lt;/a&gt; to help with mallocs?  You&#039;re in the best position to profile the parts that are easiest to improve, but Hoard might be a pretty easy drop-in if memory allocation is still hurting.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Grats.  That&#8217;s looking pretty good.  Have you looked at something like <a href="http://prisms.cs.umass.edu/emery/index.php?page=download-hoard">Hoard</a> to help with mallocs?  You&#8217;re in the best position to profile the parts that are easiest to improve, but Hoard might be a pretty easy drop-in if memory allocation is still hurting.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/comment-page-1/#comment-1802</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Thu, 03 Jul 2008 03:27:00 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2008/07/08/wide-finder-2-the-widening#comment-1802</guid>
+		<description>&lt;p&gt;Thanks Chris. Yes I have looked at hoard, and in fact we use it at $WORK. However I&#039;m finding I get much better performance improvement by switching to a Boost.Pool accessed through a thread-specific pointer. This drastically reduces the need to do malloc in the first place.&lt;/p&gt;
+
+&lt;p&gt;On the flip side, I can reduce the need to deallocate memory simply by introducing memory leaks ... yes, you read that right! Basically when you have many millions of objects allocated it can take quite a while to deallocate them all. There&#039;s something like a 10-second pause after processing the 42G data file while my application de-allocates all of the objects, so an easy performance win is simply Not Do That. Every second counts, particularly when you have Java implementations to beat ...&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Thanks Chris. Yes I have looked at hoard, and in fact we use it at $WORK. However I&#8217;m finding I get much better performance improvement by switching to a Boost.Pool accessed through a thread-specific pointer. This drastically reduces the need to do malloc in the first place.</p>
+
+<p>On the flip side, I can reduce the need to deallocate memory simply by introducing memory leaks &#8230; yes, you read that right! Basically when you have many millions of objects allocated it can take quite a while to deallocate them all. There&#8217;s something like a 10-second pause after processing the 42G data file while my application de-allocates all of the objects, so an easy performance win is simply Not Do That. Every second counts, particularly when you have Java implementations to beat &#8230;</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Thatcher</title>
+		<link>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/comment-page-1/#comment-1803</link>
+		<dc:creator>Thatcher</dc:creator>
+		<pubDate>Thu, 03 Jul 2008 03:27:00 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2008/07/08/wide-finder-2-the-widening#comment-1803</guid>
+		<description>&lt;p&gt;Re: thread contention in malloc, are you aware of tcmalloc?  &lt;a href=&quot;http://goog-perftools.sourceforge.net/doc/tcmalloc.html&quot;&gt;http://goog-perftools.sourceforge.net/doc/tcmalloc.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-T&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Re: thread contention in malloc, are you aware of tcmalloc?  <a href="http://goog-perftools.sourceforge.net/doc/tcmalloc.html">http://goog-perftools.sourceforge.net/doc/tcmalloc.html</a></p>
+
+<p>-T</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Brian</title>
+		<link>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/comment-page-1/#comment-1804</link>
+		<dc:creator>Brian</dc:creator>
+		<pubDate>Thu, 03 Jul 2008 03:27:00 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2008/07/08/wide-finder-2-the-widening#comment-1804</guid>
+		<description>&lt;blockquote&gt;
+  &lt;p&gt;And even with a 64-bit binary, you
+  really don’t want to mmap an entire
+  42GB data file into memory, trust me.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Well I don&#039;t trust you.  I currently and routinely mmap in 10+TB in one shot on a 64bit machine.
+So what&#039;s the problem ?  Elaborate plesae?&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<blockquote>
+  <p>And even with a 64-bit binary, you
+  really don’t want to mmap an entire
+  42GB data file into memory, trust me.</p>
+</blockquote>
+
+<p>Well I don&#8217;t trust you.  I currently and routinely mmap in 10+TB in one shot on a 64bit machine.
+So what&#8217;s the problem ?  Elaborate plesae?</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alastair</title>
+		<link>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/comment-page-1/#comment-1805</link>
+		<dc:creator>Alastair</dc:creator>
+		<pubDate>Thu, 03 Jul 2008 03:27:00 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2008/07/08/wide-finder-2-the-widening#comment-1805</guid>
+		<description>&lt;blockquote&gt;
+  &lt;p&gt;Well I don’t trust you.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Well, as it turns out, Brian was right not to trust me. I was too hasty in condemning the all-at-once mmap.&lt;/p&gt;
+
+&lt;p&gt;Here&#039;s a test app:&lt;/p&gt;
+
+&lt;pre class=&quot;htmlize&quot;&gt;
+&lt;span class=&quot;constant&quot;&gt;boost&lt;/span&gt;::&lt;span class=&quot;constant&quot;&gt;iostreams&lt;/span&gt;::&lt;span class=&quot;type&quot;&gt;mapped_file_source&lt;/span&gt; &lt;span class=&quot;variable-name&quot;&gt;source&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;argv&lt;/span&gt;[1]);
+&lt;span class=&quot;type&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;variable-name&quot;&gt;lines&lt;/span&gt; = &lt;span class=&quot;constant&quot;&gt;std&lt;/span&gt;::count(source.begin(), source.end(), &lt;span class=&quot;string&quot;&gt;&#039;\n&#039;&lt;/span&gt;);
+&lt;span class=&quot;constant&quot;&gt;std&lt;/span&gt;::cout &lt;&lt; argv[1] &lt;&lt; &lt;span class=&quot;string&quot;&gt;&quot;: &quot;&lt;/span&gt; &lt;&lt; lines &lt;&lt; &lt;span class=&quot;string&quot;&gt;&quot; lines&quot;&lt;/span&gt; &lt;&lt; &lt;span class=&quot;constant&quot;&gt;std&lt;/span&gt;::endl;
+&lt;/pre&gt;
+
+&lt;p&gt;As you can see it just counts the number of \n characters in the requested file. I ran this on the Wide Finder 2 full data set, and here&#039;s what happened:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/wf2/ 512&gt; time ./readmmap /wf1/data/logs/O.all
+/wf1/data/logs/O.all: 218201129 lines
+
+real    16m0.565s
+user    7m42.454s
+sys     7m53.235s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Two important things to note here. First, obviously mmap-ing the whole file works as advertised. But more importantly, it seems that my Wide Finder 2 implementation is &lt;em&gt;already&lt;/em&gt; running at I/O speed.&lt;/p&gt;
+
+&lt;p&gt;But other Wide Finder 2 implementations are going faster, which raises the obvious question as to how. mmap is traditionally the fasted form of I/O, given that it doesn&#039;t have to copy the data from kernel space into user space. But obviously that rule doesn&#039;t hold any longer, at least for Solaris.&lt;/p&gt;
+
+&lt;p&gt;More investigation needed, I feel.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<blockquote>
+  <p>Well I don’t trust you.</p>
+</blockquote>
+
+<p>Well, as it turns out, Brian was right not to trust me. I was too hasty in condemning the all-at-once mmap.</p>
+
+<p>Here&#8217;s a test app:</p>
+
+<pre class="htmlize">
+<span class="constant">boost</span>::<span class="constant">iostreams</span>::<span class="type">mapped_file_source</span> <span class="variable-name">source</span>(<span class="type">argv</span>[1]);
+<span class="type">unsigned</span> <span class="variable-name">lines</span> = <span class="constant">std</span>::count(source.begin(), source.end(), <span class="string">'\n'</span>);
+<span class="constant">std</span>::cout &lt;&lt; argv[1] &lt;&lt; <span class="string">": "</span> &lt;&lt; lines &lt;&lt; <span class="string">" lines"</span> &lt;&lt; <span class="constant">std</span>::endl;
+</pre>
+
+<p>As you can see it just counts the number of \n characters in the requested file. I ran this on the Wide Finder 2 full data set, and here&#8217;s what happened:</p>
+
+<pre><code>~/wf2/ 512&gt; time ./readmmap /wf1/data/logs/O.all
+/wf1/data/logs/O.all: 218201129 lines
+
+real    16m0.565s
+user    7m42.454s
+sys     7m53.235s
+</code></pre>
+
+<p>Two important things to note here. First, obviously mmap-ing the whole file works as advertised. But more importantly, it seems that my Wide Finder 2 implementation is <em>already</em> running at I/O speed.</p>
+
+<p>But other Wide Finder 2 implementations are going faster, which raises the obvious question as to how. mmap is traditionally the fasted form of I/O, given that it doesn&#8217;t have to copy the data from kernel space into user space. But obviously that rule doesn&#8217;t hold any longer, at least for Solaris.</p>
+
+<p>More investigation needed, I feel.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Sunny Kalsi</title>
+		<link>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/comment-page-1/#comment-1806</link>
+		<dc:creator>Sunny Kalsi</dc:creator>
+		<pubDate>Thu, 03 Jul 2008 03:27:00 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2008/07/08/wide-finder-2-the-widening#comment-1806</guid>
+		<description>&lt;p&gt;Could it be that these implementations are reading from the file sequentially? If you read from the file sequentially in tiny chunks, dynamically starting threads and letting them die, you might get better results than using something which will possibly cache your data or maybe cause your disk to do random reads instead of sequential. If it were me I&#039;d try something like this:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Have 1 thread keeping stats.&lt;/li&gt;
+&lt;li&gt;Have dynamically starting threads on block boundaries - i.e. read 4k at a time (or whatever the HDD&#039;s block size is) and start the thread with that instead of explicitly searching for a newline. These will send messages to two threads. One for the statistics, and another for a &quot;residual&quot; (a message not ending a line).&lt;/li&gt;
+&lt;li&gt;Have another thread which waits for residuals and matches them up. Once it gets a bunch of em, it can dynamically start one of the threads in (2).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The only downside is the mallocs. IMO you need to copy data or else you&#039;re hosed from a multi-threaded perspective. Just thinking out loud here...&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Could it be that these implementations are reading from the file sequentially? If you read from the file sequentially in tiny chunks, dynamically starting threads and letting them die, you might get better results than using something which will possibly cache your data or maybe cause your disk to do random reads instead of sequential. If it were me I&#8217;d try something like this:</p>
+
+<ol>
+<li>Have 1 thread keeping stats.</li>
+<li>Have dynamically starting threads on block boundaries &#8211; i.e. read 4k at a time (or whatever the HDD&#8217;s block size is) and start the thread with that instead of explicitly searching for a newline. These will send messages to two threads. One for the statistics, and another for a &#8220;residual&#8221; (a message not ending a line).</li>
+<li>Have another thread which waits for residuals and matches them up. Once it gets a bunch of em, it can dynamically start one of the threads in (2).</li>
+</ol>
+
+<p>The only downside is the mallocs. IMO you need to copy data or else you&#8217;re hosed from a multi-threaded perspective. Just thinking out loud here&#8230;</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Marc</title>
+		<link>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/comment-page-1/#comment-1807</link>
+		<dc:creator>Marc</dc:creator>
+		<pubDate>Thu, 03 Jul 2008 03:27:00 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/2008/07/08/wide-finder-2-the-widening#comment-1807</guid>
+		<description>&lt;p&gt;Hello,&lt;/p&gt;
+
+&lt;p&gt;what compiler options are you using? In particular, are you making use of prefetch? Specifying a page size? On something as simple as the exemple that counts the newlines it could make a difference.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Hello,</p>
+
+<p>what compiler options are you using? In particular, are you making use of prefetch? Specifying a page size? On something as simple as the exemple that counts the newlines it could make a difference.</p>]]></content:encoded>
+	</item>
+</channel>
+</rss>

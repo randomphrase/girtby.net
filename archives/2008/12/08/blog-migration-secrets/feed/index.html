@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
+<channel>
+	<title>Comments on: Blog Migration Secrets</title>
+	<atom:link href="http://girtby.net/archives/2008/12/08/blog-migration-secrets/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net/archives/2008/12/08/blog-migration-secrets/</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Wed, 30 Sep 2009 01:44:34 -0400</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+		<item>
+		<title>By: Jared</title>
+		<link>http://girtby.net/archives/2008/12/08/blog-migration-secrets/comment-page-1/#comment-2272</link>
+		<dc:creator>Jared</dc:creator>
+		<pubDate>Wed, 21 Jan 2009 18:29:42 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/?p=3638#comment-2272</guid>
+		<description>&lt;p&gt;I&#039;m trying run this script, and this is the traceback I was getting:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Traceback (most recent call last):
+  File &quot;m2wp-mysql.py&quot;, line 291, in &lt;module&gt;
+    exporter.export()
+  File &quot;m2wp-mysql.py&quot;, line 263, in export
+    output = self.wxr.finalise()
+  File &quot;m2wp-mysql.py&quot;, line 193, in finalise
+    wxr = self.display()
+  File &quot;m2wp-mysql.py&quot;, line 72, in display
+    return self.xml.toprettyxml(&#039;&#039;)
+  File &quot;/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py&quot;, line 57, in toprettyxml
+    self.writexml(writer, &quot;&quot;, indent, newl, encoding)
+  File &quot;/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py&quot;, line 1744, in writexml
+    node.writexml(writer, indent, addindent, newl)
+  File &quot;/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py&quot;, line 814, in writexml
+    node.writexml(writer,indent+addindent,addindent,newl)
+  File &quot;/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py&quot;, line 814, in writexml
+    node.writexml(writer,indent+addindent,addindent,newl)
+  File &quot;/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py&quot;, line 814, in writexml
+    node.writexml(writer,indent+addindent,addindent,newl)
+  File &quot;/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py&quot;, line 814, in writexml
+    node.writexml(writer,indent+addindent,addindent,newl)
+  File &quot;/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py&quot;, line 1143, in writexml
+    raise ValueError(&quot;&#039;]]&gt;&#039; not allowed in a CDATA section&quot;)
+ValueError: &#039;]]&gt;&#039; not allowed in a CDATA section
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I had some hivelogic enkoder blocks in my posts that were causing this.  Took them out and everything was ok.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>I&#8217;m trying run this script, and this is the traceback I was getting:</p>
+
+<pre><code>Traceback (most recent call last):
+  File "m2wp-mysql.py", line 291, in &lt;module&gt;
+    exporter.export()
+  File "m2wp-mysql.py", line 263, in export
+    output = self.wxr.finalise()
+  File "m2wp-mysql.py", line 193, in finalise
+    wxr = self.display()
+  File "m2wp-mysql.py", line 72, in display
+    return self.xml.toprettyxml('')
+  File "/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py", line 57, in toprettyxml
+    self.writexml(writer, "", indent, newl, encoding)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py", line 1744, in writexml
+    node.writexml(writer, indent, addindent, newl)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py", line 814, in writexml
+    node.writexml(writer,indent+addindent,addindent,newl)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py", line 814, in writexml
+    node.writexml(writer,indent+addindent,addindent,newl)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py", line 814, in writexml
+    node.writexml(writer,indent+addindent,addindent,newl)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py", line 814, in writexml
+    node.writexml(writer,indent+addindent,addindent,newl)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/xml/dom/minidom.py", line 1143, in writexml
+    raise ValueError("']]&gt;' not allowed in a CDATA section")
+ValueError: ']]&gt;' not allowed in a CDATA section
+</code></pre>
+
+<p>I had some hivelogic enkoder blocks in my posts that were causing this.  Took them out and everything was ok.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Dave</title>
+		<link>http://girtby.net/archives/2008/12/08/blog-migration-secrets/comment-page-1/#comment-1926</link>
+		<dc:creator>Dave</dc:creator>
+		<pubDate>Mon, 08 Dec 2008 19:22:58 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/?p=3638#comment-1926</guid>
+		<description>&lt;p&gt;No problem. :)&lt;/p&gt;
+
+&lt;p&gt;Yeah, why not. I&#039;ll get one set up.&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>No problem. <img src='http://girtby.net/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+
+<p>Yeah, why not. I&#8217;ll get one set up.</p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: alastair</title>
+		<link>http://girtby.net/archives/2008/12/08/blog-migration-secrets/comment-page-1/#comment-1925</link>
+		<dc:creator>alastair</dc:creator>
+		<pubDate>Mon, 08 Dec 2008 19:04:26 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/?p=3638#comment-1925</guid>
+		<description>&lt;p&gt;A thousand pardons, how stupid of me.&lt;/p&gt;
+
+&lt;p&gt;Is there enough interest to start a launchpad project now? :)&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>A thousand pardons, how stupid of me.</p>
+
+<p>Is there enough interest to start a launchpad project now? <img src='http://girtby.net/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Dave</title>
+		<link>http://girtby.net/archives/2008/12/08/blog-migration-secrets/comment-page-1/#comment-1924</link>
+		<dc:creator>Dave</dc:creator>
+		<pubDate>Mon, 08 Dec 2008 14:47:56 +0000</pubDate>
+		<guid isPermaLink="false">http://girtby.net/?p=3638#comment-1924</guid>
+		<description>&lt;p&gt;Glad you found the script useful. I really must patch in some of the changes others have made.&lt;/p&gt;
+
+&lt;p&gt;BTW it&#039;s Dave, not Daniel. :)&lt;/p&gt;
+</description>
+		<content:encoded><![CDATA[<p>Glad you found the script useful. I really must patch in some of the changes others have made.</p>
+
+<p>BTW it&#8217;s Dave, not Daniel. <img src='http://girtby.net/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>]]></content:encoded>
+	</item>
+</channel>
+</rss>

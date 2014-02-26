@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>girtby.net &#187; tips</title>
+	<atom:link href="http://girtby.net/archives/tag/tips/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Thu, 17 Sep 2009 14:27:44 +0000</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+			<item>
+		<title>UNIX tip o&#8217; the day</title>
+		<link>http://girtby.net/archives/2004/12/29/unix-tip-o-the-day/</link>
+		<comments>http://girtby.net/archives/2004/12/29/unix-tip-o-the-day/#comments</comments>
+		<pubDate>Wed, 29 Dec 2004 16:39:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[chmod]]></category>
+		<category><![CDATA[tips]]></category>
+		<category><![CDATA[unix]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2008/09/23/unix-tip-o-the-day</guid>
+		<description><![CDATA[I never knew that the +X mode for chmod meant set the execute bit only if a directory or if the execute bit is already set on a file.
+
+Up until now I had been using a wierd combo of chmod -R [whatever] followed by find . -type d &#124; xargs chmod +x to reset permissions [...]]]></description>
+			<content:encoded><![CDATA[<p>I never knew that the <code>+X</code> mode for <code>chmod</code> meant set the execute bit only if a directory or if the execute bit is already set on a file.</p>
+
+<p>Up until now I had been using a wierd combo of <code>chmod -R [whatever]</em></code> followed by <code>find . -type d | xargs chmod +x</code> to reset permissions on a directory hierarchy. Now I will just use <code>chmod -R +X</code>.</p>
+
+<p>This will save me literally <em>seconds</em> of typing!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2004/12/29/unix-tip-o-the-day/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

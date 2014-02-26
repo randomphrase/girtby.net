@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>girtby.net &#187; development</title>
+	<atom:link href="http://girtby.net/archives/tag/development/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Thu, 17 Sep 2009 14:27:44 +0000</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+			<item>
+		<title>Required Viewing</title>
+		<link>http://girtby.net/archives/2007/11/06/required-viewing/</link>
+		<comments>http://girtby.net/archives/2007/11/06/required-viewing/#comments</comments>
+		<pubDate>Tue, 06 Nov 2007 22:39:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Linkpimpin']]></category>
+		<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[architecture]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[memory]]></category>
+		<category><![CDATA[performance]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2007/11/13/required-viewing</guid>
+		<description><![CDATA[If you&#8217;re at all interested in computing technology you can&#8217;t help but be amazed at the advances in CPU power over the last few decades, Moore&#8217;s Law, blah blah blah. But a few seconds pondering this invariably provokes the question as to how long this party can last.
+
+The commonly accepted wisdom is that CPUs have [...]]]></description>
+			<content:encoded><![CDATA[<p>If you&#8217;re at all interested in computing technology you can&#8217;t help but be amazed at the advances in CPU power over the last few decades, Moore&#8217;s Law, blah blah blah. But a few seconds pondering this invariably provokes the question as to how long this party can last.</p>
+
+<p>The commonly accepted wisdom is that CPUs have gotten about as fast as they are likely to go in terms of sheer clock speed, and now manufacturers are turning to multiprocessing to provide more processing power for a given price point. The recent Intel price drops which made the quad-core Q6600 CPU available for less than AUD400 are a highly relevent (and welcome) data point to illustrate this trend.</p>
+
+<p>This raises lots of hairy questions for developers, such as &#8220;how are we going to design our software to run efficiently in a multi-processing environment?&#8221; The previously-linked <a href="http://www.tbray.org/ongoing/When/200x/2007/09/20/Wide-Finder">wide finder</a> experiment is an attempt to explore some of these issues. And it&#8217;s pretty obvious that so far there is no silver bullet.</p>
+
+<p>But wait, it gets worse. I will point you to a long but highly thought-provoking presentation from Herb Sutter. Turns out we are <em>already</em> hitting major architectural hurdles in the form of memory access limitations, and we&#8217;ll need to find some solutions for these <em>before</em> tackling the parallel computation problem.</p>
+
+<p>Sutter&#8217;s presentation is deeply technical, but still quite accessible, and delivered with an engaging style that makes it <a href="http://herbsutter.spaces.live.com/blog/cns!2D4327CC297151BB!304.entry">required viewing</a>. Highly recommended.</p>
+
+<p>I recently had some experience diagnosing some memory-related performance problems (not quite in the same class as that discussed by Sutter, but similar) and I have to say there is a serious deficit in the development tools for these kinds of problems. Currently we need to look aggregate behaviour over multiple iterations to isolate some of these problems, and this is a difficult and error-prone approach. For example, check out Sutter&#8217;s technique to discover the memory cache line size in code. In the future it would be great if we could monitor cache misses, pipeline stalls, page faults, and other performance-impacting events <em>within the debugger</em>.</p>
+
+<p>These issues also make me wonder about how higher-level languages are going to provide appropriate abstractions to avoid the performance problems. For example, garbage collection is a major win for programmer productivity but it does encourage memory usage patterns that are not always conducive to performance given architectural limitations in the underlying hardware. The same abstraction problems affect C/C++ of course but at least there is the option to go &#8220;bare-metal&#8221; where necessary.</p>
+
+<p>Whatever the answers are here, it&#8217;s certain there are some interesting times ahead for developers.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2007/11/06/required-viewing/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>The Other Kind of Reentrant</title>
+		<link>http://girtby.net/archives/2006/12/18/the-other-kind-of-reentrant/</link>
+		<comments>http://girtby.net/archives/2006/12/18/the-other-kind-of-reentrant/#comments</comments>
+		<pubDate>Mon, 18 Dec 2006 05:28:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[reentrant]]></category>
+		<category><![CDATA[signals]]></category>
+		<category><![CDATA[unix]]></category>
+		<category><![CDATA[warstory]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2007/01/14/the-other-kind-of-reentrant</guid>
+		<description><![CDATA[Gather around for a tale of adventure in the land of Linux c++ programming.
+
+
+
+So there I was. Like a good developer, I was running unit tests on a module that I had been working on. The module was intended to spawn child processes, in order to read and write their stdin and stdout. Such processes [...]]]></description>
+			<content:encoded><![CDATA[<p>Gather around for a tale of adventure in the land of Linux c++ programming.</p>
+
+<p><span id="more-225"></span></p>
+
+<p>So there I was. Like a good developer, I was running unit tests on a module that I had been working on. The module was intended to spawn child processes, in order to read and write their stdin and stdout. Such processes are apparently known as co-processes. I had just finished implementing some enhancements to the code which would communicate with the co-processes using a pseudo-terminal instead of pipes, for those applications like <code>ssh</code> that read and write directly to the terminal. I was pretty pleased with myself, I could drive ssh as a co-process.</p>
+
+<div class="aside"><p>Yes, I&#8217;m well aware that I had just re-invented <code>expect</code>. However I had my reasons, namely the fact that the co-process was made available to the rest of the application as a c++ iostream, meaning that I could read and write it just like any other iostream. Besides, <code>expect</code> also drags in Tcl as a dependency, and I generally try to avoid dependencies where possible.</p></div>
+
+<p>The unit tests were failing. Intermittently. Urgh.</p>
+
+<h4>The Bug</h4>
+
+<p>What was supposed to happen was that I would close the pseudo-terminal master file descriptor. This would cause an EOF in the co-process which would then quit (I was just using <code>cat</code> as a co-process for unit testing purposes). My test harness would sleep waiting for a quit flag to be set. The quit flag was supposed to be set from within a handler for the <code>SIGCHLD</code> signal, but that wasn&#8217;t being called for some reason. Instead, my main routine would wake from sleep, see that the flag still wasn&#8217;t set, timeout, kill the co-process, and fail the unit test.</p>
+
+<p>At least, that&#8217;s what was happening 50% of the time. The other 50% of the time, I was getting the signal, setting the flag and passing the test. So I&#8217;m thinking some sort of race condition. I added more logging, to try and work out why the signal wasn&#8217;t arriving.</p>
+
+<p>This made it worse. Instead of failing the unit test, it was now hanging, deadlocked.</p>
+
+<p>The stack trace from the deadlocked unit test harness wasn&#8217;t very insightful. It consisted of <code>_dl_sysinfo_int80</code> at the top, followed by <code>__lll_mutex_lock_wait</code> and that&#8217;s about it. Not very enlightening.</p>
+
+<h4><code>strace</code> Points The Way</h4>
+
+<p>So then I tried another tack. Use <code>strace</code> to see if the <code>SIGCHLD</code> signal was even being delivered to my application. I found it was. I also found that the deadlock was quite reproducible (after a few attempts) and that the deadlock was indeed in a mutex acquisition routine as indicated by the stack trace. In each case, the immediately-preceeding system call was <code>stat64("/etc/localtime")</code>. Looking back through the syscall history, there were many similar calls, each time followed by an output log entry.</p>
+
+<p>This tipped me off to looking at the logging library that I was using, <a href="http://log4cpp.sourceforge.net/">log4cpp</a>. As it turned out, it was using <code>localtime</code>, a function that was not on my list (well, <a href="http://www.amazon.com/Programming-Environment-Addison-Wesley-Professional-Computing/dp/0201433079/sr=1-1/qid=1166433451/ref=sr_1_1/102-3621023-7572168?ie=UTF8&amp;s=books">W. Richard Stevens&#8217; list</a> anyway) of functions that are safe to call from a signal handler. And logging the incoming signal was the first thing that I was doing in my signal handler.</p>
+
+<p>I verified that, after removing all traces of logging from my signal handlers, the unit tests ran perfectly, to completion. But this was still a mildly unsatisfactory explanation. It didn&#8217;t explain why the signals weren&#8217;t being delivered or what mutex was locked that could not be acquired by the signal handler. And maybe I <a href="http://www.somethinkodd.com/oddthinking/2005/11/22/hunting-intermittent-bugs/">just hadn&#8217;t tested enough to reproduce it?</a> So I went digging further.</p>
+
+<h4><code>localtime_r</code> To The Rescue, Or Not</h4>
+
+<p>I came across <code>localtime_r</code> which was supposed to be a reentrant version of <code>localtime</code>. On a whim I re-enabled logging in my signal handlers, and converted log4cpp to use <code>localtime_r</code> instead of <code>localtime</code>. Result: deadlock.</p>
+
+<p>But this time I was able to get a proper stack trace. Here it is, elided:</p>
+
+<pre><code>#0  0x004fa7a2 in _dl_sysinfo_int80 () from /lib/ld-linux.so.2
+#1  0x005e7e5e in __lll_mutex_lock_wait () from /lib/tls/libc.so.6
+#2  0x0058ffa9 in _L_mutex_lock_1947 () from /lib/tls/libc.so.6
+...
+#10 0x0063b840 in __malloc_initialize_hook () from /lib/tls/libc.so.6
+...
+#15 0x0058dfbd in localtime_r () from /lib/tls/libc.so.6
+#16 0x0058dfbd in localtime_r () from /lib/tls/libc.so.6
+#17 0x00286c48 in log4cpp::TimeStampComponent::append (...) at PatternLayout.cpp:158
+...
+#26 0x0805c6e9 in main_impl::signal_handler (signal_id=17) at signal_handler.cpp:24
+#27 &lt;signal handler called&gt;
+#28 0x004fa7a2 in _dl_sysinfo_int80 () from /lib/ld-linux.so.2
+#29 0x005cb593 in __xstat64@GLIBC_2.1 () from /lib/tls/libc.so.6
+#30 0x00590118 in __tzfile_read () from /lib/tls/libc.so.6
+...
+#34 0x0059480f in strftime () from /lib/tls/libc.so.6
+#35 0x00286df9 in log4cpp::TimeStampComponent::append (...) at PatternLayout.cpp:175
+</code></pre>
+
+<p>Some interesting stuff here.</p>
+
+<p>At the top of the stack, our old friend <code>__lll_mutex_lock_wait</code> but it&#8217;s being called from within <code>__malloc_initialize_hook</code>. Ah-ha! It&#8217;s trying to do a <code>malloc</code> from within a signal handler. Naughty Naughty!</p>
+
+<p>A bit further up the stack, there&#8217;s our call to <code>localtime_r</code> from within log4cpp. As if to prove a point about its own reentrancy, <code>localtime_r</code> calls itself.</p>
+
+<p>Still further up, we see that the signal handler is indeed being called, but this time within the <code>stat64</code> call. It&#8217;s reading the timezone file or something, from within <code>strftime</code>. The call to <code>strftime</code> is just after the call to <code>localtime_r</code>, but it&#8217;s pretty easy to see why the deadlock occurs. It&#8217;s because the signal handler is trying to acquire a low-level lock on the heap that is already acquired by the main application. Result, deadlock.</p>
+
+<p>As for explaining the &#8220;missing&#8221; signal that I saw previously, I think what happened there was that the malloc actually failed, which caused the signal handler to exit before it could log (or do) anything. I haven&#8217;t gone back to test this theory though.</p>
+
+<h4>The Meaning Of Reentrant</h4>
+
+<p>So the main lesson to be learned from all this: <strong>reentrant doesn&#8217;t necessarily mean reentrant with respect to signals</strong>. The <a href="http://www.gnu.org/software/libc/manual/html_node/Nonreentrancy.html#Nonreentrancy">glibc manual</a> has the complete details and I&#8217;m now memorising every last word.</p>
+
+<p>This is not just of interest to those who work in quaint languages like c++. You advanced Python and Ruby guys have access to signal handlers too! Let this be a cautionary tale for you all.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2006/12/18/the-other-kind-of-reentrant/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+	</channel>
+</rss>

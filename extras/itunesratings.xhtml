@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="#stylesheet"?>
+<!DOCTYPE doc [
+<!ELEMENT xsl:stylesheet ANY>
+<!ATTLIST xsl:stylesheet id ID #REQUIRED>
+]>
+<doc>
+  <!--
+        iTunes Library Statistics
+
+        http://girtby.net/offerings/itunes-ratings-stats/
+
+        Written by Alastair, http://girtby.net
+
+        Licensed under Creative Commons Attribution License, see
+        http://creativecommons.org/licenses/by/2.0/
+
+        Version 2005-11-03
+  -->
+
+  <!-- Change the targetpct to adjust the target percentiles for each of the ratings. -->
+  <count-rated rating="100" targetpct="5"/>
+  <count-rated rating="80" targetpct="15"/>
+  <count-rated rating="60" targetpct="50"/>
+  <count-rated rating="40" targetpct="90"/>
+  <count-rated rating="20"/>
+
+  <!-- Probably best to leave this stuff alone... -->
+
+  <xsl:stylesheet version="1.0" id="stylesheet" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="html"/>
+    <xsl:template match="xsl:stylesheet"/>
+    
+    <xsl:variable name="library-xml">iTunes%20Music%20Library.xml</xsl:variable>
+    <xsl:variable name="tracks" select="document($library-xml)/plist/dict/dict[preceding-sibling::key='Tracks']"/>
+    <xsl:variable name="rated" select="$tracks/dict[key='Rating']"/>
+    <xsl:variable name="count-tracks" select="count($tracks/key)"/>
+    <xsl:variable name="count-rated" select="count($rated)"/>
+
+    <xsl:template match="doc">
+      <html>
+        <head>
+          <title>Your iTunes Library</title>
+        </head>
+
+        <body>
+          <p>Here are some statistics from your iTunes Library:</p>
+
+          <p><xsl:value-of select="$count-tracks"/> tracks, <xsl:value-of select="$count-rated"/>
+          (<xsl:value-of select="round($count-rated div $count-tracks * 100)"/>%) rated</p>
+        
+          <table border="1">
+            <tr>
+              <td colspan="3"/>
+              <th colspan="3">Cumulative % of Rated</th>
+            </tr>
+            <tr>
+              <td/>
+              <th>Number</th>
+              <th>% of rated</th>
+              <th>Actual</th>
+              <th>Target</th>
+              <th>Shortfall</th>
+            </tr>
+            <xsl:apply-templates/>
+          </table>
+        </body>
+      </html>
+    </xsl:template>
+
+    <xsl:template match="count-rated">
+      <xsl:variable name="rating.eq"
+                    select="count($rated/integer[preceding-sibling::key[1]='Rating' and . = current()/@rating])"/>
+      <xsl:variable name="rating.gt"
+                    select="count($rated/integer[preceding-sibling::key[1]='Rating' and . &gt;= current()/@rating])"/>
+      <xsl:variable name="percentage" select="round($rating.eq div $count-rated * 100)"/>
+      <xsl:variable name="percentile" select="round($rating.gt div $count-rated * 100)"/>
+      <tr>
+        <td>Tracks rated <xsl:value-of select="number(@rating) div 20"/> stars:</td>
+        <td><xsl:value-of select="$rating.eq"/></td>
+        <td><xsl:value-of select="$percentage"/></td>
+        <td><xsl:value-of select="$percentile"/></td>
+        <xsl:if test="@targetpct">
+          <td><xsl:value-of select="@targetpct"/></td>
+          <td><xsl:value-of select="@targetpct - $percentile"/></td>
+        </xsl:if>
+      </tr>
+    </xsl:template>
+
+  </xsl:stylesheet>
+</doc>

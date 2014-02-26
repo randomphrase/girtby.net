@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>girtby.net &#187; c++</title>
+	<atom:link href="http://girtby.net/archives/tag/c/feed/" rel="self" type="application/rss+xml" />
+	<link>http://girtby.net</link>
+	<description>this blog is girtby.net</description>
+	<lastBuildDate>Thu, 17 Sep 2009 14:27:44 +0000</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9-rare</generator>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+			<item>
+		<title>Easiest $100 I&#8217;ll Ever Make</title>
+		<link>http://girtby.net/archives/2009/06/13/easiest-100-ill-ever-make/</link>
+		<comments>http://girtby.net/archives/2009/06/13/easiest-100-ill-ever-make/#comments</comments>
+		<pubDate>Sat, 13 Jun 2009 11:56:31 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[Provocation]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[monty hall]]></category>
+		<category><![CDATA[puzzle]]></category>
+		<category><![CDATA[wager]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/?p=3890</guid>
+		<description><![CDATA[Recently, before boarding a flight up to Hamilton Island for a $WORK junket conference, I purchased a puzzle book. On the flight, I shared the puzzles amongst colleagues, and fun was had. One particularly tricky puzzle confounded us all, although I recognised it as a variant of the Monty Hall problem. Alarm bells should be [...]]]></description>
+			<content:encoded><![CDATA[<p>Recently, before boarding a flight up to Hamilton Island for a $WORK <del>junket</del> conference, I purchased a puzzle book. On the flight, I shared the puzzles amongst colleagues, and fun was had. One particularly tricky puzzle confounded us all, although I recognised it as a variant of the <a href="http://en.wikipedia.org/wiki/Monty_Hall_problem">Monty Hall problem</a>. Alarm bells should be going off at this point for those who have debated the subject in the past&#8230;</p>
+
+<p>Anyway, one colleague didn&#8217;t believe that the answer in the back of the book was correct, and he offered to bet that by running a computer simulation he could prove the book (and me) wrong. I&#8217;m not a betting person, but for some reason, possibly euphoria at the prospect of the upcoming <del>partying</del> seminars, I immediately accepted his bet, wagering $100.</p>
+
+<p>What follows is my attempt to win that bet.</p>
+
+<p><span id="more-3890"></span></p>
+
+<p>So that there is no argument, I&#8217;ll reproduce the exact wording of the problem as stated in the puzzle book:</p>
+
+<blockquote>
+  <p><strong>90.</strong> Four different pieces of candy are placed in a bag. One is chocolate, one is caramel, and two are licorice. Without looking in the bag, I draw two pieces of candy from it, and place one of them, which is licorice, on a table.</p>
+  
+  <p>What are the chances that the second piece of candy I have in my hand is the other piece of licorice candy?</p>
+</blockquote>
+
+<p>My colleague said the answer is ⅓, simply because the candy in the hand can only be one of three other candies still unseen. Of course this is a classic Monty Hall conditional probability problem, and he is quite wrong.</p>
+
+<p>The key insight to this puzzle is that when I (as the person stating the puzzle) am putting the piece of candy on the table I am <em>selecting</em> it. Just as Monty does when he picks the door with the goat. There&#8217;s no element of randomness.</p>
+
+<p>So the correct way to assess the probability is to think about the possible combinations of candies in your hand. There are six: the chocolate and caramel, caramel and either licorice, chocolate and either licorice, and the two licorice. Now we know that one of these combinations, the chocolate and caramel, is not possible. There are five remaining possibilities, and one of these is the one we want. Hence the odds are ⅕.</p>
+
+<p>Anyway the agreed method of settling the bet was to write a computer simulation, so I did just that. Here is the output of a sample run:</p>
+
+<pre><code>Out of 1000000 tries, two licorices were extracted 200432 times.
+Estimated probability = 0.200432
+</code></pre>
+
+<p>We have a winner. Thanks JT, cash will be fine.</p>
+
+<p>Here is the C++ code:</p>
+
+<pre><code>#include &lt;stdlib.h&gt;
+#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;tr1/array&gt;
+
+const long iterations = 1000000;
+
+enum candy {
+    chocolate,
+    caramel,
+    licorice
+};
+
+int main(int argc, char *argv[])
+{
+    ::srand(::time(NULL));
+
+    // Number of times we've pulled out two licorice from the bag
+    long two_licorice = 0;
+
+    for(long i = 0; i &lt; iterations;)
+    {
+        // put the candies in the bag
+        std::tr1::array&lt;candy, 4&gt; bag = {{ chocolate, caramel, licorice, licorice }};
+
+        // shuffle them
+        std::random_shuffle(bag.begin(), bag.end());
+
+        // pull out two
+        std::tr1::array&lt;candy, 2&gt; hand = {{ bag[0], bag[1] }};
+
+        // At least one of the candies we pick out must be a licorice otherwise it doesn't count.
+        if (hand[0] != licorice &amp;&amp; hand[1] != licorice)
+            continue;
+
+        // Count if we've got both licorice
+        if (hand[0] == licorice &amp;&amp; hand[1] == licorice)
+            ++two_licorice;
+
+        ++i;
+    }
+
+    std::cout &lt;&lt; "Out of " &lt;&lt; iterations
+              &lt;&lt; " tries, two licorices were extracted " &lt;&lt; two_licorice &lt;&lt; " times.\n"
+              &lt;&lt; "Estimated probability = "
+              &lt;&lt; static_cast&lt;double&gt;(two_licorice) / static_cast&lt;double&gt;(iterations)
+              &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2009/06/13/easiest-100-ill-ever-make/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Why You Should Learn C++</title>
+		<link>http://girtby.net/archives/2008/09/30/why-you-should-learn-c/</link>
+		<comments>http://girtby.net/archives/2008/09/30/why-you-should-learn-c/#comments</comments>
+		<pubDate>Tue, 30 Sep 2008 11:29:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[Verisimilitude]]></category>
+		<category><![CDATA[advocacy]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[career]]></category>
+		<category><![CDATA[reddit fodder]]></category>
+		<category><![CDATA[subjective]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2008/09/30/why-you-should-learn-c</guid>
+		<description><![CDATA[Not all software development projects can sustain a reasonable living. Anyone who has worked as a professional developer will take this truth as self-evident. It&#8217;s a sad occurance, but often developers for notionally worthy projects find themselves having to abandon their dreams and find gainful employment elsewhere. The failed startup and the abandoned open-source project [...]]]></description>
+			<content:encoded><![CDATA[<p>Not all software development projects can sustain a reasonable living. Anyone who has worked as a professional developer will take this truth as self-evident. It&#8217;s a sad occurance, but often developers for notionally worthy projects find themselves having to abandon their dreams and find gainful employment elsewhere. The failed startup and the abandoned open-source project are all-too-common manifestations of this.</p>
+
+<p>I don&#8217;t have a solution for this problem, but I mention it in order to define a set P, which is the set of all software development projects that can sustain a reasonable living. Now let&#8217;s divide P into the subsets I and B.</p>
+
+<p><span id="more-3611"></span></p>
+
+<h4>The 010 Types Of Projects In The World</h4>
+
+<p>Let I be the subset of P that are Interesting projects. This is obviously a subjective criterion, but for the sake of argument I&#8217;m asking you to adopt my own definition. Interesting projects are characterised by being algorithmically complex, and performance sensitive. They possibly involve large amounts of data, or an intrinsically distributed problem domain, and almost always strongly linked to mathematics. In my time I have worked on some I-projects. Most recently: native-MPEG video splicing, network performance benchmarking, and real-time automated trading.</p>
+
+<p>Let B be the complement of I. Again, I&#8217;ll ask you to adopt my subjective definition. Projects in the B set are typically data-centric, focusing on moving a bit of data from one place to another. There&#8217;s almost certainly a relational database in there somewhere. And probably a user interface with forms, into which mindless drones spend are to spend their days keying in meaningless data. It&#8217;s called <acronym title="Create, Retrieve, Update, Delete">CRUD</acronym> for a reason.</p>
+
+<p>In order to make B-projects at all tolerable for the developers, they are typically sexed up with the use of inappropriate technology. Enterprisey solutions emerge, gratuitously over-engineered in the hope that developers won&#8217;t impale themselves on their own keyboards out of sheer boredom. It&#8217;s a sure sign that architectural astronautics has hit reality-escape velocity when terminology is co-opted from Interesting projects; so there is probably a web services &#8220;stack&#8221; and a message service &#8220;bus&#8221; in there somewhere. But to those who care to cast a critical eye, these projects are simply moving data from one place to another, with very little transformation or aggregation or any other algorithmically tricky task required along the way.</p>
+
+<h4>The Developer&#8217;s Dillema</h4>
+
+<p>So: you&#8217;re a developer. The most recent rent cheque has bounced and you&#8217;ve finally admitted to yourself that you need to shelve your world-changing open source project and go out and find a paying gig. Which type of project are you going to look for?</p>
+
+<p>&#8220;Well, der,&#8221; you might think, having looked at the title of this article, &#8220;anything that <em>doesn&#8217;t</em> involve coding in C++! That language is a <a href="http://thread.gmane.org/gmane.comp.version-control.git/57643/focus=57918">crock of shit</a>!&#8221;</p>
+
+<p>To which I say: not so fast there bub. I&#8217;m just going to put this out there; of the I-projects, that is projects that are interesting <em>and pay the rent</em>, a substantial proportion are written in C++. In other words, C++ is over-represented in the I-projects and under-represented in the B-projects.</p>
+
+<p><img src="/assets/2008/09/p-set.png" alt="Attempt at explaining it all with a venn diagram" title="p-set" width="312" height="233" class="size-full wp-image-3744" /></p>
+
+<p>All of my recent I-projects have been C++ projects. So, whatever you may think about the merits or otherwise of C++ as a language, it has <em>great jobs</em>. Hey, if nothing else, you&#8217;re not likely to have to deal with WS-*. This is a good thing.</p>
+
+<p>This is a simplification: obviously the job involves more than just the project. You may have to deal with poor air conditioning, the <a href="/archives/2005/10/26/the-virtual-furniture-police/">Virtual Furniture Police</a>, obnoxious co-workers, or even (and I wouldn&#8217;t wish it on my worst enemy) <em>commercial radio</em>. <code>&lt;shudder/&gt;</code>. For the purposes of this article I&#8217;m going to assume these inconveniences are more-or-less evenly distributed across the P set, with no net disadvantage to C++ projects.</p>
+
+<p>Now in case I haven&#8217;t sprinkled this post with sufficient disclaimers of subjectivity, let me make one more. This is all based on my experience of the developer job market, mostly here in Sydney. Your experience and opinions may differ, and good luck to you if they do.</p>
+
+<h4>The Rise and Purge of C++</h4>
+
+<p>C++ itself used to be fairly evenly distributed across the P set. There was a time when it was just the default language and, despite the compiler writers valiantly struggling to keep up with a rapidly &mdash; and imaginatively &mdash; evolving standard, it was still widely used on all types of P projects. Especially the B projects; C++ and its enterprisey friends like CORBA were the way that we sexed up our data-centric applications back in the mid-90s.</p>
+
+<p>Then Java came along and everyone who worked on B projects got swept along with it. At the time Java seemed like a huge step forward and allowed us to soar to dizzier heights of architectural astronautics. All that CORBA, SOM, COM and other nonsense would be re-invented in Java land, this time with a vague chance that it might work. For whatever reason it seems that the I projects were less affected by the Java bombshell (or by mixed metaphors, for that matter).</p>
+
+<p>So fast forward to the present day, and we have all sorts of dreary jobs hewing enterprisey architectures out of raw Java, or C#, or even VB.NET, whatever the hell that is. C++ is yesterday&#8217;s news. The only projects still using it are, well, projects from the I set. Or, Dog help them, some projects still lumbering on from the 90s. You probably don&#8217;t want to work on one of the latter, but you almost certainly <em>do</em> want to work on one of the former. Being able to tell the difference is obviously a pre-requisite before putting the C++-has-best-jobs idea into practice.</p>
+
+<h4>C++ : It&#8217;s Not That Bad, Really</h4>
+
+<p>At this point you may well be thinking &#8220;well, C++ may be common amongst interesting projects, but only a few years ago you could say the same thing about FORTRAN, and I&#8217;d rather gouge my eyes out with a novelty mousepad than have to gaze upon code written in <em>either</em> of those languages!&#8221; And I sympathise with regards to FORTRAN, but modern C++ should not warrant such a reaction.</p>
+
+<p>In 2001 a chap called Andrei Alexandrescu published a book called <cite>Modern C++ Design</cite>. Despite the ominous inclusion of &#8220;modern&#8221; in the title (to me that word always seems to denote the anachronistic), it was really groundbreaking and is still highly recommended reading. Alexandrescu showed the potential of the so-called generic programming style, which is enabled only when you have a truly powerful (albeit sometimes arcane) template system.</p>
+
+<p>To those who, like me, struggled to use the early incarnations of generic programming, such as exhibited in the Standard Template Library, the book was something of a revelation. Today, the Boost libraries are enabling these idiom changes and in some cases going way beyond the potential glimpsed in <cite>Modern C++ Design</cite>. The result is that small-m modern C++, as exhibited by Boost itself, is <em>nothing like</em> the C++ of yore.</p>
+
+<p>C++ has a bit of a bad reputation (as per the Linus quote above), and it is sometimes justified, but too often online I see noses turned up at C++ in favour of cooler dynamically-typed languages like Perl, Python and Ruby. But maybe this is based on an outdated perception of the C++ language, at least as it is practiced today, because you certainly <a href="http://herbsutter.wordpress.com/2008/06/20/type-inference-vs-staticdynamic-typing/">can use dynamic typing in C++</a>, for one thing.</p>
+
+<p>I think it&#8217;s fair to say that if you were designing a better C from scratch these days, you probably wouldn&#8217;t end up with C++. But regardless of the mistakes made in the design of C++ &mdash; and I think the <a href="http://yosefk.com/c++fqa/">C++ Frequently Questioned Answers</a> page captures most of them &mdash; I think the language has aged reasonably well. I&#8217;m certainly looking forward to C++0x, the next standard with many interesting features.</p>
+
+<h4>Spot The Ulterior Motive</h4>
+
+<p>To recap: there are many interesting projects in C++, and despite what you may have heard, it&#8217;s really not that unpleasant to code in.</p>
+
+<p>So, go learn C++.</p>
+
+<p>If you already know it, then good news! There are great jobs around. Who knows, if you email me, I may be able to help you find one.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2008/09/30/why-you-should-learn-c/feed/</wfw:commentRss>
+		<slash:comments>22</slash:comments>
+		</item>
+		<item>
+		<title>In Defence of C</title>
+		<link>http://girtby.net/archives/2008/08/23/in-defence-of-c/</link>
+		<comments>http://girtby.net/archives/2008/08/23/in-defence-of-c/#comments</comments>
+		<pubDate>Sat, 23 Aug 2008 11:19:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[language]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2008/08/23/in-defence-of-c</guid>
+		<description><![CDATA[Some of the criticism of the Blogging Horror article was based on my insistence that knowledge of the C language is essential for all software developers. Some even said I was &#8220;bigoted&#8221; for such a viewpoint, because there are many other worthy languages out there. And there certainly are. But they are not all created [...]]]></description>
+			<content:encoded><![CDATA[<p>Some of the criticism of the <a href="/archives/2008/5/22/blogging-horror">Blogging Horror article</a> was based on my insistence that knowledge of the C language is essential for all software developers. Some even said I was &#8220;bigoted&#8221; for such a viewpoint, because there are many other worthy languages out there. And there certainly are. But they are not all created equal.</p>
+
+<p>I had tried to explain my reasons for C&#8217;s special place in my list, but maybe I was not clear, so let&#8217;s try again.</p>
+
+<p>Here&#8217;s the thing: C is <em>everywhere</em>. Recently Tim Bray <a href="http://www.tbray.org/ongoing/When/200x/2008/06/18/In-C">made basically the same point</a>; all the major operating systems, all the high-level language runtimes, all the databases, and all major productivity applications are written in C. And there are many other categories of software that I haven&#8217;t even mentioned, all written in C.</p>
+
+<p>So can you as a developer choose to ignore it? Live in high-level language land for your entire career? I would say almost certainly not. High-level languages often provide abstractions that relieve you from the burden of dealing with the platform on which you&#8217;re building. Which is great, but sooner or later a crack is going to open up and the abstraction is going to leak.</p>
+
+<p>Some day you&#8217;ll need to go spelunking into the depths of your runtime environment. Maybe you&#8217;ll need to call some other C-based API for which you don&#8217;t have a convenient wrapper in your high-level language of choice. Like, say, mmap-ing a part of a file instead of the whole thing. Or maybe you&#8217;ll just want a bit of a performance boost. And on that day, boy will you wish you knew C.</p>
+
+<p>It&#8217;s for <em>this</em> pragmatic and entirely non-bigoted reason that I promoted C to the top of my language pantheon. If you&#8217;ve never learned C, it means you&#8217;ll never be able to delve too deeply into the foundations your programming environment and find out exactly what is happening under the surface, or to extend it in any way.</p>
+
+<p>Of course there are many other reasons to learn C, such as those discussed in comments previously, but this is main reason why it&#8217;s on my essentials list.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2008/08/23/in-defence-of-c/feed/</wfw:commentRss>
+		<slash:comments>50</slash:comments>
+		</item>
+		<item>
+		<title>Wide Finder 2: The Widening</title>
+		<link>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/</link>
+		<comments>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/#comments</comments>
+		<pubDate>Thu, 03 Jul 2008 03:27:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[performance]]></category>
+		<category><![CDATA[wide finder]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2008/07/08/wide-finder-2-the-widening</guid>
+		<description><![CDATA[&#60;movie-trailer-guy&#62; Many months ago he attempted Tim Bray&#8217;s first Wide Finder in C++, mainly as a coding exercise. Back then the goal was readability and conciseness. This time &#8230; it&#8217;s performanceal. &#60;/movie-trailer-guy&#62;
+
+
+
+Targeting the Hardware of the Future
+
+Computer architecture evolution is currently in the process of changing direction. Instead of CPUs becoming progressively ever faster, they [...]]]></description>
+			<content:encoded><![CDATA[<p><code>&lt;movie-trailer-guy&gt;</code> Many months ago he attempted Tim Bray&#8217;s first <a href="/archives/2007/10/9/wide-finder-in-c">Wide Finder in C++</a>, mainly as a coding exercise. Back then the goal was readability and conciseness. This time &#8230; it&#8217;s performanceal. <code>&lt;/movie-trailer-guy&gt;</code></p>
+
+<p><span id="more-3049"></span></p>
+
+<h4>Targeting the Hardware of the Future</h4>
+
+<p>Computer architecture evolution is currently in the process of changing direction. Instead of CPUs becoming progressively ever faster, they are going &#8220;wider&#8221;. This means more processing cores, each of which is relatively low-powered. The combined processing power of multiple cores is greater than is achievable with traditional single core architectures, but requires new programming techniques. These techniques are perhaps well-understood at a theory level, but the Wide Finder project is an attempt to put theory into practice with real-world tasks by everyday coders, such as myself.</p>
+
+<p>The goal of a <a href="http://wikis.sun.com/display/WideFinder/Wide+Finder+Home">Wide Finder 2</a> implementation is to produce some simple statistics from a very large (42GB) data file. The target machine is a Sun Fire T2000 with 8 cores (32 threads) and 32 GB of RAM. The task is relatively simple: we have to read the file, which contains web server log entries, and produce some elementary statistics such as the top 10 pages by hit, the top 10 clients, and so forth. Obviously it&#8217;s I/O bound &#8230; or is it?</p>
+
+<p>I attempted this in (hopefully) idiomatic C++, using the <a href="http://www.boost.org/">Boost</a> libraries. For those unfamiliar with Boost, you can think of it as the non-standard library, or maybe the unofficial standard libary. Basically if you&#8217;re not using Boost libraries today, you soon will be, because many of the them have gone on to form the basis for the TR1 standard library extensions, and hence targeted for inclusion in the next official C++ standard, known as C++0x. Thanks to Boost, my code is completely portable, compiling on both gcc (on my Mac) and Sun Studio compiler (on the T2000) without even a single <code>#ifdef</code>.</p>
+
+<h4>The Results, So Far</h4>
+
+<p>So, C++ should be able to whip all those other languages like Java into submission you might think, right? Well, I think the <a href="http://wikis.sun.com/display/WideFinder/Results">results</a> speak for themselves. My time of 16 minutes is prettymuch in the middle of the pack. Not bad, but not outstanding either, and still behind some of the Java (or JVM-based) implementations. I have a few more optimisations up my sleeve though, so we&#8217;ll see how they pan out.</p>
+
+<p>However the clear winner in my view, and hence worthy of much more recognition than it currently enjoys, is <a href="http://caml.inria.fr/ocaml/">OCaml</a>. With a run time of 5 minutes this is perilously <a href="http://groups.google.com/group/wide-finder/browse_thread/thread/06cf51fbbd4774e0">close to the raw I/O speed</a> sustainable on this box. Not only that but it was all done with ~150 lines of code which is frankly amazing (especially compared to my ~500 line C++ implementation). So OCaml is definitely a language to look at, in my humble opinion.</p>
+
+<p>Hit the links from that results page for some often fascinating insights from the other Wide Finder implementers.</p>
+
+<h4>How To Go Wide</h4>
+
+<p>Fundamentally I think my approach is fairly similar to many of the other Wide Finders. This was to divide the input file into chunks, then walk through each using multiple threads. Each thread accumulates statistics in the form of hash tables. The individual hash tables are then merged before finally being sorted to produce the top-10 reports.</p>
+
+<p>I want to share in detail some of the techniques that I used but like I said I&#8217;m still refining them. For now let me just point to a couple of key techniques that got me into contention for this project:</p>
+
+<ul>
+<li><p>When it comes to this much data, you can&#8217;t afford to copy anything. This means I/O using <code>mmap</code>, and doing as much processing &#8220;in-place&#8221; as possible. For C++ this also means throwing out the <code>iostreams</code> library (even though it is otherwise quite well suited to this type of task, as demonstrated previously). And even with a 64-bit binary, you really don&#8217;t want to mmap an entire 42GB data file into memory, trust me [<strong>Update:</strong> Or maybe not. See <a href="#comment-3058">comment</a> below]. So I ended up with some quite ugly code to deal with mmap-ing segments of the input file while respecting chunk (ie line) boundaries and page alignment boundaries.</p></li>
+<li><p>Multi-threaded C++ applications are always at risk of experiencing contention, but this is especially so when it comes to memory allocation. Doing too much allocation can kill any parallel processing you do with C++, because <code>malloc</code> and <code>free</code> both grab global mutexes (or worse, spinlocks) prior to doing their stuff. To solve this problem I ended up using a custom thread-specific memory allocator based on the Boost.Pool library. This minimises the number of times that the thread grabs memory during the normal course of operation. Code forthcoming.</p></li>
+</ul>
+
+<p>Mad props to Shark, which is part of the Mac OS X developer suite. It pinpointed my bottlenecks  very quickly and simply. An indispensable tool, don&#8217;t jump over <em>this</em> Shark.</p>
+
+<h4>Future Work</h4>
+
+<p>So I&#8217;ve got some more ideas on how to go even wider, and I&#8217;ll update here with the results. Basically it&#8217;s applying the above two techniques more thoroughly; minimise copying of data, and minimise memory allocation. (In particular the Boost.Regex library is next on my list to convert to using a thread-specific memory pool). Will let you know how it goes.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2008/07/03/wide-finder-2-the-widening/feed/</wfw:commentRss>
+		<slash:comments>7</slash:comments>
+		</item>
+		<item>
+		<title>Required Viewing</title>
+		<link>http://girtby.net/archives/2007/11/06/required-viewing/</link>
+		<comments>http://girtby.net/archives/2007/11/06/required-viewing/#comments</comments>
+		<pubDate>Tue, 06 Nov 2007 22:39:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Linkpimpin']]></category>
+		<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[architecture]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[memory]]></category>
+		<category><![CDATA[performance]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2007/11/13/required-viewing</guid>
+		<description><![CDATA[If you&#8217;re at all interested in computing technology you can&#8217;t help but be amazed at the advances in CPU power over the last few decades, Moore&#8217;s Law, blah blah blah. But a few seconds pondering this invariably provokes the question as to how long this party can last.
+
+The commonly accepted wisdom is that CPUs have [...]]]></description>
+			<content:encoded><![CDATA[<p>If you&#8217;re at all interested in computing technology you can&#8217;t help but be amazed at the advances in CPU power over the last few decades, Moore&#8217;s Law, blah blah blah. But a few seconds pondering this invariably provokes the question as to how long this party can last.</p>
+
+<p>The commonly accepted wisdom is that CPUs have gotten about as fast as they are likely to go in terms of sheer clock speed, and now manufacturers are turning to multiprocessing to provide more processing power for a given price point. The recent Intel price drops which made the quad-core Q6600 CPU available for less than AUD400 are a highly relevent (and welcome) data point to illustrate this trend.</p>
+
+<p>This raises lots of hairy questions for developers, such as &#8220;how are we going to design our software to run efficiently in a multi-processing environment?&#8221; The previously-linked <a href="http://www.tbray.org/ongoing/When/200x/2007/09/20/Wide-Finder">wide finder</a> experiment is an attempt to explore some of these issues. And it&#8217;s pretty obvious that so far there is no silver bullet.</p>
+
+<p>But wait, it gets worse. I will point you to a long but highly thought-provoking presentation from Herb Sutter. Turns out we are <em>already</em> hitting major architectural hurdles in the form of memory access limitations, and we&#8217;ll need to find some solutions for these <em>before</em> tackling the parallel computation problem.</p>
+
+<p>Sutter&#8217;s presentation is deeply technical, but still quite accessible, and delivered with an engaging style that makes it <a href="http://herbsutter.spaces.live.com/blog/cns!2D4327CC297151BB!304.entry">required viewing</a>. Highly recommended.</p>
+
+<p>I recently had some experience diagnosing some memory-related performance problems (not quite in the same class as that discussed by Sutter, but similar) and I have to say there is a serious deficit in the development tools for these kinds of problems. Currently we need to look aggregate behaviour over multiple iterations to isolate some of these problems, and this is a difficult and error-prone approach. For example, check out Sutter&#8217;s technique to discover the memory cache line size in code. In the future it would be great if we could monitor cache misses, pipeline stalls, page faults, and other performance-impacting events <em>within the debugger</em>.</p>
+
+<p>These issues also make me wonder about how higher-level languages are going to provide appropriate abstractions to avoid the performance problems. For example, garbage collection is a major win for programmer productivity but it does encourage memory usage patterns that are not always conducive to performance given architectural limitations in the underlying hardware. The same abstraction problems affect C/C++ of course but at least there is the option to go &#8220;bare-metal&#8221; where necessary.</p>
+
+<p>Whatever the answers are here, it&#8217;s certain there are some interesting times ahead for developers.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2007/11/06/required-viewing/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Wide Finder in C++</title>
+		<link>http://girtby.net/archives/2007/10/09/wide-finder-in-c/</link>
+		<comments>http://girtby.net/archives/2007/10/09/wide-finder-in-c/#comments</comments>
+		<pubDate>Tue, 09 Oct 2007 11:07:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[benchmark]]></category>
+		<category><![CDATA[boost]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[wide finder]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2007/11/09/wide-finder-in-c</guid>
+		<description><![CDATA[Have you been following Tim Bray&#8217;s Wide Finder project? It&#8217;s an exercise to express a fairly simple task in a manner that will scale across multiple CPU cores. Some of Tim&#8217;s initial progress with Erlang, and other contributors in different languages, is quite fascinating.
+
+Like Tim I was also amused at Pete Kirkham&#8217;s C++ implementation  [...]]]></description>
+			<content:encoded><![CDATA[<p>Have you been following Tim Bray&#8217;s <a href="http://www.tbray.org/ongoing/When/200x/2007/09/20/Wide-Finder">Wide Finder project</a>? It&#8217;s an exercise to express a fairly simple task in a manner that will scale across multiple CPU cores. Some of Tim&#8217;s initial progress with Erlang, and other contributors in different languages, is quite fascinating.</p>
+
+<p><a href="http://www.tbray.org/ongoing/When/200x/2007/10/01/WF-Roundup">Like Tim</a> I was also amused at <a href="http://www.tincancamera.com/blog/2007/09/wide-finder-parallelism-and-languages.html">Pete Kirkham&#8217;s C++ implementation </a> which was purported to be shorter than an initial attempt by an Erlang expert (in Erlang obviously). However on closer examination it seems that Pete&#8217;s C++ implementation was simply handling the I/O portion with simplified parsing and not the subsequent sorting.</p>
+
+<p>So as <a href="/archives/2007/2/26/kata-four-in-c">another</a> C++ coding Kata I decided to have a go. Whereas Tim&#8217;s goal was to evaluate different methods of expressing algoritms for parallel computation, mine was a lot more modest: just get it running concisely in C++ and compare performance with the raw Ruby version. Here&#8217;s what I came up with.</p>
+
+<p><span id="more-2047"></span></p>
+
+<pre class="htmlize">
+<span class="preprocessor">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="preprocessor">#include</span> <span class="string">&lt;boost/iostreams/device/mapped_file.hpp&gt;</span>
+<span class="preprocessor">#include</span> <span class="string">&lt;boost/regex.hpp&gt;</span>
+
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="constant">std</span>;
+
+<span class="keyword">const</span> <span class="constant">boost</span>::<span class="type">regex</span> <span class="function-name">get_re</span>(<span class="string">"GET /ongoing/When/\\d{3}x/(\\d{4}/\\d{2}/\\d{2}/[^ .]+) "</span>);
+
+<span class="keyword">typedef</span> <span class="type">map</span>&lt;<span class="type">string</span>, <span class="type">unsigned</span>&gt; <span class="type">counts_by_key_t</span>;
+<span class="keyword">typedef</span> <span class="type">multimap</span>&lt;<span class="type">unsigned</span>, <span class="type">string</span>&gt; <span class="type">keys_by_count_t</span>;
+
+<span class="type">int</span> <span class="function-name">main</span>(<span class="type">int</span> <span class="variable-name">argc</span>, <span class="type">char</span> *<span class="variable-name">argv</span>[])
+{
+  <span class="type">counts_by_key_t</span> <span class="variable-name">counts_by_key</span>;
+  <span class="keyword">for</span>(<span class="type">int</span> <span class="variable-name">arg</span> = 1; arg &lt; argc; ++arg) {
+    <span class="keyword">try</span> {
+      <span class="constant">boost</span>::<span class="constant">iostreams</span>::<span class="type">mapped_file_source</span> <span class="variable-name">mf</span>(<span class="type">argv</span>[arg]);
+
+      <span class="constant">boost</span>::<span class="type">cregex_iterator</span> <span class="variable-name">regi</span>(mf.begin(), mf.end(), get_re), <span class="variable-name">rege</span>;
+      <span class="keyword">for</span>(; regi != rege; ++regi) {
+        counts_by_key[(*regi)[1].str()] += 1;
+      }
+    } <span class="keyword">catch</span> (<span class="constant">ios</span>::<span class="type">failure</span> <span class="variable-name">e</span>) {
+      cerr &lt;&lt; argv[arg] &lt;&lt; <span class="string">": "</span> &lt;&lt; e.what() &lt;&lt; endl;
+      <span class="keyword">return</span> 1;
+    }
+  }
+
+  <span class="type">keys_by_count_t</span> <span class="variable-name">keys_by_count</span>;
+  <span class="keyword">for</span>(<span class="constant">counts_by_key_t</span>::<span class="type">const_iterator</span> <span class="variable-name">i</span> = counts_by_key.begin();
+      i != counts_by_key.end(); ++i) {
+    keys_by_count.insert(make_pair(i-&gt;second, i-&gt;first));
+  }
+
+  <span class="type">unsigned</span> <span class="variable-name">n</span> = 10;
+  <span class="keyword">for</span>(<span class="constant">keys_by_count_t</span>::<span class="type">reverse_iterator</span> <span class="variable-name">ri</span> = keys_by_count.rbegin();
+      n &amp;&amp; ri != keys_by_count.rend(); ++ri, --n) {
+
+    cout &lt;&lt; ri-&gt;first &lt;&lt; <span class="string">": "</span> &lt;&lt; ri-&gt;second &lt;&lt; endl;
+  }
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+<p>So at 42 lines this one really <em>is</em> shorter than the 84-line Erlang version. Not a million miles away from the Ruby version either, in length if not in readability. However, I&#8217;ve made some simplifications, or taken some liberties, depending on your point of view:</p>
+
+<ul>
+<li><p>Firstly, Boost is a third-party library and hence this is not standard C++. Given the (general) difficulty of incorporating libraries into C++ apps this might be more of a problem than on other languages where CPAN/RubyForge/CheeseShop/whatever rules supreme. However I would argue that Boost is such an indispensable part of modern C++ development that relying on it is quite acceptable, even for tasks like this.</p></li>
+<li><p>Also, I&#8217;m using Boost&#8217;s <code>mapped_file_stream</code>, which uses a memory map to iterate through the file. This is very useful and quick but obviously places limits on the size of the file. Fortunately it handles oversize files gracefully.</p></li>
+<li><p>That <code>reverse_iterator</code> should be a <code>const_reverse_iterator</code>, but I had to work around a <a href="http://gcc.gnu.org/bugzilla/show_bug.cgi?id=11729">gcc bug</a>.</p></li>
+<li><p>C++ generic programming purists may be scoffing at my explicit iteration through the containers. Try as I might I could not formulate a way of using the standard algorithms without signficantly increasing the complexity of the code. Inverting the <code>counts_by_key</code> map to create the <code>keys_by_count</code> multimap sounds particularly like the sort of thing that should be possible using the standard algorithms, but I was unable to work it out.</p></li>
+</ul>
+
+<p>Removing the explicit iteration may prove to be a useful exercise, in order to get better parallelization. I can picture a class of STL algorithms which are smart enough to automatically distribute work amongst different worker threads, coordinate their shared state, etc. A <code>parallel_for_each</code> algorithm perhaps. Fully utilising existing algorithms such as <code>for_each</code> seems like a necessary first step towards this goal.</p>
+
+<p>My other goal with this was to look at performance. The C++ version above processes the 200MB file in about <strong>4.5 seconds</strong> on my laptop (running WinXP, code compiled with MSVC++ 8.0).</p>
+
+<p>By comparison the Ruby version runs in <strong>5.0 seconds</strong>. This is pretty damn impressive if you ask me, given that it&#8217;s <em>not</em> using memory-mapped IO.</p>
+
+<p>For an encore I would like to convert the code above to use regular file I/O. An initial attempt to use the <code>file_iterator</code> class (from the Spirit library, also part of Boost) was not hopeful; boosting the runtime up to 30 seconds. I also looked at using the standard C++ iostream iterators but the regex matching needs bidirectional iterators, and they aren&#8217;t.</p>
+
+<p>Oh, and don&#8217;t blame me that the code isn&#8217;t <a href="/archives/2007/3/9/c-1-unicode-0">unicode safe</a>. That was part of the brief!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2007/10/09/wide-finder-in-c/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>C++ 1, Unicode 0</title>
+		<link>http://girtby.net/archives/2007/03/09/c-1-unicode-0/</link>
+		<comments>http://girtby.net/archives/2007/03/09/c-1-unicode-0/#comments</comments>
+		<pubDate>Fri, 09 Mar 2007 11:14:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[coding]]></category>
+		<category><![CDATA[unicode]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2008/02/04/c-1-unicode-0</guid>
+		<description><![CDATA[Yes, another C++ post. Yes, I&#8217;ve been doing a lot of it lately.
+
+Recently on WorseThanFailure there have been several incidences of functions intended to perform relatively simple string manipulation tasks. Being worthy of posting to WTF, they have of course been hilariously over-long, complicated and bug-ridden. One recent example was attempting to compare two strings [...]]]></description>
+			<content:encoded><![CDATA[<p>Yes, another C++ post. Yes, I&#8217;ve been doing a lot of it lately.</p>
+
+<p>Recently on <a href="http://worsethanfailure.com">WorseThanFailure</a> there have been several incidences of functions intended to perform relatively simple string manipulation tasks. Being worthy of posting to WTF, they have of course been hilariously over-long, complicated and bug-ridden. One recent example was attempting to <a href="http://worsethanfailure.com/Articles/Enough_String_to_Hang_Yourself.aspx">compare two strings in a case-insensitive manner</a>. Another was attempting to <a href="http://worsethanfailure.com/Articles/Removing_Spaces,_the_Easy_Way.aspx">remove spaces from a string</a>.</p>
+
+<p>I&#8217;m going to have a go at a similar problem, namely writing a C++ program to count whitespace characters in a file.</p>
+
+<p>Ready to follow along? Good!</p>
+
+<p><span id="more-1547"></span></p>
+
+<h4>Generating a Test File</h4>
+
+<p>Let&#8217;s use this as a test file to start:</p>
+
+<p><code>Foo Bar&nbsp;Baz</code></p>
+
+<p>Looks easy, right? Of the 12 characters, our app should count 3 whitespace characters; one for each of the spaces and one for the newline.</p>
+
+<p>But wait a sec, things aren&#8217;t as simple as they appear. View source and you&#8217;ll see that the second space isn&#8217;t an ordinary space. It&#8217;s a Unicode NO-BREAK SPACE (U+00A0). Hmm, I wonder how that will turn out?</p>
+
+<p>Well if we&#8217;re using Unicode we have to decide on an encoding. These days the default choice prettymuch has to be UTF-8. Those of you who are following along at home may want to use the following python command to write out the test file:</p>
+
+<pre><code>python -c 'f = file("foo.txt", "w"); f.write(u"Foo Bar\u00A0Baz\n".encode("utf-8"))'
+</code></pre>
+
+<p>As a programmer, particularly a C++ programmer, you may be getting an uneasy feeling at this point. But in case you think my test case is particularly contrived, let me just point out that no-break spaces are very commonly used, particularly on the Internet. Ditto UTF-8.</p>
+
+<h4>Attempt #1: The Textbook Approach</h4>
+
+<p>On a first attempt we might think about writing a program to take its input from stdin and write output on stdout. This can be trivially used with file based input, and could also be useful if we wanted to use it with in the output of another program through a pipe.</p>
+
+<p>For the sake of brevity, I&#8217;ll assume the appropriate <code>#include</code>s and <code>using namespace std;</code> declarations have been made. And so we might end up with something like this.</p>
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>()
+{
+  cin.unsetf(<span class="constant">ios_base</span>::skipws);
+  <span class="type">unsigned</span> <span class="variable-name">ccount</span> = 0, <span class="variable-name">wscount</span> = 0;
+  <span class="type">char</span> <span class="variable-name">ch</span>;
+
+  <span class="keyword">while</span> (cin &gt;&gt; ch) {
+    <span class="keyword">if</span> (isspace(ch)) {
+      ++wscount;
+    }
+    ++ccount;
+  }
+  cout &lt;&lt; wscount &lt;&lt; <span class="string">" whitespace characters out of "</span> &lt;&lt; ccount &lt;&lt; endl;
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+<p>Basically this just iterates over the input, a <code>char</code> at a time. It is literally a textbook approach, as Stroustrup shows something similar in <cite>The C++ Programming Language</cite> section 21.3.4.</p>
+
+<p>Let&#8217;s see how it goes with the the test file. Remember we are after 3 whitespace out of 12 characters.</p>
+
+<pre><code>$ ./wscount1 &lt; foo.txt
+2 whitespace characters out of 13
+</code></pre>
+
+<p>Nope. It didn&#8217;t even read the right number of characters! Stepping through with a debugger it&#8217;s easy to see what is going on. The no-break space is encoded as two bytes, and hence read by our program as two separate characters, neither of which are being counted as spaces.</p>
+
+<p>The fact that it failed on UTF-8 input should come as no surprise but I feel it&#8217;s worth highlighting this because the <code>char</code>-at-a-time model is extremely widespread. In fact, reading through the attempted solutions to a similar problem on WorseThanFailure, I got to page 4 of the comments before someone even asked the question &#8220;hey, what about multibyte characters?&#8221;</p>
+
+<h4>Attempt #2: Wide Characters</h4>
+
+<p>So pretty obviously we can&#8217;t use a <code>char</code> if we are going to be dealing with individual characters from a set of more than 256. Fortunately C++ gives us <code>wchar_t</code>, whose size is undefined but is guaranteed to be big enough to hold characters of the &#8220;implementation&#8221; character set (more on this later).</p>
+
+<p>The change to <code>wchar_t</code> is necessary, but not sufficient. I won&#8217;t show it, but trust me, the result is the same, 2 whitespace out of 13 characters.</p>
+
+<p>The problem is that we haven&#8217;t told the iostream <em>how</em> to decode the incoming bytes. In the absence of this information, the iostream does the only thing it can do, namely push every input byte into a separate <code>wchar_t</code>. Not particularly useful.</p>
+
+<p>More intelligent conversion of incoming data is one of the functions of the locale classes. The relevant &#8220;facet&#8221; of the locale object is called <code>codecvt</code>. It is a template class with an <code>in()</code> method that looks like this:</p>
+
+<pre class="htmlize">
+result
+<span class="function-name">in</span>(<span class="type">state_type</span>&amp; <span class="variable-name">__state</span>, <span class="keyword">const</span> <span class="type">extern_type</span>* <span class="variable-name">__from</span>,
+   <span class="keyword">const</span> <span class="type">extern_type</span>* <span class="variable-name">__from_end</span>, <span class="keyword">const</span> <span class="type">extern_type</span>*&amp; <span class="variable-name">__from_next</span>,
+   <span class="type">intern_type</span>* <span class="variable-name">__to</span>, <span class="type">intern_type</span>* <span class="variable-name">__to_end</span>,
+   <span class="type">intern_type</span>*&amp; <span class="variable-name">__to_next</span>) <span class="keyword">const</span>
+</pre>
+
+<p>It&#8217;s a method signature only a mother could love. But the good news is that you don&#8217;t have to call it directly, because iostreams will do it for you. As long as we&#8217;re talking file streams, that is. So attempt #2 at the white space problem needs to be written in terms of file streams. And that means some extra error handling and other stuff:</p>
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>(<span class="type">unsigned</span> <span class="variable-name">argc</span>, <span class="keyword">const</span> <span class="type">char</span> * <span class="variable-name">argv</span>[])
+{
+  <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="variable-name">a</span> = 1; a &lt; argc; ++a) {
+    <span class="type">wifstream</span> <span class="variable-name">fs</span>(<span class="type">argv</span>[a]);
+    fs.unsetf(<span class="constant">ios_base</span>::skipws);
+    <span class="type">unsigned</span> <span class="variable-name">ccount</span> = 0,  <span class="variable-name">wscount</span> = 0;
+    <span class="type">wchar_t</span> <span class="variable-name">ch</span>;
+
+    <span class="keyword">while</span> (fs &gt;&gt; ch) {
+      <span class="keyword">if</span> (isspace(ch)) {
+        ++wscount;
+      }
+      ++ccount;
+    }
+
+    cout &lt;&lt; argv[a] &lt;&lt; <span class="string">": "</span>;
+    <span class="keyword">if</span> (fs.bad() || <span class="negation-char">!</span>fs.eof()) {
+      cout &lt;&lt; <span class="string">"error encountered after "</span> &lt;&lt; ccount &lt;&lt; <span class="string">" characters"</span> &lt;&lt; endl;
+      <span class="keyword">return</span> 1;
+    } <span class="keyword">else</span> {
+      cout &lt;&lt; wscount &lt;&lt; <span class="string">" whitespace characters out of "</span> &lt;&lt; ccount &lt;&lt; endl;
+    }
+  }
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+<p>Looks a bit more promising, if you forgive the poor error reporting. But we still only get 2 whitespace characters out of 13. What&#8217;s going on?</p>
+
+<h4>Diversion into locales</h4>
+
+<p>I mentioned above that the character set conversion routines live inside the locale part of the standard library. This is a slightly odd place for them to live, but I expect that historically, different regions often had their own unique character sets. In a Unicode world this is no longer the case.</p>
+
+<p>Anyway, the <code>wifstream</code> constructor above is taking a snapshot of the global locale and using it for converting the incoming characters. So what is the global locale? Could it be something to do with the current user&#8217;s locale, as visible when you type <code>locale</code> on the unix command line?</p>
+
+<p>Well, not necessarily. At startup, the global locale is set to the &#8220;classic&#8221; or &#8220;C&#8221; locale. For maximum compatibility, this is a very simple locale, and assumes an ASCII characters set for input data. On the other hand, the current <em>user</em> locale is referred to by an empty string.</p>
+
+<p>Here&#8217;s a program to print the name of the current user locale:</p>
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>()
+{
+  cout &lt;&lt; <span class="string">"user locale is: "</span> &lt;&lt; locale(<span class="string">""</span>).name() &lt;&lt; endl;
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+<p>Here&#8217;s where things get tricky, or at least operating system dependent. Running the above program on MacOS X I get:</p>
+
+<pre><code>$ ./cpplocale
+user locale is: C
+</code></pre>
+
+<p>Not particularly helpful. Using the <code>-a</code> option to <code>locale</code> I can see that there are lots of other locales installed. Lets see what happens when I try to use one:</p>
+
+<pre><code>$ locale -a | grep en_AU
+en_AU
+en_AU.ISO8859-1
+en_AU.ISO8859-15
+en_AU.US-ASCII
+en_AU.UTF-8
+$ LC_ALL="en_AU" ./cpplocale
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  locale::facet::_S_create_c_locale name not valid
+user locale is: Abort trap
+</code></pre>
+
+<p>From a brief play it looks looks like <em>none</em> of the installed locales (besides &#8220;C&#8221; of course) are available to C++ programs on MacOS X. Boo!</p>
+
+<p>Here&#8217;s how it should work, courtesy of Ubuntu Linux:</p>
+
+<pre><code>$ ./cpptest
+Using locale: en_AU.UTF-8
+</code></pre>
+
+<p>Note that we still don&#8217;t have a portable way of <em>specifying</em> that the input file is UTF-8 encoded. Aside from the classic and the user locale, none of the locale names are standardised.</p>
+
+<p>The other thing is that it&#8217;s not entirely obvious to me what character set we&#8217;re actually using here. This gets back to the question of the &#8220;implementation&#8221; character set. Sure, they are <code>wchar_t</code>s but are they Unicode? In this case the answer is yes, but is that assumption true on the <a href="http://en.wikipedia.org/wiki/DeathStation_9000">DeathStation 9000</a>? If Unicode, is it UTF-16 or UTF-32? What normalisation form? As far as I can tell, none of these questions can be answered in a portable manner. (And so <a href="http://www.boost.org/libs/serialization/doc/codecvt.html">Boost Serialization</a> should become your new best friend)</p>
+
+<p>I&#8217;ll leave Windows as an exercise for the reader. For the sake of simplicity I&#8217;ll switch to Linux for the remainder of this article.</p>
+
+<h4>Attempt #3: With Locales</h4>
+
+<p>Just because I&#8217;m allergic to global variables, I&#8217;ll use <code>imbue</code> to set the locale of the stream after construction.</p>
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>(<span class="type">unsigned</span> <span class="variable-name">argc</span>, <span class="keyword">const</span> <span class="type">char</span> * <span class="variable-name">argv</span>[])
+{
+  <span class="type">locale</span> <span class="variable-name">loc</span>(<span class="string">""</span>);
+
+  <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="variable-name">a</span> = 1; a &lt; argc; ++a) {
+    <span class="type">wifstream</span> <span class="variable-name">fs</span>(<span class="type">argv</span>[a]);
+    fs.unsetf(<span class="constant">ios_base</span>::skipws);
+    fs.imbue(loc);
+
+    <span class="comment-delimiter">/* </span><span class="comment">... as above ... */</span>
+  }
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+<p>And the result:</p>
+
+<pre><code>$ ./wscount3 foo.txt
+foo.txt: 2 whitespace characters out of 12
+</code></pre>
+
+<p>Hooray for Zoidberg! We haven&#8217;t quite got the right result, but we are making progress. We successfully converted the input UTF-8 into wide characters, probably UTF-32. But why didn&#8217;t it count the right number of whitespace characters?</p>
+
+<h4>When is a space a space?</h4>
+
+<p>Try this with your favourite C++ compiler:</p>
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>()
+{
+  <span class="type">locale</span> <span class="variable-name">loc</span>(<span class="string">""</span>);
+  cout &lt;&lt; <span class="string">"isspace(no-break space): "</span> &lt;&lt; isspace(<span class="type">wchar_t</span>(0xA0), loc) &lt;&lt; endl;
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+<p>On both Linux and MacOS, this program produces a negative result. In other words, the unicode NO-BREAK SPACE is <em>not a space</em> according to the <code>isspace()</code> function. I&#8217;ll just let that sink in for a bit &#8230;</p>
+
+<p>If you look at the <a href="http://sources.redhat.com/cgi-bin/cvsweb.cgi/libc/localedata/gen-unicode-ctype.c?rev=1.4&amp;content-type=text/x-cvsweb-markup&amp;cvsroot=glibc">glibc sources</a> you&#8217;ll see that this has been a deliberate decision. There is even an accompanying comment:</p>
+
+<pre><code>/* Don't make U+00A0 a space. Non-breaking space means that all programs
+   should treat it like a punctuation character, not like a space. */
+</code></pre>
+
+<p>Accurate but not exactly helpful. I suspect the reason has to do with not wanting to conflict with the thousands separator. In some locales they use spaces instead of commas to separate the thousands. If we consider no-break spaces as punctuation then we can use the same code to process large numeric quantities in all locales without risk of breaking them into multiple words. Or something like that.</p>
+
+<p>The point remains though: the various <code>ctype</code> functions (ie the <code>isxxxx</code> functions) do not map on to the corresponding Unicode character properties.</p>
+
+<h4>Attempt #4: Extending and enhancing <code>isspace</code></h4>
+
+<p>A proper solution here would probably involve hardcoded tests of the input character against each of the <a href="http://en.wikipedia.org/wiki/Space_(punctuation)#Space_characters_and_digital_typography">Unicode space characters</a>. Which is, you guessed it, another exercise for the reader. I&#8217;m going to cheat a bit and just test for the no-break space for now.</p>
+
+<p>So here is the final version, in all its glory:</p>
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>(<span class="type">unsigned</span> <span class="variable-name">argc</span>, <span class="keyword">const</span> <span class="type">char</span> * <span class="variable-name">argv</span>[])
+{
+  <span class="type">locale</span> <span class="variable-name">loc</span>(<span class="string">""</span>);
+
+  <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="variable-name">a</span> = 1; a &lt; argc; ++a) {
+    <span class="type">wifstream</span> <span class="variable-name">fs</span>(<span class="type">argv</span>[a]);
+    fs.unsetf(<span class="constant">ios_base</span>::skipws);
+    fs.imbue(loc);
+    <span class="type">unsigned</span> <span class="variable-name">ccount</span> = 0,  <span class="variable-name">wscount</span> = 0;
+    <span class="type">wchar_t</span> <span class="variable-name">ch</span>;
+
+    <span class="keyword">while</span> (fs &gt;&gt; ch) {
+      <span class="keyword">if</span> ((0x00a0 == ch) || isspace(ch)) {
+        ++wscount;
+      }
+      ++ccount;
+    }
+
+    cout &lt;&lt; argv[a] &lt;&lt; <span class="string">": "</span>;
+    <span class="keyword">if</span> (fs.bad() || <span class="negation-char">!</span>fs.eof()) {
+      cout &lt;&lt; <span class="string">"error encountered after "</span> &lt;&lt; ccount &lt;&lt; <span class="string">" characters"</span> &lt;&lt; endl;
+      <span class="keyword">return</span> 1;
+    } <span class="keyword">else</span> {
+      cout &lt;&lt; wscount &lt;&lt; <span class="string">" whitespace characters out of "</span> &lt;&lt; ccount &lt;&lt; endl;
+    }
+  }
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+<p>And the money shot:</p>
+
+<pre><code>$ ./wscount4 foo.txt
+foo.txt: 3 whitespace characters out of 12
+</code></pre>
+
+<p>About freakin&#8217; time, you might be thinking.</p>
+
+<h4>Learnings</h4>
+
+<p>So here&#8217;s how I would summarise this whole exercise.</p>
+
+<ul>
+<li>If you are doing any character-by-character processing of strings, you need to use wide chars. In fact, that&#8217;s probably a good idea even if you&#8217;re not peering inside strings. Unicode is here to stay, get over it.</li>
+<li>Don&#8217;t rely on the standard libraries to always correctly convert your input data to wide characters. Use the Boost serialisation library mentioned above, or <a href="http://www.gnu.org/software/libiconv/">iconv</a>, or (recently discovered and promising) <a href="http://u8u16.costar.sfu.ca/">u8u16</a>.</li>
+<li>Don&#8217;t rely on the standard libraries to process unicode characters. For that you probably want <a href="http://icu.sourceforge.net/">ICU</a> or something.</li>
+<li>C++ needs to Try Harder to support unicode, particularly on MacOS (The <em>real</em> WTF).</li>
+<li>Just give up and use Ruby. <a href="http://www.tbray.org/ongoing/When/200x/2006/10/22/Unicode-and-Ruby">Oh no, wait&#8230;</a></li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2007/03/09/c-1-unicode-0/feed/</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+		</item>
+		<item>
+		<title>Kata Four in C++</title>
+		<link>http://girtby.net/archives/2007/02/26/kata-four-in-c/</link>
+		<comments>http://girtby.net/archives/2007/02/26/kata-four-in-c/#comments</comments>
+		<pubDate>Mon, 26 Feb 2007 12:37:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[coding]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2007/10/09/kata-four-in-c</guid>
+		<description><![CDATA[On a whim, I attempted Dave Thomas&#8217; Kata Four in C++. Yes that&#8217;s right, C++.
+
+Here&#8217;s what I ended up with, feel free to throw peanuts.
+
+
+
+I did the parts in order, without looking ahead. When it came to part three of the exercise, it became apparent that I needed to separate the analysis of the file [...]]]></description>
+			<content:encoded><![CDATA[<p>On a whim, I attempted Dave Thomas&#8217; <a href="http://codekata.pragprog.com/2007/01/kata_four_data_.html">Kata Four</a> in C++. Yes that&#8217;s right, C++.</p>
+
+<p>Here&#8217;s what I ended up with, feel free to throw peanuts.</p>
+
+<p><span id="more-1473"></span></p>
+
+<p>I did the parts in order, without looking ahead. When it came to part three of the exercise, it became apparent that I needed to separate the analysis of the file from the mechanics of reading it. I used the common <a href="http://en.wikipedia.org/wiki/Function_object">Functor</a> idiom, calling it with each line of input:</p>
+
+<pre class="htmlize">
+<span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="type">T</span>&gt;
+<span class="type">void</span> <span class="function-name">analyze_file</span>(<span class="keyword">const</span> <span class="type">char</span> * <span class="variable-name">dat</span>, <span class="type">T</span> &amp; <span class="variable-name">an</span>)
+{
+  <span class="type">fstream</span> <span class="variable-name">fs</span>(dat);
+  <span class="type">unsigned</span> <span class="variable-name">processed</span> = 0;
+
+  <span class="keyword">while</span>(<span class="constant">true</span>) {
+    <span class="type">string</span> <span class="variable-name">line</span>;
+    getline(fs, line);
+    <span class="keyword">if</span> (<span class="negation-char">!</span>fs.good())
+      <span class="keyword">break</span>;
+    <span class="keyword">if</span> (an(line))
+      processed++;
+  }
+  cout &lt;&lt; processed &lt;&lt; <span class="string">" lines processed"</span> &lt;&lt; endl;
+  <span class="keyword">if</span> (processed) {
+    cout &lt;&lt; an &lt;&lt; endl;
+  }
+}
+</pre>
+
+<p>Then it&#8217;s a simple matter of defining a functor for each type of analysis. For the weather data, it looks like this:</p>
+
+<pre class="htmlize">
+<span class="keyword">class</span> <span class="type">WeatherAnalyzer</span> {
+<span class="keyword">public</span>:
+  <span class="function-name">WeatherAnalyzer</span>() : minday(0), minspread(<span class="constant">numeric_limits</span>&lt;<span class="type">unsigned</span>&gt;::max()) {}
+  <span class="type">bool</span> <span class="keyword">operator</span><span class="function-name">()</span> (<span class="keyword">const</span> <span class="type">string</span> &amp; <span class="variable-name">line</span>);
+  <span class="type">unsigned</span> <span class="variable-name">minday</span>, <span class="variable-name">minspread</span>;
+};
+
+<span class="type">ostream</span> &amp; <span class="keyword">operator</span> <span class="function-name">&lt;&lt;</span> (<span class="type">ostream</span> &amp; <span class="variable-name">os</span>, <span class="type">WeatherAnalyzer</span> &amp; <span class="variable-name">w</span>)
+{
+  <span class="keyword">return</span> os &lt;&lt; <span class="string">"Min spread = "</span> &lt;&lt; w.minspread &lt;&lt; <span class="string">" (day "</span> &lt;&lt; w.minday &lt;&lt; <span class="string">")"</span>;
+}
+
+<span class="type">bool</span> <span class="constant">WeatherAnalyzer</span>::<span class="keyword">operator</span><span class="function-name">()</span> (<span class="keyword">const</span> <span class="type">string</span> &amp; <span class="variable-name">line</span>)
+{
+  <span class="type">istringstream</span> <span class="variable-name">ls</span>(line);
+  <span class="type">unsigned</span> <span class="variable-name">d</span>, <span class="variable-name">maxt</span>, <span class="variable-name">mint</span>;
+  ls &gt;&gt; d &gt;&gt; maxt &gt;&gt; mint;
+  <span class="keyword">if</span> (<span class="negation-char">!</span>ls.good() || (maxt &lt; mint))
+    <span class="comment-delimiter">// </span><span class="comment">ignore unparseable lines:
+</span>    <span class="keyword">return</span> <span class="constant">false</span>;
+
+  <span class="type">unsigned</span> <span class="variable-name">spread</span> = maxt - mint;
+  <span class="keyword">if</span> (spread &lt; minspread) {
+    minday = d;
+    minspread = spread;
+  }
+  <span class="keyword">return</span> <span class="constant">true</span>;
+}</pre>
+
+<p>Add some <code>#include</code>s, a <code>main()</code>, and we&#8217;re all set. It all came together pretty quickly thanks mainly to the power of the C++ iostreams library.</p>
+
+<p>All in all I think it came out pretty well, although it is by no means perfect. If it was going into production here&#8217;s what I&#8217;d be looking at:</p>
+
+<ul>
+<li>Defining a proper stream insertion operator that can handle wide chars.</li>
+<li>Better error reporting, particularly when the input file cannot be opened.</li>
+<li>Logging of &#8220;unexpected&#8221; unparseable lines.</li>
+<li>Getter methods, rather than public member variables, for accessing the accumulated values of the functor.</li>
+</ul>
+
+<p>In answer to the Kata questions:</p>
+
+<ul>
+<li>I made some early design decisions which were not validated when writing subsequent programs. Specifically I decided that each line should be parsed strictly once the start of data was detected. In other words, I had a <code>skip_to_data</code> function in my original part 1 solution. This was overturned when I went to part two because I observed that it was better to simply skip lines that could not be parsed, particularly when there was spurious data in the middle of the dataset. However making this change was fairly simple.</li>
+<li>The second program was a copy and paste of the first, with the relevant changes in fairly obvious parts. (This is usually very poor practice, but is justified in this case because I wasn&#8217;t actually shipping anything)</li>
+<li>I don&#8217;t believe that factoring out common code is always a good thing. For example, it would have been a fairly easy change to use an abstract <code>Analyzer</code> base class instead of a functor object. This might contain some common functionality such as the code to accumulate the minimum value and associated identifier. However I deliberately didn&#8217;t do this because it would have required a complicated interface between the base class and subclasses, for very little reuse benefit. As for readability and maintainability of the refactoring, I&#8217;d say it was a definite win.</li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2007/02/26/kata-four-in-c/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>The Other Kind of Reentrant</title>
+		<link>http://girtby.net/archives/2006/12/18/the-other-kind-of-reentrant/</link>
+		<comments>http://girtby.net/archives/2006/12/18/the-other-kind-of-reentrant/#comments</comments>
+		<pubDate>Mon, 18 Dec 2006 05:28:00 +0000</pubDate>
+		<dc:creator>alastair</dc:creator>
+				<category><![CDATA[Nerd Factor X]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[reentrant]]></category>
+		<category><![CDATA[signals]]></category>
+		<category><![CDATA[unix]]></category>
+		<category><![CDATA[warstory]]></category>
+
+		<guid isPermaLink="false">http://girtby.net/2007/01/14/the-other-kind-of-reentrant</guid>
+		<description><![CDATA[Gather around for a tale of adventure in the land of Linux c++ programming.
+
+
+
+So there I was. Like a good developer, I was running unit tests on a module that I had been working on. The module was intended to spawn child processes, in order to read and write their stdin and stdout. Such processes [...]]]></description>
+			<content:encoded><![CDATA[<p>Gather around for a tale of adventure in the land of Linux c++ programming.</p>
+
+<p><span id="more-225"></span></p>
+
+<p>So there I was. Like a good developer, I was running unit tests on a module that I had been working on. The module was intended to spawn child processes, in order to read and write their stdin and stdout. Such processes are apparently known as co-processes. I had just finished implementing some enhancements to the code which would communicate with the co-processes using a pseudo-terminal instead of pipes, for those applications like <code>ssh</code> that read and write directly to the terminal. I was pretty pleased with myself, I could drive ssh as a co-process.</p>
+
+<div class="aside"><p>Yes, I&#8217;m well aware that I had just re-invented <code>expect</code>. However I had my reasons, namely the fact that the co-process was made available to the rest of the application as a c++ iostream, meaning that I could read and write it just like any other iostream. Besides, <code>expect</code> also drags in Tcl as a dependency, and I generally try to avoid dependencies where possible.</p></div>
+
+<p>The unit tests were failing. Intermittently. Urgh.</p>
+
+<h4>The Bug</h4>
+
+<p>What was supposed to happen was that I would close the pseudo-terminal master file descriptor. This would cause an EOF in the co-process which would then quit (I was just using <code>cat</code> as a co-process for unit testing purposes). My test harness would sleep waiting for a quit flag to be set. The quit flag was supposed to be set from within a handler for the <code>SIGCHLD</code> signal, but that wasn&#8217;t being called for some reason. Instead, my main routine would wake from sleep, see that the flag still wasn&#8217;t set, timeout, kill the co-process, and fail the unit test.</p>
+
+<p>At least, that&#8217;s what was happening 50% of the time. The other 50% of the time, I was getting the signal, setting the flag and passing the test. So I&#8217;m thinking some sort of race condition. I added more logging, to try and work out why the signal wasn&#8217;t arriving.</p>
+
+<p>This made it worse. Instead of failing the unit test, it was now hanging, deadlocked.</p>
+
+<p>The stack trace from the deadlocked unit test harness wasn&#8217;t very insightful. It consisted of <code>_dl_sysinfo_int80</code> at the top, followed by <code>__lll_mutex_lock_wait</code> and that&#8217;s about it. Not very enlightening.</p>
+
+<h4><code>strace</code> Points The Way</h4>
+
+<p>So then I tried another tack. Use <code>strace</code> to see if the <code>SIGCHLD</code> signal was even being delivered to my application. I found it was. I also found that the deadlock was quite reproducible (after a few attempts) and that the deadlock was indeed in a mutex acquisition routine as indicated by the stack trace. In each case, the immediately-preceeding system call was <code>stat64("/etc/localtime")</code>. Looking back through the syscall history, there were many similar calls, each time followed by an output log entry.</p>
+
+<p>This tipped me off to looking at the logging library that I was using, <a href="http://log4cpp.sourceforge.net/">log4cpp</a>. As it turned out, it was using <code>localtime</code>, a function that was not on my list (well, <a href="http://www.amazon.com/Programming-Environment-Addison-Wesley-Professional-Computing/dp/0201433079/sr=1-1/qid=1166433451/ref=sr_1_1/102-3621023-7572168?ie=UTF8&amp;s=books">W. Richard Stevens&#8217; list</a> anyway) of functions that are safe to call from a signal handler. And logging the incoming signal was the first thing that I was doing in my signal handler.</p>
+
+<p>I verified that, after removing all traces of logging from my signal handlers, the unit tests ran perfectly, to completion. But this was still a mildly unsatisfactory explanation. It didn&#8217;t explain why the signals weren&#8217;t being delivered or what mutex was locked that could not be acquired by the signal handler. And maybe I <a href="http://www.somethinkodd.com/oddthinking/2005/11/22/hunting-intermittent-bugs/">just hadn&#8217;t tested enough to reproduce it?</a> So I went digging further.</p>
+
+<h4><code>localtime_r</code> To The Rescue, Or Not</h4>
+
+<p>I came across <code>localtime_r</code> which was supposed to be a reentrant version of <code>localtime</code>. On a whim I re-enabled logging in my signal handlers, and converted log4cpp to use <code>localtime_r</code> instead of <code>localtime</code>. Result: deadlock.</p>
+
+<p>But this time I was able to get a proper stack trace. Here it is, elided:</p>
+
+<pre><code>#0  0x004fa7a2 in _dl_sysinfo_int80 () from /lib/ld-linux.so.2
+#1  0x005e7e5e in __lll_mutex_lock_wait () from /lib/tls/libc.so.6
+#2  0x0058ffa9 in _L_mutex_lock_1947 () from /lib/tls/libc.so.6
+...
+#10 0x0063b840 in __malloc_initialize_hook () from /lib/tls/libc.so.6
+...
+#15 0x0058dfbd in localtime_r () from /lib/tls/libc.so.6
+#16 0x0058dfbd in localtime_r () from /lib/tls/libc.so.6
+#17 0x00286c48 in log4cpp::TimeStampComponent::append (...) at PatternLayout.cpp:158
+...
+#26 0x0805c6e9 in main_impl::signal_handler (signal_id=17) at signal_handler.cpp:24
+#27 &lt;signal handler called&gt;
+#28 0x004fa7a2 in _dl_sysinfo_int80 () from /lib/ld-linux.so.2
+#29 0x005cb593 in __xstat64@GLIBC_2.1 () from /lib/tls/libc.so.6
+#30 0x00590118 in __tzfile_read () from /lib/tls/libc.so.6
+...
+#34 0x0059480f in strftime () from /lib/tls/libc.so.6
+#35 0x00286df9 in log4cpp::TimeStampComponent::append (...) at PatternLayout.cpp:175
+</code></pre>
+
+<p>Some interesting stuff here.</p>
+
+<p>At the top of the stack, our old friend <code>__lll_mutex_lock_wait</code> but it&#8217;s being called from within <code>__malloc_initialize_hook</code>. Ah-ha! It&#8217;s trying to do a <code>malloc</code> from within a signal handler. Naughty Naughty!</p>
+
+<p>A bit further up the stack, there&#8217;s our call to <code>localtime_r</code> from within log4cpp. As if to prove a point about its own reentrancy, <code>localtime_r</code> calls itself.</p>
+
+<p>Still further up, we see that the signal handler is indeed being called, but this time within the <code>stat64</code> call. It&#8217;s reading the timezone file or something, from within <code>strftime</code>. The call to <code>strftime</code> is just after the call to <code>localtime_r</code>, but it&#8217;s pretty easy to see why the deadlock occurs. It&#8217;s because the signal handler is trying to acquire a low-level lock on the heap that is already acquired by the main application. Result, deadlock.</p>
+
+<p>As for explaining the &#8220;missing&#8221; signal that I saw previously, I think what happened there was that the malloc actually failed, which caused the signal handler to exit before it could log (or do) anything. I haven&#8217;t gone back to test this theory though.</p>
+
+<h4>The Meaning Of Reentrant</h4>
+
+<p>So the main lesson to be learned from all this: <strong>reentrant doesn&#8217;t necessarily mean reentrant with respect to signals</strong>. The <a href="http://www.gnu.org/software/libc/manual/html_node/Nonreentrancy.html#Nonreentrancy">glibc manual</a> has the complete details and I&#8217;m now memorising every last word.</p>
+
+<p>This is not just of interest to those who work in quaint languages like c++. You advanced Python and Ruby guys have access to signal handlers too! Let this be a cautionary tale for you all.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://girtby.net/archives/2006/12/18/the-other-kind-of-reentrant/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+	</channel>
+</rss>
