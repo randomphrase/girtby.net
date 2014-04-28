@@ -1,0 +1,70 @@
+---
+layout: post
+status: publish
+published: true
+title: Tangents
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 72
+wordpress_url: http://girtby.net/2007/09/16/tangents
+date: 2005-02-15 23:13:19.000000000 -06:00
+categories:
+- Nerd Factor X
+tags: []
+comments:
+- id: 1051
+  author: Bruno Vernay
+  author_email: bruno.vernay@laposte.net
+  author_url: http://bruno.vernay.free.fr/
+  date: '2005-02-15 23:13:19 -0600'
+  date_gmt: '2005-02-15 23:13:19 -0600'
+  content: |-
+    I admit, I was reading your comment on http://norman.walsh.name/2005/02/20/tagback
+    I agreed with your remark and go to your site.
+    At first I was interested in N.W. work in order to do the same at home (I can find a CMS that suits me !)
+    Once on you site, I saw that you are using a Mac. That interesting too because I would like to buy a notebook and first really wanted an eBook, because many great persons use it (you may find something about this in my blog.) But some others tell me that a Mac isn't as good as a PC for Java/Tomcat development. (Besides, I don't need all its multimedia features.) So I turned to Thinkpad Serie X, just wait until they cost about 1k€.
+- id: 1052
+  author: FreakWent
+  author_email: ''
+  author_url: ''
+  date: '2005-02-15 23:13:19 -0600'
+  date_gmt: '2005-02-15 23:13:19 -0600'
+  content: |-
+    aussie techhead tripped over this site looking for more on John saffran's exorcism.
+
+    you're the 6th site for "john saffran" exorcism.
+
+    So now you know.
+- id: 1053
+  author: captain kirk
+  author_email: captkirk@clear.net.nz
+  author_url: ''
+  date: '2005-02-15 23:13:19 -0600'
+  date_gmt: '2005-02-15 23:13:19 -0600'
+  content: I'm surfing for John Saffran exorcism too....that's how I ended up here!
+    but alas, what I read is all goobledy gook to me,,,,,,,, I just wanted to know
+    if the exoricism was staged. I'm pretty sure it was.  anyway..... off on some
+    more tangents!!!!!  Ka Kite Ano//
+---
+Confession time. When sitting down at the computer to do something, especially something that is not work related, I have a real tendency to go off on tangents. Following connections to interesting sounding web-pages, googling for the answers to niggling problems, generally following connections that, if truth be told, don't need to be followed at that instant. It's amazing what you can find though. Case in point.
+
+Browsing my [del.icio.us inbox](http://del.icio.us/inbox/girtbynet), I come across a nice list of [MacOS X Hacking Tools](http://kernelthread.com/mac/osx/tools.html). Most of which are already lurking in my `/usr/bin` and `/usr/sbin` directories.
+
+Scanning the list, I come across `fs_usage`, a tool that "presents an ongoing display of system call usage information pertaining to file system activity". Fire up a terminal window, type `sudo fs_usage` and watch in amazement as the seemingly idle system is obviously not very idle. The screen is just whizzing by. And from the manpage, it seems that fs_usage is *already* filtering certain processes from the list (like Terminal itself, a few others).
+
+Looking at the output more closely, the main culprit is WindowServer calling `CACHE_HIT`. I assume this is normal, but what gets my attention more than this is the fact that Palm Desktop is calling `getattrlist` **about 20 times a second**.
+
+At this point I think, hmm, what the hell does `getattrlist` do anyway? `man getattrlist` turns up nothing.
+
+Next step Google of course, and first hit is an Apple Tech Note on how to install the getattrlist man pages. Duh, thanks! Second hit is a [mailing list archive message](http://www.coda.cs.cmu.edu/maillists/darwincoda/darwincoda-2004/0016.html) which contains exactly the information I need:
+
+>getattrlist is a POSIX constuct that noone but Apple seems to have bothered to implement.
+It's like a getattr on steroids where the user process can ask about anything or nothin[g] regarding a file system object, and get all the answers in a big chunk
+
+Hmm, seems reasonable, if not totally authoritative. So from the looks of it Palm Desktop is *polling* certain files. Well no matter, it is time to uninstall that nonsense anyway.
+
+However, I couldn't help noticing the mailing list to which that message was posted: it was for the [DarwinCoda project](http://www.opendarwin.org/projects/DarwinCoda/). This is a *very* exciting project, and [Coda support](http://www.coda.cs.cmu.edu/index.html) has been on the top of my wishlist for MacOS X ever since I read about it being used in an old [byte.com linux column](http://www.byte.com/documents/s=2289/byt1010012679751/0107_moshe.html) (subscription required dammit).
+
+So there you go, probably not a huge journey by most standards, but worth it. If you've found this blog entry by following tangents, please comment below!

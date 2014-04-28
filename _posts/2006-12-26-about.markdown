@@ -1,0 +1,58 @@
+---
+layout: page
+status: publish
+published: true
+title: About girtby.net
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 3618
+wordpress_url: http://girtby.net/?page_id=3618
+date: 2006-12-26 05:26:20.000000000 -06:00
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+Hello, I'm Alastair Rankine.
+
+From 2004&ndash;2009 I ran a blog here. But then I got bored of it.
+
+I am still online though. You can find me on [identi.ca](http://identi.ca/alastair), [twitter](http://twitter.com/randomphrase), [last.fm](http://www.last.fm/user/randomphrase), [flickr](http://www.flickr.com/photos/arankine/), and probably lots of other social networking timesinks by the time you read this.
+
+So, you want to know more about the enigmatic character behind all the bad jokes, incomprehensible rants, statements of the bloody obvious, and assorted other self-indulgent nonsense that is girtby.net? Well, look no further. Here is where I <del>recycle old posts</del> tell all, in easy-to-write question and answer format.
+
+### What do you look like?
+
+<img src="/images/alastair-and-statue.jpg" alt="Alastair and Statue" width="500" height="390"/>
+
+Behold my visage and tremble. That's me on the left.
+
+### What is your Elevator Statement?
+
+I am a thirtysomething recovering software engineer living in Sydney Australia.
+
+### What does girtby mean?
+
+Basically it’s a nerdy allusion to a line from the Australian national anthem: “Our home is girt by sea”. To most people with a working sense of humour this line is a creaky old relic that always prompts a bit of a snigger. To me, it also adds a bit of charm to an otherwise pretty uninspiring tune. “Girt” is just a great word, and I think it’s time we revive it in daily usage. Hence the blog name.
+
+### I am a real person and not a spamozoid. How can I contact you?
+
+Send me email at (my first name)@girtby.net
+
+### Do you have a privacy statement?
+
+Does this look like a Real Website? OK, to answer the question, no.
+
+You should assume that I will share anything and everything with the authorities if they so ask. And although I will try to do the right thing, if you want to keep something private don't send it to me.
+
+### What is your policy on comments?
+
+ - Defamatory comments posted here will be removed
+ - Spam (according to my own definition which I will not share) will be removed
+ - Other types of comments probably won't be modified, except perhaps to clean HTML markup
+
+### What is your policy on (cr|h)acking?
+
+[We have a policy that we are not being hacked.](http://www.kottke.org/04/07/my-new-policy)

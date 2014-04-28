@@ -1,0 +1,59 @@
+---
+layout: post
+status: publish
+published: true
+title: Spammers 1 Me 0
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 203
+wordpress_url: http://girtby.net/2007/07/16/spammers-1-me-0
+date: 2006-08-09 19:33:39.000000000 -05:00
+categories:
+- Meta
+- Provocation
+tags: []
+comments:
+- id: 1459
+  author: Aristotle Pagaltzis
+  author_email: pagaltzis@gmx.de
+  author_url: http://plasmasturm.org/
+  date: '2006-08-09 19:33:39 -0500'
+  date_gmt: '2006-08-09 19:33:39 -0500'
+  content: |-
+    Here’s another clue to the puzzle: the comment feed did *not* contain any of the spam on the old entries I pointed out to you.
+
+    As for manually entered spam, that has always existed. The [WLUG Wiki](http://www.wlug.org.nz/) has always had a tiny amount of that, f.ex. (It’s also pretty much the only spam that’s ever come through there.)
+- id: 1460
+  author: Richard
+  author_email: ''
+  author_url: ''
+  date: '2006-08-09 19:33:39 -0500'
+  date_gmt: '2006-08-09 19:33:39 -0500'
+  content: |-
+    While it definitely _could_ be manually entered spam, there's a chance that the spam software is grepping the subject/summary for common brands and/or words, then attaching an appropriate pithy response to it.
+
+    E.g. for a list, add the "so many entries! I've no idea where you find the time." kind of response.
+    for a phone, add the "actually I quite liked it" comment.
+    for a music track, add the "they're not as good as Damn Arms, and they really suck" comment.
+
+    I could go on, but I'll leave that to our new spammy friends.
+---
+If you are subscribed to the comments feed I apologise for the recent influx of spam. I upgraded to the latest Typo last night and something has obviously gone wrong. Could be due to <acronym title="Problem Exists Between Keyboard And Chair">PEBKAC</acronym>, admittedly. I'll try to keep control of it manually until I find out what's going on. Thanks to Aristotle for the heads up.
+
+In related news, spam continues to get more sophisticated, or at least desperate. I've just seen some comments from "Nik" which are *on topic*. Not exactly Noel Coward, but at least *relevant to the post*. Check it:
+
+ * On [Must. See. Movies.](/articles/2006/04/27/must-see-movies), Nik writes: "long lis, but we'll try :)".
+
+ * Regarding [Creative, Uncommon](/articles/2006/06/06/creative-uncommon), Nik says: "I'll listen that, thanks".
+
+ * Nik agrees "Nice phone! :)" on the subject of the [Nokia N70](/articles/2006/04/06/nokia-n70).
+
+ * He even responds to [a comment of mine](/articles/2006/06/05/responding-to-adrian#comment-4330) confirming that "alastair, yep, preview is working now".
+
+But in all of these he gives a URL for an AOL-hosted site for (presumably) buying pharmaceuticals. In one instance he even gives his name as "Buy (whatever)". Definitely a spammer.
+
+So my theory is that this is either a very sophisticated spammer with some kind of algorithm to generate a relevant comment based on keyword matching on the article, or the spammers have resorted to *manual entry*. Given the subtle variations in capitalisation of his name (eg "NIk" versus "Nik"), I'm leaning towards the latter.
+
+Manual entry of spam! They must be desperate. Does this mean that we're, well, winning?

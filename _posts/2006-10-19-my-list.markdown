@@ -1,0 +1,34 @@
+---
+layout: post
+status: publish
+published: true
+title: My List
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 214
+wordpress_url: http://girtby.net/2007/01/29/my-list
+date: 2006-10-19 09:00:08.000000000 -05:00
+categories:
+- Linkpimpin'
+- Verisimilitude
+- Provocation
+tags: []
+comments: []
+---
+We are now in the home stretch and will soon arrive at the end of the Bush administration. Not a moment too soon.
+
+In the last 6 or so years we have seen just so much insanity out of the white house that it is hard to keep track of. The horrendous Patriot Act almost seems a quaint historical footnote in face of some of the other abominations that have been laid before us.
+
+For my own benefit I was going to go back through the archives and come up with a list of the worst of the worst. The acts and deeds of the Bush cronies that scrape the bottom of the barrel. Just to get it all straight in my own mind, you understand.
+
+I promise that I was going to try to be fair and balanced. That is, ignore the scandals which were not foreseeable, or relatively harmless, or caused only indirectly, or through the incompetence of a lowly subordinate. Foleygate wouldn't make the list, for example. Abu Ghraib would not make the list, but the response to it would. "Mission Accomplished" was mostly a political stunt with relatively minor repercussions that wouldn't make the list. I wasn't even going to get mad at the Bush gang for the useless Congress or obsequious media. You see that I am trying to be generous.
+
+But after toying with the list for a bit, I now have to admit defeat. I'm going to cut and run. Going back through the details of madness like [Executive Order 13233](http://en.wikipedia.org/wiki/Executive_Order_13233) or immigration reform, or the underhanded media tactics, or the assault on science or ... enough. It's just too much.
+
+So I can't say with absolute certainty after sober reflection and contemplation that the current enactment of the [Military Commissions Act](http://en.wikipedia.org/wiki/Military_Commissions_Act_of_2006) is the absolute lowest point of the Bush administration. But it's pretty fucking bad.
+
+[Olbermann's rant](http://www.crooksandliars.com/2006/10/18/countdown-special-comment-death-of-habeas-corpus-your-words-are-lies-sir/) is eloquent and apparently a better response than I can manage. It's passionate and rhetorical but worth listening to.
+
+Roll on 2009.

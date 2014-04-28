@@ -1,0 +1,85 @@
+---
+layout: post
+status: publish
+published: true
+title: Last Post!
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+excerpt: "On the 18th of September 2004, I unveiled the [first post](http://girtby.net/archives/2004/09/18/first-post/)
+  on girtby.net.\r\n\r\nAnd today, exactly 5 years later, I'm posting the last.\r\n"
+wordpress_id: 3909
+wordpress_url: http://girtby.net/?p=3909
+date: 2009-09-18 01:27:12.000000000 -05:00
+categories:
+- Meta
+tags: []
+comments:
+- id: 14958
+  author: Sunny Kalsi
+  author_email: thesunnyk@gmail.com
+  author_url: http://blog.quaddmg.com
+  date: '2009-09-18 12:42:10 -0500'
+  date_gmt: '2009-09-18 01:42:10 -0500'
+  content: |
+    <p>Sad face...</p>
+- id: 15077
+  author: Arash Partow
+  author_email: arash@partow.net
+  author_url: ''
+  date: '2009-09-22 12:02:42 -0500'
+  date_gmt: '2009-09-22 01:02:42 -0500'
+  content: |
+    <p>Sad to see you stop. You've had some nice gems over the years.</p>
+---
+On the 18th of September 2004, I unveiled the [first post](http://girtby.net/archives/2004/09/18/first-post/) on girtby.net.
+
+And today, exactly 5 years later, I'm posting the last.
+<a id="more"></a><a id="more-3909"></a>
+#### Really?
+
+Well, maybe not the last for ever, but I'm certainly not planning any further posts here for the forseeable future.
+
+Some time after you read this I'll be converting the blog to static HTML and moving to its new semi-permanent home courtesy of [Matt Quail](http://madbean.com/), to whom I am much indebted. The [painstakingly-chosen](/archives/2004/12/20/girt-by-controver-sea/) domain name will remain and hopefully none of the links will break.
+
+To the regular readers and commenters, thanks so much for making the effort to visit and contribute. I'll leave the syndication feeds in place, so by all means stay subscribed on the off chance that I publish anything further here. By all means unsubscribe to the comments feed though.
+
+#### Why?
+
+Frankly I'm just not excited about it any more. I am not a naturally gifted writer &mdash; oh no stop it, you are too kind &mdash; and so each article took a huge amount of careful crafting and ruthless editing before it reaches even my low quality standards. After a while this just started to feel like work.
+
+Other factors were in play also. Blogging as a whole seems to be in something of a decline, so there's not that degree of inter-blogger interaction which we saw back in the heyday. Fewer bloggers, fewer posts, fewer readers. And for me, just not quite enough feedback or reward.
+
+Also spammers are definitely one the reasons for closing the blog. I'm going to be fucking glad not to have to deal with their shitting in my nest.
+
+I'd much rather close the blog rather than simply abandon it like most people seem to do. I offer no explanation for this.
+
+#### Highlights and Lowlights
+
+Here are some posts that I'm particularly proud of. You might wish to revisit them if you're feeling particularly nostalgic or bored.
+
+* [Bayes' Theorem 1, Mandatory Filtering 0](/archives/2008/07/31/bayes-theorem-1-mandatory-filtering-0/)
+* The infamous [Blogging Horror](/archives/2008/05/22/blogging-horror/) post. Years from now I'm going to introduce myself with "you may remember me from such incendiary blog posts as..."
+* My [Developer Essentials](/archives/2008/05/11/developer-essentials/) manifesto. That post was about 5 years in the making.
+* [Vendor Lock-In](/archives/2008/02/08/vendor-lock-in/), mainly because it got an approving link from Bruce Schneier
+* [C++ 1, Unicode 0](/archives/2007/03/09/c-1-unicode-0/) and [The Other Kind of Reentrant](/2006/12/18/the-other-kind-of-reentrant/), both coding war stories.
+* The one in which I [decloaked](/archives/2006/09/03/decloaking/)
+* Some [extended](/archives/2005/06/13/this-is-what-you-see-this-is-what-you-get/) [ranting](/archives/2006/01/22/wysiwyg-editors-forecast-calls-for-continued-suckage/) on the subject of (believe it or not) WYSIWYG editors.
+* [Ripley's Design It Or Not](/archives/2006/01/08/ripleys-design-it-or-not/), a moderately successful satirical UI rant.
+* [The Virtual Furniture Police](/archives/2005/10/26/the-virtual-furniture-police/), a combined book review and rant against IT department idiocy.
+* [Internet Explorer Makes Me ☹](/archives/2005/10/07/internet-explorer-makes-me/). And it still does.
+* [No Patentisation without Implementation](/archives/2005/08/22/no-patentisation-without-implementation/). These days I feel even more revulsion for the patent system, and dirty when I think of my participation in it.
+* [What does this button do?](/archives/2005/03/31/what-does-this-button-do/) My first, and probably best, UI rant.
+* [Scheduled Task Slippage and Breakage](/archives/2005/08/03/scheduled-task-slippage-and-breakage/). I wonder if this is fixed in Windows 7?
+* The [Catachresis of the Year](/archives/2004/12/20/catachresis-of-the-year/) still makes me smile.
+
+<div class="aside"><p>Had I the inclination to continue publishing this blog, I might have updated the Virtual Furniture Police article with an example from the NSW education department. They are handing out the federal government-sponsored laptops but are constricting them so desperately as to make them almost completely useless. No internet access, and no installing new software, even for teachers. WTF?</p></div>
+
+Without a doubt, the lowlight would have to be one individual who responded to the Blogging Horror post with some moderately offensive comments. And the spammers. Oh the spammers.
+
+#### What Next?
+
+Instead of blogging here, I intend to participate more actively on other forums (the [terrible state](/archives/2008/03/01/web-forums-considered-annoying/) of forum software notwithstanding), microblogging at identi.ca, and other social networking sites.
+
+I'll try to keep the [about](/about) page up to date with links to my various online activities. Feel free to drop by.

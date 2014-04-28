@@ -1,0 +1,58 @@
+---
+layout: post
+status: publish
+published: true
+title: Blog Post
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 2045
+wordpress_url: http://girtby.net/2007/10/09/blog-post
+date: 2007-10-09 07:37:00.000000000 -05:00
+categories:
+- Nerd Factor X
+- Or Something
+tags: []
+comments:
+- id: 1626
+  author: Name
+  author_email: bat@flurf.net
+  author_url: ''
+  date: '2007-10-09 07:37:00 -0500'
+  date_gmt: '2007-10-09 07:37:00 -0500'
+  content: |-
+    Comment expressing agreement.
+
+    New paragraph.
+
+    Closing remarks.
+
+    (Parenthetical postscript.)
+
+    (Or, to put it another way: I've seen this particular curse everywhere I work, and it drives me insane.  Unfortunately, repositories get set up at precisely the point in time when the people setting them up know the least about them.  Naming things is *hard*.  I guess that's why.)
+- id: 1627
+  author: Scott Snell
+  author_email: ''
+  author_url: ''
+  date: '2007-10-09 07:37:00 -0500'
+  date_gmt: '2007-10-09 07:37:00 -0500'
+  content: |-
+    The top level directory has to be called SOMETHING
+    Unless you're proposing dumping stuff in /
+- id: 1628
+  author: Alastair
+  author_email: alastair@girtby.net
+  author_url: http://girtby.net
+  date: '2007-10-09 07:37:00 -0500'
+  date_gmt: '2007-10-09 07:37:00 -0500'
+  content: Scott, the top of the heirarchy is surely the name of the repository itself?
+    (And the naming of such things is another topic entirely...)
+---
+Got a common document repository? Have it organised into a hierarchy? Here is my official list of words that you should never use for nodes in that hierarchy.
+
+Data, General, Misc, `$COMPANYNAME`, Stuff, Docs, Team, `$X`-Drive
+
+If you find yourself using any of these vague and overly-generic terms, you really should re-think your taxonomy.
+
+(This post requested by Scott, who I'm sure would never be responsible for using any of these...)

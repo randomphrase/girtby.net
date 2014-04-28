@@ -1,0 +1,40 @@
+---
+layout: default
+---
+{% assign post = page %}
+<div class="post">
+  {% include postmeta.html %}
+  
+  <div class="content">
+    <h3>{{ page.title }}</h3>
+
+    {{ content }}
+
+  </div>
+</div>
+
+{% if post.comments %}
+<div id="comments" class="post">
+  <h3 class="comments_headers">{{ post.comments | size }} Comments</h3>
+</div>
+{% for comment in post.comments %}
+<div class="post" id="comment-{{ comment.id }}">
+  <div class="metainfo">
+    <p>Posted by<br />
+      {% if comment.author_url %}
+      <a href="{{ comment.author_url }}" rel="external nofollow" class="url">{{ comment.author }}</a>
+      {% else %}
+      {{ comment.author }}
+      {% endif %}
+      <br />
+    <input type="hidden" name="post_date" value="{{ post.date | date_to_rfc822 }}" />
+    <abbr class="commented" title="{{ comment.date | date_to_rfc822 }}">{{ comment.date }}</abbr><br />
+    <a href="#comment-{{ comment.id }}">#</a></p>
+  </div>
+  <div class="content">
+    {{ comment.content | markdownify }}
+  </div>
+  <br clear="left" />
+</div>
+{% endfor %}
+{% endif %}

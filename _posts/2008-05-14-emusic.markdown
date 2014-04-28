@@ -1,0 +1,108 @@
+---
+layout: post
+status: publish
+published: true
+title: emusic
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+excerpt: |+
+  As you know, I'm a fan of the DRM free music. In fact it seems that I've blogged about it each time I've discovered a new website that sells the stuff. And the latest discovery is [emusic](http://www.emusic.com/). They have hits and some misses.
+
+
+wordpress_id: 2926
+wordpress_url: http://girtby.net/2008/05/14/emusic
+date: 2008-05-14 13:43:00.000000000 -05:00
+categories:
+- Cultcha
+- Linkpimpin'
+tags:
+- music
+- drm
+- emusic
+comments:
+- id: 1705
+  author: James
+  author_email: jamesdesilva@gmail.com
+  author_url: http://technica-obscura.blogspot.com
+  date: '2008-05-14 13:43:00 -0500'
+  date_gmt: '2008-05-14 13:43:00 -0500'
+  content: |-
+    I nearly thought this would be the answer to my needs for a good legal way to get music.
+    alas, this really misses a lot of the types of music i listen to and i tend to listen to a wide range of stuff. (i'm a mainstream boy)
+
+    looks like i'll be waiting for amazon australia yet...
+- id: 1706
+  author: Will
+  author_email: wfappleton@gmail.com
+  author_url: ''
+  date: '2008-05-14 13:43:00 -0500'
+  date_gmt: '2008-05-14 13:43:00 -0500'
+  content: |-
+    I'm a long-time eMusic user.  I've really enjoyed the service, but I wholly agree with your criticisms of the eMusic web site.
+    As far as the helper application:  Have you tried eMusic Remote?  It's a Mozilla-based application and does add your downloads to iTunes.  IIRC, eMusic Remote is still beta, but I've been using it for a while and it works well enough.  There's some rough edges in it though.  For example, the application takes a while, several seconds, to indicate that it has "heard" your download request and indicate that it has begun downloading the requested tracks.  It spite of the roughness of some features, I've found it much prefereable to the download manager.  YMMV :)
+
+    you can find eMusic Remote at http://developer.emusic.com/
+- id: 1707
+  author: Steven
+  author_email: stl@koffein.net
+  author_url: ''
+  date: '2008-05-14 13:43:00 -0500'
+  date_gmt: '2008-05-14 13:43:00 -0500'
+  content: eMusic has been around for quite some time now and was perhaps one of the
+    first online music stores. (They Might Be Giants fans might recall eMusic's exclusive
+    release of *Long Tall Weekend* nearly a decade ago.)  Very nice that it's grown
+    and remained DRM-free, though.
+- id: 1896
+  author: Tiffany
+  author_email: tiffany@tuneupmedia.com
+  author_url: http://www.tuneupmedia.com
+  date: '2008-12-03 09:33:19 -0600'
+  date_gmt: '2008-12-02 22:33:19 -0600'
+  content: |
+    <p>Thanks for the heads up on eMusic... very thorough. I am also very OCD about my music meta data. If you are having issues or spending a whole lot of time finding missing album art, or artist info, I would recommend the company I work for: TuneUp. Its a software that automatically fills in art, info, and has cool features for concerts &amp; 'now playing'. There is a free demo at www.tuneupmedia.com
+    Check it out and let me know what you think.</p>
+---
+As you know, I'm a fan of the DRM free music. In fact it seems that I've blogged about it each time I've discovered a new website that sells the stuff. And the latest discovery is [emusic](http://www.emusic.com/). They have hits and some misses.
+
+
+<a id="more"></a><a id="more-2926"></a>
+
+#### Hits
+
+The subscription model is fantastic. It's great to be able to just pick a plan to match the rate at which you discover new music, or get sick of music in your existing collection. The subscription promotes a totally different mindset for purchasing music, one that is more optimistic and more willing to experiment. This is a good thing for all concerned.
+
+Also the prices are quite reasonable. Better than reasonable really; $10 for 30 songs per month.
+
+Unlike Amazon's store, emusic is actually available to Australians, and presumably other non-USians as well. Hooray! In the past I've noticed some tracks on emusic have been not available "in my region", but now that I've gone looking for them I can't find any. Either way, it's pretty rare.
+
+The music selection is really good, and getting better. I've found that they have a lot of quite obscure titles and artists. In general Amazon might be better for the older back catalogue, and the more mainstream artists, but between the two there is more than enough keep you amused.
+
+In writing this article, I just noticed that Radiohead is finally available through emusic. Just the one album, <cite>In Rainbows</cite>, but it's a start.
+
+<div class="aside"><p>If you don't have <cite>In Rainbows</cite>, please just trust me and get it immediately. I acknowledge that you (<a href="/archives/2006/6/6/creative-uncommon">still</a>) don't have any reason to trust my music recommendations.</p></div>
+
+The tracks are mostly ~160Kbps MP3s, encoded with LAME 3.96. I haven't noticed any quality problems, but then again I haven't heard them against the originals in a [double-blind](/archives/2007/9/20/getting-double-blind) test, so take that statement for what it's worth.
+
+As well as music they now have a pretty decent collection of DRM-free audiobooks. (Just for the record, I refuse to use Audible on account of their DRM).
+
+The monthly rate of $10 for 1 book is charged in addition to any music plan you might have, and yet it's still the cheapest way to get audiobooks that I know of.
+
+#### Misses
+
+They don't always score hits though. For one, the website is absolutely awful. I mean really awful. It's difficult to navigate, and it's hideously ugly. Not a good combination. Still, you can get used to it and find the music you're after and use it to select either individual songs to download or entire albums.
+
+But the frustration really starts when you've got 9 songs left in your monthly quota and you want to download a 10 song album. You might think that it would just send you the first 9 and queue the remaining song until the start of the next billing cycle. Nope! Instead, you have to click to download each of the 9 songs individually and then remember to get the last one next month. DO NOT WANT!
+
+To download the music there is a download helper application, but it's a klunky PowerPC application and won't automatically add tunes to iTunes. (Or maybe I'm missing something?)
+
+So after you've downloaded the songs and manually added them to iTunes, you'll be underwhelmed by the lack of album art. Then, because like me you're quite anal-retentive about metadata, you'll go straight off to somewhere like Amazon or Discogs to bring the new tracks up to your exacting standards.
+
+<div class="aside"><p>One of the not-widely acknowledged features of Nine Inch Nails' recent forays into online distribution is the impeccable quality of their metadata and accompanying collateral. Both of the recent albums came with different art for each of the tracks already embedded. That's the way you do online distribution right...</p></div>
+
+And speaking of metadata, there's very little application of it on the website. This isn't a gripe so much as a missing feature. They know what music everyone has downloaded, surely there are some basic correlations and recommendations to be made? They have made a token effort here but frankly they Could Try Harder.
+
+I wonder why they don't just outsource the community aspect of their site to someone like last.fm? Oh yeah, [now I remember](http://www.readwriteweb.com/archives/cbs_buys_lastfm.php).
+
+Despite these problems you certainly could do worse (like buying from [MSN Music](http://diveintomark.org/archives/2008/05/06/the-day-the-music-died), oops!) so overall recommended. The market is still new, more players are needed.

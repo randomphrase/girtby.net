@@ -1,0 +1,55 @@
+---
+layout: post
+status: publish
+published: true
+title: Gmail
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 14
+wordpress_url: http://girtby.net/2007/01/05/gmail
+date: 2004-09-25 09:11:19.000000000 -05:00
+categories:
+- Nerd Factor X
+tags: []
+comments:
+- id: 951
+  author: Chris
+  author_email: ''
+  author_url: http://tis.goringe.net
+  date: '2004-09-25 09:11:19 -0500'
+  date_gmt: '2004-09-25 09:11:19 -0500'
+  content: gmail also doesn't work with Opera (my current vote for best browser, fwiw)...
+- id: 952
+  author: Garth
+  author_email: garth@deadlybloodyserious.com
+  author_url: http://www.deadlybloodyserious.com/
+  date: '2004-09-25 09:11:19 -0500'
+  date_gmt: '2004-09-25 09:11:19 -0500'
+  content: So long as I can use either one of Firefox or Opera, I'm happy. Just spare
+    me Internet Exploder. Oh, and pass the gmail invite. :)
+- id: 953
+  author: brainsnorkel.com &amp;amp;raquo; Owning the desktop
+  author_email: ''
+  author_url: http://brainsnorkel.com/index.php?p=31
+  date: '2004-09-25 09:11:19 -0500'
+  date_gmt: '2004-09-25 09:11:19 -0500'
+  content: "[...] I was struggling to find yesterday afternoon. \tIt was just last
+    week that I was talking to <a href=\"http://girtby.net/archives/2004/09/25/gmail/\">Alastair</a>
+    about how Google might be angling towards desktop monopolization by building an
+    entire oper [...]"
+---
+Anyone not have a Gmail account yet? I have some invites.
+
+I've been using mine for a few weeks now and am pretty impressed with it. It exemplifies the next generation of web applications, and shows how you can build a responsive interface for interactive applications into a browser. Unless the browser is Safari, in which case it's a little flaky.
+
+A couple of things annoy me about Gmail, and no doubt they will be addressed in time. One of which is the browser quirks. Another is the inability to bulk import my existing mail archives. But the main thing that worries me about gmail is the prospect of lock-in.
+
+As <a href="http://weblog.infoworld.com/udell/2004/09/09.html#a1073">Jon Udell noted</a> a while ago, a web-based application that allows users low barriers for entering <em>and exiting</em> is one that people will feel most comfortable with. Unlike it's competitor, Yahoo, Gmail does not allow you to set up forwards to other email accounts, or bulk export the existing mail archive. At first glance it might seem an odd form of competition where your product is more attractive if it is easier to swap over to a competitor. However this is just a matter of providing what your customers want, and Google need to realise this. Based on past and present cluefulness, I'm guessing they will. Let's just hope sooner rather than later eh?
+
+<a href="http://www.kottke.org/04/08/web-platform">Jason Kottke</a> has some more "web as platform noodling".
+
+[Speaking of which, the quest for the Perfect Browser continues. Currently trialling <a href="http://www.mozilla.org/projects/camino/">Camino</a>. It's neeto. Lots of MacOS X integration, and pretty snappy, but still trails Firefox in some areas.]
+
+<strong>Update:</strong> <a href="http://insidegoogle.blogspot.com/2004/10/new-gmail-features.html">Auto-forwarding of Gmail accounts is coming!</a> Yaay Gmail!

@@ -1,0 +1,72 @@
+---
+layout: post
+status: publish
+published: true
+title: ABA vs. ABC
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+excerpt: |+
+  Do I have it in for the Australian Broadcast Authority? Yes and no, read on...
+
+
+wordpress_id: 78
+wordpress_url: http://girtby.net/2008/08/23/aba-vs-abc
+date: 2005-03-07 14:22:35.000000000 -06:00
+categories:
+- Verisimilitude
+- Provocation
+tags: []
+comments: []
+---
+Do I have it in for the Australian Broadcast Authority? Yes and no, read on...
+
+
+<a id="more"></a><a id="more-78"></a>
+
+
+
+Perusing the [ABA website](http://www.aba.gov.au), as you do, I came across the report where the ABC's [AM program was found in breach](http://www.aba.gov.au/abanews/news_releases/2005/16nr05.htm) of their Code of Practice over various reports related to the Iraq war. On Saturday the Herald [picked up the story](http://smh.com.au/articles/2005/03/04/1109700680905.html), where I found out that the complainant in this case was none other than the [world's greatest luddite](http://www.theregister.co.uk/2001/03/28/this_man_must/) Richard Alston, ex-Federal Communications Minister and now High Commissioner to the UK.
+
+The [ABA report](http://www.aba.gov.au/radio/investigations/breach_findings/breach_2005/documents/1362.pdf) is actually pretty interesting reading and describes in some detail the reasons for ruling the way they did. Unfortunately I found the reasoning to be unconvincing in some cases.
+
+But before getting to the report itself, it has to be pondered why the then-communications minister is complaining to the ABA about the coverage of the Iraq war? Pretty obviously this is part of the government's attempts to *prevent* the Australian public from getting an accurate, balanced, and fair view of the war - when what is wanted is the exact opposite. Somewhat ironically, one of the complaints against the ABC related to the characterisation of US White House press briefings as part of the "propoganda war". Of course the complaint to the ABA was clearly also part of this propoganda war, especially given the subject of the complaints (supposedly dissing *American* troops). This alone should be sufficient for the ABA to dismiss all the complaints under section 151 of the Broadcasting Services Act, as they pretty clearly meet the criteria of "frivolous or vexatious or [...] not **made in good faith**" (my emphasis).
+
+Because I'm not bound by a Code of Practice I will put forward the totally biased opinion that if these complaints didn't originate from Minister Alston and instead from some lesser being, there's no way they would have made it through three separate complaints bodies (two internal to the ABC, and the ABA). Hence they didn't tell him to piss off with his pathetic bleating. Or, if they wanted to treat him like the rest of us, they could just [ignore him and hope he would go away](/archives/2005/02/27/dear-aba/).
+
+Hit a cluster of snooker balls hard enough and some of them will go into the pockets eventually. Shoot enough complaints out there, like 68 of them, and some of them are bound to be upheld.
+
+As an example of a snooker ball left on the table, consider Alston's complaint that Rumsfeld was described as "brash". Oh *please*! It's barely even a pejorative, hardly a "crude putdown". Fortunately the ABA rejected this one and others like it.
+
+The ABA and the ABC internal reviews collectively upheld 24 of the 68 complaints. The most controversial of these (according to the Herald anyway) related to an incident where US Marines shot at civilian vehicles (emphasis Alston):
+
+>PRESENTER: So confusion really, because they **claimed** they were being fired on but in fact they weren't. [matter 63]
+>...
+>PRESENTER: **So are you suggesting that these soldiers are trying to cover up for a tragic mistake?** [matter 64]
+>...
+>PRESENTER: **So, you're talking about highly trained American marines who are in a state of nervousness and excitement, who seem unable to determine what exactly is coming at them and who are even more jumpy by civilian headlights from cars in a suburb, hardly an unsurprising encounter?** [matter 65]
+
+These questions from Linda Mottram were the substance of the complaint. Alston just about bursts a vein:
+
+>What [the presenter] was really doing was mounting an extremely serious allegation of dishonesty allied with moral turpitude, not only without a skerrick of evidence or logic but persisting in doing so in the face of repeated dissension from the reporter on the spot &#8230;
+
+Gosh Dick, it can't have been as bad as all that can it? And the ABA ruled as follows:
+
+>the content of the presenter&rsquo;s questions, along with the insistent tone in which they were put conveyed to an ordinary, reasonable listener that the program was trying to confirm a particular view, rather than suggesting a range of possibilities.
+
+Reading the questions, and indeed the entire transcript, I'm unable to determine exactly what this particular view might have been that the presenter was trying to confirm. That the troops were covering up something? That they were incompetent? Well then, which is it? Surely the fact that multiple possible explanations were put forward (as questions, mind), this indicates a "range of possibilities?"
+
+What if the "particular view" the presenter was trying to confirm was that the marines were actually doing their job? Would this also be in breach of the ABC's Code of Practice? According to the principles applied here I should complain to the ABA about every instance where a presenter seems to be confirming the view that, say, a certain ex-communications minister is *not* a complete arse.
+
+This goes back to a point that I [made previously](/archives/2004/11/02/media-by-us/), namely that claims of media bias are almost always just a statement of your own bias, and of limited use.
+
+The ABC internal review quite rightly rejected this complaint because the *answers* to the questions above refuted any implication of dishonesty or incompetence on behalf of the troops. Geoff Thompson answered these questions directly and it's really hard to see how the *program* was in breach of the Code of Practice, even if the individual *presenter* was.
+
+Note also that - as quoted in the ABA report anyway - Alston was complaining about bias of the presenter, not the program. But clause 4.2 of the Code is pretty explicit in requiring that "*programs* are balanced and impartial". If a complaint does not concern a program, how can it be upheld with respect to this clause? This complaint should have been rejected on it's face. Alternatively, the report should have considered, and quoted the part of the complaint relating to the program as a whole.
+
+Notwithstanding this nitpicking, the ABA did find that the program was in breach of clause 4.2 because the presenters questions were *sooooo biased* and that the "cumulative impact of the presenter&rsquo;s questions would have dominated over the details given by the reporter". Err, what transcript were *they* reading? The ABA clearly dropped the ball here.
+
+The overall problem here is not that the ABA makes the occasional bad ruling, but that high-quality shows like AM can be subjected to the most exacting scrutiny while the vast majority of media outlets are absolute shite, and go mostly unchallenged.
+
+I would like to see the day when complaints can be (and are) made against media outlets or reports that are not questioning enough, or are too accomodating to the government, commercial interests, or other stakeholders who clearly wield some influence over our media. Surely this is the other side of the 'balanced and impartial' coin?

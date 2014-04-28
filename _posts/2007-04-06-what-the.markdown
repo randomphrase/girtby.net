@@ -1,0 +1,127 @@
+---
+layout: post
+status: publish
+published: true
+title: What The ... ?
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 1600
+wordpress_url: http://girtby.net/2007/04/06/what-the
+date: 2007-04-06 01:51:43.000000000 -05:00
+categories:
+- Nerd Factor X
+- Provocation
+tags: []
+comments:
+- id: 1570
+  author: Julian
+  author_email: girtby@somethinkodd.com
+  author_url: http://www.somethinkodd.com/oddthinking
+  date: '2007-04-06 01:51:43 -0500'
+  date_gmt: '2007-04-06 01:51:43 -0500'
+  content: |-
+    It seems perfectly clear to me. You just need to go back to definitions.
+
+    What is C++? The <a href="http://www.faqs.org/docs/jargon/C/C++.html">Jargon File</a> defines it as "Designed by Bjarne Stroustrup of AT&T Bell Labs as a successor to C. "
+
+    What is the number 2? <a href="http://en.wikipedia.org/wiki/Peano_postulates">Peano</a> defined it as the successor to 1.
+
+    Ergo, Cis to C++ as 1 is to 2.
+
+    Q.E.D.
+
+    Do I get the job?
+- id: 1571
+  author: Alastair
+  author_email: alastair@girtby.net
+  author_url: http://girtby.net
+  date: '2007-04-06 01:51:43 -0500'
+  date_gmt: '2007-04-06 01:51:43 -0500'
+  content: |-
+    > Ergo, C is to C++ as 1 is to 2.
+
+    Nicely done, except it probably should be the other way around. C99 is the most recent standardisation of C, dating back to 1999 (obviously). C++ was ratified as a standard in 1998.
+
+    Hence, C : C++ :: 2 : 1
+
+    And don't call us, we'll call you.
+- id: 1572
+  author: bjkeefe
+  author_email: bjkeefe@bjkeefe.com
+  author_url: http://bjkeefe.blogspot.com
+  date: '2007-04-06 01:51:43 -0500'
+  date_gmt: '2007-04-06 01:51:43 -0500'
+  content: |-
+    I think you just treat C as a regular variable, which means the expression C++ evaluates to 2.  (You would of course soundly thrash any programmer who defined a variable using a capital letter.)
+
+    By this incremental reasoning, answer (c) is also correct, since any computer geek worth hiring looks at "10" and says "two."
+- id: 1573
+  author: Alastair
+  author_email: alastair@girtby.net
+  author_url: http://girtby.net
+  date: '2007-04-06 01:51:43 -0500'
+  date_gmt: '2007-04-06 01:51:43 -0500'
+  content: |-
+    > I think you just treat C as a regular variable, which means the expression C++ evaluates to 2.
+
+    No it doesn't! If C is 1, then C++ evaluates to 1 also. ++C evaluates to 2.
+
+    I'm sorry, the position has been filled!
+- id: 1574
+  author: bjkeefe
+  author_email: bjkeefe@bjkeefe.com
+  author_url: http://bjkeefe.blogspot.com/
+  date: '2007-04-06 01:51:43 -0500'
+  date_gmt: '2007-04-06 01:51:43 -0500'
+  content: |-
+    I agree that in the expression "C++," if C is referenced, it returns the value 1 before incrementing C.  But the entire expression evaluates to 2; else the following would never end:
+
+      for (C=1; C<=10; C++) { ... }
+
+    Another way to say it:  What's the output of this?
+
+    int main()
+    {
+      int C = 1;
+      while (C++ < 3) {
+        printf("%d\n", C);
+      }
+      return 0;
+    }
+- id: 1575
+  author: Eric TF Bat
+  author_email: bat@flurf.net
+  author_url: ''
+  date: '2007-04-06 01:51:43 -0500'
+  date_gmt: '2007-04-06 01:51:43 -0500'
+  content: |-
+    I'd take a leaf from the new series of Doctor Who, where they occasionally travel to the year five billion when numbers are augmented by other symbols -- so the episode The End Of The World happens in the year 5.5/Apple/26.  So I'd say that C++ is a partial superset of C with some incompatibilities, and therefore C is to C++ as 1 is to 1.943turnip7442gorilla04.
+
+    Do I win?
+- id: 1576
+  author: Donkey
+  author_email: ''
+  author_url: ''
+  date: '2007-04-06 01:51:43 -0500'
+  date_gmt: '2007-04-06 01:51:43 -0500'
+  content: Sorry folks, but unlike you nerds, computers think in BINARY, not decimal.  The
+    binary representation for what you call "2" is "10".  So the correct answer is
+    c) "10".
+---
+Question #24 in the otherwise quite reasonable [C/C++ programming quiz](http://www.cprogramming.com/cgi-bin/quiz.cgi) at Cprogramming.com is as follows:
+
+> C is to C++ as 1 is to
+>
+> a) What the heck?
+> b) 2
+> c) 10
+
+I think I have a new favourite interview question.
+
+Anyway, have a guess what they give as an answer.
+
+That's right, b).
+
+Apparently they think C is almost a strict subset of C++, in exactly the same way that 1 is almost a strict subset of 2.

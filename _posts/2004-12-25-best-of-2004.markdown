@@ -1,0 +1,50 @@
+---
+layout: post
+status: publish
+published: true
+title: Best of 2004
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 59
+wordpress_url: http://girtby.net/2007/03/07/best-of-2004
+date: 2004-12-25 12:40:44.000000000 -06:00
+categories:
+- Cultcha
+- Linkpimpin'
+tags: []
+comments: []
+---
+This is a collection of stuff that I liked from 2004, prefixed with "best (some vaguely related category)". But really, is a justification needed? I say not. Here we go.
+
+<strong>Best Blog</strong>: Fafblog? Yes, <a href="http://fafblog.blogspot.com">Fafblog</a>. Consistently funny and on the mark. "One thing about Donald Rumsfeld that you have to give him credit for is he always cuts through the crap to tell it like it is in his no-nonsense style. I am reminded of this when we hit the second moose." (<a href="http://fafblog.blogspot.com/2004_09_26_fafblog_archive.html#109664781417153432">full text</a>)
+
+<strong>Best Blog Post</strong>: Dooce, on <a href="http://www.dooce.com/archives/nubbin/11_01_2004.html">Performance Anxiety</a>. I laughed, I bookmarked.
+
+<strong>Best TV Show</strong>: <em><a href="http://www6.sbs.com.au/johnsafranvsgod/">Jon Safran vs. God</a></em>. Flawed, but funny and compelling viewing. That exorcism is not easily forgotten. Also recommended: <em><a href="http://www.bbc.co.uk/topgear/">Top Gear</a></em>, <em><a href="http://imdb.com/title/tt0376209/">Stiff</a></em> and <em><a href="http://imdb.com/title/tt0375630/">The Brush-Off</a></em>, <em>Penn & Teller's Bullshit!</em>.
+
+<strong>Best TV Moment</strong>: Jon Stewart on <em>Crossfire</em>. "You're as big a dick on your show as you are on any show."
+
+<strong>Best Movie</strong>: <em><a href="http://imdb.com/title/tt0378194">Kill Bill</a></em>. Honorable mention to <a href="http://imdb.com/title/tt0167260">ROTK</a>.
+
+<strong>Best Interview</strong>: <a href="http://slashdot.org/article.pl?sid=04/10/20/1518217">Neil Stephenson on Slashdot</a>.
+
+<strong>Best Gadget</strong>: 4G iPod. Yes, a boring and obvious choice. But it rocks. If you don't have one yet you're an idiot.
+
+<strong>Best Payware</strong>: MacOS X Panther. Can't think of anything that comes even close.
+
+<strong>Best <abbr title="Free or Open Source Software">FOSS</abbr></strong>: Mozilla <a href="http://www.mozilla.org/products/firefox/">Firefox</a> (and friends). Honorable mentions to emacs, <a href="http://quicksilver.blacktree.com/">Quicksilver</a>, <a href="http://www.freebsd.org/index.html">FreeBSD</a>, <a href="http://httpd.apache.org/">Apache HTTP Server</a>, <a href="http://wordpress.org/">Wordpress</a>, and <a href="http://www.cygwin.com/">Cygwin</a>.
+
+<strong>Best WebWare</strong>: Bloglines. OK like <a href="http://brainsnorkel.com/index.php?p=58">Chris says</a> this really should go to Google. But hey if we're going to list essentials under the best-of category we'd be here all night. Bloglines is sooo good, it was the first webware that I switched to, AFTER having used a perfectly decent desktop-based equivalent. Honorable mentions: <a href="http://del.icio.us">del.icio.us</a>, <a href="http://moinmoin.wikiwikiweb.de/">MoinMoin</a>.
+
+<strong>Best "Whoah!"</strong>: Discovery of water by the <a href="http://marsrovers.jpl.nasa.gov/home/">Mars Rovers</a>. Honorable mentions: NASA's <a href="http://en.wikipedia.org/wiki/X-43A">X-43A Scramjet</a>, Completion of the <a href="http://en.wikipedia.org/wiki/Millau_viaduct">Millau Viaduct</a>
+
+<strong>Best Word</strong>: Girt (duh!)
+
+<strong>Best Phrase</strong>: "If we don't [X], then the terrorists have already won!"
+
+<strong>Best List</strong>: <a href="http://www.mcsweeneys.net/links/lists/onehit.html">Possible Follow-up Songs for One Hit Wonders</a>. OK it's from 2002, I'm really just linkpimpin' <a href="http://www.mcsweeneys.net/links/lists/">McSweeneys</a>.
+
+
+Nods all round to: <a href="http://www.google.com/press/zeitgeist2004/index.html">Google Zeitgeist 2004</a>, <a href="http://brainsnorkel.com/index.php?p=58">Chris</a> (best-of lists are fun, not twee!), <a href="http://www.fimoculous.com/year-review-2004.cfm">Filmoculus' List of Lists</a>, <a href="http://www.guardian.co.uk/life/science/story/0,12996,1375463,00.html">Guardian's Scientific Achievements of the Year</a>, <a href="http://en.wikipedia.org/wiki/2004">Wikipedia</a>,

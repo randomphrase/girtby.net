@@ -1,0 +1,26 @@
+---
+layout: post
+status: publish
+published: true
+title: Jury Duty
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 86
+wordpress_url: http://girtby.net/2008/09/23/jury-duty
+date: 2005-03-21 20:34:56.000000000 -06:00
+categories:
+- Personal
+tags: []
+comments: []
+---
+It was the best possible outcome for me, and possibly for the NSW criminal justice system. I reported for jury duty today, but was not selected.
+
+It was a terrorist case (gasp!), which was high-profile enough to [make the news](http://www.abc.net.au/news/newsitems/200503/s1328032.htm). So I guess I should be disappointed at not being selected, but the thought of trudging off to do civic duty for 3 weeks does not excite, at least not if the boredom level on the first day is any indication. And anyway I got to hear the "how do you plead?" bit.
+
+By far the most time consuming part was wading through the huge numbers of potential jurors. I reckon there must have been over a hundred called up. Of these, roughly a quarter didn't even show up, and almost *half* applied to be excused (successfully, from what I could see). This left about forty people or so from which the jury was randomly selected. 12 people, not including those who were "challenged" (ie excluded from service by either lawyer).
+
+So when you look at it, the odds were pretty slim that I was actually going to serve on a jury. Mind you I don't know whether this is a common occurrance or not. My advice if you get called up for jury duty and don't want to do it - and let's face it, if you *want* to be a juror, you probably *shouldn't* be one - is to go anyway. The odds of serving are not that great, and if you apply to be excused, it's only a temporary reprieve anyway.
+
+And let me be the first to say: the trial continues.

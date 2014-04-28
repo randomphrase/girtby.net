@@ -1,0 +1,7 @@
+<div id="linkcat-2" class="widget widget_links"><h5 class="widgettitle">Blogroll</h5>
+  <ul class='xoxo blogroll'>
+    {% for blog in site.data.blogroll %}
+    <li><a href="{{ blog.url }}">{{ blog.name }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

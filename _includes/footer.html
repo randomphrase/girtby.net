@@ -1,0 +1,35 @@
+<div class="footer">
+  
+  <div class="first">
+    
+    <div class="widget widget_text">
+      <h5 class="widgettitle">Archives</h5>
+      <div class="textwidget"><ul>
+          {% assign years = "2008|2009|2010|2011|2012" | split: "|" %}
+          {% for year in years %}
+          <li><a href="/archives/{{ year }}">{{ year }}</a></li>
+          {% endfor %}
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div id="text-326846052" class="widget widget_text">
+      <h5 class="widgettitle">Leveraged Synergy</h5>
+      <div class="textwidget"><p>Hello, I&#8217;m Alastair Rankine. I once had a blog, and you've found it. <a href="/about/">Would you like to know more?</a></p>
+        <p>From time to time I made offerings to the internet. <a href="/offerings/">Would you like some?</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="last">
+    {% include blogroll.html %}
+  </div>
+
+</div><!-- end footer -->
+
+<br clear="all" />
+
+<div class="copyright">
+  <p>Powered by <a href="http://jekyllrb.com/">Jekyll</a> using an adaptation of the wordpress <a href="http://powazek.com/posts/516">DePo Clean Theme</a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/au/"><img alt="Creative Commons License" class="badge" width=80 height=15 src="http://i.creativecommons.org/l/by-sa/2.5/au/80x15.png" /></a></p>
+</div>

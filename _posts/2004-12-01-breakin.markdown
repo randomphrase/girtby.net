@@ -1,0 +1,30 @@
+---
+layout: post
+status: publish
+published: true
+title: Breakin
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 49
+wordpress_url: http://girtby.net/2007/01/01/breakin
+date: 2004-12-01 20:39:55.000000000 -06:00
+categories:
+- Personal
+tags: []
+comments:
+- id: 998
+  author: Garth
+  author_email: garth@deadlybloodyserious.com
+  author_url: http://www.deadlybloodyserious.com/
+  date: '2004-12-01 20:39:55 -0600'
+  date_gmt: '2004-12-01 20:39:55 -0600'
+  content: |-
+    Oh, that sucks. We've got the number of a fantastic sash cord window repair team, if it helps.
+
+    We just recently had someone open a window and steal a couple of cameras. I'm sure we'd have lost more if it hadn't been for the back-to-base monitoring and the police rocking up shortly after they came in.
+---
+<a href="/images/breakin.jpg"><img src="/images/breakin-thumb.jpg" width="341" height="246" class="lede" alt="Breakin"/></a>This evening I came home to this.
+
+Looks like some friend of humanity decided to take a crowbar to our front window. They managed to get the frame open a crack, but then the glass broke and fell inwards. I guess they must have thought this was all too hard so they left without taking anything. Which was nice.

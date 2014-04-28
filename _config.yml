@@ -1,0 +1,7 @@
+name: this blog is girtby.net
+url: http://girtby.net
+markdown: redcarpet
+pygments: true
+paginate: 10
+paginate_path: "page/:num"
+permalink: /archives/:year/:i_month/:day/:title/

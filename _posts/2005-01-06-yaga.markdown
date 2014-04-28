@@ -1,0 +1,72 @@
+---
+layout: post
+status: publish
+published: true
+title: YAGA
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 62
+wordpress_url: http://girtby.net/2007/01/14/yaga
+date: 2005-01-06 09:36:10.000000000 -06:00
+categories:
+- Nerd Factor X
+- Provocation
+- Or Something
+tags: []
+comments:
+- id: 1012
+  author: Bob Vila
+  author_email: ''
+  author_url: ''
+  date: '2005-01-06 09:36:10 -0600'
+  date_gmt: '2005-01-06 09:36:10 -0600'
+  content: |-
+    QVGA normally means "quarter VGA" - as in, 320x240.  Commonly used for embedded displays, cell phones, PDAs, etc.
+
+    I've never heard it used for 1280 X 960.
+
+    They probably mean it to stand for "quintuple VGA", as in 4x.
+
+    (Why quarter and quintuple, and not half and double? Each dimension is half or double, but the display has .25 or 4 times the pixels)
+- id: 1013
+  author: Alastair
+  author_email: alastair@girtby.net
+  author_url: http://girtby.net
+  date: '2005-01-06 09:36:10 -0600'
+  date_gmt: '2005-01-06 09:36:10 -0600'
+  content: |-
+    I think that just adds to my point Bob, not only are the *GA acronyms confusing, they're also used inconsistently (as per your definition of QVGA vs. the link I posted).
+
+    Also, quintuple is 5x. You probably mean quadruple for 4x.
+- id: 1014
+  author: Alan Green
+  author_email: alan.green@cardboard.nu
+  author_url: http://cardboard.nu
+  date: '2005-01-06 09:36:10 -0600'
+  date_gmt: '2005-01-06 09:36:10 -0600'
+  content: My little laptop has a WUXGA display. It's brilliant for programming, but
+    20inches would be better.
+- id: 1015
+  author: Garth T Kidd
+  author_email: garth@deadlybloodyserious.com
+  author_url: http://www.deadlybloodyserious.com/
+  date: '2005-01-06 09:36:10 -0600'
+  date_gmt: '2005-01-06 09:36:10 -0600'
+  content: Okay, I can't be arsed nutting it out. Just what's the resolution of this
+    beast?
+---
+Reading the <a href="http://samsung.com/PressCenter/PressRelease/PressRelease.asp?seq=20050104_0000089670">press release</a> for Samsung's totally drool-worthy 21" OLED display:
+
+<blockquote>At 21-inches, this OLED features the highest resolution at 6.22 million pixels (WUXGA: wide ultra-extended graphics array).</blockquote>
+
+Leaving aside the minor conflation of pixel count with resolution, the main thing that annoys me here is: Why The Fuck does the PC hardware industry feel they need to continue coming up with new and completely meaningless acronyms for video resolution!? Don't they have enough acronyms already?
+
+Some time after the invention of steam power we had <abbr title="I dunno, maybe Crap Graphics Array?">CGA</abbr>, which was some pathetically low resolution I can't be bothered looking up. This was followed by VGA at 640x480, SVGA at 800x600, XGA at 1024x768. Then they just got silly. <a href="http://www.i386.info/vidres.htm">QVGA, SXGA+, UXGA, QXGA, QSXGA+, QUXGA, WXGA, SXGA, WSXGA+, WUXGA, QSXGA</a>. WTF?
+
+As best I can understand, the X is for eXtended, U for Ultra, S for Super, W for Wide and the + for, well, Plus. No idea what the Q is for. <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0679882812/102-7751395-5792139?v=glance">The Quick Queen of Quincy and her Quacking Quackeroo?</a>
+
+It seems pretty obvious that the combinations of X, U, S, Q, W and + are going to be exhausted pretty soon, if not already! (What's the acronym for my PowerBook's 1280x854 display?) So let me contribute something back to the industry which has contributed so much. Here are my suggestions for new letters which can be combined to form new display resolution acronyms: A(wesome), B(est), D(amn fine), E(xistential), F(ucking), G(olden), H (appy), J(oyous).
+
+I look forward to the availability of the <abbr title="Super Ultra Fucking Golden Happy Awesome Quick Queen of Quincy and her Quacking Quackeroo Ultra Extended Graphics Array">SUFGHAQUXGA</abbr>  display in 2006.

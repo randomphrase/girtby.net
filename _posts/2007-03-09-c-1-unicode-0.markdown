@@ -1,0 +1,345 @@
+---
+layout: post
+status: publish
+published: true
+title: C++ 1, Unicode 0
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+excerpt: |+
+  Yes, another C++ post. Yes, I've been doing a lot of it lately.
+
+  Recently on [WorseThanFailure](http://worsethanfailure.com) there have been several incidences of functions intended to perform relatively simple string manipulation tasks. Being worthy of posting to WTF, they have of course been hilariously over-long, complicated and bug-ridden. One recent example was attempting to [compare two strings in a case-insensitive manner](http://worsethanfailure.com/Articles/Enough_String_to_Hang_Yourself.aspx). Another was attempting to [remove spaces from a string](http://worsethanfailure.com/Articles/Removing_Spaces,_the_Easy_Way.aspx).
+
+  I'm going to have a go at a similar problem, namely writing a C++ program to count whitespace characters in a file.
+
+  Ready to follow along? Good!
+
+wordpress_id: 1547
+wordpress_url: http://girtby.net/2008/02/04/c-1-unicode-0
+date: 2007-03-09 11:14:00.000000000 -06:00
+categories:
+- Nerd Factor X
+tags:
+- c++
+- coding
+- unicode
+comments:
+- id: 1556
+  author: Aristotle Pagaltzis
+  author_email: pagaltzis@gmx.de
+  author_url: http://plasmasturm.org/
+  date: '2007-03-09 11:14:00 -0600'
+  date_gmt: '2007-03-09 11:14:00 -0600'
+  content: |-
+    Learnings? “Learnings”?!? Please tell me that was on purpose.
+
+    Also, to quote Dan Sugalski, initial Parrot VM lead architect: “I swear, text will be the death of me.”
+- id: 1557
+  author: Alastair
+  author_email: alastair@girtby.net
+  author_url: http://girtby.net
+  date: '2007-03-09 11:14:00 -0600'
+  date_gmt: '2007-03-09 11:14:00 -0600'
+  content: |-
+    > Learnings? “Learnings”?!? Please tell me that was on purpose.
+
+    If you were better [informationalized](http://www.workingforchange.com/comic.cfm?itemid=22047) you would know that it is an in-joke around these parts.
+- id: 1558
+  author: Chris
+  author_email: crgentle@gmail.com
+  author_url: http://brainsnorkel.com
+  date: '2007-03-09 11:14:00 -0600'
+  date_gmt: '2007-03-09 11:14:00 -0600'
+  content: As there were a <em>plurality</em> of <em>key</em> points' <em>synergies
+    leveraged</em>, you should have used the more correct "learningses."
+- id: 1559
+  author: Neil Mayhew
+  author_email: ''
+  author_url: ''
+  date: '2007-03-09 11:14:00 -0600'
+  date_gmt: '2007-03-09 11:14:00 -0600'
+  content: Thanks, helpful discussion
+- id: 1560
+  author: Jean Metz
+  author_email: jmetzz@gmail.com
+  author_url: ''
+  date: '2007-03-09 11:14:00 -0600'
+  date_gmt: '2007-03-09 11:14:00 -0600'
+  content: |-
+    Hello, I've trying to use unicode with c++ programs, but with no success. I was wondering whether you could help me. I'm trying to display non-ascii characters using standard c++, like the symbols shown at [Code Charts for Symbols and Punctuation][1].
+    My problem is that the program shows only ascii symbols. Please help me!
+
+    thanks a lot.
+
+
+      [1]: http://www.unicode.org/charts/PDF/U2600.pdf
+---
+Yes, another C++ post. Yes, I've been doing a lot of it lately.
+
+Recently on [WorseThanFailure](http://worsethanfailure.com) there have been several incidences of functions intended to perform relatively simple string manipulation tasks. Being worthy of posting to WTF, they have of course been hilariously over-long, complicated and bug-ridden. One recent example was attempting to [compare two strings in a case-insensitive manner](http://worsethanfailure.com/Articles/Enough_String_to_Hang_Yourself.aspx). Another was attempting to [remove spaces from a string](http://worsethanfailure.com/Articles/Removing_Spaces,_the_Easy_Way.aspx).
+
+I'm going to have a go at a similar problem, namely writing a C++ program to count whitespace characters in a file.
+
+Ready to follow along? Good!
+
+<a id="more"></a><a id="more-1547"></a>
+
+#### Generating a Test File
+
+Let's use this as a test file to start:
+
+<code>Foo Bar&nbsp;Baz</code>
+
+Looks easy, right? Of the 12 characters, our app should count 3 whitespace characters; one for each of the spaces and one for the newline.
+
+But wait a sec, things aren't as simple as they appear. View source and you'll see that the second space isn't an ordinary space. It's a Unicode NO-BREAK SPACE (U+00A0). Hmm, I wonder how that will turn out?
+
+Well if we're using Unicode we have to decide on an encoding. These days the default choice prettymuch has to be UTF-8. Those of you who are following along at home may want to use the following python command to write out the test file:
+
+    python -c 'f = file("foo.txt", "w"); f.write(u"Foo Bar\u00A0Baz\n".encode("utf-8"))'
+
+As a programmer, particularly a C++ programmer, you may be getting an uneasy feeling at this point. But in case you think my test case is particularly contrived, let me just point out that no-break spaces are very commonly used, particularly on the Internet. Ditto UTF-8.
+
+#### Attempt #1: The Textbook Approach
+
+On a first attempt we might think about writing a program to take its input from stdin and write output on stdout. This can be trivially used with file based input, and could also be useful if we wanted to use it with in the output of another program through a pipe.
+
+For the sake of brevity, I'll assume the appropriate `#include`s and `using namespace std;` declarations have been made. And so we might end up with something like this.
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>()
+{
+  cin.unsetf(<span class="constant">ios_base</span>::skipws);
+  <span class="type">unsigned</span> <span class="variable-name">ccount</span> = 0, <span class="variable-name">wscount</span> = 0;
+  <span class="type">char</span> <span class="variable-name">ch</span>;
+
+  <span class="keyword">while</span> (cin &gt;&gt; ch) {
+    <span class="keyword">if</span> (isspace(ch)) {
+      ++wscount;
+    }
+    ++ccount;
+  }
+  cout &lt;&lt; wscount &lt;&lt; <span class="string">" whitespace characters out of "</span> &lt;&lt; ccount &lt;&lt; endl;
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+Basically this just iterates over the input, a `char` at a time. It is literally a textbook approach, as Stroustrup shows something similar in <cite>The C++ Programming Language</cite> section 21.3.4.
+
+Let's see how it goes with the the test file. Remember we are after 3 whitespace out of 12 characters.
+
+    $ ./wscount1 < foo.txt
+    2 whitespace characters out of 13
+
+Nope. It didn't even read the right number of characters! Stepping through with a debugger it's easy to see what is going on. The no-break space is encoded as two bytes, and hence read by our program as two separate characters, neither of which are being counted as spaces.
+
+The fact that it failed on UTF-8 input should come as no surprise but I feel it's worth highlighting this because the `char`-at-a-time model is extremely widespread. In fact, reading through the attempted solutions to a similar problem on WorseThanFailure, I got to page 4 of the comments before someone even asked the question "hey, what about multibyte characters?"
+
+#### Attempt #2: Wide Characters
+
+So pretty obviously we can't use a `char` if we are going to be dealing with individual characters from a set of more than 256. Fortunately C++ gives us `wchar_t`, whose size is undefined but is guaranteed to be big enough to hold characters of the "implementation" character set (more on this later).
+
+The change to `wchar_t` is necessary, but not sufficient. I won't show it, but trust me, the result is the same, 2 whitespace out of 13 characters.
+
+The problem is that we haven't told the iostream *how* to decode the incoming bytes. In the absence of this information, the iostream does the only thing it can do, namely push every input byte into a separate `wchar_t`. Not particularly useful.
+
+More intelligent conversion of incoming data is one of the functions of the locale classes. The relevant "facet" of the locale object is called `codecvt`. It is a template class with an `in()` method that looks like this:
+
+<pre class="htmlize">
+result
+<span class="function-name">in</span>(<span class="type">state_type</span>&amp; <span class="variable-name">__state</span>, <span class="keyword">const</span> <span class="type">extern_type</span>* <span class="variable-name">__from</span>,
+   <span class="keyword">const</span> <span class="type">extern_type</span>* <span class="variable-name">__from_end</span>, <span class="keyword">const</span> <span class="type">extern_type</span>*&amp; <span class="variable-name">__from_next</span>,
+   <span class="type">intern_type</span>* <span class="variable-name">__to</span>, <span class="type">intern_type</span>* <span class="variable-name">__to_end</span>,
+   <span class="type">intern_type</span>*&amp; <span class="variable-name">__to_next</span>) <span class="keyword">const</span>
+</pre>
+
+
+It's a method signature only a mother could love. But the good news is that you don't have to call it directly, because iostreams will do it for you. As long as we're talking file streams, that is. So attempt #2 at the white space problem needs to be written in terms of file streams. And that means some extra error handling and other stuff:
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>(<span class="type">unsigned</span> <span class="variable-name">argc</span>, <span class="keyword">const</span> <span class="type">char</span> * <span class="variable-name">argv</span>[])
+{
+  <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="variable-name">a</span> = 1; a &lt; argc; ++a) {
+    <span class="type">wifstream</span> <span class="variable-name">fs</span>(<span class="type">argv</span>[a]);
+    fs.unsetf(<span class="constant">ios_base</span>::skipws);
+    <span class="type">unsigned</span> <span class="variable-name">ccount</span> = 0,  <span class="variable-name">wscount</span> = 0;
+    <span class="type">wchar_t</span> <span class="variable-name">ch</span>;
+
+    <span class="keyword">while</span> (fs &gt;&gt; ch) {
+      <span class="keyword">if</span> (isspace(ch)) {
+        ++wscount;
+      }
+      ++ccount;
+    }
+
+    cout &lt;&lt; argv[a] &lt;&lt; <span class="string">": "</span>;
+    <span class="keyword">if</span> (fs.bad() || <span class="negation-char">!</span>fs.eof()) {
+      cout &lt;&lt; <span class="string">"error encountered after "</span> &lt;&lt; ccount &lt;&lt; <span class="string">" characters"</span> &lt;&lt; endl;
+      <span class="keyword">return</span> 1;
+    } <span class="keyword">else</span> {
+      cout &lt;&lt; wscount &lt;&lt; <span class="string">" whitespace characters out of "</span> &lt;&lt; ccount &lt;&lt; endl;
+    }
+  }
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+Looks a bit more promising, if you forgive the poor error reporting. But we still only get 2 whitespace characters out of 13. What's going on?
+
+#### Diversion into locales
+
+I mentioned above that the character set conversion routines live inside the locale part of the standard library. This is a slightly odd place for them to live, but I expect that historically, different regions often had their own unique character sets. In a Unicode world this is no longer the case.
+
+Anyway, the `wifstream` constructor above is taking a snapshot of the global locale and using it for converting the incoming characters. So what is the global locale? Could it be something to do with the current user's locale, as visible when you type `locale` on the unix command line?
+
+Well, not necessarily. At startup, the global locale is set to the "classic" or "C" locale. For maximum compatibility, this is a very simple locale, and assumes an ASCII characters set for input data. On the other hand, the current *user* locale is referred to by an empty string.
+
+Here's a program to print the name of the current user locale:
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>()
+{
+  cout &lt;&lt; <span class="string">"user locale is: "</span> &lt;&lt; locale(<span class="string">""</span>).name() &lt;&lt; endl;
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+Here's where things get tricky, or at least operating system dependent. Running the above program on MacOS X I get:
+
+    $ ./cpplocale
+    user locale is: C
+
+Not particularly helpful. Using the `-a` option to `locale` I can see that there are lots of other locales installed. Lets see what happens when I try to use one:
+
+    $ locale -a | grep en_AU
+    en_AU
+    en_AU.ISO8859-1
+    en_AU.ISO8859-15
+    en_AU.US-ASCII
+    en_AU.UTF-8
+    $ LC_ALL="en_AU" ./cpplocale
+    terminate called after throwing an instance of 'std::runtime_error'
+      what():  locale::facet::_S_create_c_locale name not valid
+    user locale is: Abort trap
+
+From a brief play it looks looks like *none* of the installed locales (besides "C" of course) are available to C++ programs on MacOS X. Boo!
+
+Here's how it should work, courtesy of Ubuntu Linux:
+
+    $ ./cpptest
+    Using locale: en_AU.UTF-8
+
+Note that we still don't have a portable way of *specifying* that the input file is UTF-8 encoded. Aside from the classic and the user locale, none of the locale names are standardised.
+
+The other thing is that it's not entirely obvious to me what character set we're actually using here. This gets back to the question of the "implementation" character set. Sure, they are `wchar_t`s but are they Unicode? In this case the answer is yes, but is that assumption true on the [DeathStation 9000](http://en.wikipedia.org/wiki/DeathStation_9000)? If Unicode, is it UTF-16 or UTF-32? What normalisation form? As far as I can tell, none of these questions can be answered in a portable manner. (And so [Boost Serialization](http://www.boost.org/libs/serialization/doc/codecvt.html) should become your new best friend)
+
+I'll leave Windows as an exercise for the reader. For the sake of simplicity I'll switch to Linux for the remainder of this article.
+
+#### Attempt #3: With Locales
+
+Just because I'm allergic to global variables, I'll use `imbue` to set the locale of the stream after construction.
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>(<span class="type">unsigned</span> <span class="variable-name">argc</span>, <span class="keyword">const</span> <span class="type">char</span> * <span class="variable-name">argv</span>[])
+{
+  <span class="type">locale</span> <span class="variable-name">loc</span>(<span class="string">""</span>);
+
+  <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="variable-name">a</span> = 1; a &lt; argc; ++a) {
+    <span class="type">wifstream</span> <span class="variable-name">fs</span>(<span class="type">argv</span>[a]);
+    fs.unsetf(<span class="constant">ios_base</span>::skipws);
+    fs.imbue(loc);
+
+    <span class="comment-delimiter">/* </span><span class="comment">... as above ... */</span>
+  }
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+And the result:
+
+    $ ./wscount3 foo.txt
+    foo.txt: 2 whitespace characters out of 12
+
+Hooray for Zoidberg! We haven't quite got the right result, but we are making progress. We successfully converted the input UTF-8 into wide characters, probably UTF-32. But why didn't it count the right number of whitespace characters?
+
+#### When is a space a space?
+
+Try this with your favourite C++ compiler:
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>()
+{
+  <span class="type">locale</span> <span class="variable-name">loc</span>(<span class="string">""</span>);
+  cout &lt;&lt; <span class="string">"isspace(no-break space): "</span> &lt;&lt; isspace(<span class="type">wchar_t</span>(0xA0), loc) &lt;&lt; endl;
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+On both Linux and MacOS, this program produces a negative result. In other words, the unicode NO-BREAK SPACE is *not a space* according to the `isspace()` function. I'll just let that sink in for a bit ...
+
+If you look at the [glibc sources](http://sources.redhat.com/cgi-bin/cvsweb.cgi/libc/localedata/gen-unicode-ctype.c?rev=1.4&content-type=text/x-cvsweb-markup&cvsroot=glibc) you'll see that this has been a deliberate decision. There is even an accompanying comment:
+
+    /* Don't make U+00A0 a space. Non-breaking space means that all programs
+       should treat it like a punctuation character, not like a space. */
+
+Accurate but not exactly helpful. I suspect the reason has to do with not wanting to conflict with the thousands separator. In some locales they use spaces instead of commas to separate the thousands. If we consider no-break spaces as punctuation then we can use the same code to process large numeric quantities in all locales without risk of breaking them into multiple words. Or something like that.
+
+The point remains though: the various `ctype` functions (ie the `isxxxx` functions) do not map on to the corresponding Unicode character properties.
+
+#### Attempt #4: Extending and enhancing `isspace`
+
+A proper solution here would probably involve hardcoded tests of the input character against each of the [Unicode space characters][unispace]. Which is, you guessed it, another exercise for the reader. I'm going to cheat a bit and just test for the no-break space for now.
+
+[unispace]: http://en.wikipedia.org/wiki/Space_(punctuation)#Space_characters_and_digital_typography
+
+So here is the final version, in all its glory:
+
+<pre class="htmlize">
+<span class="type">int</span> <span class="function-name">main</span>(<span class="type">unsigned</span> <span class="variable-name">argc</span>, <span class="keyword">const</span> <span class="type">char</span> * <span class="variable-name">argv</span>[])
+{
+  <span class="type">locale</span> <span class="variable-name">loc</span>(<span class="string">""</span>);
+
+  <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="variable-name">a</span> = 1; a &lt; argc; ++a) {
+    <span class="type">wifstream</span> <span class="variable-name">fs</span>(<span class="type">argv</span>[a]);
+    fs.unsetf(<span class="constant">ios_base</span>::skipws);
+    fs.imbue(loc);
+    <span class="type">unsigned</span> <span class="variable-name">ccount</span> = 0,  <span class="variable-name">wscount</span> = 0;
+    <span class="type">wchar_t</span> <span class="variable-name">ch</span>;
+
+    <span class="keyword">while</span> (fs &gt;&gt; ch) {
+      <span class="keyword">if</span> ((0x00a0 == ch) || isspace(ch)) {
+        ++wscount;
+      }
+      ++ccount;
+    }
+
+    cout &lt;&lt; argv[a] &lt;&lt; <span class="string">": "</span>;
+    <span class="keyword">if</span> (fs.bad() || <span class="negation-char">!</span>fs.eof()) {
+      cout &lt;&lt; <span class="string">"error encountered after "</span> &lt;&lt; ccount &lt;&lt; <span class="string">" characters"</span> &lt;&lt; endl;
+      <span class="keyword">return</span> 1;
+    } <span class="keyword">else</span> {
+      cout &lt;&lt; wscount &lt;&lt; <span class="string">" whitespace characters out of "</span> &lt;&lt; ccount &lt;&lt; endl;
+    }
+  }
+  <span class="keyword">return</span> 0;
+}
+</pre>
+
+And the money shot:
+
+    $ ./wscount4 foo.txt
+    foo.txt: 3 whitespace characters out of 12
+
+About freakin' time, you might be thinking.
+
+#### Learnings
+
+So here's how I would summarise this whole exercise.
+
+ * If you are doing any character-by-character processing of strings, you need to use wide chars. In fact, that's probably a good idea even if you're not peering inside strings. Unicode is here to stay, get over it.
+ * Don't rely on the standard libraries to always correctly convert your input data to wide characters. Use the Boost serialisation library mentioned above, or [iconv](http://www.gnu.org/software/libiconv/), or (recently discovered and promising) [u8u16](http://u8u16.costar.sfu.ca/).
+ * Don't rely on the standard libraries to process unicode characters. For that you probably want [ICU](http://icu.sourceforge.net/) or something.
+ * C++ needs to Try Harder to support unicode, particularly on MacOS (The *real* WTF).
+ * Just give up and use Ruby. [Oh no, wait...](http://www.tbray.org/ongoing/When/200x/2006/10/22/Unicode-and-Ruby)

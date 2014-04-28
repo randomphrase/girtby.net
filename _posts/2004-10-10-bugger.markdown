@@ -1,0 +1,33 @@
+---
+layout: post
+status: publish
+published: true
+title: Bugger
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 24
+wordpress_url: http://girtby.net/2007/09/19/bugger
+date: 2004-10-10 21:35:51.000000000 -05:00
+categories:
+- Verisimilitude
+tags: []
+comments: []
+---
+No shortage of things to gripe about today.
+
+The big one for me is the fact that the Howard government is likely to have a <strong>majority in both houses</strong>. This is a bad thing - it effectively disables the bicameral parliamentary system for the next three years. After today, and until the country comes to it's collective senses, the Howard government can and will pass whatever laws it bloody well likes.
+
+I did some digging, and apparently what happened yesterday is an uncommon occurance in Australian politics. It was a lot more common before 1949, when we changed to <a href="http://www.australianpolitics.com/voting/systems/proportional.shtml">proportional representation</a> in the Senate. Since then we've had two governments - Menzies and Fraser - that have had majorities in both houses. The <a href="http://www.aph.gov.au/library/handbook/historical/representation.htm">Parliamentary Handbook</a> has all the info.
+
+Other things to gripe about are:
+
+<ul>
+	<li>A likely senate seat for the Family First party (shudder)</li>
+	<li>Talk on the news that Howard <em>would</em> serve a full term and not hand the reigns to the vastly preferable (to me) Costello</li>
+	<li>Bye Bye, Democrats</li>
+	<li>The Liberal party website crashes Firefox and loses an earlier draft of this post</li>
+</ul>
+
+Anyway you can't blame me for all this. The recent <a href="http://www.crikey.com.au/politics/2004/10/08-0003.html">Crikey election editorial</a> explains a lot of the reasons why I voted Labor. C U Next Term, Johnny.

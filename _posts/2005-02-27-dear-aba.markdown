@@ -1,0 +1,85 @@
+---
+layout: post
+status: publish
+published: true
+title: Dear ABA
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+excerpt: |+
+  Dear <abbr title="Australian Broadcasting Authority">ABA</abbr>,
+
+  I'm sure that by now you have received my email from last week and are busy acting on the information contained therein. I'm sure you've been so busy acting that you haven't had time to even send an email requesting more information so I thought I'd share it with you anyway.
+
+
+wordpress_id: 76
+wordpress_url: http://girtby.net/2007/04/10/dear-aba
+date: 2005-02-27 22:20:25.000000000 -06:00
+categories:
+- Verisimilitude
+- Provocation
+tags: []
+comments: []
+---
+Dear <abbr title="Australian Broadcasting Authority">ABA</abbr>,
+
+I'm sure that by now you have received my email from last week and are busy acting on the information contained therein. I'm sure you've been so busy acting that you haven't had time to even send an email requesting more information so I thought I'd share it with you anyway.
+
+
+<a id="more"></a><a id="more-76"></a>
+
+
+As you know, the story started on the 17th of February, when I received the following unsolicited email. This sort of thing usually doesn't make it through Google's spam filters, and I can't say it was a pleasant surprise.
+
+>**From:** goldybrocklesy@beenhad.com
+>**Date:** Wed, 16 Feb 2005 13:03:14 -0800 (PST)
+>**Subject:** Photo album & child porn
+>
+>It is forbidden. It is taboo. It is shocking.
+>You only have one chance to see that on our site!
+>
+>http://[censored]
+>
+>Anonymous and confidential members club of CHILD PORN!
+>Secret site and exclusive content. Little kids fucked
+>by adults - online. Pics and movies. Greatest new collection.
+>Free preview
+>
+>http://[censored]
+>
+>Shocking pics.
+>100% confidentiality guaranteed.
+
+So in my time I've seen plenty of spam. These days most of it gets filtered but enough leaks through that I get the gist of what's out there. These days surprisingly little of it is porn, and even then the content is reasonably inoffensive, if in questionable taste. However I can't remember having seen a piece of spam as blatant as this one about advertising child pornography.
+
+This is a topic about which I have no sense of humour. Abusing children for sexual gratification is so morally repugnant that we as a society should be doing everything in our power to track down the perpetrators and ... (insert revenge fantasy here). I'm sure there's no need to explain more.
+
+Now of course this is just one piece of spam, and the baddies are probably on the other side of the world, and it's all probably known to the relevant authorities, and ... yet maybe not. Hey, it's the least I can do to take a few minutes to forward this spam to someone who may be able to act on the information.
+
+The question is (or was): who should I forward this spam to?
+
+A quick google revealed [NetAlert](http://www.netalert.com.au/) was the "Australian Internet Safety Advisory Body" that looked at first glance like it might be able to tell me. Unfortunately not. So I emailed them, and was referred to the ABA.
+
+Now as I'm sure you're aware, part of the ABA's charter is to administer a 'co-regulatory' scheme for Internet content. Unfortunately though, "For the purposes of the regulatory scheme, Internet content does not include [...] ordinary email".
+
+[Now I'm not sure what you mean by "ordinary" email here. Does that mean you do get involved with extraordinary email? But I digress.]
+
+So I emailed the helpful person at the NetAlert site who explained that my only other option was to report it to the <abbr title="Australian Communications Authority">ACA</abbr>. Unfortunately, according to [their site](http://internet.aca.gov.au/ACAINTER.12714286:STANDARD:885848750:pp=DIR2_25,pc=PC_1970#complaints%20fraudulent), "The Spam Act 2003, which is enforced by the ACA, covers the sending of spam messages; it does not cover the content of spam."
+
+[Your concept of 'Internet content' confuses and infuriates us!](http://www.gotfuturama.com/Multimedia/EpisodeSounds/4ACV03/) So at this point I confess to almost giving up on the whole thing. Then I hit on the idea of reporting to the ABA the URLs contained in the email rather than the entire email itself. This would mean reporting a website that I hadn't actually visited, and had no intention to do so. And realistically, chasing down the site owners is probably the only way to investigate this incident anyway. So I hopefully did the right thing in making my complaint fit your bureaucracy. Harry Tuttle would be proud of me.
+
+Please be aware I have no interest in helping you to maintain content filters. This is not the reason why I reported the sites in question to you. I am only interested in having this investigated by someone with the authority to bust a cap in the ass (or the closest legal equivalent) of the bastards who are purportedly abusing kids. After satisfying myself that [child pornography matters would be referred to law enforcement](http://www.aba.gov.au/internet/complaints/internet.htm#aba), I decided to go ahead with the complaint. I already had 20 minutes or so invested in this, why not a few more?
+
+Off I went to your [online complaint form for web content](http://www.aba.gov.au/what/online/www.asp). I filled it in to the best of my ability and hit the submit button. A summary of my complaint was displayed then, and I was encouraged to print it. As I often do when dealing with important transactions online I saved the page as a PDF.
+
+I sent you this PDF by email, because the online submission did not complete. Your website helpfully suggested a number of possible reasons why you couldn't submit the form online, but unfortunately none of them were actually true. I suspect the real reason was that I used Firefox. Internet Explorer is apparently the only browser ever made, at least according to the Microsofties who coded the <abbr title="Active Server Page">ASPs</abbr> that allegedly implement the online complaint form.
+
+By the way if you are too busy firing the drongos who do your website I would understand why you haven't had time to respond to my emailed complaint form.
+
+Anyway thankyou for investigating this matter. Whilst waiting for a response I will continue to labour under the illusion that this was all in some way not a total fucking waste of time.
+
+Hey, at least I got to make fun of you on my blog.
+
+Best wishes,
+Alastair.

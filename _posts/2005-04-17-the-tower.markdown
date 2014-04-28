@@ -1,0 +1,112 @@
+---
+layout: post
+status: publish
+published: true
+title: The Tower
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 93
+wordpress_url: http://girtby.net/2007/01/04/the-tower
+date: 2005-04-17 15:31:18.000000000 -05:00
+categories:
+- Verisimilitude
+- Provocation
+tags: []
+comments:
+- id: 1124
+  author: Julian
+  author_email: julian.orbach@somethinkodd.com
+  author_url: http://somethinkodd.com/oddthinking
+  date: '2005-04-17 15:31:18 -0500'
+  date_gmt: '2005-04-17 15:31:18 -0500'
+  content: |-
+    Whether or not mobile phones have direct or indirect health risks, I suspect that mobile phones has some indirect health <em>benefits</em> that must be assessed before dismissing their use.
+
+    I suspect that ambulances tend to get called to emergencies faster when witnesses carry mobile phones.
+
+    I suspect that hikers with mobile phones get rescued more often.
+
+    I suspect that people carrying mobile phones are less likely to have violence crimes committed against them (e.g. rape, abduction, mugging, etc.)
+
+    There are certainly anecdotes supporting this, but I have no scientific evidence to back me up here.
+
+    Given that, despite the large amount of money and effort spent on experiments and studies on mobile phone health, with little or no evidence of danger, we have to agree that if there <em>is</em> any negative effects from mobile phones, the risk has to be small. Mobile phone users are clearly <em>not</em> toppling over in the same way that, say, smokers, asbestos workers, hatters (in the days of mercury), pregnant dry-cleaners, etc.
+
+    It wouldn't take much of a <em>positive</em> impact of mobile phone use to outweigh the risks (if any) at a public policy level.
+- id: 1125
+  author: alastair
+  author_email: alastair@girtby.net
+  author_url: ''
+  date: '2005-04-17 15:31:18 -0500'
+  date_gmt: '2005-04-17 15:31:18 -0500'
+  content: |-
+    Totally agree.
+
+    Interesting that you mention the hiking example. When I lived in Colorado there were a few famous instances where hikers got stuck in the back country with nothing but cell phones (please marvel at my effortless switch of terminology). It turned out that they deliberately hadn't followed the recommended safety practices because they had assumed their phones would be sufficient. Obviously they were out of cell coverage when they got stuck and, well, it all ended in tears.
+
+    I'm also reminded of the story told by one of the characters in *Pulp Fiction* about the bank robbery conducted by cell phone.
+
+    Nonetheless the positive impact of mobile phones almost certainly outweighs the risks.
+- id: 1126
+  author: Stan Hartman
+  author_email: stanhartman1@yahoo.com
+  author_url: ''
+  date: '2005-04-17 15:31:18 -0500'
+  date_gmt: '2005-04-17 15:31:18 -0500'
+  content: This attitude reminds me of how much pleasure people probably took in the
+    radium toothpaste they used at the turn of the last century because of the way
+    it glowed in the dark. We won't know for possibly a generation what effect cell
+    phones are having on us, and especially on our children, and it's important as
+    well to remember that non-ionizing radiation effects are CUMULATIVE, just as ionizing
+    radiation effects are. There are people who can live to a ripe old age smoking
+    all the while, and then there are people who THINK they're going to live to a
+    ripe old age smoking all the while, but discover they thought wrong. If people
+    used cell phones only for emergencies, obviously there would be much less risk.
+---
+<img src="/images/thetower.jpg" height="400" width="227" alt="The Tower" class="lede" />Reading the local paper, I find that lots of residents are upset about the prospect of mobile phone towers being erected in our back yard. I am sympathetic, but bemused at the mass paranoia on display. After all, I have heard of the [inverse-square law](http://en.wikipedia.org/wiki/Inverse-square_law), but maybe they haven't.
+
+Here's the letter I wrote in reply:
+
+> Dear Editors,
+>
+> Concerning the letters protesting the proposed mobile phone towers for
+> Norton Plaza.
+>
+> Firstly Cr Porteous may be waiting a long time for "conclusive
+> information stating that there is no danger associated with such an
+> installation". Such blanket statements of public safety simply are not
+> products of scientific endeavour. As Phillip Dendy [commented](http://www.thelancet.com/journal/vol356/iss9244/full/llan.356.9244.editorial_and_review.14307.1) in the
+> British medial journal The Lancet: "A Nobel prize awaits the person
+> who first designs an experiment to show that anything is 'safe'". He
+> was talking about mobile phone safety, too.
+>
+> Frustrating as it may be to us ordinary humans, the best you get out
+> of scientists are estimates of risk based on experimental evidence and
+> analysis. Such equivocation is a scientific necessity, so let's all
+> just get used to it shall we? (At least until the Nobel prize for
+> provable safety is handed out.)
+>
+> And frankly such definitive (if not conclusive) statements of risk
+> would add a great deal to the standard of debate for this issue. If we
+> were to compare the relative risk and severity of a new mobile phone
+> tower against, say, an increase in local traffic volumes, I know which
+> one I'd be protesting against. Hint: it's not the mobile phone tower.
+>
+> Despite the inconclusive information about adverse health effects of
+> mobile phone towers, one thing is pretty clear. However risky the
+> towers are, handsets are a lot worse.The proximity of the handset
+> makes it a relatively intense source of non-ionising radiation.
+>
+> So to those parents who are protesting the mobile phone tower, can I
+> suggest that if you are also allowing your children to use mobile
+> phones, you haven't understood the risks very well at all.
+>
+> Regards,
+
+One of the letter-writers mentioned a UK based physics professor by the name of G J Hyland. [Hyland's paper](http://www.thelancet.com/journal/vol356/iss9244/full/llan.356.9244.editorial_and_review.14254.1), published in the same issue of The Lancet as the Dendy comment linked above, is worth reading. My initial assumption on hearing about the controversy was that the inverse square law will save us, but the paper makes it clear this assumption may be wrong. Hyland makes the case for "non-thermal" effects of mobile phone radiation which are due to an "oscillatory similitude between this pulsed microwave radiation and certain electrochemical activities of the living human being". The photosensitive epilepsy induced in some people by strobed light is used as analogy: it's not the intensity of the light, but the similarity of the strobe frequency with certain brain activity.
+
+[Incidentally, researching this has prompted me to make my first contribution to wikipedia. The entry on [mobile phone radiation and health](http://en.wikipedia.org/wiki/Mobile_phone_radiation_and_health) did not mention Hyland's work so I added it. This was a mildly daunting experience. A few days later and my contribution hasn't been removed ... yet.]
+
+Lastly, it's too difficult to resist pointing out that the tarot deck seems to be right on the money this time. [The Tower card](http://www.bewitchingways.com/tarot/major/tower.htm) (pictured) "represents nice fantasies being shattered by harsh reality". Heh, maybe there's something in this tarot stuff after all!

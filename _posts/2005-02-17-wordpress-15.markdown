@@ -1,0 +1,25 @@
+---
+layout: post
+status: publish
+published: true
+title: WordPress 1.5
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 73
+wordpress_url: http://girtby.net/2007/10/26/wordpress-15
+date: 2005-02-17 15:17:28.000000000 -06:00
+categories:
+- Nerd Factor X
+- Meta
+tags: []
+comments: []
+---
+Hooray for [WordPress](http://wordpress.org) 1.5!
+
+It was a completely painless upgrade experience, aided by some [consise, clear instructions](http://codex.wordpress.org/Upgrade_1.2_to_1.5) and the pre-flight that I did on my local mirror.
+
+The new version is a very nice piece of software, and I look forward to take advantage of some of it's [new features](http://weblogtoolscollection.com/archives/2005/02/03/wordpress-15-review/) in the coming weeks and months. Fellow Wordpressers, do yaself a favour.
+
+One of these features is the ability to mix'n'match themes for the appearance. At present you're seeing the girtby.net classic theme in all it's glory. If I can tear myself away from Half-Life 2, I'll flex my puny web design muscles and come up with something less ugly.

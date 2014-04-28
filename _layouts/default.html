@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+
+    {% include meta.html %}
+  </head>
+  <body>
+
+    <div class="container">
+      {% include header.html %}
+      
+      {{ content }}
+      
+      <br clear="all" />
+
+      {% include footer.html %}
+    </div>
+  </body>
+</html>

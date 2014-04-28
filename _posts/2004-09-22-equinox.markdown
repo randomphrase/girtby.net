@@ -1,0 +1,33 @@
+---
+layout: post
+status: publish
+published: true
+title: Equinox
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 13
+wordpress_url: http://girtby.net/2007/09/30/equinox
+date: 2004-09-22 14:01:20.000000000 -05:00
+categories:
+- Linkpimpin'
+tags: []
+comments:
+- id: 950
+  author: girtby.net &amp;amp;raquo; Delicious Links
+  author_email: ''
+  author_url: http://girtby.net/archives/2004/10/07/delicious-links/
+  date: '2004-09-22 14:01:20 -0500'
+  date_gmt: '2004-09-22 14:01:20 -0500'
+  content: "[...] information. A couple of examples: \tI posted a link to the SMH
+    Equinox serialization that <a href=\"http://girtby.net/archives/2004/09/22/equinox/\">I
+    mentioned</a> a few posts back. [You are reading it, aren&#8217;t you?]  One other
+    person picked it [...]"
+---
+<img class="lede" src="/images/matt.jpg" alt="Matt's Mug"  width="180" height="136"/>
+Matt informs me that the sequel to his excellent <em>Solstice</em> is being serialised on <a href="http://www.smh.com.au/articles/2004/09/16/1095221713870.html">smh.com.au</a>. Yaay!
+
+Henceforth I command you to make <em>equinox</em> part of your <a href="http://www.smh.com.au/specials/equinox">daily reading</a>.
+
+Yes you have to register for access. <a href="http://www.bugmenot.com/view.php?url=http%3A%2F%2Fwww.smh.com.au">Or do you?</a>

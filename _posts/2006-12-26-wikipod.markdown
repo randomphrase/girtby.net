@@ -1,0 +1,49 @@
+---
+layout: page
+status: publish
+published: true
+title: 'wikipod: Exporting a wiki to view on your iPod'
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 3622
+wordpress_url: http://girtby.net/?page_id=3622
+date: 2006-12-26 21:04:22.000000000 -06:00
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+#### What is it?
+
+<typo:flickr img="311497459" size="small" caption="" style="float:right"/>This is a script to download the contents of a wiki (or other HTML site), and format the contents for offline use on an ipod. It is currently customised for use with [stikipad](http://www.stikipad.com), but is reasonably generic.
+
+See the [accompanying blog article](/articles/2006/12/01/is-that-a-wiki-in-your-pocket) for more rationale. And for comments and suggestions.
+
+This script should work out-of-the-box on MacOS X and most flavours of Linux. It may work on Windows (using cygwin-supplied tools) but I haven't tried it.
+
+You will need to know the URL of the export feature for your wiki. This should yield a ZIPped archive of all content as HTML files.
+
+#### Installation
+
+Right-click on [wikipod](/extras/wikipod), Choose "Save As..."and save somewhere on your path. From there you should open up the file in TextEdit (or whatever) and edit the script to point to the location of your iPod's Notes folder, your username, password and wiki name on sikipad (see the lines marked "Customize this")
+
+Don't forget to `chmod +x wikipod`.
+
+#### Usage
+
+Once installed, just run `wikipod` from the command line whenever your iPod is mounted. There's probably some sneaky way of getting this to run every time you mount the iPod, let me know.
+
+#### How does it work?
+
+It's a shell script which relies on curl (to download the wiki), unzip (to extract the HTML files), and xsltproc to transform the HTML to the text-based markup preferred by the iPod. All of these are part of the standard MacOS X install, and are easily available with cygwin.
+
+The formatting done by the XSLT script is pretty simple and obvious, with two possible exceptions: firstly bullet lists are re-formatted to use whitespace indenting and asterisks (because the iPod notes feature doesn't support bullet lists and I use them extensively). Also it rewrites HREFs to point to use the  correct `.txt` extension.
+
+#### History
+
+- 2006-12-02: Initial release
+- 2007-04-27: Updated to work with stikipad's form-based authentication. Also minor tweak to the XSLT.
+
+Written by [Alastair Rankine](http://girtby.net). Licensed under the [Creative Commons Attribution License](http://creativecommons.org/licenses/by/2.0/)

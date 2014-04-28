@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: Tag, I'm it!
+author: alastair
+author_login: admin
+author_email: alastair@girtby.net
+author_url: http://girtby.net
+wordpress_id: 84
+wordpress_url: http://girtby.net/2007/03/01/tag-im-it
+date: 2005-03-17 13:01:36.000000000 -06:00
+categories:
+- Nerd Factor X
+- Meta
+tags: []
+comments: []
+---
+Michael over at cruftbox asks [where did your domainname come from?](http://cruftbox.com/blog/archives/001125.html#001125) He proposes to track answers to this question using a [technorati tags](http://technorati.com/tag). Well this was an opportunity to play around with webware that just couldn't be passed up.
+
+I installed the [TechnoTag wordpress plugin](http://www.gudlyf.com/archives/2005/01/14/wordpress-plugin-technotag/) and appropriately tagged an old post of mine that explained the [origin of the girtby.net](/archives/2004/12/20/girt-by-controver-sea/). If you go to that post you can see the tag at the bottom of the post.
+
+After [playing with del.icio.us](/archives/2004/10/07/delicious-links/) for a while it's easy to become a [folksonomy](http://en.wikipedia.org/wiki/Folksonomy) convert. It's certainly an interesting phenomena, if nothing else.
+
+[On a related note, I notice that at least [one girtby.net article](http://del.icio.us/url/a100c740ab3d1ce7ee89906ec863a7fc) has been bookmarked on del.icio.us, which is very gratifying. There may be more, but I can't see an obvious way to search...]
+
+So the technorati experiment didn't go as well as I hoped. I tagged the old article, and manually [pinged](http://www.technorati.com/ping.html) technorati in the hope that it would pick up the changes. It didn't. Or hasn't yet (after a few days).
+
+A possibly related problem is that the updated post didn't re-appear in the RSS feed as it probably should have. Not sure why not - surely wordpress should have just taken care of this?
+
+Another item on my technorati wishlist is the ability to see your own tags. So while del.icio.us allows you to display and manipulate your tags after bookmarking (as demonstrated nicely in [Jon Udell's screencast](http://weblog.infoworld.com/udell/2005/03/14.html)), it's not obvious how to do this in technorati. Updating the posts themselves is probably a necessary part of this process, but if it requires technorati to be manually pinged for each updated entry, it's going to get too cumbersome without a tool to assist the process. On the other hand if the update process relies on RSS, I'm not sure I *want* these sort of trivial updates to re-appear in my RSS feed.
+
+Others are starting to use tags as an alternative to trackbacks, namely to navigate specific threads of discussion, as opposed to general classifications, across multiple blogs. [I remain unconvinced.](http://norman.walsh.name/2005/02/20/tagback#comment0003)
+
+Despite all this there's possibly some value in tagging my posts so I'll give it a try and see what happens.
