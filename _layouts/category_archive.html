@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<div class="content">
+  <h1>Category archive for {{ page.category }}</h1>
+  <div>
+    <ul>
+ {% for post in site.categories[page.category] %}
+ <!-- {% assign post = page %} -->
+ <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+ {% endfor %}
+ </ul>
+  </div>
+</div>

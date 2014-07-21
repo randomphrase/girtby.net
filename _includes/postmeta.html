@@ -4,15 +4,15 @@
   </p>
 
   <p>Categories<br />
-    {% for cat in post.categories %}
-    <a href="/archives/category/{{ cat }}" rel="category tag">{{ cat }}</a>
-    {% endfor %}
+    {{ post.categories | link_to_category | join }}
+
+    <!-- {% for cat in post.categories %} -->
+    <!-- <a href="{{ site.category_dir }}/{{ cat }}" rel="category tag">{{ cat }}</a> -->
+    <!-- {% endfor %} -->
   </p>
 
   <p>Tags<br />
-    {% for tag in post.tags %}
-    <a href="/archives/tags/{{ tag }}" rel="tag">{{ tag }}</a>
-    {% endfor %}
+    {% for tag in post.tags %}{{ tag }} {% endfor %}
   </p>
 
   <p>{{ post.comments | size }} Comments</p>
