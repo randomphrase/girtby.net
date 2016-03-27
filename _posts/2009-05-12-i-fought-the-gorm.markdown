@@ -28,7 +28,7 @@ comments:
   content: |
     <p>Phew. If you're like me you might have ended up with something like <a href="http://ikeahacker.blogspot.com/2007/12/ikea-gorm-art.html" rel="nofollow">this</a></p>
 ---
-<a href="http://girtby.net/assets/2009/05/garage-shelves.jpg"><img src="http://girtby.net/assets/2009/05/garage-shelves-199x300.jpg" alt="Garage Shelves" title="garage-shelves" width="199" height="300" class="size-medium wp-image-3883 lede" /></a>There's a kind of internally-generated tension that builds up when you haven't blogged for a while. It's not as bad as that other kind of tension which builds up over time, but it's still there in the back of your mind. And after a while you need to do something, anything, to release the tension.
+<a href="/assets/2009/05/garage-shelves.jpg"><img src="/assets/2009/05/garage-shelves-199x300.jpg" alt="Garage Shelves" title="garage-shelves" width="199" height="300" class="size-medium wp-image-3883 lede" /></a>There's a kind of internally-generated tension that builds up when you haven't blogged for a while. It's not as bad as that other kind of tension which builds up over time, but it's still there in the back of your mind. And after a while you need to do something, anything, to release the tension.
 
 So this is what I'm reduced to. Blogging about shelves that I put up last weekend. Yes, shelves.
 

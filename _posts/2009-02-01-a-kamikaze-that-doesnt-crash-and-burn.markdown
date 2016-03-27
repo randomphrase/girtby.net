@@ -46,7 +46,7 @@ comments:
 
     <p><a href="/assets/2009/02/openwrt-qos.png" rel="nofollow"><img src="/assets/2009/02/openwrt-qos-300x168.png" alt="Screenshot of OpenWRT Web interface showing QoS" width="300" height="168" class="alignnone size-medium wp-image-3850" /></a></p>
 ---
-<a href="/assets/2009/02/openwrt-kamikaze.png"><img src="http://girtby.net/assets/2009/02/openwrt-kamikaze-300x191.png" alt="Screenshot from OpenWrt&#039;s administration web interface" title="openwrt-kamikaze" width="300" height="191" class="size-medium wp-image-3784 lede" /></a>Long-time readers will know that I'm a [big](/archives/2005/06/19/can-your-router-do-this/) [fan](/archives/2005/11/21/full-throttle-openwrt/) of the [OpenWrt](http://openwrt.org/) linux distribution for home routers.
+<a href="/assets/2009/02/openwrt-kamikaze.png"><img src="/assets/2009/02/openwrt-kamikaze-300x191.png" alt="Screenshot from OpenWrt&#039;s administration web interface" title="openwrt-kamikaze" width="300" height="191" class="size-medium wp-image-3784 lede" /></a>Long-time readers will know that I'm a [big](/archives/2005/06/19/can-your-router-do-this/) [fan](/archives/2005/11/21/full-throttle-openwrt/) of the [OpenWrt](http://openwrt.org/) linux distribution for home routers.
 
 It's a great little linux distribution that lets you do all sorts of geeky networky things, and is damn reliable to boot. I was a bit [nervous](http://identi.ca/notice/2063594) about the upgrade from the (now) ancient White Russian release, to the new Kamikaze 8.09_RC2 release, but it all went very smoothly.
 

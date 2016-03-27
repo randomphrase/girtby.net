@@ -5,8 +5,8 @@ highlighter: pygments
 paginate: 10
 paginate_path: "page/:num"
 permalink: /archives/:year/:month/:day/:title/
-category_dir: archives/category
-archive_dir: archives
+category_dir: /archives/category
+archive_dir: /archives
 gems:
   #- jekyll-redirect-from
   - jekyll-sitemap
