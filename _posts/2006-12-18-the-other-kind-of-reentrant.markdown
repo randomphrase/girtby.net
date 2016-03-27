@@ -13,7 +13,7 @@ excerpt: |+
 
 
 wordpress_id: 225
-wordpress_url: http://girtby.net/2007/01/14/the-other-kind-of-reentrant
+wordpress_url: http://girtby.net/2006/12/18/the-other-kind-of-reentrant
 date: 2006-12-18 05:28:00.000000000 -06:00
 categories:
 - Nerd Factor X

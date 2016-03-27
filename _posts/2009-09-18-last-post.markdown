@@ -63,7 +63,7 @@ Here are some posts that I'm particularly proud of. You might wish to revisit th
 * The infamous [Blogging Horror](/archives/2008/05/22/blogging-horror/) post. Years from now I'm going to introduce myself with "you may remember me from such incendiary blog posts as..."
 * My [Developer Essentials](/archives/2008/05/11/developer-essentials/) manifesto. That post was about 5 years in the making.
 * [Vendor Lock-In](/archives/2008/02/08/vendor-lock-in/), mainly because it got an approving link from Bruce Schneier
-* [C++ 1, Unicode 0](/archives/2007/03/09/c-1-unicode-0/) and [The Other Kind of Reentrant](/2006/12/18/the-other-kind-of-reentrant/), both coding war stories.
+* [C++ 1, Unicode 0](/archives/2007/03/09/c-1-unicode-0/) and [The Other Kind of Reentrant](/archives/2006/12/18/the-other-kind-of-reentrant/), both coding war stories.
 * The one in which I [decloaked](/archives/2006/09/03/decloaking/)
 * Some [extended](/archives/2005/06/13/this-is-what-you-see-this-is-what-you-get/) [ranting](/archives/2006/01/22/wysiwyg-editors-forecast-calls-for-continued-suckage/) on the subject of (believe it or not) WYSIWYG editors.
 * [Ripley's Design It Or Not](/archives/2006/01/08/ripleys-design-it-or-not/), a moderately successful satirical UI rant.
