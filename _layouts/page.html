@@ -1,0 +1,14 @@
+---
+layout: default
+---
+{% assign post = page %}
+<div class="post">
+  {% include postmeta.html %}
+  
+  <div class="content">
+    <h3>{{ page.title }}</h3>
+
+    {{ content }}
+
+  </div>
+</div>

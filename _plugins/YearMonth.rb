@@ -49,12 +49,12 @@ module Jekyll
     end
 
     def posts_by_month(site)
-      site.posts.each.group_by { |post| [post.date.year, post.date.month] }
+      site.posts.docs.each.group_by { |post| [post.date.year, post.date.month] }
     end
 
     def postcount_by_month(site)
       postcount = {}
-      site.posts.each do |post|
+      site.posts.docs.each do |post|
         (postcount[post.date.year] ||= Array.new(12, 0))[post.date.month - 1] += 1
       end
       postcount
