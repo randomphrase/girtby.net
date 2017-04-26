@@ -139,13 +139,13 @@ This is the compact camera I chose: a [Ricoh GX100](http://www.ricoh.com/r_dc/ca
 
 To my mind the best thing about the GX100 (which it shares with the GX200) is the lens. It is a zoom, with a maximum aperture of f/2.5 at its widest, down to f/4.4 when zoomed in (72mm equivalent). The wide aperture allows lots of light in, which means you don't need to use the flash, and it also that great Bokeh effect where the background is blurred to emphasise the subject.
 
-[flickr]2437788347[/flickr]
+{% oembed https://www.flickr.com/photos/arankine/2437788347 %}
 
 Also handy is the fact that it can zoom *out*, to a equivalent of 24mm. This is fantastic for indoor shots, or other relatively confined spaces where you often just can't get far enough away to get everything in frame. Real-estate agents, this is your camera!
 
 Lastly, the lens will focus objects that are as close as 1cm away. This makes it ideal for close-ups.
 
-[flickr]2464194282[/flickr]
+{% oembed https://www.flickr.com/photos/arankine/2464194282 %}
 
 In a lot of ways, the GX100 is more flexible than my DSLR.
 
@@ -163,11 +163,11 @@ There is a high-ISO mode which increases the sensitivity of the camera and allow
 
 Here are some shots taken with the GX100. Most have had some light editing. More on [flickr](http://www.flickr.com/photos/arankine/).
 
-[flickr]2616353675[/flickr]
-[flickr]2437788501[/flickr]
-[flickr]2438609730[/flickr]
-[flickr]2437788023[/flickr]
-[flickr]2437787865[/flickr]
+{% oembed https://www.flickr.com/photos/arankine/2616353675 %}
+{% oembed https://www.flickr.com/photos/arankine/2437788501 %}
+{% oembed https://www.flickr.com/photos/arankine/2438609730 %}
+{% oembed https://www.flickr.com/photos/arankine/2437788023 %}
+{% oembed https://www.flickr.com/photos/arankine/2437787865 %}
 
 #### Coming Up
 

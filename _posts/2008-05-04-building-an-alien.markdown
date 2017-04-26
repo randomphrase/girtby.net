@@ -40,7 +40,7 @@ comments:
 ---
 This weekend, [Peter](http://marxy.org/) and I built this:
 
-[flickr]photo:2464195172[/flickr]
+{% oembed https://www.flickr.com/photos/arankine/2464195172 %}
 
 It's an [Alien DAC](http://www.myexposition.com/diy/usbdac/overview.html); a USB to analogue audio converter that has a Burr-Brown PCM2702 chip at its heart.
 

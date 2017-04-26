@@ -54,7 +54,7 @@ comments:
 ---
 Here is a picture of a slinky that has been turned inside out, or reversed, or ... something.
 
-[flickr]photo:357923915[/flickr]
+{% oembed https://www.flickr.com/photos/arankine/357923915/ %}
 
 You can see that the circular logo of [Questacon](http://www.questacon.edu.au/) is still present, but each of the segments has been reversed.
 

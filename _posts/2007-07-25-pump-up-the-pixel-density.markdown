@@ -72,7 +72,7 @@ Pixel density independence (or [whatever it's called](/articles/2007/7/22/toward
 
 Check out the following picture showing a single window extended from my laptop's display to my [desktop monitor](/articles/2007/4/7/welcome-to-my-cave). Both displays are 1920x1200 pixels, but as you can see, widely different pixel densities.
 
-[flickr]photo:868415492[/flickr]
+{% oembed https://www.flickr.com/photos/arankine/868415492 %}
 
 By my calculations the laptop display is about 128 PPI, but the desktop display only 94 PPI. It could be even worse though. I could have put the laptop next to Dell's 2707WFP, a 27" display with the same pixel dimensions, which works out to 83 PPI. Quite a difference.
 

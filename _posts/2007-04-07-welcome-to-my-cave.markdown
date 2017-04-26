@@ -46,7 +46,7 @@ If you're anything like me, you have a voyeuristic fascination with other people
 
 As an added bonus, this post doubles as a collection of mini-reviews and updates for hardware I've bought recently! It's two posts for the price of one!
 
-[flickr]photo:448018328[/flickr]
+{% oembed https://www.flickr.com/photos/arankine/448018328 %}
 
 Welcome to my [Cave](http://www.randsinrepose.com/archives/2006/07/10/a_nerd_in_a_cave.html).
 

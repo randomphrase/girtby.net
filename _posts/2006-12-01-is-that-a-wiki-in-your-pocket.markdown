@@ -27,7 +27,7 @@ Reading [Erica Sadun's article](http://www.macdevcenter.com/pub/a/mac/2006/11/28
 
 Et voila:
 
-[flickr]photo:311497459[/flickr]
+{% oembed https://www.flickr.com/photos/arankine/311497459 %}
 
 Although it is tailored for the export format of Instiki, it should be relatively easily to adapt this script to other wiki engines (your wiki [does have](/articles/2006/08/14/towards-a-common-blog-export-format) an export function, right?). Strictly speaking it doesn't need a wiki at all: any website that exports as a ZIPped archive of HTML files should work.
 

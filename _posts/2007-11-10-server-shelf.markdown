@@ -59,7 +59,7 @@ comments:
 ---
 One of the main joys of home ownership is the ability to run Ethernet cable throughout the house without asking anyone's permission. For ages I have wanted to do this, and now I have. Behold.
 
-[flickr]photo:1941493174[/flickr]
+{% oembed https://www.flickr.com/photos/arankine/1941493174 %}
 
 In lieu of a server room, I have a server shelf. It's in the laundry/garage area under the house. The gang plate terminates ethernet cables which run to all parts of the house. They are in turn connected by short cables to my trusty WRT54GS.
 

@@ -170,7 +170,7 @@ It arrived a couple of weeks later (yes delivery is slow). I spent the afternoon
 
 The best instructions for Nintendo DS disassembly are available on [flickr](http://www.flickr.com/photos/62647765@N00/sets/72157594277451148/). I followed them closely and, for the most part, successfully.
 
-[flickr]photo:3186289559[/flickr]
+{% oembed https://www.flickr.com/photos/arankine/3186289559/ %}
 
 Here is a shot I took just after removing the back cover. You can see the broken hinge &mdash; which I have completely removed &mdash; on the right. After this point things get very tricky. See that ribbon cable on the left? That joins the upper screen to the lower PCB and was a complete bitch to get out.
 
@@ -188,7 +188,7 @@ It's supposed to start chirping like a cricket when you turn out the lights. I d
 
 Here is mine. It doesn't work.
 
-[flickr]photo:3186287897[/flickr]
+{% oembed https://www.flickr.com/photos/arankine/3186287897/ %}
 
 I've checked, and re-checked, and re-re-checked the components, to ensure that everything is in the right place, and with the right polarity. I've also checked my soldering which, while pretty dodgy in places, does at least look to be basically functional.
 
