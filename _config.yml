@@ -7,7 +7,7 @@ paginate_path: "page/:num"
 permalink: /archives/:year/:month/:day/:title/
 category_dir: /archives/category
 archive_dir: /archives
-gems:
+plugins:
   #- jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-paginate
