@@ -134,6 +134,8 @@ We have a winner. Thanks JT, cash will be fine.
 
 Here is the C++ code:
 
+{% raw %}
+
     #include <stdlib.h>
     #include <algorithm>
     #include <iostream>
@@ -185,3 +187,4 @@ Here is the C++ code:
         return 0;
     }
 
+{% endraw %}
