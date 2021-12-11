@@ -7,3 +7,4 @@ paginate_path: "page/:num"
 permalink: /archives/:year/:month/:day/:title/
 category_dir: /archives/category
 archive_dir: /archives
+timezone: EST5EDT
