@@ -16,6 +16,7 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 ##
+require 'xmlsimple'
 require 'oembed'
 require 'uri'
 
@@ -37,11 +38,9 @@ module Jekyll
       # pipe param through liquid to make additional replacements possible
       url = Liquid::Template.parse(@text).render context
 
-      resource = ::OEmbed::Providers.get(url.strip!)
-      resource.html
-
-      # # oembed look up
-      # result = ::OEmbed::Providers.get(url.strip!, :format => :xml)
+      # oembed look up
+      result = ::OEmbed::Providers.get(url.strip!, :format => :xml)
+      result.field('html')
 
       # # Odd: slideshare uses provider-name instead of provider_name
       # provider = result.fields['provider_name'] || result.fields['provider-name'] || 'unknown'
