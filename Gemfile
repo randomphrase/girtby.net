@@ -6,6 +6,5 @@ group :jekyll_plugins do
   gem 'ruby-oembed'
   gem 'xml-simple'
   gem 'uri'
-  gem 'redcarpet'
   gem 'pygments.rb'
 end
