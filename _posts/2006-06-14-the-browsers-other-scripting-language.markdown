@@ -120,21 +120,24 @@ As a result, Internet Explorer cannot process the standard `<?xml-stylesheet hre
 
 So besides the standard XML Processing Instruction the next best way to invoke an XSLT 1.0 stylesheet in Internet Explorer is to do so from JavaScript. You do something like:
 
-      function init()
-      {
-        // load XML source document
-        var source = new ActiveXObject("Msxml2.DOMDocument.4.0");
-        source.async = false;
-        source.load("source.xml");
+```javascript
 
-        // load XSLT stylesheet document
-        var stylesheet = new ActiveXObject("Msxml2.DOMDocument.4.0");
-        stylesheet.async = false;
-        stylesheet.load("stylesheet.xsl");
+function init()
+{
+  // load XML source document
+  var source = new ActiveXObject("Msxml2.DOMDocument.4.0");
+  source.async = false;
+  source.load("source.xml");
 
-        // transform the source using the XSLT stylesheet
-        target.innerHTML = source.transformNode(stylesheet);
-      }
+  // load XSLT stylesheet document
+  var stylesheet = new ActiveXObject("Msxml2.DOMDocument.4.0");
+  stylesheet.async = false;
+  stylesheet.load("stylesheet.xsl");
+
+  // transform the source using the XSLT stylesheet
+  target.innerHTML = source.transformNode(stylesheet);
+}
+```
 
 (Code stolen from [perfectxml.com article linked above](http://www.perfectxml.com/articles/xml/XSLTInMSXML.asp))
 
