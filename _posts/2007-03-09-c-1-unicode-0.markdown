@@ -108,23 +108,24 @@ On a first attempt we might think about writing a program to take its input from
 
 For the sake of brevity, I'll assume the appropriate `#include`s and `using namespace std;` declarations have been made. And so we might end up with something like this.
 
-<pre class="htmlize">
-<span class="type">int</span> <span class="function-name">main</span>()
-{
-  cin.unsetf(<span class="constant">ios_base</span>::skipws);
-  <span class="type">unsigned</span> <span class="variable-name">ccount</span> = 0, <span class="variable-name">wscount</span> = 0;
-  <span class="type">char</span> <span class="variable-name">ch</span>;
+```c++
 
-  <span class="keyword">while</span> (cin &gt;&gt; ch) {
-    <span class="keyword">if</span> (isspace(ch)) {
+int main()
+{
+  cin.unsetf(ios_base::skipws);
+  unsigned ccount = 0, wscount = 0;
+  char ch;
+
+  while (cin >> ch) {
+    if (isspace(ch)) {
       ++wscount;
     }
     ++ccount;
   }
-  cout &lt;&lt; wscount &lt;&lt; <span class="string">" whitespace characters out of "</span> &lt;&lt; ccount &lt;&lt; endl;
-  <span class="keyword">return</span> 0;
+  cout << wscount << " whitespace characters out of " << ccount << endl;
+  return 0;
 }
-</pre>
+```
 
 Basically this just iterates over the input, a `char` at a time. It is literally a textbook approach, as Stroustrup shows something similar in <cite>The C++ Programming Language</cite> section 21.3.4.
 
@@ -147,44 +148,45 @@ The problem is that we haven't told the iostream *how* to decode the incoming by
 
 More intelligent conversion of incoming data is one of the functions of the locale classes. The relevant "facet" of the locale object is called `codecvt`. It is a template class with an `in()` method that looks like this:
 
-<pre class="htmlize">
-result
-<span class="function-name">in</span>(<span class="type">state_type</span>&amp; <span class="variable-name">__state</span>, <span class="keyword">const</span> <span class="type">extern_type</span>* <span class="variable-name">__from</span>,
-   <span class="keyword">const</span> <span class="type">extern_type</span>* <span class="variable-name">__from_end</span>, <span class="keyword">const</span> <span class="type">extern_type</span>*&amp; <span class="variable-name">__from_next</span>,
-   <span class="type">intern_type</span>* <span class="variable-name">__to</span>, <span class="type">intern_type</span>* <span class="variable-name">__to_end</span>,
-   <span class="type">intern_type</span>*&amp; <span class="variable-name">__to_next</span>) <span class="keyword">const</span>
-</pre>
+```c++
 
+result
+in(state_type& __state, const extern_type* __from,
+   const extern_type* __from_end, const extern_type*& __from_next,
+   intern_type* __to, intern_type* __to_end,
+   intern_type*& __to_next) const
+```
 
 It's a method signature only a mother could love. But the good news is that you don't have to call it directly, because iostreams will do it for you. As long as we're talking file streams, that is. So attempt #2 at the white space problem needs to be written in terms of file streams. And that means some extra error handling and other stuff:
 
-<pre class="htmlize">
-<span class="type">int</span> <span class="function-name">main</span>(<span class="type">unsigned</span> <span class="variable-name">argc</span>, <span class="keyword">const</span> <span class="type">char</span> * <span class="variable-name">argv</span>[])
-{
-  <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="variable-name">a</span> = 1; a &lt; argc; ++a) {
-    <span class="type">wifstream</span> <span class="variable-name">fs</span>(<span class="type">argv</span>[a]);
-    fs.unsetf(<span class="constant">ios_base</span>::skipws);
-    <span class="type">unsigned</span> <span class="variable-name">ccount</span> = 0,  <span class="variable-name">wscount</span> = 0;
-    <span class="type">wchar_t</span> <span class="variable-name">ch</span>;
+```c++
 
-    <span class="keyword">while</span> (fs &gt;&gt; ch) {
-      <span class="keyword">if</span> (isspace(ch)) {
+int main(unsigned argc, const char * argv[])
+{
+  for (unsigned a = 1; a < argc; ++a) {
+    wifstream fs(argv[a]);
+    fs.unsetf(ios_base::skipws);
+    unsigned ccount = 0,  wscount = 0;
+    wchar_t ch;
+
+    while (fs >> ch) {
+      if (isspace(ch)) {
         ++wscount;
       }
       ++ccount;
     }
 
-    cout &lt;&lt; argv[a] &lt;&lt; <span class="string">": "</span>;
-    <span class="keyword">if</span> (fs.bad() || <span class="negation-char">!</span>fs.eof()) {
-      cout &lt;&lt; <span class="string">"error encountered after "</span> &lt;&lt; ccount &lt;&lt; <span class="string">" characters"</span> &lt;&lt; endl;
-      <span class="keyword">return</span> 1;
-    } <span class="keyword">else</span> {
-      cout &lt;&lt; wscount &lt;&lt; <span class="string">" whitespace characters out of "</span> &lt;&lt; ccount &lt;&lt; endl;
+    cout << argv[a] << ": ";
+    if (fs.bad() || !fs.eof()) {
+      cout << "error encountered after " << ccount << " characters" << endl;
+      return 1;
+    } else {
+      cout << wscount << " whitespace characters out of " << ccount << endl;
     }
   }
-  <span class="keyword">return</span> 0;
+  return 0;
 }
-</pre>
+```
 
 Looks a bit more promising, if you forgive the poor error reporting. But we still only get 2 whitespace characters out of 13. What's going on?
 
@@ -198,13 +200,14 @@ Well, not necessarily. At startup, the global locale is set to the "classic" or 
 
 Here's a program to print the name of the current user locale:
 
-<pre class="htmlize">
-<span class="type">int</span> <span class="function-name">main</span>()
+```c++
+
+int main()
 {
-  cout &lt;&lt; <span class="string">"user locale is: "</span> &lt;&lt; locale(<span class="string">""</span>).name() &lt;&lt; endl;
-  <span class="keyword">return</span> 0;
+  cout << "user locale is: " << locale("").name() << endl;
+  return 0;
 }
-</pre>
+```
 
 Here's where things get tricky, or at least operating system dependent. Running the above program on MacOS X I get:
 
@@ -241,21 +244,24 @@ I'll leave Windows as an exercise for the reader. For the sake of simplicity I'l
 
 Just because I'm allergic to global variables, I'll use `imbue` to set the locale of the stream after construction.
 
-<pre class="htmlize">
-<span class="type">int</span> <span class="function-name">main</span>(<span class="type">unsigned</span> <span class="variable-name">argc</span>, <span class="keyword">const</span> <span class="type">char</span> * <span class="variable-name">argv</span>[])
+```c++
+
+int main()
 {
-  <span class="type">locale</span> <span class="variable-name">loc</span>(<span class="string">""</span>);
+  cin.unsetf(ios_base::skipws);
+  unsigned ccount = 0, wscount = 0;
+  char ch;
 
-  <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="variable-name">a</span> = 1; a &lt; argc; ++a) {
-    <span class="type">wifstream</span> <span class="variable-name">fs</span>(<span class="type">argv</span>[a]);
-    fs.unsetf(<span class="constant">ios_base</span>::skipws);
-    fs.imbue(loc);
-
-    <span class="comment-delimiter">/* </span><span class="comment">... as above ... */</span>
+  while (cin >> ch) {
+    if (isspace(ch)) {
+      ++wscount;
+    }
+    ++ccount;
   }
-  <span class="keyword">return</span> 0;
+  cout << wscount << " whitespace characters out of " << ccount << endl;
+  return 0;
 }
-</pre>
+```
 
 And the result:
 
@@ -268,21 +274,25 @@ Hooray for Zoidberg! We haven't quite got the right result, but we are making pr
 
 Try this with your favourite C++ compiler:
 
-<pre class="htmlize">
-<span class="type">int</span> <span class="function-name">main</span>()
+```c++
+
+int main()
 {
-  <span class="type">locale</span> <span class="variable-name">loc</span>(<span class="string">""</span>);
-  cout &lt;&lt; <span class="string">"isspace(no-break space): "</span> &lt;&lt; isspace(<span class="type">wchar_t</span>(0xA0), loc) &lt;&lt; endl;
-  <span class="keyword">return</span> 0;
+  locale loc("");
+  cout << "isspace(no-break space): " << isspace(wchar_t(0xA0), loc) << endl;
+  return 0;
 }
-</pre>
+```
 
 On both Linux and MacOS, this program produces a negative result. In other words, the unicode NO-BREAK SPACE is *not a space* according to the `isspace()` function. I'll just let that sink in for a bit ...
 
 If you look at the [glibc sources](http://sources.redhat.com/cgi-bin/cvsweb.cgi/libc/localedata/gen-unicode-ctype.c?rev=1.4&content-type=text/x-cvsweb-markup&cvsroot=glibc) you'll see that this has been a deliberate decision. There is even an accompanying comment:
 
-    /* Don't make U+00A0 a space. Non-breaking space means that all programs
-       should treat it like a punctuation character, not like a space. */
+```c++
+
+/* Don't make U+00A0 a space. Non-breaking space means that all programs
+   should treat it like a punctuation character, not like a space. */
+```
 
 Accurate but not exactly helpful. I suspect the reason has to do with not wanting to conflict with the thousands separator. In some locales they use spaces instead of commas to separate the thousands. If we consider no-break spaces as punctuation then we can use the same code to process large numeric quantities in all locales without risk of breaking them into multiple words. Or something like that.
 
@@ -296,36 +306,37 @@ A proper solution here would probably involve hardcoded tests of the input chara
 
 So here is the final version, in all its glory:
 
-<pre class="htmlize">
-<span class="type">int</span> <span class="function-name">main</span>(<span class="type">unsigned</span> <span class="variable-name">argc</span>, <span class="keyword">const</span> <span class="type">char</span> * <span class="variable-name">argv</span>[])
+```c++
+
+int main(unsigned argc, const char * argv[])
 {
-  <span class="type">locale</span> <span class="variable-name">loc</span>(<span class="string">""</span>);
+  locale loc("");
 
-  <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="variable-name">a</span> = 1; a &lt; argc; ++a) {
-    <span class="type">wifstream</span> <span class="variable-name">fs</span>(<span class="type">argv</span>[a]);
-    fs.unsetf(<span class="constant">ios_base</span>::skipws);
+  for (unsigned a = 1; a < argc; ++a) {
+    wifstream fs(argv[a]);
+    fs.unsetf(ios_base::skipws);
     fs.imbue(loc);
-    <span class="type">unsigned</span> <span class="variable-name">ccount</span> = 0,  <span class="variable-name">wscount</span> = 0;
-    <span class="type">wchar_t</span> <span class="variable-name">ch</span>;
+    unsigned ccount = 0,  wscount = 0;
+    wchar_t ch;
 
-    <span class="keyword">while</span> (fs &gt;&gt; ch) {
-      <span class="keyword">if</span> ((0x00a0 == ch) || isspace(ch)) {
+    while (fs >> ch) {
+      if ((0x00a0 == ch) || isspace(ch)) {
         ++wscount;
       }
       ++ccount;
     }
 
-    cout &lt;&lt; argv[a] &lt;&lt; <span class="string">": "</span>;
-    <span class="keyword">if</span> (fs.bad() || <span class="negation-char">!</span>fs.eof()) {
-      cout &lt;&lt; <span class="string">"error encountered after "</span> &lt;&lt; ccount &lt;&lt; <span class="string">" characters"</span> &lt;&lt; endl;
-      <span class="keyword">return</span> 1;
-    } <span class="keyword">else</span> {
-      cout &lt;&lt; wscount &lt;&lt; <span class="string">" whitespace characters out of "</span> &lt;&lt; ccount &lt;&lt; endl;
+    cout << argv[a] << ": ";
+    if (fs.bad() || !fs.eof()) {
+      cout << "error encountered after " << ccount << " characters" << endl;
+      return 1;
+    } else {
+      cout << wscount << " whitespace characters out of " << ccount << endl;
     }
   }
-  <span class="keyword">return</span> 0;
+  return 0;
 }
-</pre>
+```
 
 And the money shot:
 

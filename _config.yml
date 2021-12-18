@@ -7,3 +7,8 @@ permalink: /archives/:year/:month/:day/:title/
 category_dir: /archives/category
 archive_dir: /archives
 timezone: EST5EDT
+kramdown:
+  syntax_highlighter: coderay
+  syntax_highlighter_opts:
+    line_numbers: false
+

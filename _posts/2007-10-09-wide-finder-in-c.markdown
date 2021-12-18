@@ -93,54 +93,53 @@ Have you been following Tim Bray's [Wide Finder project](http://www.tbray.org/on
 
 So as [another](/archives/2007/2/26/kata-four-in-c) C++ coding Kata I decided to have a go. Whereas Tim's goal was to evaluate different methods of expressing algoritms for parallel computation, mine was a lot more modest: just get it running concisely in C++ and compare performance with the raw Ruby version. Here's what I came up with.
 
-
 <a id="more"></a><a id="more-2047"></a>
 
-<pre class="htmlize">
-<span class="preprocessor">#include</span> <span class="string">&lt;iostream&gt;</span>
-<span class="preprocessor">#include</span> <span class="string">&lt;boost/iostreams/device/mapped_file.hpp&gt;</span>
-<span class="preprocessor">#include</span> <span class="string">&lt;boost/regex.hpp&gt;</span>
+```c++
 
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="constant">std</span>;
+#include <iostream>
+#include <boost/iostreams/device/mapped_file.hpp>
+#include <boost/regex.hpp>
 
-<span class="keyword">const</span> <span class="constant">boost</span>::<span class="type">regex</span> <span class="function-name">get_re</span>(<span class="string">"GET /ongoing/When/\\d{3}x/(\\d{4}/\\d{2}/\\d{2}/[^ .]+) "</span>);
+using namespace std;
 
-<span class="keyword">typedef</span> <span class="type">map</span>&lt;<span class="type">string</span>, <span class="type">unsigned</span>&gt; <span class="type">counts_by_key_t</span>;
-<span class="keyword">typedef</span> <span class="type">multimap</span>&lt;<span class="type">unsigned</span>, <span class="type">string</span>&gt; <span class="type">keys_by_count_t</span>;
+const boost::regex get_re("GET /ongoing/When/\\d{3}x/(\\d{4}/\\d{2}/\\d{2}/[^ .]+) ");
 
-<span class="type">int</span> <span class="function-name">main</span>(<span class="type">int</span> <span class="variable-name">argc</span>, <span class="type">char</span> *<span class="variable-name">argv</span>[])
+typedef map<string, unsigned> counts_by_key_t;
+typedef multimap<unsigned, string> keys_by_count_t;
+
+int main(int argc, char *argv[])
 {
-  <span class="type">counts_by_key_t</span> <span class="variable-name">counts_by_key</span>;
-  <span class="keyword">for</span>(<span class="type">int</span> <span class="variable-name">arg</span> = 1; arg &lt; argc; ++arg) {
-    <span class="keyword">try</span> {
-      <span class="constant">boost</span>::<span class="constant">iostreams</span>::<span class="type">mapped_file_source</span> <span class="variable-name">mf</span>(<span class="type">argv</span>[arg]);
+  counts_by_key_t counts_by_key;
+  for(int arg = 1; arg < argc; ++arg) {
+    try {
+      boost::iostreams::mapped_file_source mf(argv[arg]);
 
-      <span class="constant">boost</span>::<span class="type">cregex_iterator</span> <span class="variable-name">regi</span>(mf.begin(), mf.end(), get_re), <span class="variable-name">rege</span>;
-      <span class="keyword">for</span>(; regi != rege; ++regi) {
+      boost::cregex_iterator regi(mf.begin(), mf.end(), get_re), rege;
+      for(; regi != rege; ++regi) {
         counts_by_key[(*regi)[1].str()] += 1;
       }
-    } <span class="keyword">catch</span> (<span class="constant">ios</span>::<span class="type">failure</span> <span class="variable-name">e</span>) {
-      cerr &lt;&lt; argv[arg] &lt;&lt; <span class="string">": "</span> &lt;&lt; e.what() &lt;&lt; endl;
-      <span class="keyword">return</span> 1;
+    } catch (ios::failure e) {
+      cerr << argv[arg] << ": " << e.what() << endl;
+      return 1;
     }
   }
 
-  <span class="type">keys_by_count_t</span> <span class="variable-name">keys_by_count</span>;
-  <span class="keyword">for</span>(<span class="constant">counts_by_key_t</span>::<span class="type">const_iterator</span> <span class="variable-name">i</span> = counts_by_key.begin();
+  keys_by_count_t keys_by_count;
+  for(counts_by_key_t::const_iterator i = counts_by_key.begin();
       i != counts_by_key.end(); ++i) {
-    keys_by_count.insert(make_pair(i-&gt;second, i-&gt;first));
+    keys_by_count.insert(make_pair(i->second, i->first));
   }
 
-  <span class="type">unsigned</span> <span class="variable-name">n</span> = 10;
-  <span class="keyword">for</span>(<span class="constant">keys_by_count_t</span>::<span class="type">reverse_iterator</span> <span class="variable-name">ri</span> = keys_by_count.rbegin();
-      n &amp;&amp; ri != keys_by_count.rend(); ++ri, --n) {
+  unsigned n = 10;
+  for(keys_by_count_t::reverse_iterator ri = keys_by_count.rbegin();
+      n && ri != keys_by_count.rend(); ++ri, --n) {
 
-    cout &lt;&lt; ri-&gt;first &lt;&lt; <span class="string">": "</span> &lt;&lt; ri-&gt;second &lt;&lt; endl;
+    cout << ri->first << ": " << ri->second << endl;
   }
-  <span class="keyword">return</span> 0;
+  return 0;
 }
-</pre>
-
+```
 
 So at 42 lines this one really *is* shorter than the 84-line Erlang version. Not a million miles away from the Ruby version either, in length if not in readability. However, I've made some simplifications, or taken some liberties, depending on your point of view:
 

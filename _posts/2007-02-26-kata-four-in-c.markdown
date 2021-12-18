@@ -36,65 +36,66 @@ On a whim, I attempted Dave Thomas' [Kata Four](http://codekata.pragprog.com/200
 
 Here's what I ended up with, feel free to throw peanuts.
 
-
 <a id="more"></a><a id="more-1473"></a>
 
 I did the parts in order, without looking ahead. When it came to part three of the exercise, it became apparent that I needed to separate the analysis of the file from the mechanics of reading it. I used the common [Functor](http://en.wikipedia.org/wiki/Function_object) idiom, calling it with each line of input:
 
-<pre class="htmlize">
-<span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="type">T</span>&gt;
-<span class="type">void</span> <span class="function-name">analyze_file</span>(<span class="keyword">const</span> <span class="type">char</span> * <span class="variable-name">dat</span>, <span class="type">T</span> &amp; <span class="variable-name">an</span>)
-{
-  <span class="type">fstream</span> <span class="variable-name">fs</span>(dat);
-  <span class="type">unsigned</span> <span class="variable-name">processed</span> = 0;
+```c++
 
-  <span class="keyword">while</span>(<span class="constant">true</span>) {
-    <span class="type">string</span> <span class="variable-name">line</span>;
+template <class T>
+void analyze_file(const char * dat, T & an)
+{
+  fstream fs(dat);
+  unsigned processed = 0;
+
+  while(true) {
+    string line;
     getline(fs, line);
-    <span class="keyword">if</span> (<span class="negation-char">!</span>fs.good())
-      <span class="keyword">break</span>;
-    <span class="keyword">if</span> (an(line))
+    if (!fs.good())
+      break;
+    if (an(line))
       processed++;
   }
-  cout &lt;&lt; processed &lt;&lt; <span class="string">" lines processed"</span> &lt;&lt; endl;
-  <span class="keyword">if</span> (processed) {
-    cout &lt;&lt; an &lt;&lt; endl;
+  cout << processed << " lines processed" << endl;
+  if (processed) {
+    cout << an << endl;
   }
 }
-</pre>
+```
 
 Then it's a simple matter of defining a functor for each type of analysis. For the weather data, it looks like this:
 
-<pre class="htmlize">
-<span class="keyword">class</span> <span class="type">WeatherAnalyzer</span> {
-<span class="keyword">public</span>:
-  <span class="function-name">WeatherAnalyzer</span>() : minday(0), minspread(<span class="constant">numeric_limits</span>&lt;<span class="type">unsigned</span>&gt;::max()) {}
-  <span class="type">bool</span> <span class="keyword">operator</span><span class="function-name">()</span> (<span class="keyword">const</span> <span class="type">string</span> &amp; <span class="variable-name">line</span>);
-  <span class="type">unsigned</span> <span class="variable-name">minday</span>, <span class="variable-name">minspread</span>;
+```c++
+
+class WeatherAnalyzer {
+public:
+  WeatherAnalyzer() : minday(0), minspread(numeric_limits<unsigned>::max()) {}
+  bool operator() (const string & line);
+  unsigned minday, minspread;
 };
 
-<span class="type">ostream</span> &amp; <span class="keyword">operator</span> <span class="function-name">&lt;&lt;</span> (<span class="type">ostream</span> &amp; <span class="variable-name">os</span>, <span class="type">WeatherAnalyzer</span> &amp; <span class="variable-name">w</span>)
+ostream & operator << (ostream & os, WeatherAnalyzer & w)
 {
-  <span class="keyword">return</span> os &lt;&lt; <span class="string">"Min spread = "</span> &lt;&lt; w.minspread &lt;&lt; <span class="string">" (day "</span> &lt;&lt; w.minday &lt;&lt; <span class="string">")"</span>;
+  return os << "Min spread = " << w.minspread << " (day " << w.minday << ")";
 }
 
-<span class="type">bool</span> <span class="constant">WeatherAnalyzer</span>::<span class="keyword">operator</span><span class="function-name">()</span> (<span class="keyword">const</span> <span class="type">string</span> &amp; <span class="variable-name">line</span>)
+bool WeatherAnalyzer::operator() (const string & line)
 {
-  <span class="type">istringstream</span> <span class="variable-name">ls</span>(line);
-  <span class="type">unsigned</span> <span class="variable-name">d</span>, <span class="variable-name">maxt</span>, <span class="variable-name">mint</span>;
-  ls &gt;&gt; d &gt;&gt; maxt &gt;&gt; mint;
-  <span class="keyword">if</span> (<span class="negation-char">!</span>ls.good() || (maxt &lt; mint))
-    <span class="comment-delimiter">// </span><span class="comment">ignore unparseable lines:
-</span>    <span class="keyword">return</span> <span class="constant">false</span>;
+  istringstream ls(line);
+  unsigned d, maxt, mint;
+  ls >> d >> maxt >> mint;
+  if (!ls.good() || (maxt < mint))
+    // ignore unparseable lines:
+    return false;
 
-  <span class="type">unsigned</span> <span class="variable-name">spread</span> = maxt - mint;
-  <span class="keyword">if</span> (spread &lt; minspread) {
+  unsigned spread = maxt - mint;
+  if (spread < minspread) {
     minday = d;
     minspread = spread;
   }
-  <span class="keyword">return</span> <span class="constant">true</span>;
-}</pre>
-
+  return true;
+}
+```
 
 Add some `#include`s, a `main()`, and we're all set. It all came together pretty quickly thanks mainly to the power of the C++ iostreams library.
 

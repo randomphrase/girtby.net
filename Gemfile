@@ -6,5 +6,5 @@ group :jekyll_plugins do
   gem 'ruby-oembed'
   gem 'xml-simple'
   gem 'uri'
-  gem 'pygments.rb'
+  gem 'kramdown-syntax-coderay'
 end

@@ -135,56 +135,57 @@ We have a winner. Thanks JT, cash will be fine.
 Here is the C++ code:
 
 {% raw %}
+```c++
 
-    #include <stdlib.h>
-    #include <algorithm>
-    #include <iostream>
-    #include <tr1/array>
+#include <stdlib.h>
+#include <algorithm>
+#include <iostream>
+#include <tr1/array>
 
-    const long iterations = 1000000;
+const long iterations = 1000000;
 
-    enum candy {
-        chocolate,
-        caramel,
-        licorice
-    };
+enum candy {
+    chocolate,
+    caramel,
+    licorice
+};
 
-    int main(int argc, char *argv[])
+int main(int argc, char *argv[])
+{
+    ::srand(::time(NULL));
+
+    // Number of times we've pulled out two licorice from the bag
+    long two_licorice = 0;
+
+    for(long i = 0; i < iterations;)
     {
-        ::srand(::time(NULL));
+        // put the candies in the bag
+        std::tr1::array<candy, 4> bag = {{ chocolate, caramel, licorice, licorice }};
 
-        // Number of times we've pulled out two licorice from the bag
-        long two_licorice = 0;
+        // shuffle them
+        std::random_shuffle(bag.begin(), bag.end());
 
-        for(long i = 0; i < iterations;)
-        {
-            // put the candies in the bag
-            std::tr1::array<candy, 4> bag = {{ chocolate, caramel, licorice, licorice }};
+        // pull out two
+        std::tr1::array<candy, 2> hand = {{ bag[0], bag[1] }};
 
-            // shuffle them
-            std::random_shuffle(bag.begin(), bag.end());
+        // At least one of the candies we pick out must be a licorice otherwise it doesn't count.
+        if (hand[0] != licorice && hand[1] != licorice)
+            continue;
 
-            // pull out two
-            std::tr1::array<candy, 2> hand = {{ bag[0], bag[1] }};
+        // Count if we've got both licorice
+        if (hand[0] == licorice && hand[1] == licorice)
+            ++two_licorice;
 
-            // At least one of the candies we pick out must be a licorice otherwise it doesn't count.
-            if (hand[0] != licorice && hand[1] != licorice)
-                continue;
-
-            // Count if we've got both licorice
-            if (hand[0] == licorice && hand[1] == licorice)
-                ++two_licorice;
-
-            ++i;
-        }
-
-        std::cout << "Out of " << iterations
-                  << " tries, two licorices were extracted " << two_licorice << " times.\n"
-                  << "Estimated probability = "
-                  << static_cast<double>(two_licorice) / static_cast<double>(iterations)
-                  << std::endl;
-
-        return 0;
+        ++i;
     }
 
+    std::cout << "Out of " << iterations
+              << " tries, two licorices were extracted " << two_licorice << " times.\n"
+              << "Estimated probability = "
+              << static_cast<double>(two_licorice) / static_cast<double>(iterations)
+              << std::endl;
+
+    return 0;
+}
+```
 {% endraw %}
