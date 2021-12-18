@@ -81,11 +81,12 @@ comments:
 
     Here's a test app:
 
-    <pre class="htmlize">
-    <span class="constant">boost</span>::<span class="constant">iostreams</span>::<span class="type">mapped_file_source</span> <span class="variable-name">source</span>(<span class="type">argv</span>[1]);
-    <span class="type">unsigned</span> <span class="variable-name">lines</span> = <span class="constant">std</span>::count(source.begin(), source.end(), <span class="string">'\n'</span>);
-    <span class="constant">std</span>::cout &lt;&lt; argv[1] &lt;&lt; <span class="string">": "</span> &lt;&lt; lines &lt;&lt; <span class="string">" lines"</span> &lt;&lt; <span class="constant">std</span>::endl;
-    </pre>
+    ```c++
+
+    boost::iostreams::mapped_file_source source(argv[1]);
+    unsigned lines = std::count(source.begin(), source.end(), '\n');
+    std::cout << argv[1] << ": " << lines << " lines" << std::endl;
+    ```
 
     As you can see it just counts the number of \n characters in the requested file. I ran this on the Wide Finder 2 full data set, and here's what happened:
 
