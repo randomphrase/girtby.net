@@ -45,40 +45,42 @@ If you're sane, you probably reach for Perl, Python or, my (and [everyone else's
 
 But here's some food for thought. Check out the following XSLT script.
 
-    <?xml version="1.0"?>
-    <xsl:stylesheet version="1.0" id="stylesheet"
-                    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-      <xsl:output method="text"/>
+```xml
 
-      <xsl:param name="playlist" select="'Library'"/>
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0" id="stylesheet"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="text"/>
 
-      <xsl:key name="playlists-by-name"
-               match="/plist/dict/array[preceding-sibling::key[1]='Playlists']/dict"
-               use="string[preceding-sibling::key[1]='Name']"/>
+  <xsl:param name="playlist" select="'Library'"/>
 
-      <xsl:key name="tracks-by-id"
-               match="/plist/dict/dict[preceding-sibling::key[1]='Tracks']/dict"
-               use="integer[preceding-sibling::key[1]='Track ID']"/>
+  <xsl:key name="playlists-by-name"
+           match="/plist/dict/array[preceding-sibling::key[1]='Playlists']/dict"
+           use="string[preceding-sibling::key[1]='Name']"/>
 
-      <xsl:template match="/">
-        <xsl:apply-templates select="key('playlists-by-name',$playlist)" mode="playlist"/>
-      </xsl:template>
+  <xsl:key name="tracks-by-id"
+           match="/plist/dict/dict[preceding-sibling::key[1]='Tracks']/dict"
+           use="integer[preceding-sibling::key[1]='Track ID']"/>
 
-      <xsl:template match="dict" mode="playlist">
-         <xsl:for-each select="array[preceding-sibling::key[1]='Playlist Items']/dict">
-         <xsl:variable name="trackid" select="integer"/>
+  <xsl:template match="/">
+    <xsl:apply-templates select="key('playlists-by-name',$playlist)" mode="playlist"/>
+  </xsl:template>
 
-         <xsl:apply-templates select="key('tracks-by-id',$trackid)" mode="track"/>
-        </xsl:for-each>
-      </xsl:template>
+  <xsl:template match="dict" mode="playlist">
+     <xsl:for-each select="array[preceding-sibling::key[1]='Playlist Items']/dict">
+     <xsl:variable name="trackid" select="integer"/>
 
-      <xsl:template match="dict" mode="track">
-        <xsl:value-of select="string[preceding-sibling::key[1]='Location']"/><xsl:text>
-    </xsl:text>
-      </xsl:template>
+     <xsl:apply-templates select="key('tracks-by-id',$trackid)" mode="track"/>
+    </xsl:for-each>
+  </xsl:template>
 
-    </xsl:stylesheet>
+  <xsl:template match="dict" mode="track">
+    <xsl:value-of select="string[preceding-sibling::key[1]='Location']"/><xsl:text>
+</xsl:text>
+  </xsl:template>
 
+</xsl:stylesheet>
+```
 
 Go ahead and try it! Save it to your iTunes directory as `playlist.xsl` (or whatever) and apply your favourite XSLT processor. MacOS users have `xsltproc` available by default:
 
