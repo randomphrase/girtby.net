@@ -1,0 +1,36 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+- -----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+GPG Key Transition Statement
+============================
+
+I am transitioning my GPG identity from an old 1024-bit DSA key to a 
+modern Ed25519 key. The old key will be kept for legacy purposes but 
+should no longer be used for new signatures or encryption.
+
+Old Key (Legacy): 64E4B67CD2B7EEC463C9AA74F63A9AD9E44B21C7
+New Key (Current): DD583CE0F90A58F0A445EBDA35095B01B376ADF1
+
+Both keys have been cross-signed to establish a cryptographic link 
+between them.
+
+Date: 2026-03-06
+Alastair Rankine <alastair@girtby.net>
+
+- -----BEGIN PGP SIGNATURE-----
+
+iF0EARECAB0WIQRk5LZ80rfuxGPJqnT2OprZ5EshxwUCaasv4gAKCRD2OprZ5Esh
+x3SpAKDpeUrGtuhUqPrS5bzfViPK35zBwACg6jLVIZ1b1EYrwPFkWt9d9FgteiQ=
+=2cEO
+- -----END PGP SIGNATURE-----
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQTt/h3tKQ5sRV5xh3NxlONYpkl6FQUCaasv4gAKCRBxlONYpkl6
+FWu4AQDUxaiHmbWTET160UJEUu0wb8zyi6CmNbqrmMIAns3L5QD+NkehonAenTfV
+qCQsZFTyFPmX4IexNX0zP+OQw27l3QQ=
+=5de/
+-----END PGP SIGNATURE-----
